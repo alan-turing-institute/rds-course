@@ -1,0 +1,36 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Research Data Science 
+author: Research Engineering Group, The Alan Turing Institute
+logo: "./figures/logo.png"
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: rds-course.tex
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/alan-turing-institute/rds-course# Online location of your book
+  path_to_book: "coursebook"  # Optional path to your book, relative to the repository root
+  branch: book  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+###############################################################
+# Launch button settings
+launch_buttons:
+  notebook_interface        : "classic"  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : "https://mybinder.org"  # The URL of the BinderHub (for example, https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (for example, https://datahub.berkeley.edu)
+  thebe                  : true  # Add a thebelab button to pages (requires the repository to run on Binder)
