@@ -261,6 +261,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-to-the-book">
+   Adding to the book:
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -290,7 +303,8 @@
     <span class="n">welcome</span><span class="o">.</span><span class="n">md</span>
 </pre></div>
 </div>
-<p>To add a page:</p>
+<div class="section" id="adding-to-the-book">
+<h2>Adding to the book:<a class="headerlink" href="#adding-to-the-book" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add a markdown or jupyter notebook file to the corresponding module. You must have one top-level header (<code class="docutils literal notranslate"><span class="pre">#</span></code>), this will be the page link text in the book.</p></li>
 </ul>
@@ -331,6 +345,7 @@
 </li>
 <li><p>You don’t need to commit the html files to github. When you push to <code class="docutils literal notranslate"><span class="pre">develop</span></code> the book will automatically be rebuilt, with the html pages deployed to <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>.</p></li>
 </ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

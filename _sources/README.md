@@ -22,7 +22,7 @@ coursebook/
     welcome.md
 ```
 
-To add a page:
+## Adding to the book:
 
 - Add a markdown or jupyter notebook file to the corresponding module. You must have one top-level header (`#`), this will be the page link text in the book.
 ```
