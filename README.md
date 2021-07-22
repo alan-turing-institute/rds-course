@@ -17,6 +17,3 @@ Learn how to contribute to the course with the [developer instructions](coursebo
 - We will use the long-running branch `develop` to host the most up-to-date version of the course. Developers should branch off `develop` for individual module development. The [course pages](https://alan-turing-institute.github.io/rds-course/index.html) will be rebuilt whenever someone pushes to `develop`. 
 - We only merge into `main` once content has been reviewed by persons external to the course development team.
 
-
-
-
