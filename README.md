@@ -1,6 +1,19 @@
-# rds-course
-Materials for Turing's Research Data Science course
+# [WIP] Introduction to Research Data Science
 
-The WIP coursebook can be found [here](https://alan-turing-institute.github.io/rds-course/index.html).
+**This course is under development**
 
-Developer instructions for using the coursebook are [here](coursebook/README.md)
+
+## For Students
+
+The most recent online version of the course can be found [here](https://alan-turing-institute.github.io/rds-course/index.html). The course materials are hosted in `coursebook/`. 
+
+
+## For Developers
+
+Learn how to contribute to the course with the [developer instructions](coursebook/README.md).
+
+### Workflow:
+
+- We will use the long-running branch `develop` to host the most up-to-date version of the course. Developers should branch off `develop` for individual module development.
+- We only merge into `main` once content has been reviewed by persons external to the course development team.
+
