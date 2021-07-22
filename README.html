@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to REG’s Introduction to Research Data Science &#8212; Research Data Science</title>
+    <title>Coursebook &#8212; Research Data Science</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="modules/m1/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,8 +81,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
    Welcome to REG’s Introduction to Research Data Science
   </a>
  </li>
@@ -221,7 +220,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/welcome.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -241,7 +240,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fwelcome.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -270,18 +269,68 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-reg-s-introduction-to-research-data-science">
-<h1>Welcome to REG’s Introduction to Research Data Science<a class="headerlink" href="#welcome-to-reg-s-introduction-to-research-data-science" title="Permalink to this headline">¶</a></h1>
-<p>lorem ipsum whatever</p>
-<p>Sample notebooks to test execution and binder buttons taking from the <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">jupyter gallery</a>.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="coursebook">
+<h1>Coursebook<a class="headerlink" href="#coursebook" title="Permalink to this headline">¶</a></h1>
+<p>We are using <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter-book</a> to develop our course. We will be using mix of markdown and jupyter notebook files, with binder providing a reproducible interactive computing environment.</p>
+<p>Course file structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coursebook</span><span class="o">/</span>
+    <span class="o">-</span> <span class="n">figures</span><span class="o">/</span>
+    <span class="o">-</span> <span class="n">modules</span><span class="o">/</span>
+        <span class="o">-</span> <span class="n">m1</span><span class="o">/</span>
+            <span class="o">-</span> <span class="n">files</span><span class="o">...</span>
+        <span class="o">-</span> <span class="n">m2</span><span class="o">/</span>
+            <span class="o">-</span> <span class="n">files</span><span class="o">...</span>
+        <span class="o">-</span> <span class="n">m3</span><span class="o">/</span>
+            <span class="o">-</span> <span class="n">files</span><span class="o">...</span>
+        <span class="o">-</span> <span class="n">m4</span><span class="o">/</span>
+            <span class="o">-</span> <span class="n">files</span><span class="o">...</span>
+    <span class="o">-</span> <span class="n">_config</span><span class="o">.</span><span class="n">yml</span>
+    <span class="o">-</span> <span class="n">_toc</span><span class="o">.</span><span class="n">yml</span>
+    <span class="n">requirement</span><span class="o">.</span><span class="n">txt</span>
+    <span class="n">welcome</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<p>To add a page:</p>
+<ul class="simple">
+<li><p>Add a markdown or jupyter notebook file to the corresponding module. You must have one top-level header (<code class="docutils literal notranslate"><span class="pre">#</span></code>), this will be the page link text in the book.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coursebook</span><span class="o">/</span>
+    <span class="o">-</span> <span class="n">figures</span><span class="o">/</span>
+    <span class="o">-</span> <span class="n">modules</span><span class="o">/</span>
+        <span class="o">-</span> <span class="n">m1</span><span class="o">/</span>
+            <span class="o">-</span> <span class="n">ethics_and_datascience</span><span class="o">.</span><span class="n">md</span>
+    <span class="o">...</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<ul class="simple">
+<li><p>Add the file to the table of contents <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>. Do not include the file extension.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="p">:</span> <span class="n">jb</span><span class="o">-</span><span class="n">book</span>
+<span class="n">root</span><span class="p">:</span> <span class="n">welcome</span>
+<span class="n">parts</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">caption</span><span class="p">:</span> <span class="s2">&quot;Module 1: Introduction&quot;</span>
+    <span class="n">chapters</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">file</span><span class="p">:</span> <span class="n">modules</span><span class="o">/</span><span class="n">m1</span><span class="o">/</span><span class="n">ethics_and_datascience</span>
+  <span class="o">-</span> <span class="n">caption</span><span class="p">:</span> <span class="s2">&quot;Module 2: Handling data and deployment&quot;</span>
+  <span class="o">...</span>
+
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
+<ul class="simple">
+<li><p>Test the build locally.</p>
+<ul>
+<li><p>install <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>. Recommended to use a fresh environment to avoid errors related to <a class="reference external" href="https://github.com/executablebooks/jupyter-book/issues/1394">package versions</a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-book</span></code>; <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Build the book with <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">coursebook</span></code>, this will generate html files in <code class="docutils literal notranslate"><span class="pre">coursebook/_build/html/</span></code>.</p></li>
+<li><p>Inspect the book by opening <code class="docutils literal notranslate"><span class="pre">coursebook/_build/html/index.html</span></code> in your browser.</p></li>
+<li><p>If you want to rebuild after changes, use <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">clean</span> <span class="pre">coursebook</span></code> to empty the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory.</p></li>
+</ul>
+</li>
+<li><p>You don’t need to commit the html files to github. When you push to <code class="docutils literal notranslate"><span class="pre">develop</span></code> the book will automatically be rebuilt, with the html pages deployed to <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>.</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -309,7 +358,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="modules/m1/overview.html" title="next page">Overview</a>
 
         </div>
         
