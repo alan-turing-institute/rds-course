@@ -13,7 +13,7 @@
 
 
 format: jb-book
-root: welcome
+root: index
 parts:
   - caption: "Module 1: Introduction"
     chapters:
