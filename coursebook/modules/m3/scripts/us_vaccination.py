@@ -56,7 +56,7 @@ f2, ax2 = plt.subplots(figsize=(10, 15))
 cmap = sns.color_palette("vlag_r", n_colors=51)
 # Load the example car crash dataset
 ax2 = sns.barplot(x="people_fully_vaccinated_per_hundred", y="state", data=df_joined,hue='party_percentage',dodge=False,palette=cmap)
-ax2.set_title('US: Share of the population fully vaccinated against COVID-19 and party share vote on the 2020 presidential election vote',fontsize=12)
+ax2.set_title('US: Share of the population fully vaccinated against COVID-19 and party share on the 2020 presidential election vote',fontsize=12)
 ax2.set_xlabel('Share of the population fully vaccinated against COVID-19 (%)')
 sns.despine(left=False, bottom=False)
 # Add a legend and informative axis label
