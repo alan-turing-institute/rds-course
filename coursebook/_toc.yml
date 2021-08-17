@@ -30,7 +30,7 @@ parts:
     chapters:
     - file: modules/m3/overview
     - file: modules/m3/3.1-FiguresGoneWrong
-    - file: modules/m3/Lecture-4-Matplotlib
+    - file: modules/m3/scripts/mod3.2
     - file: modules/m3/hands-on
   - caption: "Module 4: Introduction to Modelling"
     chapters:
