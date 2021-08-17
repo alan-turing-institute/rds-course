@@ -1,1 +1,5 @@
 coursebook/_build/*
+data/*
+
+# Jupyter Notebooks
+.ipynb_checkpoints
