@@ -1,6 +1,4 @@
-# import bootstrap  # noqa
 import os
-import plotly.express as px
 # plotting
 import seaborn as sns
 import matplotlib.pyplot as plt
