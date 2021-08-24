@@ -36,6 +36,7 @@ ridge_plot.map(plt.axhline, y=0, lw=4, clip_on=False)
 ridge_plot.map(label, "Y11_Country_cat")
 locs, labels = plt.xticks()
 
+plt.xlabel('Self-reported health')
 # Set the subplots to overlap
 ridge_plot.fig.subplots_adjust(hspace=-0.01)
 # Remove axes details that don't play well with overlap
