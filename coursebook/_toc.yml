@@ -1,0 +1,40 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of chapter or subchapter
+#   file: myfile  # filename relative to the  folder.
+#   sections:  # Contains a list of more entries that make up the chapter's subchapters
+#
+# Below are some special values that trigger specific behavior:
+# - header: My Header  # Will insert a header with no link in the sidebar
+
+
+format: jb-book
+root: index
+parts:
+  - caption: "Module 1: Introduction"
+    chapters:
+    - file: modules/m1/overview
+    - file: modules/m1/taught
+    - file: modules/m1/hands-on
+  - caption: "Module 2: Handling data and deployment"
+    chapters:
+    - file: modules/m2/overview
+    #- file: modules/m2/taught
+    - file: modules/m2/Top_Python_Libraries_Used_In_Data_Science
+    - file: modules/m2/hands-on
+  - caption: "Module 3: Data Visualisation & Exploration"
+    chapters:
+    - file: modules/m3/overview
+    - file: modules/m3/taught
+    - file: modules/m3/Lecture-4-Matplotlib
+    - file: modules/m3/hands-on
+  - caption: "Module 4: Introduction to Modelling"
+    chapters:
+    - file: modules/m4/overview
+    - file: modules/m4/taught
+    - file: modules/m4/hands-on
+    
