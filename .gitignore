@@ -3,3 +3,6 @@ data/*
 
 # Jupyter Notebooks
 .ipynb_checkpoints
+
+# Environment
+.venv
