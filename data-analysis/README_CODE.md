@@ -5,7 +5,7 @@ into 4 notebooks:
 ### :minidisc: [Handling_data](data-analysis/Handling_data.ipynb) 
 - a notebook containing code to load in the data and clean the feature 
   columns to ensure there are more intuitive names given to features.
-### :writing hand: [Data_description](data-analysis/Data_description.ipynb) 
+### :pencil2: [Data_description](data-analysis/Data_description.ipynb) 
 - a notebook containing code to clean data and employ several strategies to deal with missing data
 - identifying columns which contain missing data and dropping the features 
 - dropping features with a high proportion of missing data (>50%) and imputing the others with less missing data
@@ -13,17 +13,17 @@ into 4 notebooks:
 ### :amphora: [Modelling_data](data-analysis/Modelling_data.ipynb) 
 - a notebook containing code to build a `LogisticRegression` model
 to classify `"poor health"` and `"good health"`. Basic model scoring and evaluation using confusion matrix.
-### :thinking face: [Model_evaluation](data-analysis/Model_evaluation.ipynb) 
+### :speech_balloon: [Model_evaluation](data-analysis/Model_evaluation.ipynb) 
 - a notebook containing model evaluation 
   - confusion matrices to analyse precision, accuracy and recall 
   - coefficient analysis for each of the features
   - feature importance graphs showing the most influential features on model predictions
   - Model performance on country-specific testing data (UK, Netherlands and Romania)
 
-## :bookmark tabs: Scripts
+## :bookmark: Scripts
 There are several scripts within the [scripts_directory](data-analysis/scripts) to visualise the data for data exploration and 
 provide helper functions to parse the data. 
-### :right arrow curving down: Parsing data
+### :monocle_face: Parsing data
 - [`categorical_variable_mapping`](data-analysis/scripts/categorical_variable_mapping.py) - this allows us to map the numerical classifications
 to textual classifications to identify each features for data description.
 - [`eqls_box_plot`](data-analysis/scripts/eqls_box_plot.py) - this script produces a boxplot that showing the distribution of some of the key 
@@ -37,7 +37,7 @@ each country in their "self-reported health".
 - [`eqls_condition_plot`](data-analysis/scripts/eqls_condition_plot.py) - this is a conditionplot to establish the relationship between key features and 
 the measure of "self-reported health" used.
 
-## :old key: Key features
+## :sparkles: Key features
 The highest `Wave 3` missingness is coming from the following subset of questions:
 ```
 Difficult_to_use_child_care_because_of_cost                                                  83%
