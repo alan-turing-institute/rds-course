@@ -1,5 +1,6 @@
 coursebook/_build/*
 data/*
+plots/*
 
 # Jupyter Notebooks
 .ipynb_checkpoints
