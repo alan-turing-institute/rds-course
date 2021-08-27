@@ -41,13 +41,14 @@ eqls_features_df = feature_2011_other_countries_columns[['How_often_felt_cheerfu
 
 # Visualize the correlation between the number of
 # missing values in different columns as a heatmap
-plt.figure(figsize=(80, 40))
+plt.figure(figsize=(200, 40))
 sns.displot(
     data=eqls_features_df.isna().melt(value_name="missing"),
     y="variable",
     hue="missing",
     multiple="fill",
-    aspect=1.25
+    height=5,
+    aspect=2
 )
 plt.savefig(str(root_path)+"/data-analysis/plots/eqls_missingness_plot.png")
 plt.show()
