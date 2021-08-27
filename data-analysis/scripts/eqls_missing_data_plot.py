@@ -49,5 +49,5 @@ sns.displot(
     multiple="fill",
     aspect=1.25
 )
-plt.show()
 plt.savefig(str(root_path)+"/data-analysis/plots/eqls_missingness_plot.png")
+plt.show()

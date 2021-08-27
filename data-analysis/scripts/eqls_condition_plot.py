@@ -51,5 +51,5 @@ for ax in cond_facet_grid.axes.flat:
 
 plt.subplots_adjust(wspace=0.1, hspace=0.4)
 plt.legend(bbox_to_anchor=(1.10, 0.8), loc=2)
-plt.show()
 plt.savefig(str(root_path)+"/data-analysis/plots/eqls_condition_plot.png")
+plt.show()

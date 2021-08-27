@@ -50,6 +50,6 @@ for variable, subplot in zip(categorical, ax.flatten()):
 plt.xlabel("Self-reported health")
 plt.ylabel("Count")
 # add title
-plt.legend(bbox_to_anchor=(.80, 0.8), loc=2);
-plt.show()
+plt.legend(bbox_to_anchor=(.80, 0.8), loc=2)
 plt.savefig(str(root_path)+"/data-analysis/plots/eqls_count_plot.png")
+plt.show()
