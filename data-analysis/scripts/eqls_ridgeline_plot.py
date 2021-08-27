@@ -3,7 +3,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-# from categorical_variable_mapping import CategoricalDataConfig
+from categorical_variable_mapping import CategoricalDataConfig
 
 categorical_data_config = CategoricalDataConfig()
 # settings

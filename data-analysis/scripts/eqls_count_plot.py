@@ -17,8 +17,8 @@ sns.set_style("white")
 plt.rcParams["figure.figsize"] = (16, 8)
 
 # Loading the dataset
-root_path = os.path.abspath(os.path.join(os.getcwd(), "../"))
-eqls_df = pd.read_csv(root_path+"/data/UKDA-7724-csv/csv/eqls_2011.csv")
+root_path = os.path.abspath(os.path.join(os.getcwd(), "./"))
+eqls_df = pd.read_csv(root_path+"/data-analysis/data/UKDA-7724-csv/csv/eqls_2011.csv")
 
 eqls_df["Y11_Country_cat"] = eqls_df["Y11_Country"].apply(lambda x: categorical_data_config.YY11_Country.get(x))
 eqls_df["Y11_Q31_cat"] = eqls_df["Y11_Q31"].apply(lambda x: categorical_data_config.Y11_Q31.get(x))
@@ -37,11 +37,11 @@ fig.subplots_adjust(hspace=0.8)
 
 for variable, subplot in zip(categorical, ax.flatten()):
     sns.countplot(eqls_df[variable], ax=subplot)
-    labels= []
+    labels = []
     for label in subplot.get_xticklabels():
-        label.set_text(label)
-        if len(label.get_text()) > 20:
-            label_formatted = '\n'.join(wrap(label.get_text(), 20))
+        label.set_text(label.get_text())
+        if len(label.get_text()) > 25:
+            label_formatted = '\n'.join(wrap(label.get_text(), 25))
             label.set_text(label_formatted)
         label.set_rotation(90)
         labels.append(label)
@@ -50,7 +50,6 @@ for variable, subplot in zip(categorical, ax.flatten()):
 plt.xlabel("Self-reported health")
 plt.ylabel("Count")
 # add title
-plt.title('Countplot of european self-reported health in 2011')
 plt.legend(bbox_to_anchor=(.80, 0.8), loc=2);
 plt.show()
 plt.savefig(str(root_path)+"/data-analysis/plots/eqls_count_plot.png")

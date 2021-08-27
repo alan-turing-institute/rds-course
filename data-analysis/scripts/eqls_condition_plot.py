@@ -45,7 +45,6 @@ cond_facet_grid.map_dataframe(annotate)
 cond_facet_grid.fig.subplots_adjust(wspace=.1, hspace=.05)
 
 for ax in cond_facet_grid.axes.flat:
-    print(ax.get_xlabel())
     ax.set_xlabel(ax.get_xlabel(), fontsize='x-large')
     ax.set_ylabel(ax.get_ylabel(), fontsize='x-large')
     ax.tick_params(labelleft=True)
