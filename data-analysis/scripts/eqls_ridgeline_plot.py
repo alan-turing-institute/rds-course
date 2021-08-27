@@ -46,3 +46,4 @@ ridge_plot.despine(bottom=True, left=True)
 plt.xticks(locs[1:6], list(categorical_data_config.Y11_Q42.values()))
 
 plt.show()
+plt.savefig(str(root_path)+"/data-analysis/plots/eqls_ridgeline_plot.png")

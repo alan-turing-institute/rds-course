@@ -7,19 +7,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # load array
+root_path = os.path.abspath(os.path.join(os.getcwd(), "../"))
 root_data_path = Path("data")
 
 feature_2011_other_countries_columns = pd.read_csv(str(root_data_path)+f"/derived_data/eqls_2011_modelled.csv")
 
-eqls_features_df = feature_2011_other_countries_columns[['Country',
-                                                         'DV_Any_limitingnot_limiting_chronic_health_problem',
-                                                         'How_satisfied_with_health',
-                                                         'Limited_by_chronic_health_problems',
-                                                         'Chronic_health_problems',
-                                                         'How_often_felt_active_and_vigorous_last_2_weeks',
-                                                         'Difficult_to_see_a_doctor_because_of_distance',
-                                                         'EQLS_Wave',
-                                                         'Age',
+eqls_features_df = feature_2011_other_countries_columns[['How_satisfied_with_heand_Young_people',
                                                          'How_often_felt_cheerful_and_in_good_spirits_last_2_weeks',
                                                          'How_frequently_take_part_in_sports_or_exercise',
                                                          'Limited_by_chronic_health_problems',
@@ -44,3 +37,4 @@ sns.displot(
     aspect=1.25
 )
 plt.show()
+plt.savefig(str(root_path)+"/data-analysis/plots/eqls_missingness_plot.png")

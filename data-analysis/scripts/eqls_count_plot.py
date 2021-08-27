@@ -53,3 +53,4 @@ plt.ylabel("Count")
 plt.title('Countplot of european self-reported health in 2011')
 plt.legend(bbox_to_anchor=(.80, 0.8), loc=2);
 plt.show()
+plt.savefig(str(root_path)+"/data-analysis/plots/eqls_count_plot.png")

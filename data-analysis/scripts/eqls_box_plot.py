@@ -19,8 +19,8 @@ plt.close()
 
 
 # Loading the dataset
-root_path = os.path.abspath(os.path.join(os.getcwd(), "../"))
-eqls_df = pd.read_csv(root_path + "/data/UKDA-7724-csv/csv/eqls_2011.csv")
+root_path = os.path.abspath(os.path.join(os.getcwd(), "./"))
+eqls_df = pd.read_csv(root_path + "/data-analysis/data/UKDA-7724-csv/csv/eqls_2011.csv")
 
 # Creating categorical variable
 eqls_df["Y11_Country_cat"] = eqls_df["Y11_Country"].apply(lambda x: categorical_data_config.YY11_Country.get(x))
@@ -47,5 +47,5 @@ plt.xlabel("Self-reported health")
 plt.ylabel("Count")
 # add title
 plt.title('Boxplot of european self-reported health in 2011')
-plt.legend(bbox_to_anchor=(.80, 0.8), loc=2);
+plt.savefig(str(root_path)+"/data-analysis/plots/eqls_box_plot.png")
 plt.show()
