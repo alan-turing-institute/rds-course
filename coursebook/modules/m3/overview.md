@@ -2,7 +2,7 @@
 
 Great figures bring data to life. They can make your communication clearer and more compelling, and often are the most viewed and shared part of any data story. 
 
-However, bad figures can mislead and confuse. At worst, they tell a story that simply does not exist. 
+However, bad figures can mislead and confuse. At worst, they tell a story that simply does not exist.
 
 In this module we provide useful tips that can help you tell good figures from bad ones. We will give you a foundation to improve the way you use visualisation to effectively and accurately comunicate insights from data.
 

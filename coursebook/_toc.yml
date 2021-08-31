@@ -30,7 +30,10 @@ parts:
     chapters:
     - file: modules/m3/overview
     - file: modules/m3/3.1-FiguresGoneWrong
-    - file: modules/m3/mod3.2
+    - file: modules/m3/3.2-RulesOfTheGame
+    - file: modules/m3/3.3-Atlas0fVisualisations
+    - file: modules/m3/3.4-StoryTelling
+
     - file: modules/m3/hands-on
   - caption: "Module 4: Introduction to Modelling"
     chapters:
