@@ -33,7 +33,7 @@ parts:
     - file: modules/m3/3.2-RulesOfTheGame
     - file: modules/m3/3.3-Atlas0fVisualisations
     - file: modules/m3/3.4-StoryTelling
-
+    - file: modules/m3/3.5-DataVisForExploration.ipynb
     - file: modules/m3/hands-on
   - caption: "Module 4: Introduction to Modelling"
     chapters:
