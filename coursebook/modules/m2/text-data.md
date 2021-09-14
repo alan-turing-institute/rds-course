@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# Wrangling text data
+# Text data
 
 TODO preamble
 
