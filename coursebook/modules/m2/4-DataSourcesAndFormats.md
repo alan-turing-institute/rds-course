@@ -204,14 +204,20 @@ Some common NoSQL Databases include:
 Unfortunately, different types of database will often how their own, unique, query languages, beyond SQL - more to learn!
 
 
-### Where Is The Data:
+### Where Is The Data?
 
-Databases can exist on your local machine, or can be hosted elsewhere. Typically, we'll want to host a database somewhere that everyone who needs access can reach. Many cloud providers offer database solutions with easy-to-use interfaces, allowing us (for a cost!) to worry less about exactly how the DBMS is working and focus, instead, on the data itself.
+Databases can exist on your local machine, or can be hosted elsewhere. Typically, we'll want to host a database somewhere that everyone who needs access can reach.
+
+Many cloud providers offer database solutions with easy-to-use interfaces, allowing us (for a cost!) to worry less about exactly how the DBMS is working and focus, instead, on the data itself.
 
 
 ### Which Database To Use
 
-Which type of database you choose should be driven by your data and how you plan to use it. You may find that your data can be expressed in more than one of the forms above or as a table. You then need to weigh up different factors to decide which form and which database, if any, to use. Some factors you may consider (unordered!):
+Which type of database you choose should be driven by your data and how you plan to use it. 
+You may find that your data can be expressed in more than one of the forms above or as a table.
+You then need to weigh up different factors to decide which form and which database, if any, to use.
+ 
+ Some factors you may consider (unordered!):
 
  - Ease of use
  - Cost
@@ -354,10 +360,6 @@ Some popular libraries for processing and analysing image data in Python include
 ## Text Data
 
 Natural language processing (NLP)
-
-Typical wrangling tasks:
-
-
 
 Popular libraries and resources for processing and analysing text data in Python include:
 
