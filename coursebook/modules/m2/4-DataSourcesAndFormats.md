@@ -1,3 +1,18 @@
+---
+jupytext:
+  cell_metadata_filter: -all
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Data Sources and Formats
 
 Once you've found a dataset for your research question there are many different formats it could be in - tabular data, databases, documents, images or many more. In this section we give an overview of common data types and how they can be loaded into Python.
@@ -10,7 +25,7 @@ Several of the file/data formats here are also covered in our [Research Software
 
 Tabular data files, and particularly comma-separated values (CSV) files, are likely to be the data format you encounter most often. These specify a single table of rows and columns in the following format:
 
-```csv
+```
 "Subject","Teacher","Day of Week","Time Start","Time End"
 "Maths","Mr F","Monday",1000,1200
 "English","Ms P","Tuesday",1100,1300
@@ -24,52 +39,24 @@ As an example, we will use a dataset downloaded from The World Bank, giving the 
 
 To load a CSV file to a pandas data frame you can use the pandas [`read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) function:
 
-```python
+```{code-cell}
 import pandas as pd
 
-df = pd.read_csv("urban_population.csv")
+df = pd.read_csv("data/urban_population.csv")
 ```
 
 Let's look at the first 5 rows of the data:
 
-```python
+```{code-cell}
 print(df.head())
-```
-
-```
-                  Country Name Country Code                            Indicator Name     Indicator Code       1960       1980       2000       2020  Unnamed: 8
-0                        Aruba          ABW  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  50.776000  50.472000  46.717000  43.697000         NaN
-1  Africa Eastern and Southern          AFE  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  14.704688  20.845000  28.669286  36.783306         NaN
-2                  Afghanistan          AFG  Urban population (% of total population)  SP.URB.TOTL.IN.ZS   8.401000  15.995000  22.078000  26.026000         NaN
-3   Africa Western and Central          AFW  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  14.670329  24.518577  35.352981  47.848625         NaN
-4                       Angola          AGO  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  10.435000  24.298000  50.087000  66.825000         NaN
 ```
 
 Each row in the data corresponds to a country, with columns for the country's name, the urban population in 1960, 1980, 2000 and 2020, and some other metadata.
 
 The `.info()` method of a dataframe gives us a useful summary of the columns it contains:
 
-```python
+```{code-cell}
 df.info()
-```
-
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 266 entries, 0 to 265
-Data columns (total 9 columns):
- #   Column          Non-Null Count  Dtype
----  ------          --------------  -----
- 0   Country Name    266 non-null    object
- 1   Country Code    266 non-null    object
- 2   Indicator Name  266 non-null    object
- 3   Indicator Code  266 non-null    object
- 4   1960            263 non-null    float64
- 5   1980            263 non-null    float64
- 6   2000            263 non-null    float64
- 7   2020            262 non-null    float64
- 8   Unnamed: 8      0 non-null      float64
-dtypes: float64(5), object(4)
-memory usage: 18.8+ KB
 ```
 
 Each column in a pandas data frame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (`float64`), for example. When columns contain a mixture of data types or strings pandas will give the whole column the generic `object` type. Sometimes quirks in the data may cause pandas to infer a different type to what you expect - we will revisit this in the data wrangling section.
@@ -81,62 +68,25 @@ We can also see that some columns have missing values (the data has 266 rows but
 
 The original file from the World Bank contains a few lines of metadata at the top:
 
+```{code-cell}
+!head data/urban_population_header.csv
 ```
-!head urban_population_header.csv
-```
-
-```
-"Data Source","World Development Indicators",
-
-"Last Updated Date","2021-06-30",
-Country Name,Country Code,Indicator Name,Indicator Code,1960,1980,2000,2020,
-Aruba,ABW,Urban population (% of total population),SP.URB.TOTL.IN.ZS,50.776,50.472,46.717,43.697,
-Africa Eastern and Southern,AFE,Urban population (% of total population),SP.URB.TOTL.IN.ZS,14.7046880270389,20.8449997980123,28.6692864525936,36.7833061490919,
-```
-
 
 The column names start on line 4 of the file, and the previous lines give metadata on where the file came from and when it was updated.
 
 Using `read_csv` on this file (with default arguments) gives an error:
 
-```python
-df = pd.read_csv("urban_population_header.csv")
-```
+```{code-cell}
+:tags: [raises-exception]
 
-
-```
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/Users/jroberts/opt/anaconda3/envs/airsenalenv/lib/python3.7/site-packages/pandas/io/parsers.py", line 610, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "/Users/jroberts/opt/anaconda3/envs/airsenalenv/lib/python3.7/site-packages/pandas/io/parsers.py", line 468, in _read
-    return parser.read(nrows)
-  File "/Users/jroberts/opt/anaconda3/envs/airsenalenv/lib/python3.7/site-packages/pandas/io/parsers.py", line 1057, in read
-    index, columns, col_dict = self._engine.read(nrows)
-  File "/Users/jroberts/opt/anaconda3/envs/airsenalenv/lib/python3.7/site-packages/pandas/io/parsers.py", line 2061, in read
-    data = self._reader.read(nrows)
-  File "pandas/_libs/parsers.pyx", line 756, in pandas._libs.parsers.TextReader.read
-  File "pandas/_libs/parsers.pyx", line 771, in pandas._libs.parsers.TextReader._read_low_memory
-  File "pandas/_libs/parsers.pyx", line 827, in pandas._libs.parsers.TextReader._read_rows
-  File "pandas/_libs/parsers.pyx", line 814, in pandas._libs.parsers.TextReader._tokenize_rows
-  File "pandas/_libs/parsers.pyx", line 1951, in pandas._libs.parsers.raise_parser_error
-pandas.errors.ParserError: Error tokenizing data. C error: Expected 3 fields in line 4, saw 9
+df = pd.read_csv("data/urban_population_header.csv")
 ```
 
 This is because pandas is trying to use the first line in the file to define the columns present in our data. To avoid this we can use the `skiprows` argument to tell pandas our table starts on line 4 (skipping the first 3 lines):
 
-```python
-df = pd.read_csv("urban_population_header.csv", skiprows=3)
+```{code-cell}
+df = pd.read_csv("data/urban_population_header.csv", skiprows=3)
 print(df.head())
-```
-
-```
-                  Country Name Country Code                            Indicator Name     Indicator Code       1960       1980       2000       2020  Unnamed: 8
-0                        Aruba          ABW  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  50.776000  50.472000  46.717000  43.697000         NaN
-1  Africa Eastern and Southern          AFE  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  14.704688  20.845000  28.669286  36.783306         NaN
-2                  Afghanistan          AFG  Urban population (% of total population)  SP.URB.TOTL.IN.ZS   8.401000  15.995000  22.078000  26.026000         NaN
-3   Africa Western and Central          AFW  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  14.670329  24.518577  35.352981  47.848625         NaN
-4                       Angola          AGO  Urban population (% of total population)  SP.URB.TOTL.IN.ZS  10.435000  24.298000  50.087000  66.825000         NaN
 ```
 
 There's not a single CSV data "standard" that everyone follows, so it's common to need to tweak things to load properly. Other examples include:
@@ -234,7 +184,7 @@ Some common NoSQL Databases include:
 - Gaffer (graph)
 
 **Document example**
-```json=
+```json
 {
     "name": "Jane",
     "dob": "2012-04-23T18:25:43.511Z",
@@ -324,8 +274,9 @@ The most common format for data returned by an API is JSON (JavaScript Object No
 We can make the same API query in Python using the 
 [requests](https://docs.python-requests.org/en/master/user/quickstart/) library, as follows (you may need to install the requests library first, using `pip install requests` from a terminal):
 
-```python
+```{code-cell}
 import requests
+
 url = "https://api.datamuse.com/words"
 params = {"rel_jjb": "dog", "max": 5}
 r = requests.get(url, params=params)
@@ -333,38 +284,28 @@ r = requests.get(url, params=params)
 
 Note that we can define the parameters in a dictionary, which is much easier to read than the raw format in the query string seen earlier. To check whether the request worked you can check the status code:
 
-```python
->>> print(r.status_code)
-200
+```{code-cell}
+print(r.status_code)
 ```
 Codes in the 200s usually indicate a successful query, for the meanings of other codes see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), or `print(r.content)` may give you more information about what happened.
 
 We can convert the result into a list of dictionaries as follows:
-```python
+```{code-cell}
 result_list = r.json()
 print(result_list)
-
-[{'word': 'little', 'score': 1001}, {'word': 'old', 'score': 1000}, {'word': 'hot', 'score': 999}, {'word': 'big', 'score': 998}, {'word': 'black', 'score': 997}]
 ```
 
 And we can interact with that list in the usual Python way:
-```python
->>> print(result_list[0]["word"])
-little
+```{code-cell}
+print(result_list[0]["word"])
 ```
 
 You can also load an API query directly into a Pandas dataframe (though this may not work well if your query returns a more complex data structure - in that case it's best to start with the requests library):
-```python
+```{code-cell}
 import pandas as pd
+
 df = pd.read_json("https://api.datamuse.com/words?rel_jjb=dog&max=5")
 print(df)
-
-     word  score
-0  little   1001
-1     old   1000
-2     hot    999
-3     big    998
-4   black    997
 ```
 
 One final note on APIs - bear in mind it's likely the service you're using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as "pagination" (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you're making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
