@@ -22,7 +22,7 @@ GDPR does not apply to anonymised information. However, note that when **you** d
 
 > …the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.
 
-—  *exert from [ICO Guide to Data Protection](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/what-is-personal-data/what-is-personal-data/#pd4)*
+—  *excerpt from [ICO Guide to Data Protection](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/what-is-personal-data/what-is-personal-data/#pd4)*
 
 This is subtly different to anonymisation. Here, the subject can be re-identified, given additional information.
 
@@ -38,8 +38,13 @@ Broadly, differential privacy provides a mechanism for learning nothing about an
 
 > “Differential privacy” describes a promise, made by a data holder, or curator, to a data subject: “You will not be affected, adversely or otherwise, by allowing your data to be used in any study or analysis, no matter what other studies, data sets, or information sources, are available.”
 
-—  *[The Algorithmic Foundations of Differential Privacy](https://www.tau.ac.il/~saharon/BigData2018/privacybook.pdf)* TODO cite
+—  *[The Algorithmic Foundations of Differential Privacy](https://www.tau.ac.il/~saharon/BigData2018/privacybook.pdf)* - Dwork & Roth (2014) 
 
 Use of differential privacy in data science and machine learning is an ongoing area of research.
 
 TODO links to recent research?
+
+
+## References
+
+Dwork, C., & Roth, A. (2014). The algorithmic foundations of differential privacy. Found. Trends Theor. Comput. Sci., 9(3-4), 211-407.
