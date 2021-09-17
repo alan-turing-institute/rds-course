@@ -15,11 +15,13 @@ kernelspec:
 
 # Text data
 
-TODO preamble
+We'll often want to manipulate text data (strings) in Python.
+There are many handy libraries for helping us do this, some of which allow some pretty complicated operations.
+Here, we'll show some basic processing.
 
 ## Inconsistencies
 
-Text data (strings) have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace. 
+Strings have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace. 
 
 Fortunately, python gives us some handy [built-in functionality](https://docs.python.org/3/library/stdtypes.html#string-methods) for dealing with some of these issues.
 
@@ -60,6 +62,44 @@ In a relatively simple scenario, with categorical data encoded as strings, you m
 ```{code-cell} ipython3
 my_favourite_fruit_data = ["apple", "apple", "pear", "orange", "aple", "orange", "grapefruit"]
 print(set(my_favourite_fruit_data))
+```
+
+## Splitting
+
+We'll also commonly want to split a string based on a particular delimiter or separator.
+For example, we may wish to split a string of text into individual words, using any whitespace separator.
+
+We can use the `str.split()` method.
+
+```{code-cell} ipython3
+s = "this is some text".split() # whitespace is the default
+print(s)
+
+# however, be careful of punctuation
+s2 = "this, another example, is some more text".split()
+print(s2)
+```
+
+We may also wish to split by separators other than whitespace.
+
+```{code-cell} ipython3
+s = "apple#banana#pear#peach".split("#")
+print(s)
+```
+
+With this in mind, we could also use `str.split()` for dealing with csv data. However, we'd need to be careful about commas inside quotes.
+It's generally more convenient to use libraries that already deal with this kind of thing, like Pandas!
+
+
+## Joining
+
+A bit like `str.split()` in reverse, `str.join()` allows us to join a list of strings together with a given separator.
+
+```{code-cell} ipython3
+my_list = ["a", "list", "of", "words"]
+# join with a space separator
+s = " ".join(my_list) 
+print(s)
 ```
 
 ## Regular expressions
