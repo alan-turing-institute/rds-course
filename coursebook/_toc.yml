@@ -24,8 +24,16 @@ parts:
     chapters:
     - file: modules/m2/overview
     #- file: modules/m2/taught
+    
+    - file: modules/m2/1-WhereToFindData
+    - file: modules/m2/2-LegalityAndEthics
+    - file: modules/m2/3-PandasIntro
+    - file: modules/m2/4-DataSourcesAndFormats
+    - file: modules/m2/5-ControllingAccess
+    
     - file: modules/m2/text-data
     - file: modules/m2/image-data
+
     - file: modules/m2/hands-on
   - caption: "Module 3: Data Visualisation & Exploration"
     chapters:
