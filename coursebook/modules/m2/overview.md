@@ -7,6 +7,7 @@
 ## TODOs
 
 - Taught
+    - inline TODOs
     - Overview
         - outline of module
     - Getting Data
@@ -21,7 +22,6 @@
         - Binary data? have omitted from "other"
     - Data Cleaning and Wrangling
         - see (hackmd)[https://hackmd.io/zOowqfQDQUq4s3km5nDRcQ]
-        - inline TODOs
-        - normalisation in general
+        
 - Hands On
     - All
