@@ -33,6 +33,7 @@ parts:
     
     - file: modules/m2/text-data
     - file: modules/m2/image-data
+    - file: modules/m2/privacy-and-anonymisation
 
     - file: modules/m2/hands-on
   - caption: "Module 3: Data Visualisation & Exploration"
