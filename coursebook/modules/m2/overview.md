@@ -1,6 +1,8 @@
 # Overview
 
 [syllabus planning](https://hackmd.io/2jO67RhQSGysNetJ-ReJ7Q)
+[getting data](https://hackmd.io/7rron7vtTLK_uKx_5A_PrQ)
+
 
 ## TODOs
 
@@ -19,8 +21,7 @@
         - Binary data? have omitted from "other"
     - Data Cleaning and Wrangling
         - see (hackmd)[https://hackmd.io/zOowqfQDQUq4s3km5nDRcQ]
+        - inline TODOs
+        - normalisation in general
 - Hands On
     - All
-
-
-
