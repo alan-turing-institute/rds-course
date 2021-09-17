@@ -21,7 +21,7 @@ Pandas themselves have some great resources for getting started, including guide
 
 For now, we'll stick just to what we need for this course.
 
-```python
+```{code-cell} ipython3
 import pandas as pd
 ```
 
