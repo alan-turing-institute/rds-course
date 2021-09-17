@@ -46,7 +46,12 @@ im_64_nearest = cv2.resize(im, (64,64), interpolation=cv2.INTER_NEAREST)
 
 # resize using CUBIC interpolation method
 im_64_cubic = cv2.resize(im, (64,64), interpolation=cv2.INTER_CUBIC)
+```
 
+(code to display hidden below)
+
+```{code-cell} ipython3
+:tags: ["hide-input"]
 # display with matplotlib
 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
 ax[0].imshow(im, cmap='gray')
@@ -62,6 +67,7 @@ ax[2].set_title("64x64 method=cubic")
 ax[2].axis('off')
 
 plt.show()
+
 ```
 
 
@@ -70,11 +76,109 @@ plt.show()
 Image processing will often expect the data to be normalised.
 
 As we've seen that our image data is represented in a numeric 2d or 3d tensor, we can normalise by converting the image
- to have zero mean, and unit variance. The OpenCV has some built in functionality for this:
+ to have zero mean, and unit variance.
  
-TODO example code
+```{code-cell} ipython3
+import cv2
+from matplotlib import pyplot as plt
+import numpy as np
+
+im = cv2.imread("data/flower.png")
+# convert colour as we're loading in BGR rather than RGB
+im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+
+means = np.mean(im, axis=(0,1), keepdims=True)
+stds = np.std(im, axis=(0,1), keepdims=True)
+
+print(f"means: {means}")
+print(f"stds: {stds}")
+print()
+
+# subtract means and divide by stds
+normed = (im - means) / stds
+```
+(code to display hidden below)
+
+```{code-cell} ipython3
+:tags: ["hide-input"]
+# continue from last
+# display with matplotlib
+# scale range to [0,255] for display 
+normed_for_vis = cv2.normalize(normed, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
+
+fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
+ax[0].imshow(im, cmap='gray')
+ax[0].set_title("original")
+ax[0].axis('off')
+
+ax[1].imshow(normed_for_vis)
+ax[1].set_title("normed (for display only)")
+ax[1].axis('off')
+
+plt.show()
+```
+
+Some sanity checks (code and output) for normalisation hidden below.
+
+```{code-cell} ipython3
+:tags: ["hide-cell"]
+### sanity checks
+# check new means and stds
+normed_means, normed_stds = cv2.meanStdDev(normed)
+
+# check our new means are 0 (within given tolerance)
+np.testing.assert_allclose(normed_means, 0, atol=1e-07)
+# check our new stds are 1 (within given tolerance)
+np.testing.assert_allclose(normed_stds, 1)
+
+
+# show top left "pixel"
+print(f"original top left: {im[0, 0, :]}")
+print(f"normed top left: {normed[0, 0, :]}")
+print()
+```
  
 However, for many deep learning tasks, it is common to normalise image data by using precomputed dataset means and stds,
 rather than calculate these for each image. For example, using the ImageNet values:
- 
-TODO example code
+
+```{code-cell} ipython3
+import cv2
+
+im = cv2.imread("data/flower.png")
+# convert colour as we're loading in BGR rather than RGB
+im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+
+imagenet_means = [0.485, 0.456, 0.406],
+imagenet_stds = [0.229, 0.224, 0.225]
+
+# assumes we're in range [0,1] rather than [0,255]
+scaled = cv2.normalize(im, None, 0, 1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+
+# subtract means and divide by stds
+imagenet_normed = (scaled - imagenet_means) / imagenet_stds
+print(imagenet_normed[0,0,:])
+```
+
+```{code-cell} ipython3
+:tags: ["hide-input"]
+# continue from last
+# display with matplotlib
+# scale range to [0,255] for display 
+normed_for_vis = cv2.normalize(imagenet_normed, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
+
+fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
+ax[0].imshow(im, cmap='gray')
+ax[0].set_title("original")
+ax[0].axis('off')
+
+ax[1].imshow(normed_for_vis)
+ax[1].set_title("ImageNet normed (for display only)")
+ax[1].axis('off')
+
+plt.show()
+```
+
+We see that the image doesn't appear to have been altered to the same extent as before.
+This is due to the ImageNet values being less skewed towards the blue channel.
+
+note: many packages like [torchvision](https://pytorch.org/vision/stable/) will have convenience methods to do normalization for you.
