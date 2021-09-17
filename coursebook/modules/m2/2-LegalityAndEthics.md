@@ -9,7 +9,8 @@ We need to consider who **owns** the data that we wish to use and what **restric
 ### Licences
 
 > A licence agreement is a legal arrangement between the creator/depositor of the data set and the data repository, signifying what a user is allowed to do with the data. 
-*The Data Management Expert Guide by CESSDA ERI*
+
+—  *The Data Management Expert Guide by CESSDA ERI*
 
 As a user, it is your responsibility to abide by the terms of a licence when making use of a dataset. This is similar to licensing for software.
 
@@ -30,8 +31,6 @@ More information on data licences can be found in [The Turing Way](https://the-t
 
 ### Data Protection & GDPR
 
-
-From https://www.gov.uk/data-protection:
 > The Data Protection Act 2018 is the UK’s implementation of the General Data Protection Regulation (GDPR).
 > 
 > Everyone responsible for using personal data has to follow strict rules called ‘data protection principles’. They must make sure the information is:
@@ -57,6 +56,9 @@ From https://www.gov.uk/data-protection:
 > 
 > There are separate safeguards for personal data relating to criminal convictions and offences.
 
+—  *exert from https://www.gov.uk/data-protection*
+
+Note: The DPA 2018 sits alongside and supplements [UK GDPR](https://www.legislation.gov.uk/eur/2016/679/contents).
 
 #### What's personal data?
 
@@ -71,7 +73,8 @@ See more at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide
 #### Does it apply to me?
 
 > The law applies to any ‘processing of personal data’, and will catch most businesses and organisations, whatever their size.
-*ICO Guide to Data Protection*
+
+—  *exert from [ICO Guide to Data Protection](https://ico.org.uk/for-organisations/guide-to-data-protection/introduction-to-data-protection/some-basic-concepts/?q=apply+to+me#2)*
 
 However, there are a few exemptions to GDPR and some things that are simply outside it's scope.
 
