@@ -29,7 +29,6 @@ Pandas has two main **labelled** data structures:
 - Series
 
 ```{code-cell} ipython3
-import pandas as pd
 s = pd.Series([0.3, 4, 1, None, 9])
 print(s)
 ```
@@ -38,7 +37,6 @@ print(s)
 
 ```{code-cell} ipython3
 import numpy as np
-import pandas as pd
 df = pd.DataFrame(np.random.randn(10,2), index=np.arange(3, 13), columns=["random_A", "random_B"])
 print(df)
 ```
@@ -50,8 +48,6 @@ Once we have data in these Pandas structures, we can perform some useful operati
 +++
 
 ```{code-cell} ipython3
-import numpy as np
-import pandas as pd
 s = pd.Series(np.random.randint(0,2,10))
 print(s)
 print() # blank line
