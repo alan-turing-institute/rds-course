@@ -38,7 +38,7 @@ For example, using the OpenCV library:
 import cv2
 from matplotlib import pyplot as plt
 
-im = cv2.imread("./smiley_16.png")
+im = cv2.imread("./data/smiley_16.png")
 print(f"loaded data of shape: {im.shape}")
 
 # resize using NEAREST interpolation method
