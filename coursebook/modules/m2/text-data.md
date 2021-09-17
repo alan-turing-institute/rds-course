@@ -69,7 +69,7 @@ print(set(my_favourite_fruit_data))
 We'll also commonly want to split a string based on a particular delimiter or separator.
 For example, we may wish to split a string of text into individual words, using any whitespace separator.
 
-We can use the `str.split()` method.
+We can use the `str.split(sep=None, maxsplit=-1)` method.
 
 ```{code-cell} ipython3
 s = "this is some text".split() # whitespace is the default
@@ -87,13 +87,13 @@ s = "apple#banana#pear#peach".split("#")
 print(s)
 ```
 
-With this in mind, we could also use `str.split()` for dealing with csv data. However, we'd need to be careful about commas inside quotes.
+With this in mind, we could also use `str.split` for dealing with csv data. However, we'd need to be careful about commas inside quotes.
 It's generally more convenient to use libraries that already deal with this kind of thing, like Pandas!
 
 
 ## Joining
 
-A bit like `str.split()` in reverse, `str.join()` allows us to join a list of strings together with a given separator.
+A bit like `str.split(sep=None, maxsplit=-1)` in reverse, `str.join(iterable)` allows us to join a list of strings together with a given separator.
 
 ```{code-cell} ipython3
 my_list = ["a", "list", "of", "words"]
