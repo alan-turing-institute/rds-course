@@ -15,7 +15,7 @@ In a GDPR context, Recital 26 defines anonymous information as:
 
 Anonymisation is the process of removing direct and indirect personal identifiers. Crucially, post-anonymisation, subjects will not be able to be identified in the data, even given additional information.
 
-GDPR does not apply to anonymised information. However, note that when **you** do anonymise personal data, **you** are still processing the data at that point.
+GDPR does not apply to anonymised information. However, note that when **you** anonymise personal data, **you** are still processing the data at that point.
 
 
 ### Pseudonymisation
