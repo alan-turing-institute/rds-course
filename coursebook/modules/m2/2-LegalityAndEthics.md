@@ -24,7 +24,7 @@ Licences range in the freedoms they give to users. Licences that grant users fre
 
 However, not all licences give so many freedoms. It's always worth checking.
 
-NB: GitHub's default stance for [no licence](https://choosealicense.com/no-permission) is that the work is under exclusive copyright by default.
+**NB**: GitHub's default stance for [no licence](https://choosealicense.com/no-permission) is that the work is under exclusive copyright by default.
 
 More information on data licences can be found in [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-data.html).
 
@@ -114,9 +114,16 @@ As the data do not contain direct personal identifiers, and it is unlikely that 
 
 *However, we may wish to consider the consent under which this data was originally gathered. Did the respondees to this survey explicitly consent to its secondary use in research (or teaching, in this case)? If not, can we assume implied consent? Do we need consent at all, in this case?*
 
-TODO
+> We believe that despite the lack of an explicit consent field in the questionnaire, these materials and all the supporting material in the website give plenty of information and signposting to participants to assure that they know the content and purpose of the survey, the anonymisation process, the way data will become available and also to know where to ask questions if they have concerns.
+> It is reasonable to conclude that participants that were contacted, accepted the invitation, read this material, were briefed by the field worker and went ahead with the interview did consent to their data being collected and used.
+> It is also clear that during this process they had the option to opt out more than once.
+> The type of intended research is not made entirely clear from the forms but there are mentions to improving living conditions in Europe, understanding quality of life and also other examples of uses in the 2007 flyers. 
 
 — *excerpt from Ethics Advisory Group practice application form submitted for the running this course*
+
+The above excerpt is part of a larger document that outlines our application to Turing's Ethics Advisory Group.
+The decision to move forward with the dataset was made given consideration of the paragraph quoted as well as points set
+ out in the rest of the document. 
 
 ### Bias in, bias out
 
