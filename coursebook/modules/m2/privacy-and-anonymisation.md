@@ -2,31 +2,10 @@
 
 ## Anonymisation or Pseudonymisation 
 
-Pseudonymisation and anonymisation are common approaches to meet GDPR principles of ["data minimisation" and "storage limitation"](https://www.privacy-regulation.eu/en/article-5-principles-relating-to-processing-of-personal-data-GDPR.htm). 
+TODO
 
-Many tasks do not require the use of personal identifiers that can often be part of a dataset. In these cases, we should aim to remove this unnecessary, yet sensitive, data.
+removed pending internal discussion
 
-### Anonymisation 
-
-In a GDPR context, Recital 26 defines anonymous information as:
-> …information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable.
-
-— *[Recital 26](https://www.privacy-regulation.eu/en/recital-26-GDPR.htm)*
-
-Anonymisation is the process of removing direct and indirect personal identifiers. Crucially, post-anonymisation, subjects will not be able to be identified in the data, even given additional information.
-
-GDPR does not apply to anonymised information. However, note that when **you** anonymise personal data, **you** are still processing the data at that point.
-
-
-### Pseudonymisation
-
-> …the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.
-
-—  *excerpt from [ICO Guide to Data Protection](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/what-is-personal-data/what-is-personal-data/#pd4)*
-
-This is subtly different to anonymisation. Here, the subject can be re-identified, given additional information.
-
-GDPR does still apply to pseudonymised information. However, this still helps meet the "data minimisation" and "storage limitation" principles.
 
 ## Differential Privacy
 
