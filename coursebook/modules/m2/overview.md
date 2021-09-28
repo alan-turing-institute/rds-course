@@ -23,5 +23,11 @@
     - Data Cleaning and Wrangling
         - some sections still oustanding see (hackmd)[https://hackmd.io/zOowqfQDQUq4s3km5nDRcQ]
         
+    - extra to cover
+        - `DataFrame.info`, `DataFrame.describe`
+        - Data missingness ( Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR).)
+        - `DataFrame.melt`
+        - `DataFrame.groupby`
+        - `str.replace`
 - Hands On
     - All
