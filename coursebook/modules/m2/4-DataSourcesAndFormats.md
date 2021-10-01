@@ -48,7 +48,7 @@ df = pd.read_csv("data/urban_population.csv")
 Let's look at the first 5 rows of the data:
 
 ```{code-cell}
-print(df.head())
+df.head()
 ```
 
 Each row in the data corresponds to a country, with columns for the country's name, the urban population in 1960, 1980, 2000 and 2020, and some other metadata.
@@ -86,7 +86,7 @@ This is because pandas is trying to use the first line in the file to define the
 
 ```{code-cell}
 df = pd.read_csv("data/urban_population_header.csv", skiprows=3)
-print(df.head())
+df.head()
 ```
 
 There's not a single CSV data "standard" that everyone follows, so it's common to need to tweak things to load properly. Other examples include:
@@ -311,7 +311,7 @@ You can also load an API query directly into a Pandas dataframe (though this may
 import pandas as pd
 
 df = pd.read_json("https://api.datamuse.com/words?rel_jjb=dog&max=5")
-print(df)
+df
 ```
 
 One final note on APIs - bear in mind it's likely the service you're using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as "pagination" (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you're making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
