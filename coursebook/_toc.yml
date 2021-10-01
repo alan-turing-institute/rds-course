@@ -30,7 +30,7 @@ parts:
     - file: modules/m2/3-PandasIntro
     - file: modules/m2/4-DataSourcesAndFormats
     - file: modules/m2/5-ControllingAccess
-
+    - file: modules/m2/data-consistency
     - file: modules/m2/modifying-columns-and-indices
     - file: modules/m2/text-data
     - file: modules/m2/image-data
