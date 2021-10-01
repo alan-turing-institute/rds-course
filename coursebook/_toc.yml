@@ -33,6 +33,7 @@ parts:
     - file: modules/m2/data-consistency
     - file: modules/m2/modifying-columns-and-indices
     - file: modules/m2/text-data
+    - file: modules/m2/categorical-data
     - file: modules/m2/image-data
     - file: modules/m2/time-and-date-data
     - file: modules/m2/privacy-and-anonymisation
