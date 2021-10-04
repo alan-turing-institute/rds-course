@@ -4,3 +4,7 @@ numpy
 opencv-python
 pandas
 requests
+seaborn
+sklearn
+statsmodels
+plotly
