@@ -31,7 +31,6 @@ outstanding for hands on:
     - `DataFrame.groupby`
     - `Series.str.replace`
 - Hands On
-    - missing data
     - handover format?
     
     
