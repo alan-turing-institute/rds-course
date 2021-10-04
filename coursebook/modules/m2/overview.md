@@ -27,7 +27,7 @@ outstanding for hands on:
 - Extra taught to cover
     - `DataFrame.info`, `DataFrame.describe`
     - Data missingness ( Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR).)
-    - `DataFrame.melt`
+    - `DataFrame.melt` (?)
     - `DataFrame.groupby`
     - `Series.str.replace`
 - Hands On

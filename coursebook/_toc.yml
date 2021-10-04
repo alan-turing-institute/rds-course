@@ -15,10 +15,13 @@
 format: jb-book
 root: index
 parts:
-  - caption: "Module 1: Introduction"
+  - caption: "Module 1: Introduction to Data Science"
     chapters:
     - file: modules/m1/overview
-    - file: modules/m1/taught
+    - file: modules/m1/Lesson_1.1_What_is_data_science
+    - file: modules/m1/Lesson_1.2_Data_Science_project_lifecycle
+    - file: modules/m1/Lesson_1.3_EDI_for_data_science
+    - file: modules/m1/Lesson_1.4_Collaboration_and_reproducibility
     - file: modules/m1/hands-on
   - caption: "Module 2: Handling data and deployment"
     chapters:
