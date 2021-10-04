@@ -37,4 +37,5 @@ parts:
     - file: modules/m4/overview
     - file: modules/m4/m4.1
     - file: modules/m4/m4.2
+    - file: modules/m4/summary
     
