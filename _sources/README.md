@@ -52,6 +52,6 @@ parts:
         - `pip install jupyter-book`; `conda install -c conda-forge jupyter-book`.
     - Build the book with `jupyter-book build coursebook`, this will generate html files in `coursebook/_build/html/`.
     - Inspect the book by opening `coursebook/_build/html/index.html` in your browser.
-    - If you want to rebuild after changes, use `jupyter clean coursebook` to empty the `_build` directory.
+    - If you want to rebuild after changes, use `jupyter-book clean coursebook` to empty the `_build` directory.
 
 - You don't need to commit the html files to github. When you push to `develop` the book will automatically be rebuilt, with the html pages deployed to `gh-pages`.
