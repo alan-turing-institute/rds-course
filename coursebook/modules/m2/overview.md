@@ -1,33 +1,39 @@
 # Overview
 
-[syllabus planning](https://hackmd.io/2jO67RhQSGysNetJ-ReJ7Q)
-[getting data](https://hackmd.io/7rron7vtTLK_uKx_5A_PrQ)
+TODO: write overview for module 2
 
 
-## TODOs
+note: some content under review with legal:
+- LegalityAndEthics
+- PrivacyAndAnonymisation
 
-- Taught
-    - inline TODOs
-    - citation/references?
-    - Overview
-        - outline of module
-    - Getting Data
-      - Where To Find Data
-        - add "missing data" EDI elements, see [GitHub issue]( https://github.com/alan-turing-institute/rds-course/issues/8#issuecomment-889184150)
-      - Legality & Ethis
-        - review with legal
-      - Data Sources and Formats
-        - code cells, convert to executable? would then need csv file (can copy header from PandasIntro)
-        - Exercise making another API query (TODO listed in file)
-        - Binary data? have omitted from "other"
-    - Data Cleaning and Wrangling
-        - some sections still oustanding see (hackmd)[https://hackmd.io/zOowqfQDQUq4s3km5nDRcQ]
-        
-    - extra to cover
-        - `DataFrame.info`, `DataFrame.describe`
-        - Data missingness ( Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR).)
-        - `DataFrame.melt`
-        - `DataFrame.groupby`
-        - `str.replace`
+inline TODOs:
+- `grep "TODO" coursebook/modules/m2/* --exclude=hands-on.ipynb`
+
+outstanding sections:
+- FeatureEngineering
+- CategoricalData (feature engineering?)
+- LinkingDatasets
+- MissingData
+
+outstanding subsections:
+- should data be used? (in LegalityAndEthics)
+- sampling bias (not a section in own right?)
+    - e.g. collection skewed towards/against single demographic
+- badly designed capture/missed variables (e.g. missing q in survey, leading q)
+
+
+outstanding for hands on:
+- Extra taught to cover
+    - `DataFrame.info`, `DataFrame.describe`
+    - Data missingness ( Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR).)
+    - `DataFrame.melt` (?)
+    - `DataFrame.groupby`
+    - `Series.str.replace`
 - Hands On
-    - All
+    - handover format?
+    
+    
+overlaps?:
+- Feature Engineering: m3/4?
+- Missing Data: m3
