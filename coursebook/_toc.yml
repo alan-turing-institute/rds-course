@@ -35,6 +35,7 @@ parts:
   - caption: "Module 4: Introduction to Modelling"
     chapters:
     - file: modules/m4/overview
-    - file: modules/m4/taught
-    - file: modules/m4/hands-on
+    - file: modules/m4/m4.1
+    - file: modules/m4/m4.2
+    - file: modules/m4/summary
     
