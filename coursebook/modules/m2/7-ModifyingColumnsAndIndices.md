@@ -106,6 +106,6 @@ print("renamed df:")
 display(df)
 ```
 
-TODO maybe these (and some of the above) are overkill unless needed in hands on?:
+TODO: maybe these (and some of the above) are overkill unless needed in hands on?:
  - `set_index` ?
  - `reset_index` ?
