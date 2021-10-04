@@ -37,5 +37,7 @@ parts:
     - file: modules/m4/overview
     - file: modules/m4/m4.1
     - file: modules/m4/m4.2
+    - file: modules/m4/4.3_Building_simple_model
+    - file: modules/m4/4.4_Evaluating_a_model
     - file: modules/m4/summary
     
