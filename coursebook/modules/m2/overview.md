@@ -32,8 +32,13 @@ outstanding for hands on:
     - `Series.str.replace`
 - Hands On
     - handover format?
+    - fix error reporting in renaming (doesn't handle key error)
+    - missing data - e.g. more for some countries than others?
     
     
 overlaps?:
 - Feature Engineering: m3/4?
 - Missing Data: m3
+
+Extra thoughts to check we cover:
+- raw data is not raw 
