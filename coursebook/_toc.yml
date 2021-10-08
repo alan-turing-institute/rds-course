@@ -15,29 +15,36 @@
 format: jb-book
 root: index
 parts:
-  - caption: "Module 1: Introduction"
+  - caption: "Module 1: Introduction to Data Science"
     chapters:
     - file: modules/m1/overview
-    - file: modules/m1/taught
+    - file: modules/m1/Lesson_1.1_What_is_data_science
+    - file: modules/m1/Lesson_1.2_Data_Science_project_lifecycle
+    - file: modules/m1/Lesson_1.3_EDI_for_data_science
+    - file: modules/m1/Lesson_1.4_Collaboration_and_reproducibility
     - file: modules/m1/hands-on
   - caption: "Module 2: Handling data and deployment"
     chapters:
     - file: modules/m2/overview
-    #- file: modules/m2/taught
-    
+    # getting data
     - file: modules/m2/1-WhereToFindData
     - file: modules/m2/2-LegalityAndEthics
     - file: modules/m2/3-PandasIntro
     - file: modules/m2/4-DataSourcesAndFormats
     - file: modules/m2/5-ControllingAccess
-    - file: modules/m2/data-consistency
-    - file: modules/m2/modifying-columns-and-indices
-    - file: modules/m2/text-data
-    - file: modules/m2/categorical-data
-    - file: modules/m2/image-data
-    - file: modules/m2/time-and-date-data
-    - file: modules/m2/privacy-and-anonymisation
+    # cleaning and wrangling
+    - file: modules/m2/6-DataConsistency
+    - file: modules/m2/7-ModifyingColumnsAndIndices
+    - file: modules/m2/8-TimeAndDateData
+    - file: modules/m2/9-FeatureEngineering
+    - file: modules/m2/10-TextData
+    - file: modules/m2/11-CategoricalData
+    - file: modules/m2/12-ImageData
+    - file: modules/m2/13-PrivacyAndAnonymisation
+    - file: modules/m2/14-LinkingDatasets
+    - file: modules/m2/15-MissingData
 
+    # hands on
     - file: modules/m2/hands-on
   - caption: "Module 3: Data Visualisation & Exploration"
     chapters:
