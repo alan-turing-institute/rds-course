@@ -6,3 +6,8 @@ overlap with 3/4?
     - make things categorical
     - when/why
 - Combining columns
+- (Normalising columns)
+
+```python
+
+```

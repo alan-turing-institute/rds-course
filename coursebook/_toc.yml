@@ -23,7 +23,7 @@ parts:
     - file: modules/m1/Lesson_1.3_EDI_for_data_science
     - file: modules/m1/Lesson_1.4_Collaboration_and_reproducibility
     - file: modules/m1/hands-on
-  - caption: "Module 2: Handling data and deployment"
+  - caption: "Module 2: Handling data"
     chapters:
     - file: modules/m2/overview
     # getting data
