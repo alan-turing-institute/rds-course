@@ -1,4 +1,4 @@
-# Missing Data (TODO)
+# 2.15 Missing Data (TODO)
 
 m3.5?
 
@@ -11,3 +11,7 @@ m3.5?
     - imputation
     - delete/ignore
 - Bias
+
+```python
+
+```

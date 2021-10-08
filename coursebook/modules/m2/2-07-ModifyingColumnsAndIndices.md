@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-#  Modifying Columns and Indices
+#  2.7 Modifying Columns and Indices
 
 
 ## Dropping Named Columns and Indices
@@ -22,7 +22,6 @@ We may wish to drop columns or indices entirely from a Pandas DataFrame.
 
 This may be where we've already done some analysis and know the labels of the column(s) to drop.
 We use the [`DataFrame.drop`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html) method:
-
 
 ```{code-cell} ipython3
 from IPython.display import display
@@ -54,7 +53,6 @@ print("drop rows 1 and 3")
 display(df.drop(index=[1,3]))
 ```
 
-
 ## Dropping Columns and Indices With Nulls
 
 It may be that we wish to drop columns according to whether they have missing data.
@@ -80,12 +78,11 @@ print("drop rows where any of  'col_a', 'col_b', 'col_c' are NA:")
 display(df.dropna(axis="index", how="any", subset=["col_a", "col_b", "col_c"]))
 ```
 
-
 ## Relabelling Columns and Indices
 
 Sometimes we'll be dealing with data that is inconveniently named.
 
-Pandas provides an easy way to rename columns:  
+Pandas provides an easy way to rename columns:
 
 ```{code-cell} ipython3
 df = pd.DataFrame({"long_column_name": [1, 2, 3], "short": [4, 5, 6]})

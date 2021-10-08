@@ -1,4 +1,4 @@
-# Legality and Ethics
+# 2.2 Legality and Ethics
 
 TODO
 

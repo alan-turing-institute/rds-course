@@ -10,11 +10,14 @@
    - Source files modified to only include a small number of years for teaching purposes, and to remove the header in the CSV.
 
 -  `Iris_original.csv`
-  - https://archive.ics.uci.edu/ml/datasets/iris
-  - Orignial source: R.A. Fisher, "The use of multiple measurements in taxonomic problems", Annual Eugenics, 7, Part II, 179-188 (1936)
-  - Data from Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.  
+   - https://archive.ics.uci.edu/ml/datasets/iris
+   - Orignial source: R.A. Fisher, "The use of multiple measurements in taxonomic problems", Annual Eugenics, 7, Part II, 179-188 (1936)
+   - Data from Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.  
   
 - `Iris.csv`
-  - Original Iris dataset with a few messy rows added using the `Iris_make_messy.py` script.
+   - Original Iris dataset with a few messy rows added using the `Iris_make_messy.py` script.
 
-
+- `Iris.jpg`
+   - [Ryan Hodnett, "Northern Blue Flag (Iris versicolor) at Cape St. Mary's Ecological Reserve in Newfoundlandand labrador, Canada". 10 August 2019](https://commons.wikimedia.org/wiki/File:Northern_Blue_Flag_(Iris_versicolor)_-_Cape_St._Mary%27s_Ecological_Reserve,_Newfoundland_2019-08-10_(01).jpg)
+   - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
+   - Modified to add petal and sepal labels.

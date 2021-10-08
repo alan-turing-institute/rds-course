@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# Image Data
+# 2.12 Image Data
 
 Earlier in this module, we introduced image data as a 2d or 3d tensor representing pixel values.
 
@@ -33,7 +33,7 @@ When resizing, interpolation methods determine pixel values when upsampling or d
  upsampling, the method determines the value for "new" pixels. 
  
 For example, using the OpenCV library:
- 
+
 ```{code-cell} ipython3
 import cv2
 from matplotlib import pyplot as plt
@@ -51,7 +51,8 @@ im_64_cubic = cv2.resize(im, (64,64), interpolation=cv2.INTER_CUBIC)
 (code to display hidden below)
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
+:tags: [hide-input]
+
 # display with matplotlib
 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
 ax[0].imshow(im, cmap='gray')
@@ -67,9 +68,7 @@ ax[2].set_title("64x64 method=cubic")
 ax[2].axis('off')
 
 plt.show()
-
 ```
-
 
 ## Normalisation
 
@@ -77,7 +76,7 @@ Image processing will often expect the data to be normalised.
 
 As we've seen that our image data is represented in a numeric 2d or 3d tensor, we can normalise by converting the image
  to have zero mean, and unit variance.
- 
+
 ```{code-cell} ipython3
 import cv2
 from matplotlib import pyplot as plt
@@ -97,10 +96,12 @@ print()
 # subtract means and divide by stds
 normed = (im - means) / stds
 ```
+
 (code to display hidden below)
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
+:tags: [hide-input]
+
 # continue from last
 # display with matplotlib
 # scale range to [0,255] for display 
@@ -121,7 +122,8 @@ plt.show()
 Some sanity checks (code and output) for normalisation hidden below.
 
 ```{code-cell} ipython3
-:tags: ["hide-cell"]
+:tags: [hide-cell]
+
 ### sanity checks
 # check new means and stds
 normed_means, normed_stds = cv2.meanStdDev(normed)
@@ -137,6 +139,7 @@ print(f"original top left: {im[0, 0, :]}")
 print(f"normed top left: {normed[0, 0, :]}")
 print()
 ```
+
  
 However, for many deep learning tasks, it is common to normalise image data by using precomputed dataset means and stds,
 rather than calculate these for each image. For example, using the ImageNet values:
@@ -160,7 +163,8 @@ print(imagenet_normed[0,0,:])
 ```
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
+:tags: [hide-input]
+
 # continue from last
 # display with matplotlib
 # scale range to [0,255] for display 

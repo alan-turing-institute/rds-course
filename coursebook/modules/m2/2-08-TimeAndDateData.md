@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# Time and Date Data
+# 2.8 Time and Date Data
 
 Dealing with time and date data can be tricky. String-formatted data is hard to compare and represent for modelling.
 
@@ -61,6 +61,7 @@ We can get a numeric, [POSIX timestamp](https://en.wikipedia.org/wiki/Unix_time)
 print(f"now timestamp: {now.timestamp()}")
 print(f"past timestamp: {past.timestamp()}")
 ```
+
 Note some UTC vs local time complications detailed [here](https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp).
 
 ## Converting From/To String
@@ -78,4 +79,3 @@ And to convert a date *to* string we can use `datetime.datetime.strftime(format)
 s = now.strftime("%d/%m/%y %H:%M")
 print(f"{s}. Type: {type(s)}")
 ```
-

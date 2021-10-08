@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# Data Sources and Formats
+# 2.4 Data Sources and Formats
 
 Once you've found a dataset for your research question there are many different formats it could be in - tabular data, databases, documents, images or many more. In this section we give an overview of common data types and how they can be loaded into Python.
 
@@ -39,7 +39,7 @@ As an example, we will use a dataset downloaded from The World Bank, giving the 
 
 To load a CSV file to a pandas data frame you can use the pandas [`read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) function:
 
-```{code-cell}
+```{code-cell} ipython3
 import pandas as pd
 
 df = pd.read_csv("data/urban_population.csv")
@@ -47,7 +47,7 @@ df = pd.read_csv("data/urban_population.csv")
 
 Let's look at the first 5 rows of the data:
 
-```{code-cell}
+```{code-cell} ipython3
 df.head()
 ```
 
@@ -55,7 +55,7 @@ Each row in the data corresponds to a country, with columns for the country's na
 
 The `.info()` method of a dataframe gives us a useful summary of the columns it contains:
 
-```{code-cell}
+```{code-cell} ipython3
 df.info()
 ```
 
@@ -68,7 +68,7 @@ We can also see that some columns have missing values (the data has 266 rows but
 
 The original file from the World Bank contains a few lines of metadata at the top:
 
-```{code-cell}
+```{code-cell} ipython3
 !head data/urban_population_header.csv
 ```
 
@@ -76,7 +76,7 @@ The column names start on line 4 of the file, and the previous lines give metada
 
 Using `read_csv` on this file (with default arguments) gives an error:
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [raises-exception]
 
 df = pd.read_csv("data/urban_population_header.csv")
@@ -84,7 +84,7 @@ df = pd.read_csv("data/urban_population_header.csv")
 
 This is because pandas is trying to use the first line in the file to define the columns present in our data. To avoid this we can use the `skiprows` argument to tell pandas our table starts on line 4 (skipping the first 3 lines):
 
-```{code-cell}
+```{code-cell} ipython3
 df = pd.read_csv("data/urban_population_header.csv", skiprows=3)
 df.head()
 ```
@@ -280,7 +280,7 @@ The most common format for data returned by an API is JSON (JavaScript Object No
 We can make the same API query in Python using the 
 [requests](https://docs.python-requests.org/en/master/user/quickstart/) library, as follows (you may need to install the requests library first, using `pip install requests` from a terminal):
 
-```{code-cell}
+```{code-cell} ipython3
 import requests
 
 url = "https://api.datamuse.com/words"
@@ -290,24 +290,28 @@ r = requests.get(url, params=params)
 
 Note that we can define the parameters in a dictionary, which is much easier to read than the raw format in the query string seen earlier. To check whether the request worked you can check the status code:
 
-```{code-cell}
+```{code-cell} ipython3
 print(r.status_code)
 ```
+
 Codes in the 200s usually indicate a successful query, for the meanings of other codes see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), or `print(r.content)` may give you more information about what happened.
 
 We can convert the result into a list of dictionaries as follows:
-```{code-cell}
+
+```{code-cell} ipython3
 result_list = r.json()
 print(result_list)
 ```
 
 And we can interact with that list in the usual Python way:
-```{code-cell}
+
+```{code-cell} ipython3
 print(result_list[0]["word"])
 ```
 
 You can also load an API query directly into a Pandas dataframe (though this may not work well if your query returns a more complex data structure - in that case it's best to start with the requests library):
-```{code-cell}
+
+```{code-cell} ipython3
 import pandas as pd
 
 df = pd.read_json("https://api.datamuse.com/words?rel_jjb=dog&max=5")
