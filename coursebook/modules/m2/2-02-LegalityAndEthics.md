@@ -2,7 +2,7 @@
 
 
 Before we dive into using any dataset, we need to consider who **owns** the data that we wish to use and what **restrictions** they or regulatory/governing bodies may have put in place.
-We must also consider the ethical implications of the dataset's use.
+We must also consider the ethical implications of the using the dataset.
 
 ## Legality
 
