@@ -64,15 +64,26 @@ Pandas has some other ways of denoting missing values but we won't detail them h
 
 ### Dealing with Missing Values
 
-TODO
+How do we deal with missing values? There are many approaches, we lay two simple and popular varieties below:
 
-- Dealing with missing values:
-    - imputation
-    - delete/ignore/drop
+#### Listwise Deletion
+
+Simply drop any rows that contain missing values. This is the simplest method of dealing with missing data!
+
+However, this can introduce bias. We should consider *why* the data is missing. 
+Listwise deletion will introduce bias when the remaining data can no longer be reflective of the original data.
+
+#### Single Imputation
+
+Apply a rule to replace a missing value. For example, replace with the mean or the value of the last observation (last observation carried forward - LOCF).
+
+Again, single imputation methods can easily introduce bias. Use with caution.
 
 ### Missingness Terminology
 
-Some terms to help us with the scenarios in which values are missing:
+Here, we introduce some terminology to help us with the scenarios in which values are missing.
+
+[Sterne et al. (2009)](https://www.bmj.com/content/338/bmj.b2393/) provide similar definitions with biomedical examples and discussion of the use of multiple imputation.
 
 #### Missing Completely At Random (MCAR)
 
@@ -82,21 +93,27 @@ If we were to drop rows with MCAR data, we would reduce our population size but 
 
 Unfortunately, missing values are rarely MCAR.
 
+Note that whilst we can falsify the hypothesis that data are MCAR, we cannot confirm it.
+
 #### Missing At Random (MAR)
 
-TODO: better example
-TODO: dropping/imputation
-
 Slightly confusingly named, in MAR data missingness is related to observed data but not the missing values themselves,
-e.g. a person does not attend an academic exam because they are too unwell to travel and we also have their health records.
+e.g. a person does not attend an academic exam because they are too unwell to travel **and** we also have their health records.
 
+MAR data allows the prediction of missing values based on complete rows. However, as ever, imputation should be approached with caution!
+
+Classification of missing data as MAR should be done with care and will rely on domain knowledge.
 
 #### Missing Not At Random (MNAR)
 
 The missingness is related to what is missing, e.g. a person does not attend a health assessment because they are too unwell to travel.
 
-TODO: dropping/imputation
+When data is MNAR no methods exist to handle this missingness appropriately (Sterne et al. 2009).. 
+
+**We cannot test whether data is MAR vs MNAR as the data required is missing**.
 
 ## References
 
 Mimi Onuoha. (2021). On Missing Data Sets. https://github.com/MimiOnuoha/missing-datasets (Original work published 2016)
+
+Sterne, J. A., White, I. R., Carlin, J. B., Spratt, M., Royston, P., Kenward, M. G., ... & Carpenter, J. R. (2009). Multiple imputation for missing data in epidemiological and clinical research: potential and pitfalls. Bmj, 338.
