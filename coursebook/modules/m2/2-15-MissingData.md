@@ -24,14 +24,15 @@ However, we may also regard missing datasets or data with insufficient disaggreg
 — Mimi Onuoha (2021)
 
 Datasets may not exist, where we might expect them to, for a variety of reasons; these may be political or cultural
- and are can be expressive of biases, systematic failures, and/or oppression.
+ and can be expressive of biases, systematic failures, and/or oppression.
 
-We may also find that, where datasets do exist, that the data may not be sufficiently disaggregated to allow for
+We may also find that, where datasets *do* exist, that the data may not be sufficiently disaggregated to allow for
  analysis that can make issues of inequality apparent. Data may not be broken down by categories such as gender, age, or race, 
  preventing the exploration of the impact of these factors on other variables.
 
 ```{admonition} Discussion
 What considerations would we want to make around publishing disaggregated data for gender, age, and race?
+How does this disaggregation fit with [previous discussion](./2-02-LegalityAndEthics.html#should-a-variable-be-used) around use of variables such as race in data analysis.
 ``` 
 
 ## Missing Data Values
@@ -49,9 +50,13 @@ What answer would you expect from a participant who had not had a flu jab?
 Pandas uses `NaN` (Not a Number) internally to denote missing data, for reasons of computational speed and convenience (beyond our scope!).
 However, Python's `None` is also considered a "missing" value and we can check for this with `isna()` or `notna()` methods.
 
+```{margin} .isnull() vs .isna()
+These do the same thing!
+```
+
 ```{code-cell} ipython3
 import pandas as pd
-pd.Series([None,"foo","bar"]).isna()
+pd.Series([None,"foo","bar"]).isnull()
 ```
 
 Pandas has some other ways of denoting missing values but we won't detail them here. A more complete guide to missing data in Pandas can be found in the [docs](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html).

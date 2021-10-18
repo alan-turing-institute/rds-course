@@ -1,8 +1,8 @@
-# Legality and Ethics
+# 2.2 Legality and Ethics
 
 
 Before we dive into using any dataset, we need to consider who **owns** the data that we wish to use and what **restrictions** they or regulatory/governing bodies may have put in place.
-We must also consider the ethical implications of the using the dataset.
+We must also consider the ethical implications of using the dataset.
 
 ## Legality
 
@@ -169,13 +169,15 @@ Overarching systems, as well as programmers themselves, can contribute to this c
 
 Questions of ethics don't necessary stop at the dataset level. Once we have access to a dataset we can examine the variables that are recorded in the data.
 
-Use of machine learning techniques, in domains such as criminal justice, insurance, and financial credit, raise concerns about fairness.
-These techniques often rely on historic data, containing historic biases against demographic groups, and can perpetuate these biases into their predictions.
+Use of machine learning techniques in domains such as criminal justice, insurance, and financial credit raise concerns about fairness.
+These techniques often rely on historic data, containing historic biases against demographic groups, and can perpetuate these biases into their predictions (bias in, bias out!).
 Clearly, decisions made based on these predictions may be unfair. We may wish to address this by excluding demographic variables from the training data.
 
-However, concern isn't  limited to machine learning.
+Our concern here isn't limited to machine learning, however.
 In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data anlaysis. 
-Yudell et al. (2020) argue that, in COVID-19 analysis, reported disparities in cases across racial demographics can give rise to false beliefs that the disparities are caused by innate racial differences.  
+Yudell et al. (2020) argue that, in COVID-19 analysis, reported disparities in cases across racial demographics can give rise to false beliefs that the disparities are caused by innate racial differences.
+
+We'll revisit this from another angle in [2.15 Data Missingness](./2-15-MissingData.md).
 
 ### Data Proxies
 
@@ -185,9 +187,9 @@ We should also be aware that a variable `Y` may act as proxies for another varia
 > The direct information about race is not given to the system, but zip code is strongly correlated with race since many neighborhoods are still segregated.
 > By using zip code, the system would be indirectly making decisions based on race. In this case, zip code is a proxy for race.
 
-[Thwarting bias in AI systems](https://engineering.cmu.edu/news-events/news/2018/12/11-datta-proxies.html)
+—  *[Thwarting bias in AI systems](https://engineering.cmu.edu/news-events/news/2018/12/11-datta-proxies.html)*
 
-TODO expand?
+We can try to identify proxy variables by looking at data correlations and asking domain experts.
 
 ### Algorithmic Fairness: A Tradeoff
  
@@ -198,9 +200,7 @@ Above, we have discussed excluding variables from the data.
 When we have a modeling task, we may find that our reported accuracy is lower without our excluded variables. This represents a tradeoff.
 We should attempt to discern the implications of the change in accuracy and potentially consider these against measures of fairness.
 
-TODO: measures of fairness?
-
-TODO: how can we tell if something is fair if we've dropped the data
+But what is "fairness"? Any answer is certainly beyond the scope of this course! However, a useful collection of (loose) definitions for various "fairness types" can be found in [Google's What-If Tool documentation](https://pair-code.github.io/what-if-tool/ai-fairness.html).
 
 ## References
 
