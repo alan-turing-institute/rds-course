@@ -93,7 +93,7 @@ If we were to drop rows with MCAR data, we would reduce our population size but 
 
 Unfortunately, missing values are rarely MCAR.
 
-Note that whilst we can falsify the hypothesis that data are MCAR, we cannot confirm it.
+Note that, whilst we can falsify the hypothesis that data are MCAR, we cannot confirm it.
 
 #### Missing At Random (MAR)
 
