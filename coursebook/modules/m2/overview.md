@@ -3,21 +3,14 @@
 TODO: write overview for module 2
 
 
-note: some content under review with legal:
-- LegalityAndEthics
-- PrivacyAndAnonymisation
-
 inline TODOs:
 - `grep "TODO" coursebook/modules/m2/* --exclude=hands-on.ipynb`
 
 outstanding sections:
-- FeatureEngineering
-- CategoricalData (feature engineering?)
-- LinkingDatasets
-- MissingData
+- FeatureEngineering 
+- CategoricalData (part complete)
 
 outstanding subsections:
-- should data be used? (in LegalityAndEthics)
 - sampling bias (not a section in own right?)
     - e.g. collection skewed towards/against single demographic
 - badly designed capture/missed variables (e.g. missing q in survey, leading q)
@@ -25,9 +18,6 @@ outstanding subsections:
 
 outstanding for hands on:
 - Extra taught to cover
-    - `DataFrame.info`, `DataFrame.describe`
-    - Data missingness ( Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR).)
-    - `DataFrame.melt` (?)
     - `DataFrame.groupby`
     - `Series.str.replace`
 - Hands On
