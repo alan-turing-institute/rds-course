@@ -1,16 +1,31 @@
-# 2.9 Feature Engineering (TODO)
+# 2.9 Feature Engineering
+
+- what
+- why
+
+```{note}
+This section focuses on numerical data, but we discuss approaches for other types in later sections. 
+```
 
 
 
 ```python
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+```
 
+```python
 df = pd.read_csv("data/ANSUR_II_FEMALE_Public.csv")
 df.info()
 df.head()
 ```
 
-## Converting Units
+## Scaling & Transforming Features
+
+- when/why
+
+### Converting Units
 
 Despite the name, the `weightkg` column is in units of 100 grams, or tenths of a kilogram:
 
@@ -37,6 +52,82 @@ print("Median height:", df["stature"].median(), "m")
 These look more familiar (at least if you're used to using the metric system!) We can also see that women in the army are lighter and taller on average compared to the general population ([73.1 kg median weight and 1.613 metres median height](https://www.cdc.gov/nchs/data/series/sr_03/sr03-046-508.pdf)), so we'd need to be careful not to generalise results from this data to the USA as a whole.
 
 
+### Normalization
+
+- min-max, others ...
+
+```python
+def get_stats(series):
+    """Get a formatted message with the minimum, maximum, mean, and
+    standard deviation of a pandas series"""
+    return "min = {:.2f}, max = {:.2f}, mean = {:.2f}, std = {:.2f}".format(
+        series.min(),
+        series.max(),
+        series.mean(),
+        series.std(),
+    )
+
+
+columns = ["anklecircumference", "axillaheight"]
+
+print("Original:")
+for col in columns:
+    print(col, ":", get_stats(df[col]))
+
+```
+
+```python
+def norm_min_max(series):
+    """Min-max scale a pandas series"""
+    return (series - series.min()) / (series.max() - series.min())
+
+
+print("Min-max scaled:")
+for col in columns:
+    df[col] = norm_min_max(df[col])
+    print(col, ":", get_stats(df[col]))
+
+```
+
+### Standardization
+
+- mean 0 std 1,
+
+```python
+def standardize(series):
+    """Standardize a pandas series to have zero mean and unit
+    standard deviation"""
+    return (series - series.mean()) / series.std()
+
+
+columns = ["footlength", "earlength"]
+
+print("Original:")
+for col in columns:
+    print(col, ":", get_stats(df[col]))
+
+print("\nStandardized:")
+for col in columns:
+    df[col] = standardize(df[col])
+    print(col, ":", get_stats(df[col]))
+
+```
+
+### Transformation
+
+- when/why
+- types
+
+```python
+df["Age"].plot.hist(bins=20)
+plt.title("Age: Original")
+```
+
+```python
+plt.hist(np.log(df["Age"]), bins=20)
+plt.title("Age: Log Transformed")
+```
+
 ## Creating New Features
 
 
@@ -55,50 +146,43 @@ Link to higher order (polynomial) features
 - when/why (including privacy/anonymisation)
 
 ```python
-
+df["span"].plot.hist(bins=20)
 ```
 
-## Normalization
-
-- when/why
-- min-max, mean 0 std 1, ...
+Pandas provides a binning function [`pd.cut`](https://pandas.pydata.org/docs/reference/api/pandas.cut.html), which by default segments the data into a number of of equal-width bins:
 
 ```python
-
+span_bins = pd.cut(df["span"], 10)
+span_bins
 ```
 
-## Transformation
+This returns a Pandas series with a "category" data type (see [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html) for more information). Each value in the data is assigned to the bin (or category) whose range encompasses it, with each bin labelled as `(minimum value, maximum value]`.
 
-- when/why
-- types
-- light touch only
+Rather than the verbose bin label, you can also extract a bin index (ranked from smallest to largest) using the `.cat.codes` attribute:
 
 ```python
-
+span_bins.cat.codes
 ```
 
-```python
-df["bmi"].plot.hist(bins=20)
-```
+We talk more about categorical data in Section 2.11. Pandas also provides an alternative binning function, [`pd.qcut`](https://pandas.pydata.org/docs/reference/api/pandas.qcut.html), which creates bins based on quantiles. In this case each bin contains approximately the same proportion of the data (but the bins have differrent widths):
 
 ```python
-
-df["Age"].plot.hist(bins=20)
-```
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-plt.hist(np.log(df["Age"]), bins=20)
-```
-
-```python
-df.columns
+span_qbins = pd.qcut(df["span"], 4)
+span_qbins.value_counts(sort=False)
 ```
 
 ## Feature Selection and Dimensionality Reduction
 
 ```python
 
+```
+
+## Other
+
+- correlated features
+- outliers??
+- pipelines
+
+```python
+[print(c) for c in df.columns];
 ```
