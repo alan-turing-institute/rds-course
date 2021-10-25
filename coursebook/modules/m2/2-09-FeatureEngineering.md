@@ -4,10 +4,10 @@
 - why
 
 ```{note}
-This section focuses on numerical data, but we discuss approaches for other types in later sections. 
+This section focuses on numerical data, we discuss approaches for other types in later sections. 
 ```
 
-
+The Anthropometric Survey of US Army Personnel ([ANSUR 2](https://www.openlab.psu.edu/ansur2/)) dataset.
 
 ```python
 import pandas as pd
@@ -20,6 +20,11 @@ df = pd.read_csv("data/ANSUR_II_FEMALE_Public.csv")
 df.info()
 df.head()
 ```
+
+```{note}
+It's also an interesting example of data documentation, with over 250 pages of notes on how the measurements were taken in its [Measurer’s Handbook](http://tools.openlab.psu.edu/publicData/ANSURII-TR11-017.pdf), for example.
+```
+
 
 ## Scaling & Transforming Features
 
@@ -124,20 +129,32 @@ plt.title("Age: Original")
 ```
 
 ```python
-plt.hist(np.log(df["Age"]), bins=20)
+log_age = np.log(df["Age"])
+
+plt.hist(log_age, bins=20)
 plt.title("Age: Log Transformed")
 ```
 
 ## Creating New Features
 
+Another common task is to use domain knowledge to create new features that may be of interest for an analysis, or could add predictive power to a model. For this dataset it may be useful to compute the body mass index of the army personnel, for example, the formula for which is:
 
+$$
+\textrm{BMI} = \frac{\textrm{weight}}{\textrm{height}^2}
+$$
+
+with weight in kilograms and height in metres. It's quick to do this with Pandas:
 
 ```python
 df["bmi"] = df["weightkg"] / df["stature"]**2
 df["bmi"].describe()
 ```
 
-Link to higher order (polynomial) features
+As well as curating domain-specific features, another option is to generate many possible combinations of the original columns, and then perhaps select a subset of promising ones after further analysis (see feature selection below). The [`PolynomialFeatures`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures) class in the scikit-learn library generates features that are polynomial combinations of the original features (`weight`, `height`, `weight^2`, `height^2`, `weight * height`, ...), for example.
+
+Which columns and functions to use and combine into new features is problem-specific and there's no one-size-fits-all solution.
+
+
 
 
 ## Binning
@@ -173,9 +190,13 @@ span_qbins.value_counts(sort=False)
 
 ## Feature Selection and Dimensionality Reduction
 
-```python
+It's beyond the scope of what we cover here, but another important topic is the "curse of dimensionality", or what to do when we have many features (columns) relative to the number of samples (rows) in the dataset. [This blog post](http://blog.dominodatalab.com/the-curse-of-dimensionality) summarises how this can cause problems in some models.
 
-```
+- Feature selection: 
+- Dimensionality reduction: https://en.wikipedia.org/wiki/Principal_component_analysis https://scikit-learn.org/stable/modules/decomposition.html#pca
+- Regularization: https://programmathically.com/regularization-in-machine-learning/
+
+
 
 ## Other
 

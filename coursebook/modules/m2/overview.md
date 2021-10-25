@@ -1,6 +1,26 @@
-# Overview
+# Module 2 - Handling data (WORK IN PROGRESS!)
 
-TODO: write overview for module 2
+TODO: write overview for module 2. Broadly speaking:
+
+- Part 1: Getting and loading data
+   - Open data and data sources
+   - Licensing, ethics, security.
+   - Pandas intro/primer
+   - Data formats (CSV, database, API, image, ...) - how to load them into Python with Pandas (mostly).
+
+- Part 2: Exploring and wrangling data
+    - Loading a dataset for  the first time (sanity checks, data parsing issues, ...)
+    - Manipulating different types of data (text, dates, categorical, images)
+    - Feature engineering
+    - Missing data
+    - Privacy and anonymisation
+
+By the end of this module participants should be able to:
+- Load and manipulate tabular data with Pandas.
+- Have a high-level understanding of approaches for handling different types of data and preparing them for inclusion in a model or analysis.
+- Awareness of the benefits of open data and issues and challenges related to data ethics, security, sensitivity and missing data.
+
+---
 
 
 inline TODOs:
@@ -33,7 +53,7 @@ overlaps?:
 Extra thoughts to check we cover:
 - raw data is not raw
 
-For reference, pandas functions/syntax used in m3/4 I'm not sure we cover in m2 (don't suggest we attempt to teach many of these though, perhaps ones in bold):
+For reference, pandas functions/syntax used in m3/4 I'm not sure we cover in m2 (suggest we ones in bold as those to introduce in M2):
 - `df.filter(regex=...)`
 - **`df.sort_values(by=column)`**
 - **`df["date_column"].dt.xyz`**
