@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# Pandas intro
+# 2.3 Pandas intro
 
 The Pandas library is a core part of the python data science ecosystem. It provides easy-to-use data structures and data analysis tools.
 
@@ -44,8 +44,6 @@ print(df)
 Once we have data in these Pandas structures, we can perform some useful operations such as:
 - `info()` - (`DataFrame` only) - prints a concice summary of a `DataFrame`
 - `value_counts()` - returns a `Series` containing counts of unique values in the structure
-
-+++
 
 ```{code-cell} ipython3
 s = pd.Series(np.random.randint(0,2,10))

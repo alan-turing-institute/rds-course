@@ -8,12 +8,12 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
 
-# Text data
+# 2.10 Text data
 
 We'll often want to manipulate text data (strings) in Python.
 There are many handy libraries for helping us do this, some of which allow some pretty complicated operations.
@@ -116,7 +116,6 @@ txt = "The rain in Spain falls mainly on the plains. So they say, anyway."
 # find all words starting with upper case S or lower case t
 print(re.findall(r"\b[St]\w+", txt))
 ```
-
 
 ## NLP preprocessing
 

@@ -1,4 +1,6 @@
-# Where to find data?
+TODO: Rework to be more aligned with the realities of _research_ projects and datasets (most research projects don't use data from kaggle etc.) and give more context on why data may not be open.
+
+# 2.1 Where to find data?
 
 Once you've defined your research question you'll need to find a dataset that allows you to answer it. In almost all cases, it is preferable to use an already available, "open" dataset, if one is available.
 
@@ -29,7 +31,7 @@ Provide datasets with data science applications in mind, so are more likely to b
   - [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
   - [Google research](https://research.google/tools/datasets/)
   - [scikit-learn](https://scikit-learn.org/stable/datasets/toy_dataset.html), [Tensorflow](https://www.tensorflow.org/datasets), [PyTorch](https://pytorch.org/vision/stable/datasets.html)
-  
+
 
 ### Countries/Governments
 
