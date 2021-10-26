@@ -33,6 +33,7 @@ outstanding subsections:
 - sampling bias (not a section in own right?)
     - e.g. collection skewed towards/against single demographic
 - badly designed capture/missed variables (e.g. missing q in survey, leading q)
+- data storage (perhaps incorporate into data access subsection)?
 
 
 outstanding for hands on:
