@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlas of Visualisations &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Storytelling with data visualisation" href="3.4-StoryTelling.html" />
+    <link rel="prev" title="Rules of the data visualisation game" href="3.2-RulesOfTheGame.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.2_Data_Science_project_lifecycle.html">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4-StoryTelling.html">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5-DataVisForExploration.html">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   4.2 Inside a Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m3/3.3-Atlas0fVisualisations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m3/3.3-Atlas0fVisualisations.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m3/3.3-Atlas0fVisualisations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-amounts">
+   Visualising amounts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bar-plots">
+     Bar plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples">
+       <strong>
+        Examples
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dot-plots">
+     Dot plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heatmaps">
+     Heatmaps
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Example:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributions">
+   Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histograms">
+     Histograms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kernel-density-figures">
+     Kernel density figures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#box-or-violin-plots">
+     Box or violin plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Examples
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-line-plots">
+     Ridge line plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proportions">
+   Proportions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouped-bars">
+     Grouped bars
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#staked-bars">
+     Staked bars
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pie-charts">
+     Pie charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relationships-between-two-or-more-variables">
+   Relationships between two or more variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatter-plots">
+     Scatter plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlograms">
+     Correlograms
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slopegraphs">
+     Slopegraphs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Examples
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainty">
+   Uncertainty
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-uncertainty-of-point-estimates">
+     Visualizing the uncertainty of point estimates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-uncertainty-of-curve-fits">
+     Visualizing the uncertainty of curve fits
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="atlas-of-visualisations">
+<h1>Atlas of Visualisations<a class="headerlink" href="#atlas-of-visualisations" title="Permalink to this headline">¶</a></h1>
+<p>This section is a quick overview of various types of plots and charts typically used in data visualisation. We will provide guidance of which types of plots are the best for different types of data and what to be careful of when using a given chart.</p>
+<p>We emphasise that figures are a graphical layer on top of your data. <strong>The nature of the figure should be dictated by the nature of the data</strong>.</p>
+<p>Though different types of data lend themselves to different styles of charts, the figure components discussed in <em>Rules of the Data Vizualisation Game</em> apply to all figures. All figures should be appropriately scaled, coloured, and labelled.</p>
+<p>The content discussed in this section is largely based on Chapters 5 to 16 from the book <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#a-case-for-pie-charts">Fundamentals of data visualisation</a> by Claus Wilke. Due to restrictions of time this is a high level overview of some of those ideas, therefore we highly encourage you to look at those chapters to get a deeper understanding of best practices for data visualisation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="visualising-amounts">
+<h2>Visualising amounts<a class="headerlink" href="#visualising-amounts" title="Permalink to this headline">¶</a></h2>
+<p>When visualising amounts we interested in the magnitude of a group of numbers, e.g: we have a set of categories and a quantitative value for each category.</p>
+<div class="section" id="bar-plots">
+<h3>Bar plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">¶</a></h3>
+<p>Bars are a good option when the dataset we want to visualise contains <strong>numerical values for a set of categories</strong>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Points to consider when using <strong>bar plots</strong> in a figure:</p>
+<ul class="simple">
+<li><p>The <strong>bar length</strong> is proportional to the amount shown, therefore bars need to start at zero.</p></li>
+<li><p><strong>Labels</strong> identifying each bar can take up a lot of horizontal space. In this case it is better to use horizontal bars.</p></li>
+<li><p>The <strong>order</strong> in which the bars are arranged is important. If the bars represent unordered categories, order them by ascending or descending data values.</p></li>
+<li><p>Bar plots are not good for very large datasets. If the <strong>number of categories</strong> is very large the resulting figure can become too busy.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="examples">
+<h4><strong>Examples</strong><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<p>We can use the US Covid-19 vaccination data from the previous section. Bar plots are excellent candidates in this case given that we are visualising amounts (share of population of fully vaccinated people)
+for different categories (US entity or state).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the data from here https://ourworldindata.org/us-states-vaccinations</span>
+<span class="n">df_vaccination</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/us-covid-share-fully-vaccinated.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
+
+<span class="c1"># look at max day avalaible for cumulative vaccination data</span>
+<span class="n">max_day</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_vaccination_max</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">max_day</span><span class="p">]</span>
+
+<span class="c1"># Example of a better plot. </span>
+<span class="n">df_vaccination_sorted</span> <span class="o">=</span> <span class="n">df_vaccination_max</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;people_fully_vaccinated_per_hundred&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Example of an non useful plot. </span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="c1"># Load the dataset</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span><span class="n">errwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BAD: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_sorted</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">,</span><span class="n">errwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.3-Atlas0fVisualisations_3_0.png" src="../../_images/3.3-Atlas0fVisualisations_3_0.png" />
+</div>
+</div>
+<p>In the figure on the left the bars are ordered alphabetically, which does not serve a meaningful purpose for the message we want to communicate,
+and it makes the resulting figure much less intuitive than the one in the right, where it is very easy to quickly learn which US states or entities are more or less effective at vaccinating their population.</p>
+</div>
+</div>
+<div class="section" id="dot-plots">
+<h3>Dot plots<a class="headerlink" href="#dot-plots" title="Permalink to this headline">¶</a></h3>
+<p>Dot plots are an alternative to bar charts and have the advantage that they do not have to start at zero. Because of this,
+dot plots can be useful when you want to visualise <strong>numerical values for a set of categories with small differences between categories</strong>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Similarly to bar plots, <strong>dot plots</strong> should be <strong>ordered</strong> by data values (for un-ordered categories) and we should beware of visualising datasets with a very <strong>large number of categories</strong>.</p>
+</div>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>We can use the same dataset as above for this example. The benefit of dot plots is that, by not having to start at zero, we can better grasp the differences between vaccination rates in different entities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of an non useful plot. </span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="c1"># Load the dataset</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BAD: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_sorted</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.3-Atlas0fVisualisations_6_0.png" src="../../_images/3.3-Atlas0fVisualisations_6_0.png" />
+</div>
+</div>
+<p>Similarly to bar plots, vertical columns ordered by the amount size provide a better figure.</p>
+</div>
+</div>
+<div class="section" id="heatmaps">
+<h3>Heatmaps<a class="headerlink" href="#heatmaps" title="Permalink to this headline">¶</a></h3>
+<p>You can use heatmaps when interested in highlighting a trend in a dasaset with <strong>numerical values for a set of categories and for different groups</strong>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some points to beware of when using <strong>heatmaps</strong>:</p>
+<ul class="simple">
+<li><p>Similarly to bar plots, the <strong>order of the categorical data</strong> values matters.</p></li>
+<li><p>Heatmaps can be easy to misread, for example the <strong>color scale can create a misperception of the magnitude of the data.</strong> The two most common ranges of colors to use in heatmaps are sequential and diverging scales.</p></li>
+<li><p>Heatmaps should primarily be used to <strong>illustrate patterns</strong>, not to replace tables.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>Example:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>For this example we can use the US vaccination data time series (in the examples above we only selected the cumulative value in the last available day). A heatmap will help us see the trends on increase of vaccination rates for different states.
+Again, in here we are sorting the entities by the one that has the highest vaccination rate at the last day of the time series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+
+<span class="c1">#creating a pivot table for easy heatmap visualisation</span>
+<span class="n">df_vax</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_vaccination</span><span class="p">,</span>
+                    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;people_fully_vaccinated_per_hundred&#39;</span><span class="p">,</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span>
+                    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Entity&#39;</span><span class="p">)</span>
+
+<span class="c1"># ordering columns by percentage of vaccination</span>
+<span class="n">df_vax</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">CategoricalIndex</span><span class="p">(</span><span class="n">df_vax</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span> <span class="n">df_vaccination_sorted</span><span class="o">.</span><span class="n">Entity</span><span class="p">)</span>
+<span class="n">df_vax</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BAD: Share of the population fully vaccinated against COVID-19 through 2021&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_vax</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19 through 2021&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_vax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(1159.5909090909088, 0.5, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_9_1.png" src="../../_images/3.3-Atlas0fVisualisations_9_1.png" />
+</div>
+</div>
+<p>In the figure in the left we are using a rainbow color scale, which can be very popular in figures of scientific papers but it can be misleading. One of its problems is that people can see the brightest color as a peak. Also, a rainbow scale can create a misperception of the magnitude of the data. Abrupt changes between different colours (green to yellow or blue to green) can make the values seem distant, while they are not neceseraly far from each other.</p>
+<p>In the figure on the right we are using a diverging scale that shows color progression in two directions from blue to red. This scale has less hues and intensities than the rainbow color scale and is also a more friendly scale for colour-blind people. For more tips about colours and heatmaps, look at this <a class="reference external" href="https://blog.bioturing.com/2018/09/24/heatmap-color-scale/">blog post</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="distributions">
+<h2>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<p>We use these figures to understand how one or many particular variables are distributed in a dataset.</p>
+<div class="section" id="histograms">
+<h3>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
+<p>Histograms are used to show <strong>frequencies of occurrences of a continuous variable</strong>. Histograms are generated by <strong>binning the data</strong> (grouping the data values into a number of ranges), so their visual appearance depends on the choice of the bin width.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When working with histograms it is best practice to always <strong>explore multiple bin widths</strong>.</p>
+</div>
+</div>
+<p><strong>Examples</strong></p>
+<p>For the following examples we will be using the Covid-19 data from Our World in Data that we used in the previous section. Let’s now look at distributions of the life expectancy from that dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To illustrate these we will use data on Covid-19 hosted by our world in data. </span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="c1"># remove data with null values</span>
+<span class="n">df_countries</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">())]</span>
+
+<span class="c1"># only keep columns with life expectancy and location, removing the duplicates </span>
+<span class="c1">#(there can be several entry per country given that the data is a time series)</span>
+<span class="n">df_life_exp</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">&quot;loc|life *&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="c1"># plot histogram for different bins</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">bin_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bin_years</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_life_exp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bin Size: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.3-Atlas0fVisualisations_12_0.png" src="../../_images/3.3-Atlas0fVisualisations_12_0.png" />
+</div>
+</div>
+<p>In this case, the 1 year bin size bin can be too small for the distribution, the histogram seems peaky and has ranges without data. On the other hand, a histogram with a bin size of 10 years loses some of the information on the shape of the data.</p>
+</div>
+<div class="section" id="kernel-density-figures">
+<h3>Kernel density figures<a class="headerlink" href="#kernel-density-figures" title="Permalink to this headline">¶</a></h3>
+<p>Kernel density estimation (KDE) is a way to estimate the probability density function of a random variable. We can use it to create <strong>density curves of a continuous variable</strong>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Kernel density plots are highly sensitive to a banwidth parameter used to estimate the density function. It behaves similarly to the bin width in histograms and can affect the appaearance of the figure. As a result the plot may misrepresent the data leading to incorrect conclusions. Furthermore, KDE can produce the appearance of data where none exists (in particular in the tails of the distribution), again leading to incorrect conclusions.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Let’s use the same life expectancy variable from our dataset to create a density curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">band_width</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">band_width</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_life_exp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ban width: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.3-Atlas0fVisualisations_15_0.png" src="../../_images/3.3-Atlas0fVisualisations_15_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="box-or-violin-plots">
+<h3>Box or violin plots<a class="headerlink" href="#box-or-violin-plots" title="Permalink to this headline">¶</a></h3>
+<p>We can use Box or violin plots to <strong>visualise and compare several groups of distributions</strong>. Box plots show summary statistics such as mean/median and inter-quartile range whereas violin plots show the range and shape distribution of the data.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Violin plots use kernel density estimates and need to have enough data points in each group to justify showing the point densities as smooth lines.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Let’s compare the life expectancy distribution for different continents. We could do this by superposing the distributions in one canvas or by using box or violin plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">])</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1">#for continent in continents:</span>
+    
+<span class="n">df_life_exp</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">&quot;continent|life *&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_life_exp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Continent&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Life Expectancy&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Continent&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;life_expectancy&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_life_exp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Continent&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;life_expectancy&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_life_exp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Continent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Continent&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_17_1.png" src="../../_images/3.3-Atlas0fVisualisations_17_1.png" />
+</div>
+</div>
+<p>Each figure in this example gives us some different view from the data. The density curves are great when comparing a few distributions
+but in this figure they feel busy. The box plot is a better tool to compare the summary statistics of these distributions, however we are missing information compared to the shape
+that the violin plot is providing.</p>
+</div>
+</div>
+<div class="section" id="ridge-line-plots">
+<h3>Ridge line plots<a class="headerlink" href="#ridge-line-plots" title="Permalink to this headline">¶</a></h3>
+<p>Ridge line plots can help us visualise and <strong>compare several distributions at the same time in a horizontal axis</strong> without overwhelming the figure by superposing it in the same canvas (as shown in the figure above). Ridgeline plots are very useful if we want to <strong>show trends in distributions over time</strong>.</p>
+<div class="section" id="id4">
+<h4>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Let’s compare the shape life expectancy distribution for different continents using ridge line plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the FacetGrid object</span>
+<span class="n">pal</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-</span><span class="mf">.25</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_life_exp</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">pal</span><span class="p">)</span>
+
+<span class="c1"># Draw the densities in a few steps</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="s2">&quot;life_expectancy&quot;</span><span class="p">,</span>
+      <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+      <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="s2">&quot;life_expectancy&quot;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="c1"># Define and use a simple function to label the plot in axes coordinates</span>
+<span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;life_expectancy&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set the subplots to overlap</span>
+<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=-</span><span class="mf">.25</span><span class="p">)</span>
+
+<span class="c1"># Remove axes details that don&#39;t play well with overlap</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">g</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f2caebe1f50&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_20_1.png" src="../../_images/3.3-Atlas0fVisualisations_20_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="proportions">
+<h2>Proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">¶</a></h2>
+<p>Figures that show how some group, entity or amount breaks down into individual pieces that each represent a proportion of a whole.</p>
+<div class="section" id="grouped-bars">
+<h3>Grouped bars<a class="headerlink" href="#grouped-bars" title="Permalink to this headline">¶</a></h3>
+<p>We can use grouped bar charts when our dataset has <strong>numerical values for a set of categories for different groups</strong>. When using grouped bars beware that they can contain a lot of information at once and be confusing, so there might be a better way of visualising the message you want to transmit.</p>
+</div>
+<div class="section" id="staked-bars">
+<h3>Staked bars<a class="headerlink" href="#staked-bars" title="Permalink to this headline">¶</a></h3>
+<p>We can use grouped bar charts when our dataset has <strong>numerical values for a set of categories for different groups when the sum of the amounts represented by the individual groups is important for the message.</strong>. The can be useful when the point is to show that a value is the sum of other values, but you’re only interested in comparing the totals.</p>
+<p>When using grouped bars beware they get harder to read the more segments each bar has and that they do not allow for an easy visual comparison of relative proportions.</p>
+</div>
+<div class="section" id="pie-charts">
+<h3>Pie charts<a class="headerlink" href="#pie-charts" title="Permalink to this headline">¶</a></h3>
+<p>In general, pie charts can work well when we want to highlight simple fractions between a small number of categories. They also work well when we have very small datasets.</p>
+<p>A summary of the various pros and cons of pie charts, stacked bars, and side-by-side bars extracted from the book <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#a-case-for-pie-charts">Fundamentals of data visualisation</a> is shown in the next figure.</p>
+<td> <img src="figures/proportions_table.png" alt="Pro-Cons propotions" style="width: 550px;"/> </td>
+</div>
+</div>
+<div class="section" id="relationships-between-two-or-more-variables">
+<h2>Relationships between two or more variables<a class="headerlink" href="#relationships-between-two-or-more-variables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scatter-plots">
+<h3>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h3>
+<p>Scatter plots are a common visualisation tool and allow us to explore relationships between two quantitative variables.</p>
+<div class="section" id="id5">
+<h4>Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The relationwhip between life expectancy of a given country and its human development index has a very clear association that is visible in the scatter plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># only keep columns with life expectancy and human development index, removing the duplicates </span>
+<span class="c1">#(there can be several entries per country given that the data is a time series)</span>
+<span class="n">df_life_exp_hdi</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">&quot;human_development_index|life *&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_life_exp_hdi</span><span class="p">[</span><span class="s2">&quot;human_development_index&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_life_exp_hdi</span><span class="p">[</span><span class="s2">&quot;life_expectancy&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relationship between Life expentancy in a country and human development index&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Human development index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Human development index&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_27_1.png" src="../../_images/3.3-Atlas0fVisualisations_27_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlograms">
+<h3>Correlograms<a class="headerlink" href="#correlograms" title="Permalink to this headline">¶</a></h3>
+<p>When we want to explore the associations among several quantitative variables, using only scatter plots can become unmanageable. In this case, it is more useful to visualise the correlation between pairs of variables rather than the raw data. This is where correlograms come to use, they are the visualizations of correlation coefficients of a number of variables.</p>
+<div class="section" id="id6">
+<h4>Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Lets explore the relationship between some of the variables available in the Covid-19 dataset from Our World in Data. For example the relationships between a given country population density, gdp per capita, extreme poverty, life expectancy, etc .</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_correlations</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;population_density&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="s1">&#39;extreme_poverty&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;cardiovasc_death_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;diabetes_prevalence&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;hospital_beds_per_thousand&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="s1">&#39;human_development_index&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df_correlations</span><span class="p">,</span> <span class="n">dropna</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f2caebc3310&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_29_1.png" src="../../_images/3.3-Atlas0fVisualisations_29_1.png" />
+</div>
+</div>
+<p>As stated above, when we have many variables scatter plots can be overwhelming. We could use the correlogram to summarise the information relevant to the strength of the relationships between the variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df_correlations</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.3-Atlas0fVisualisations_31_1.png" src="../../_images/3.3-Atlas0fVisualisations_31_1.png" />
+</div>
+</div>
+<p>Note that this kind of figure has the disadvantages of heatmaps, e.g. it can be hard to map the color scale to numbers and vice versa.
+Also, finding the highest negative and positive correlations requires finding the strongest red and blue by carefully scanning the entire grid.
+There are some ways of improving these plots. You can find some examples <a class="reference external" href="https://towardsdatascience.com/better-heatmaps-and-correlation-matrix-plots-in-python-41445d0f2bec">here</a>.</p>
+</div>
+</div>
+<div class="section" id="slopegraphs">
+<h3>Slopegraphs<a class="headerlink" href="#slopegraphs" title="Permalink to this headline">¶</a></h3>
+<p>Slopegraphs can be useful to show a two-step change of a given variable. They can be used with either continuous or categorical data.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Slopegraphs can show for example how values have changed over a period of time or which data points are markedly different across two categories, and in which direction.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Examples<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Lets use again the US vaccination data we were using in the first examples. Lets visualise and compare how the states with lowest vaccination rates have been progressing in the last month, a slopgraph is an ideal tool for this goal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets select only the ones with the lowest vaccination rate.</span>
+<span class="n">df_vaccination_low10</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Entity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_vaccination_sorted</span><span class="o">.</span><span class="n">Entity</span><span class="p">[</span><span class="mi">45</span><span class="p">:])]</span>
+<span class="n">df_slope</span> <span class="o">=</span> <span class="n">df_vaccination_low10</span><span class="p">[(</span><span class="n">df_vaccination_low10</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;28-07-2021&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df_vaccination_low10</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;2021-06-28&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;people_fully_vaccinated_per_hundred&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span>
+                   <span class="n">data</span><span class="o">=</span><span class="n">df_slope</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([],[],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">entity</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="c1"># add annotations one by one with a loop</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">df_slope</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">entity</span><span class="o">!=</span><span class="n">df_slope</span><span class="o">.</span><span class="n">Entity</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">df_slope</span><span class="o">.</span><span class="n">people_fully_vaccinated_per_hundred</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="n">df_slope</span><span class="o">.</span><span class="n">Entity</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="s1">&#39;xx-small&#39;</span><span class="p">)</span>
+  
+    <span class="n">entity</span> <span class="o">=</span> <span class="n">df_slope</span><span class="o">.</span><span class="n">Entity</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">line</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.3-Atlas0fVisualisations_36_0.png" src="../../_images/3.3-Atlas0fVisualisations_36_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uncertainty">
+<h2>Uncertainty<a class="headerlink" href="#uncertainty" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="visualizing-the-uncertainty-of-point-estimates">
+<h3>Visualizing the uncertainty of point estimates<a class="headerlink" href="#visualizing-the-uncertainty-of-point-estimates" title="Permalink to this headline">¶</a></h3>
+<p>TO-DO</p>
+</div>
+<div class="section" id="visualizing-the-uncertainty-of-curve-fits">
+<h3>Visualizing the uncertainty of curve fits<a class="headerlink" href="#visualizing-the-uncertainty-of-curve-fits" title="Permalink to this headline">¶</a></h3>
+<p>TO-DO</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3.2-RulesOfTheGame.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Rules of the data visualisation game</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3.4-StoryTelling.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Storytelling with data visualisation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

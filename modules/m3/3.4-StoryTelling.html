@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storytelling with data visualisation &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visualisation for data exploration" href="3.5-DataVisForExploration.html" />
+    <link rel="prev" title="Atlas of Visualisations" href="3.3-Atlas0fVisualisations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.2_Data_Science_project_lifecycle.html">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3-Atlas0fVisualisations.html">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5-DataVisForExploration.html">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   4.2 Inside a Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m3/3.4-StoryTelling.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m3/3.4-StoryTelling.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-story">
+   <strong>
+    What is a story
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#titles-and-annotations">
+   Titles and annotations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchy-of-the-information">
+   Hierarchy of the information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#emotion-and-context-in-story-telling">
+   Emotion and context in story telling
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="storytelling-with-data-visualisation">
+<h1>Storytelling with data visualisation<a class="headerlink" href="#storytelling-with-data-visualisation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-story">
+<h2><strong>What is a story</strong><a class="headerlink" href="#what-is-a-story" title="Permalink to this headline">¶</a></h2>
+<p>A story is a connected series of events presented in a specific order such that they create an emotional reaction for a given audience.</p>
+<p>In our case, a story is told through visuals of statistical information. Ideally, these create a compelling narrative that convinces the audience of the importance of your data insight.</p>
+<p><strong>Audience</strong></p>
+<p>Telling a story starts with the audience. The starting point of your figure’s story is the audience’s domain-relevant knowledge. The audience’s context should frame your story.</p>
+<p>However, even experts in a field take time to process complex visualisations. Assume that the reader needs as much help as possible from you to understand the key trends and relatioships shown. Keep your figures simple, avoid irrelevant or tangential information, and augment your visuals with narrative text that will help the readers infer the intended conclusions about your data.</p>
+<p><strong>Tell one story</strong></p>
+<p>Although it is possible (and far too easy with modern visualisation packages!) to tell many stories using a single chart, it is easy to overload your audience with information. Every addition to a figure increases the required mental effort of your audience. Too much information is discombobulating - the reader does not know what to focus on and your figure is diminished. Aim for <em>ink parsimony</em>, be careful to include only the visual elements that increase understanding, and embrace white space. Remember you are competing for the viewer’s time and attention!</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Best practices used in data visualisation, story-telling and information design are highly influcenced by the renowed statistical graphics expert Edward Tufte. An excellent visualization, according to Tufte, expresses “complex ideas communicated with clarity, precision and efficiency.” In 1980s, Tufte proposed a metric for measuring the amount of superfluous information included in a chart. He called it the data-ink ratio,  saying “the larger the share of a graphic’s ink devoted to data, the better.”</p>
+</div>
+</div>
+<p>Having said all this, sometimes a single static visualization is not enough to tell an entire story. You may want to design a sequence of simple figures that jointly create a convincing story arc. When connecting a story over multiple figures consider using different types of visualization for each distinct analysis to help the reader’s focus. Furthermore, keep semantic indicators (such as colour scheme) consistent across figures. If you have many similar types of analysis an alternative is to use interactive figures and animations that enable the audience to navigate through the story.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">expandable</span> <span class="n">example</span> <span class="n">here</span> <span class="o">-</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="titles-and-annotations">
+<h2>Titles and annotations<a class="headerlink" href="#titles-and-annotations" title="Permalink to this headline">¶</a></h2>
+<p>The first thing that your reader will see is the title of your visualisation, so it is important at this point that the title not only describes what is being measured, but also why the reader should care and how to read the chart.</p>
+<p>Depending on the audience and the story you want to tell, the title can adopt different styles (from <a class="reference external" href="https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts/#message">here</a>):</p>
+<ul class="simple">
+<li><p><strong>Descriptive title</strong>: This is more appropriate for technical audiences with a background knowledge of the topic. It gives a neutral overview of the analysis being presented.</p></li>
+<li><p><strong>Definitive statement</strong>: Suitable for general audiences, it communicates clearly your message and the insights.</p></li>
+<li><p><strong>Question</strong>: Posing a clear question in your title and providing an answer to it with the data will transmit a clear message to your audience (suitable for non-technical audiences).</p></li>
+</ul>
+<p>You can also use subtitles to strengthen your message and provide more depth on the insight obtained from the data. If your audience has no prior knowledge on the data, annotations can improve the figure’s readability and provide additional detail.</p>
+</div>
+<div class="section" id="hierarchy-of-the-information">
+<h2>Hierarchy of the information<a class="headerlink" href="#hierarchy-of-the-information" title="Permalink to this headline">¶</a></h2>
+<p>Consider how your audience will scan and read the visualisation.</p>
+<p>Without any visual cues, when we’re confronted with a block of text
+our only option is to read it</p>
+<p>We can employ preattentive attributes to create a visual hierarchy in our communications. These attributes can be colour, contrast, font, size, etc.</p>
+<p><img alt="" src="https://i.imgur.com/aCd1T2W.png" />
+Figure X. Example of how to use attributes such as colours, font size, title and annotations to create a hierarchy of information that directs the reader. Figure from the <a class="reference external" href="https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts/#message">European Environment Agency</a>.</p>
+</div>
+<div class="section" id="emotion-and-context-in-story-telling">
+<h2>Emotion and context in story telling<a class="headerlink" href="#emotion-and-context-in-story-telling" title="Permalink to this headline">¶</a></h2>
+<p><strong>Emotion</strong></p>
+<p>Discussing data-ink ratios (see tip above) and information can feel cold and calculating, contradictory to the idea that a good story takes the reader through an emotional journey. The emotional component of the story is what grabs your attention and makes the story memorable.</p>
+<p>So how can you invoke emotion and minimize the data-ink ratio? In this course we do not have a clear answer for this, but we want to use an example to get you to think about it.</p>
+<p>This comparison comes from the <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/3">Data Feminism book</a>. They compare two different ways of visualising the same problem: gun violence in the US. One figure is a typical bar chart from the Washington Post (figure X) showing a bar chart with the number of active shooter incidents annually. The other figure comes from Periscope (Figure XX ), a design firm with the tagline “Do good with data”, that took a different approach. Quoting the Data Feminism book (D’Ignazio and Klein, 2020):</p>
+<blockquote>
+<div><p>“… what makes Periscopic’s visualization so very different from a more conventional bar chart of similar information, such as “The Era of ‘Active Shooters’” from the Washington Post? The projects share the proposition that gun deaths present a serious threat. But unlike the Washington Post bar chart, Periscopic’s work is framed around an emotion: loss. People are dying; their remaining time on earth has been stolen from them. These people have names and ages. They have parents and partners and children who suffer from that loss as well.”</p>
+</div></blockquote>
+<p><img alt="" src="https://i.imgur.com/XcdZGKf.png" /></p>
+<p>Figure X.X. A bar chart with the number of “active shooters incidents” from the United State between 2000 and 2015.</p>
+<p>vs</p>
+<p><img alt="" src="https://i.imgur.com/KbnOEry.png" />
+Figure X.X Visualisation of the “stolen years” of people killed by guns in the United States in 2013. Figure by <a class="reference external" href="https://guns.periscopic.com/">Periscope</a>.</p>
+<p><strong>Context</strong></p>
+<p>In the previous sections we have given emphasis on how to use data storytelling to convey a message through emotion. It is clear that tailoring a story in this way can never be neutral or objective. However, this is not only limited to a story or message. Data is never neutral or objective and there is no such thing as “raw data”.</p>
+<p>Instead of taking data at face value and looking toward future insights, data scientists must work with domain experts to first interrogate the context, limitations, and validity of the data being used. Furthermore, this should not limit itself to the stages of data acquisition or data analysis, context also comes into play in the framing and communication of results.</p>
+<p>The following example from the Data Feminism book shows how the variation in the title and framing of the chart can highlight the context in which data data was taken and the message the author wants the audience to take home.</p>
+<p><img alt="" src="https://i.imgur.com/ThduUju.png" /></p>
+<p>Figure X. Two portrayals of the same data analysis. The data are from a study of people incarcerated for the first time in jails between 2011 and 2013. Data from Fatos Kaba et al. “Disparities in Mental Health Referral and Diagnosis in the New York City Jail Mental Health Service”. Graphics by Catherine D’Ignazio, extracted from Data Feminism (D’Ignazio and Klein, 2020).</p>
+<p>References:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://clauswilke.com/dataviz/telling-a-story.html#what-is-a-story">https://clauswilke.com/dataviz/telling-a-story.html#what-is-a-story</a></p></li>
+<li><p><a class="reference external" href="http://www.bdbanalytics.ir/media/1123/storytelling-with-data-cole-nussbaumer-knaflic.pdf">http://www.bdbanalytics.ir/media/1123/storytelling-with-data-cole-nussbaumer-knaflic.pdf</a></p></li>
+<li><p><a class="reference external" href="https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts/#message">https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts/#message</a></p></li>
+<li><p>Data Feminism <a class="reference external" href="https://data-feminism.mitpress.mit.edu/">https://data-feminism.mitpress.mit.edu/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3.3-Atlas0fVisualisations.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Atlas of Visualisations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3.5-DataVisForExploration.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Visualisation for data exploration</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

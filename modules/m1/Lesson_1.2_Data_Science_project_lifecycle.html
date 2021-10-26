@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 1.2: Research Data Science project lifecycle &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lesson 1.3: Equality, diversity and inclusion in data science" href="Lesson_1.3_EDI_for_data_science.html" />
+    <link rel="prev" title="Lesson 1.1: What is (research) data science?" href="Lesson_1.1_What_is_data_science.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   4.2 Inside a Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m1/Lesson_1.2_Data_Science_project_lifecycle.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m1/Lesson_1.2_Data_Science_project_lifecycle.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m1/Lesson_1.2_Data_Science_project_lifecycle.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-project-lifecycle">
+   The project lifecycle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-focus-problem-formulation-scoping-and-planning">
+   Our Focus: Problem formulation, scoping and planning
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lesson-1-2-research-data-science-project-lifecycle">
+<h1>Lesson 1.2: Research Data Science project lifecycle<a class="headerlink" href="#lesson-1-2-research-data-science-project-lifecycle" title="Permalink to this headline">¶</a></h1>
+<p>Data science projects in research environments comprise multiple stages and require careful planning that takes into account each specific step in its own complexity.</p>
+<p>In this lesson we:</p>
+<ul class="simple">
+<li><p>First briefly go through all the stages of a typical research data science project and give examples.</p></li>
+<li><p>Focus on the problem formulation and scoping stages, in preparation for the hands-on activity.</p></li>
+<li><p>Finally highlight common hurdles and challenges which might impact a project timeline.</p></li>
+</ul>
+<div class="section" id="the-project-lifecycle">
+<h2>The project lifecycle<a class="headerlink" href="#the-project-lifecycle" title="Permalink to this headline">¶</a></h2>
+<p>There are different types of research data science projects. Their content and structure can differ depending on:</p>
+<ul class="simple">
+<li><p>Aims of the project (e.g. a short project that aims to enhance functionality of an existing system or a large exploratory research project that aims to uncover new knowledge).</p></li>
+<li><p>Number of people involved, their expertise and expectations (data scientists, researchers, software/data engineers, data providers, domain experts, users, project managers)</p></li>
+<li><p>Methods used (e.g. are we using predictive models, optimisation algorithms or visualisation tools?)</p></li>
+<li><p>Type of data (e.g. offline or online, big or small, structured or unstructured)</p></li>
+<li><p>Setting (academic, corporate, government)</p></li>
+</ul>
+<p>Nevertheless, there are some high level steps/stages that we encounter in most projects. A typical project lifecycle is shown in the figure below, assuming that the core methodology used involves building a model (this is the most common scenario but not the only one).</p>
+<p>It requires years of experience to understand the ins and outs and challenges of each stage and familiarise with the end-to-end process but having an overview of the lifecycle helps prepare for this.</p>
+<p><img alt="ds_lifecycle" src="../../_images/ds_lifecycle.png" /></p>
+<p>There are three main stages in the figure:</p>
+<ul class="simple">
+<li><p>Design: Involves formulating the problem, planning the project, collecting the data and doing preliminary analysis.</p></li>
+<li><p>Develop: Comprises the core work of developing and implementing the right methodology (usually some kind of model) to solve the problem and testing/reporting how well it works, in comparison for instance with a series of predefined baselines.</p></li>
+<li><p>Deploy: Contains the steps necessary to move from a prototype implementation to a production-level system, as well as to allow adoption by the users and regular performance monitoring.</p></li>
+</ul>
+<p>These stages initially seem sequential. But it is almost always the case that the process is iterative:</p>
+<ul class="simple">
+<li><p>Many projects go through the lifecycle multiple times, iteratively refining the model or output.</p></li>
+<li><p>New findings during one stage can lead to revisiting a previous stage. For example, while developing and validating the model, data scientists might realise that the available data are either not enough or not completely representative of the studied domain to train an adequate model and might decide to go back and collect/procure more data.</p></li>
+<li><p>The same iterative process is followed within each of the three stages, with additional overlaps, e.g. problem formulation and data procurement sometimes happens in parallel.</p></li>
+</ul>
+<p>The data scientists in the project need to have an active role in all of the stages mentioned above and to be proactive in keep all other people involved in the discussion and up-to-date with the process. All their inputs are in fact necessary when considering different options during an iterative process (for instance, data providers and domain experts will be able to raise challenges and sketch timelines in case the researchers are considering collecting more data).</p>
+</div>
+<div class="section" id="our-focus-problem-formulation-scoping-and-planning">
+<h2>Our Focus: Problem formulation, scoping and planning<a class="headerlink" href="#our-focus-problem-formulation-scoping-and-planning" title="Permalink to this headline">¶</a></h2>
+<p>In this module we will focus mostly on the first two stages of the lifecycle. We will delve into most of the remaining stage in Modules 2-4 of our Research Data Science Course.</p>
+<p>As we discussed already in module 1.1, research data science is used to address problems, take decisions and answer questions in a data-driven way, while keeping a critical mindset. A research data science project begins with an initial question or problem. This can originate from:</p>
+<ul class="simple">
+<li><p>A research or business leader who wants to address a particular aspect.</p></li>
+<li><p>A domain expert who observes some issue in their day-to-day work and questions how to address it.</p></li>
+<li><p>An informal or formal discussion between various members of a team or unit that leads to an idea.</p></li>
+<li><p>An external client with a specific request.</p></li>
+<li><p>The availability of a new (often large-scale) dataset in a specific research domain.</p></li>
+</ul>
+<p>More often than not, the initial question at this early stage is vague and high-level. Data science teams have processes in place to move from this initial vagueness to a well-defined research question and project plan.</p>
+<p>One important first step is to include in this process all the different teams and stakeholders that are involved in the project. These might involve:</p>
+<ul class="simple">
+<li><p>Data scientists</p></li>
+<li><p>Researchers and/or business experts</p></li>
+<li><p>Data engineers, software developers and Dev Ops teams</p></li>
+<li><p>Project managers</p></li>
+<li><p>Data providers</p></li>
+<li><p>Potential or current users</p></li>
+<li><p>Communities that might be involved in the project or affected by it</p></li>
+<li><p>The public</p></li>
+</ul>
+<p>During the problem formulation and scoping phase we aim to answer a number of questions by having detailed and careful converstations with all of the stakeholders. Here, we list some important questions that come in handy when talking to stakeholders and trying to scope a project.</p>
+<p>Discussing these questions and giving clear answers is likely to require multiple meetings with all stakeholders in the project, having an open dialogue across communities, expertise and often highly different academic cultures. Therefore it needs building a welcoming and respectful environment as well as keeping careful documentation of all discussions and decisions. Negotiation between the various teams is necessary in order to narrow down the scope and agree on what could and what needs to be delivered and how. At the end of the process, we should have agreed and documented the agreed answers to all the questions.</p>
+<p><strong>Question: What is the broad challenge we are trying to solve?</strong></p>
+<ul class="simple">
+<li><p>We want to understand the status quo (e.g. any existing solution or research or lack thereof) and what is missing or problematic, in other words the motivating problem behind the project. For example, the Turing’s collaboration with NATS (<a class="reference external" href="https://www.turing.ac.uk/research/research-projects/project-bluebird-ai-system-air-traffic-control">Project Bluebird</a>) aims to solve the following challenge:</p></li>
+</ul>
+<blockquote>
+<div><p>Air traffic control (ATC) is a remarkably complex task. In the UK alone, air traffic controllers handle as many as 8,000 planes per day, issuing instructions to keep aircraft safely separated. Although the aviation industry has been hit by the pandemic, European air traffic is forecast to return to pre-pandemic levels within five years. In the long term, operations will be constrained by human performance amid rising volumes of air traffic, only to accelerate further with the introduction of unmanned aircraft systems, so next-generation ATC systems are needed to choreograph plane movements as efficiently as possible, keeping our skies safe while reducing fuel burn.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Another Turing project called <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/quipp-quantifying-utility-and-preserving-privacy-synthetic-data-sets">QUIPP</a> is trying to solve the following challenge:</p></li>
+</ul>
+<blockquote>
+<div><p>Sensitive datasets are often too inaccessible to make the most effective use of them (for example healthcare or census micro-data). Synthetic data - artificially generated data used to replicate the statistical components of real-world data but without any identifiable information - offers an alternative. However, synthetic data is poorly understood in terms of how well it preserves the privacy of individuals on which the synthesis is based, and also of its utility (i.e. how representative of the underlying population the data are).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>A third very different project, <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/living-machines">Living with Machines</a>, is trying to solve the following challenge:</p></li>
+</ul>
+<blockquote>
+<div><p>It is widely recognised that Britain was the birthplace of the world’s first industrial revolution, yet there is still much to learn about the human, social, and cultural consequences of this historical moment. Focussing on the long nineteenth century (c.1780-1918), the Living with Machines project aims to harness the combined power of massive digitised historical collections and computational analytical tools to examine the ways in which technology altered the very  
+fabric of human existence on a hitherto unprecedented scale.</p>
+</div></blockquote>
+<p><strong>Question: What is the specific research question? How does it translate to a data science problem?</strong></p>
+<p>Starting from a relatively vague and broad challenge which sets the context, our role is to help the researchers and domain experts refining the scope of our collaboration towards a specific clearly defined question, which we will then try to translate (as much as possible) into a well-defined data science (computational) problem that can be solved by using an algorithm. We also need to guarantee that this translation would still deliver what the researchers expect, by bridging the knowledge gap through specific examples.</p>
+<p>If we consider the case studies presented above, asking questions regarding the specific work settings are good starting point for moving from a broad challenge to a specific task. For instance regarding NATS how people generally measure efficiency could be a good starting point to nail down a defined study. Other questions which help clarify the scope of a project are the ones focused on data availability, for instance regarding Living with Machines: which collections are promptly available and how representative are they?</p>
+<p>Knowledge gap:</p>
+<ul class="simple">
+<li><p>Knowledge gaps between data scientists and collaborators/customers/researchers are common, encountered particularly in projects where data scientists collaborate with domain experts and researchers.</p></li>
+<li><p>Domain experts have a lot of knowledge about their area but:</p>
+<ul>
+<li><p>Often do not have a good grasp of data science methods and computing, e.g. they might not know what machine learning or other methods can and cannot do or, on the opposite, they might only know the most popular methods of the moment (e.g., deep learning toolkits).</p></li>
+<li><p>Might not be able to translate what they want to a list of technical requirements and a plan to deliver the output:</p></li>
+<li><p>Might not understand how much time the technical work is likely to take.</p></li>
+</ul>
+</li>
+<li><p>Research data scientists have an understanding of data and analytics but:</p>
+<ul>
+<li><p>Often are strangers to the domain area, without a good understanding of how the field operates, how data are generated (and their related complexities), what knowledge on previous interdisciplinary studies in the area etc. Narratives that present data scientists as rock stars, geniuses, able to move across academia because all can be turned into a data science task in the same way only exacerbate this problem, by giving a false sense of omnipotence. We should always act against this type of narrative and it is part of our job to recognise the differences and adapt to various fields of study and communities. We will come back to this in 1.3.</p></li>
+<li><p>Might rush the scoping process to get on with the work, leading to gaps in understanding that can cost later.</p></li>
+</ul>
+</li>
+</ul>
+<p>Mitigation:</p>
+<ul class="simple">
+<li><p>It is part of the job of the research data scientist to closely work with collaborators, co-define requirements and map out a technical solution and project plan. Data scientists should invest time in understanding the domain area. We highly recommend, whenever possible, to spend time in the environment where data are generated, previous research is discussed and domain experts, users or scientists spend their day.</p></li>
+<li><p>Data scientists should help collaborators understand what is possible when using data-driven methods and learning algorithms and especially what is not. They should spend time describing in lay terms how a technical solution will work, what data are needed, what issues may arise. They should ask a lot of probing questions to shed light in dark corners of the project scope and detect blockers and inconsistencies early on.</p></li>
+</ul>
+<p><strong>Question: Is data available?</strong></p>
+<ul class="simple">
+<li><p>The dilemma of whether to first develop a research question and then find a dataset, or first select a known dataset and then develop the question is well-known. The default way to do science is the former, but at the same time data science as a field is driven by the availability in digital format of an unprecedented new amount of data. Therefore in reality it is common to follow a hybrid approach: Define a broad research question or select a wider area of research, then select datasets that provide rich information for this area and finally examine the datasets to understand how to best refine your question in order to be impactful, interesting but also answerable. The opposite approach of first choosing a dataset and then try to find research questions that arise from looking at it is usually not advisable as it often leads to biased hypotheses. It might also run counter to the ideas of data minimisation, i.e. collecting personal data only for defined purposes, rather than just to store them and decide how to use them later.</p></li>
+<li><p>Refining the research question should lead to a better understanding of what data are needed to solve the problem and if existing data sources adequately represent variables that have been identified as important. There are cases where the question cannot be answered with available data. This might lead to further work and discussion in order to refine the research question given the constraints of the data we have available. Or it might lead to a decision to collect new data (which could become a different research project altogether).</p></li>
+<li><p>When a dataset has been selected, it is always essential to assess the copyright, data sharing agreement, sensitivity of the information contained and data collection policy of the selected resource.</p></li>
+<li><p>When choosing a dataset, an additional concern is to what extent this dataset has been tested and how much code and insights about it already exist out there. The easiest datasets to work with are the ones where (1) there is local or community experience using the dataset that can be put to use, and/or (2) the dataset is relatively easy to access, learn, and use.</p></li>
+<li><p>We will come back to the topic of choosing datasets. Module 2 will help you understand what are good places to look for datasets and what dataset characteristics are beneficial for your research projects.</p></li>
+</ul>
+<p>Along with finding the right data, the following factors should be taken into account and their impact on the present and future understood:</p>
+<ul class="simple">
+<li><p>What is the quality and quantity of the data?</p></li>
+<li><p>Will these change in the future? Will the data availability stay the same?</p></li>
+</ul>
+<p><strong>Question: What are the stakeholders’ expectations?</strong></p>
+<ul class="simple">
+<li><p>Defining the research question involves conversations and negotiations with various stakeholders, including domain experts and potential users of the product. There are a number of challenges in these discussions. Domain experts might be sceptical about the project. This can be due to lack of understanding of data science techniques, real or imaginary anxiety over job security and other types of impact on ther work, long experience with a specific way of working, lack of evidence that data driven approaches work in their field, perception of data scientists as strangers in the area and/or elitist.</p></li>
+<li><p>Many of the above concerns might be justified and it is part of the role of a research data scientist to critically question the motivations and impact of the projects they work on and understand in what context and for what purpose their code will be used. In some cases, scepticism might be unjustified and projects should try to secure buy-in from everyone involved by carefully explaining what will happen and who will be impacted. In other cases, the conversation might highlight significant risks and possibly result in a decision to not go ahead with the project.</p></li>
+<li><p>It is also important to moderate opposite, maybe over optimistic reactions, for instance researchers thinking that data science methods would completely solve problems or automatise processes and would smoothly lead to top scientific publications.</p></li>
+</ul>
+<p><strong>Question: How does the output product look like and how is it going to be used?</strong></p>
+<ul class="simple">
+<li><p>This question often helps expose differences in understanding about the directon of the project between stakeholders. It is often the case that stakeholders have differents ideas in mind about the final product or might not have a very well-shaped idea.</p></li>
+<li><p>Data scientists can use their experience from past projects and their knowledge of the limits of their tools to define an output product that fulfils requirements but also is realisable.</p></li>
+<li><p>It is usually good practice to define a <strong>Minimum Viable Product (MVP)</strong> which is a version of the output product with just enough features to be usable by early customers who can then provide feedback for future product development.</p></li>
+</ul>
+<p><img alt="mvp" src="../../_images/mvp.jpeg" /></p>
+<p><i>Team exercise (Split in groups)</i></p>
+<p>How would you design an MVP given the following specification?</p>
+<ul class="simple">
+<li><p>We want to develop a software tool that automatically collects diversity monitoring data from four different platforms (recruitment platform, HR platform, events platform, grants platform) via APIs. Some of these APIs might not be accessible by the data science team due to limited access privileges.</p></li>
+<li><p>We want the tool to anonymise the data to be completely unidentifiable, integrate them into a single database and store them into a secure location that is compliant with legal requirements.</p></li>
+<li><p>We want the tool to provide access to the data to various teams within the organisation via a well-designed, easy-to-use web dashboard that allows selection of custom subsets of the data and generation of reports.</p></li>
+<li><p>We want different people to have different levels of access privileges.</p></li>
+</ul>
+<p><strong>Question: What is the state of the art (either in literature or within the organisation)? Is the goal of this project to go beyond this? Is there any documentation of legacy systems?</strong></p>
+<ul class="simple">
+<li><p>These questions are important to understand what is already out there and what needs to be added. However they rely on the fact that the researchers and domain expert are already aware of previous interdisciplinary literature in their field. It is important that if they refer to previous tools, libraries and papers we take our time to understand them and to explain whether they would not be feasible in this context and why.</p></li>
+<li><p>In case there are already solutions (e.g. open source software libraries) that offer most of the features or functionality required, data scientists and researchers should do the necessary research to understand the state of the art and define if their project will be incremental or create something from scratch.</p></li>
+</ul>
+<blockquote>
+<div><p>For example, the recent <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/adaptive-multilevel-mcmc-sampling">Adaptive Multilevel MCMC Sampling</a> project aimed to create a Python library that implements the adaptive MLDA MCMC sampler (a new algorithm that researchers from the University of Exeter developed). The initial thinking was to create a library from scratch but after some research the team decided that extending an existing Probabilistic Programming package (for example <a class="reference external" href="https://docs.pymc.io/">PyMC3</a>, <a class="reference external" href="https://mc-stan.org/">Stan</a> or <a class="reference external" href="https://pyro.ai/">Pyro</a>) would have a lot of benefits: No need to duplicate a lot of functionality that is mature in those packages, better visibility, a wider community to support the code development.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>It is also important for data scientists to have an understanding of legacy functionality of the systems currently in place.</p></li>
+<li><p>Finally, if the goal is to build a system that would improve over a given state-of-the-art, it is important to make clear to the researchers that this is very challenging and that improvement needs to be properly assessed, for instance by performing significance tests. Rephrasing the task as, for instance, assessing whether a specific new method could improve performance over a state-of-the-art would be a better contained study.</p></li>
+</ul>
+<p><strong>Question: What is in-scope and out-of-scope?</strong></p>
+<p>It is difficult to scope a real-world project and even more so a research project whose aims often involve discovering new knowledge. One of the most common problems when formulating a research question or problem is that the scope is not defined, documented and controlled well and this causes problems and confusion later on. We often reference to this as scope creep: Changes, continuous or uncontrolled growth in a project’s scope, at any point after the project begins (e.g. adding features without addressing effects on time, cost, resources or without customer approval).</p>
+<p>Example:</p>
+<blockquote>
+<div><p>An industrial data science project aims to build an automated ML system to predict customer conversion. The system is designed and tested but during deployment the commercial team requests a new feature that would allow them to manually override some of the predictions.
+…</p>
+</div></blockquote>
+<p>Mitigation:</p>
+<ul class="simple">
+<li><p>During problem formulation, the scope needs to be documented clearly and agreed by all parties.</p></li>
+<li><p>It is advisable to keep scope limited and small, especially for small projects.</p></li>
+<li><p>Document what is out of scope. This helps bring a lot of issues to the surface early on and removes uncertainty.</p></li>
+<li><p>Again, having defined a MVP would be really helpful at this stage.</p></li>
+<li><p>A measure of success needs to be agreed.</p></li>
+<li><p>The project manager and technical lead should control the scope and not allow it to deviate.</p></li>
+</ul>
+<p><img alt="scope_creep" src="../../_images/scope_creep_meaning.png" /></p>
+<p><strong>Question: What is the expected impact?</strong></p>
+<p>It is important to understand the impact of the proposed project when it is complete. Impact should be understood broadly, from increased knowledge and understanding of the way we see and operate in the world, to increased efficiency resulting from the uptake of new tools and technologies. What will be different if this project is successful?</p>
+<p>Additionally, this question should involve a conversation on how likely it is to realise the impact. By combining impact and likelihood to achieve it, we can create a 2D space and place each project in this space. This can be useful  for prioritising projects. It might be desirable for some teams to work on high-impact high-likelihood of success projects or have a mix of low- and high-likelhood ones.</p>
+<p><strong>Question: What metrics do we use to measure the success of the project?</strong></p>
+<p>We should always aim to define a success metric. Where possible, this metric should be quantitative and allow us to track how successive iterations and improvements change it. Success metrics can include (the list is not exhaustive):</p>
+<ul class="simple">
+<li><p>Whether the output of the project allows us to do something that was not possible before.</p></li>
+<li><p>Whether a piece of software is delivered</p></li>
+<li><p>Approval from users and/or the community</p></li>
+<li><p>A certain level in predictive performance of a model or some other quantitative measure.</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Along with a success metric, it is important to also define some baseline models/systems. These could be the currently used solution or some simple (naive or not) model. These can serve to measure how well the product we are building performs compared to the baselines.</p>
+<p>Example:</p>
+<blockquote>
+<div><p>The researchers in Living with Machines need a new tool for identifying mentions of cities in a collection of newspapers. As an MVP we would test a commonly used tool (a named entity recogniser available in the python library Spacy), we would assess the performance on a test-set developed with thee researchers and examine the errors and limitations. Next, we would extend this tool by fine-tuning the pre-trained model on in-domain data and measure whether this would lead to a significant improvement in performance.</p>
+</div></blockquote>
+<p><strong>Question: What computational resources are available?</strong></p>
+<p>We need to make sure that computational requirement are covered. This typcially involves requesting access to cloud resources, databases, HPC infrastructure, secure environments, paying for compute time. It might also involve paying for licensed software.</p>
+<p><strong>Before defining a timeline, w should discuss again this series of common issues</strong></p>
+<ul>
+<li><p>Data extraction and procurement:</p>
+<ul class="simple">
+<li><p>Data not easily accessible (e.g. due to sensitivity): In fields like healthcare or finance, it is often the case that individual-level data have barriers to access. There are typically complex governance processes to gain access and even then access might be granted only within secure environments (e.g. a Data Safe Haven). It is recommended to apply for access early in the project or even long before the project starts in these cases. It might also be appropriate to explore other options like anonymised or synthetic versions of the sensitive data.</p></li>
+<li><p>No documentation: This is a typical issue with many datasets that have been created without propoerly documenting the contents. It is advisable to come in touch with data curators/owners but also with domain experts that might be able to shed light in those cases.</p></li>
+<li><p>Data quality is low: This is the case where there are a lot of missing or erroneous data due to issues in data generation or collection. These might be related to the physical process that generates the data. There are various options to deal with this problem. In some cases, we might be able to use data science methods that handle missingness, etc (see Module 2). In other cases, domain experts might help clean the data by working with the data scientists. It is also an option to avoid using a data source if we think it is too problematic or even drop the project entirely.</p></li>
+</ul>
+</li>
+<li><p>Modeling and reporting:</p>
+<ul class="simple">
+<li><p>Black boxes: A common issue is when a data science product is built without any care for explainability and reporting. This is the case of an algorithm that just produces predictions but without providing any information on how these are produced, what factors are considered, how performance changes over time and how individual users are affected. It is important to agree ways to achieve those things in the scoping stage and to consider these challenges if we plan to reproduce the results of a tool presented by other researchers.</p></li>
+<li><p>No baseline: If we do not set a baseline, we might not be able to tell if our models work well or not. It is always disappointing to spend months of work on a sophisticated model only to realise that a naive predictor does an equally good job. Automated ML tools (see <a class="reference external" href="https://github.com/automl/auto-sklearn">auto-sklearn</a> and <a class="reference external" href="http://epistasislab.github.io/tpot/">TPOT</a>) can help in this case, as they are capable of generating a lot of baseline models and do some basic data science work (e.g. feature engineering) without much user effort.</p></li>
+</ul>
+</li>
+<li><p>Deployment:</p>
+<ul class="simple">
+<li><p>Initial deployment is tricky: A lot of issues typically pop-up in eaarly deployment. It is also the critical period for user adoption if users exist. Data scientists should be prepared for iterative improvements and communicate expectations clearly to the users before this stage. The timing of the deployment is important; avoid overlaps with busy periods for users (e.g. cases where a business team needs to deliver another big project while testing the deployed product).</p></li>
+<li><p>Maintenance responsibility: Maintenance of a piece of software is a usually under-estimaated part of the project lifecycle. A lot of open source software depends on support from volunteers which might not be sustainable. Research Engineering teams typically deliver products but then their time in the project expires. This might lead to lack of maintenance. It is advisable to try to engage researchers and other stakeholders in the software development process so that they have the knowledge to maintain the project once developer time expires.</p></li>
+</ul>
+<blockquote>
+<div><p>For example, in research projects it is good practice to involve research assistants or PhD student in the process while supporting them to develop the necessary software development skills, familiarity with version control, etc.</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Ethical Questions:</strong></p>
+<p>Now that the project has been clearly defined and all its aspects have been agreed, it is the moment to consider the following points.</p>
+<ul class="simple">
+<li><p>Are there any ethical and legal concerns related to the activities of the project or the use of the data (e.g. individuals’ data privacy, socioeconomic inequalities that may be exacerbated)?</p></li>
+<li><p>What should be done to gain social license and public trust, e.g. a wider impact assessment and bias assessment to understand impact on communities and users.</p></li>
+<li><p>Are there negative impacts on other parts of the organisation?</p></li>
+<li><p>Are there any conflicts of interest?</p></li>
+</ul>
+<p>As this is a really complex topic, we will expand it in Lesson 1.3 (EDI and ethics) and Module 2 (legal issues).</p>
+<p><strong>When all questions have been addressed, we can come up with a project plan that includes a timeline, milestones, risks, required human effort and defined roles for participants (including skills necessary and work required from each)</strong></p>
+<p>The overall scoping and planning stage should lead to a reasonably accurate idea about the above aspects of the project. Specifically:</p>
+<ul class="simple">
+<li><p>We should define the start and end dates of the project (sometimes this might involve defining earliest/latest dates to allow for some flexibility when managing a team of data scientists that work on multiple projects).</p></li>
+<li><p>What is the amount of effort required by each team (i.e. how many people for how much time).</p></li>
+<li><p>What are the necessary skills (e.g. some projects might require specialist skills in Bayesian statistics or visualisation dashboards).</p></li>
+<li><p>We should define a set of intermediate milestones with as much accuracy as possible. For long-term projects these might be shifted during execution but for shorter ones it is important to capture them realistically.</p></li>
+<li><p>Are there any risks we should aware of? What is the level of risk and what mitigation measures can we take?</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Lesson_1.1_What_is_data_science.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Lesson 1.1: What is (research) data science?</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Lesson_1.3_EDI_for_data_science.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Lesson 1.3: Equality, diversity and inclusion in data science</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

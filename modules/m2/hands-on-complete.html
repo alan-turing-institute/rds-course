@@ -1,0 +1,1554 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands-on (completed example) &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.2_Data_Science_project_lifecycle.html">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   4.2 Inside a Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/hands-on-complete.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/hands-on-complete.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m2/hands-on-complete.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-local-python-environment">
+   Create a Local Python Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-pyenv-poetry">
+     Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Pyenv
+      </span>
+     </code>
+     &amp;
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Poetry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install Dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-data">
+   Download Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-and-explore">
+   Load and Explore
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-things-more-readable">
+   Making Things More Readable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vs-2011">
+   2007 vs 2011
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save">
+   Save
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="hands-on-completed-example">
+<h1>Hands-on (completed example)<a class="headerlink" href="#hands-on-completed-example" title="Permalink to this headline">¶</a></h1>
+<p>In this hands-on on notebook we’ll</p>
+<ul class="simple">
+<li><p>Create a Local Python Environment (guided)</p></li>
+<li><p>Download the data (guided)</p></li>
+<li><p>Load and explore the data (exercise)</p></li>
+<li><p>Make the data more readable (exercise)</p></li>
+<li><p>Explore the difference between wave 2 and wave 3 (freestyle)</p></li>
+<li><p>Save our work</p></li>
+</ul>
+<p>We’ve the exercise parts of this notebook as <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">TODO</span></code> with some comments as guidance. You can refer back to the taught material, or external documentation, for further information.</p>
+<div class="section" id="create-a-local-python-environment">
+<h2>Create a Local Python Environment<a class="headerlink" href="#create-a-local-python-environment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-pyenv-poetry">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">Pyenv</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Poetry</span></code><a class="headerlink" href="#using-pyenv-poetry" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>See and follow <a class="reference external" href="https://github.com/pyenv/pyenv#installation"><code class="docutils literal notranslate"><span class="pre">Pyenv</span></code> Installation</a> for instructions on installing <code class="docutils literal notranslate"><span class="pre">Pyenv</span></code>.
+Note: the homebrew installation can take a while - especially if you’re updating brew, as recommended!</p></li>
+<li><p>Install and initialise. From the terminal:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install python 3.7.9</span>
+pyenv install <span class="m">3</span>.7.9
+<span class="c1"># set local version of python to our installed 3.7.9</span>
+pyenv <span class="nb">local</span> <span class="m">3</span>.7.9
+<span class="c1"># initialise and follow prompts</span>
+pyenv init
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Activate the shell. From the terminal:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv shell <span class="m">3</span>.7.9
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> following instructions <a class="reference external" href="https://python-poetry.org/docs/#installation">here</a>.
+<code class="docutils literal notranslate"><span class="pre">Poetry</span></code> can help manage <a class="reference external" href="https://python-poetry.org/docs/managing-environments/">multiple environments</a>, in particular <a class="reference external" href="https://python-poetry.org/docs/managing-environments/#switching-between-environments">switching between environments </a></p></li>
+<li><p>Set up poetry project??</p></li>
+<li><p>Set your <code class="docutils literal notranslate"><span class="pre">pyenv</span></code> installed python to activate <code class="docutils literal notranslate"><span class="pre">venv</span></code>.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from rds-course repository root</span>
+poetry env use ~/.pyenv/versions/3.7.9/bin/python
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Check the environment is activated:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry env list
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Initialise the environment:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry shell
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-dependencies">
+<h3>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>We need to install thirdparty packages necessary for the course. These are listed in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and have versions fixed in <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> will pick these files up and install the required packages in a predictable manner.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from within poetry shell</span>
+poetry install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="download-data">
+<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>As described in module 1, we can find the data available for download from the UK Data Service <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/access-data">here</a></p></li>
+<li><p>Observe the licence and take this opportunity to check your obligations</p></li>
+<li><p>Download the CSV data</p></li>
+<li><p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> this should give us <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course. If you change the directory that you hold this data in, you’ll need to make appropriate changes to the <code class="docutils literal notranslate"><span class="pre">DATA_ROOT_PATH</span></code> variable below.</p>
+<ol class="simple">
+<li><p>Explore the data in Excel/Numbers/Application of your choice</p></li>
+</ol>
+</div>
+<div class="section" id="load-and-explore">
+<h2>Load and Explore<a class="headerlink" href="#load-and-explore" title="Permalink to this headline">¶</a></h2>
+<p>import necessary packages for this work</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define path to data. This relies on the data being saved in the specified location below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_ROOT_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../../data/UKDA-7724-csv&quot;</span> <span class="c1"># should match the path you unzipped the data to</span>
+
+<span class="n">COMBINED_CSV_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_ROOT_PATH</span><span class="p">,</span> <span class="s2">&quot;csv/eqls_2007and2011.csv&quot;</span><span class="p">)</span>
+<span class="n">MAPPING_CSV_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_ROOT_PATH</span><span class="p">,</span> <span class="s2">&quot;mrdoc/excel/eqls_api_map.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read the data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO read in the file and display the head</span>
+<span class="c1">####</span>
+<span class="c1"># your code here</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">COMBINED_CSV_PATH</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># end your code</span>
+<span class="c1">####  </span>
+
+<span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">79270</span><span class="p">,</span> <span class="s2">&quot;unexpected no. of rows&quot;</span> <span class="c1"># check number of rows matches expected</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2431</span><span class="o">/</span><span class="mf">3317541057.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">####</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># your code here</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">COMBINED_CSV_PATH</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/UKDA-7724-csv/csv/eqls_2007and2011.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Take a look at some summary statistics and use these to assign the variables below correctly.</p>
+<p>You can assign the variables manually from inspecting printed output or assign them results from methods/properties.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2431</span><span class="o">/</span><span class="mf">3771845804.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wave</th>
+      <th>Y11_Country</th>
+      <th>Y11_Q31</th>
+      <th>Y11_Q32</th>
+      <th>Y11_ISCEDsimple</th>
+      <th>Y11_Q49</th>
+      <th>Y11_Q67_1</th>
+      <th>Y11_Q67_2</th>
+      <th>Y11_Q67_3</th>
+      <th>Y11_Q67_4</th>
+      <th>...</th>
+      <th>DV_Q7</th>
+      <th>DV_Q67</th>
+      <th>DV_Q43Q44</th>
+      <th>DV_Q54a</th>
+      <th>DV_Q54b</th>
+      <th>DV_Q55</th>
+      <th>DV_Q56</th>
+      <th>DV_Q8</th>
+      <th>DV_Q10</th>
+      <th>RowID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>79270.000000</td>
+      <td>79270.000000</td>
+      <td>78756.000000</td>
+      <td>78769.000000</td>
+      <td>78556.000000</td>
+      <td>79082.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>...</td>
+      <td>2225.000000</td>
+      <td>43636.000000</td>
+      <td>78312.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>79270.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.550473</td>
+      <td>16.841138</td>
+      <td>1.856049</td>
+      <td>1.598141</td>
+      <td>4.019146</td>
+      <td>2.640955</td>
+      <td>1.959368</td>
+      <td>1.023673</td>
+      <td>1.019204</td>
+      <td>1.001971</td>
+      <td>...</td>
+      <td>52.612135</td>
+      <td>1.086465</td>
+      <td>2.485992</td>
+      <td>2.815565</td>
+      <td>2.925635</td>
+      <td>0.303442</td>
+      <td>0.231437</td>
+      <td>3.931708</td>
+      <td>3.283482</td>
+      <td>39635.500000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.497449</td>
+      <td>9.358320</td>
+      <td>1.186271</td>
+      <td>1.276425</td>
+      <td>1.368993</td>
+      <td>0.987352</td>
+      <td>0.197437</td>
+      <td>0.152030</td>
+      <td>0.137244</td>
+      <td>0.044351</td>
+      <td>...</td>
+      <td>15.696943</td>
+      <td>0.460388</td>
+      <td>0.838558</td>
+      <td>0.721642</td>
+      <td>0.568403</td>
+      <td>0.881979</td>
+      <td>0.827727</td>
+      <td>0.436254</td>
+      <td>1.130667</td>
+      <td>22883.422256</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>9.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>43.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>19818.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.000000</td>
+      <td>16.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>50.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>39635.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>25.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>61.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>59452.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.000000</td>
+      <td>35.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>8.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>...</td>
+      <td>80.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>79270.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 196 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO - fill in the below with the correct values</span>
+<span class="n">n_columns</span> <span class="o">=</span> <span class="mi">199</span> <span class="c1"># how many columns are there in the DataFrame?</span>
+<span class="n">n_float64_columns</span> <span class="o">=</span> <span class="mi">187</span> <span class="c1"># how many columns are of dtype float64?</span>
+<span class="n">Y11_Q31_mean_value</span> <span class="o">=</span> <span class="mf">1.856049</span> <span class="c1">#  what is the mean of the values in the Y11_Q31 column?</span>
+<span class="n">Y11_Country_n_unique</span> <span class="o">=</span> <span class="mi">35</span> <span class="c1"># how many unique values in the Y11_Country column?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden! don&#39;t look here!</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># not using assert statements as they give away the answers!</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">n_columns_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_columns</span> <span class="o">==</span> <span class="mi">199</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">n_float64_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_float64_columns</span> <span class="o">==</span> <span class="mi">187</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">Y11_Q31_mean_value_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Y11_Q31_mean_value</span><span class="p">,</span> <span class="mf">1.856049</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">Y11_Country_n_unique_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">Y11_Country_n_unique</span> <span class="o">==</span> <span class="mi">35</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_columns answer </span><span class="si">{</span><span class="n">n_columns_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_float64_columns answer </span><span class="si">{</span><span class="n">n_float64_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Q31_mean_value answer </span><span class="si">{</span><span class="n">Y11_Q31_mean_value_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Country_n_unique answer </span><span class="si">{</span><span class="n">Y11_Country_n_unique_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_columns answer correct
+n_float64_columns answer correct
+Y11_Q31_mean_value answer correct
+Y11_Country_n_unique answer correct
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="making-things-more-readable">
+<h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
+<p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
+<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code>.</p>
+<p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have to explicitly use latin1 encoding as the file is not saved in utf-8 (our platform default)</span>
+<span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VariableName</th>
+      <th>VariableLabel</th>
+      <th>Question</th>
+      <th>TopicValue</th>
+      <th>KeywordValue</th>
+      <th>VariableGroupValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wave</td>
+      <td>EQLS Wave</td>
+      <td>EQLS Wave</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Administrative Variables</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Y11_Country</td>
+      <td>Country</td>
+      <td>Country</td>
+      <td>Geographies</td>
+      <td>NaN</td>
+      <td>Household Grid and Country</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Y11_Q31</td>
+      <td>Marital status</td>
+      <td>Marital status</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Marital status</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Y11_Q32</td>
+      <td>No. of children</td>
+      <td>Number of children of your own</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Children</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Y11_ISCEDsimple</td>
+      <td>Education completed</td>
+      <td>Highest level of education completed</td>
+      <td>Education - Higher and further</td>
+      <td>Education levels</td>
+      <td>Education</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>TODO:</p>
+<ul class="simple">
+<li><p>replace column names in <code class="docutils literal notranslate"><span class="pre">df</span></code> with corresponding entry in <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column from <code class="docutils literal notranslate"><span class="pre">eqls_api_map_df</span></code></p></li>
+<li><p>ensure all column names are entirely lowercase</p></li>
+<li><p>ensure only characters [a-zA-Z0-9_] are present in column names</p>
+<ul>
+<li><p>remove apostrophes (<code class="docutils literal notranslate"><span class="pre">&quot;'&quot;</span></code>)without replacement</p></li>
+<li><p>replace otherwise non-matching (e.g. whitespace or <code class="docutils literal notranslate"><span class="pre">'/'</span></code>) character with <code class="docutils literal notranslate"><span class="pre">'_'</span></code></p></li>
+<li><p>we don’t want consecutive _ characters (e.g. no_of_children rather than no__of_children)</p></li>
+</ul>
+</li>
+<li><p>keep a map (python <code class="docutils literal notranslate"><span class="pre">dict</span></code>) that shows the old -&gt; new column mapping in case we ever want to invert this transformation.</p></li>
+</ul>
+<p>Example manual mapping (you should produce this with a general code solution!):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s1">&#39;Y11_Q32&#39;</span> <span class="o">-&gt;</span> <span class="s1">&#39;no_of_children&#39;</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s1">&#39;Y11_Q67_4&#39;</span> <span class="o">-&gt;</span> <span class="s1">&#39;citizenship_dont_know&#39;</span><span class="p">,</span>
+    <span class="o">...</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_cols</span> <span class="o">=</span> <span class="n">eqls_api_map_df</span><span class="p">[</span><span class="s2">&quot;VariableName&quot;</span><span class="p">]</span>
+<span class="n">new_cols</span> <span class="o">=</span> <span class="n">eqls_api_map_df</span><span class="p">[</span><span class="s2">&quot;VariableLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^\w]&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_+&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="n">column_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">old_cols</span><span class="p">,</span> <span class="n">new_cols</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jbishop/.local/lib/python3.7/site-packages/ipykernel_launcher.py:4: FutureWarning: The default value of regex will change from True to False in a future version.
+  after removing the cwd from sys.path.
+/Users/jbishop/.local/lib/python3.7/site-packages/ipykernel_launcher.py:5: FutureWarning: The default value of regex will change from True to False in a future version.
+  &quot;&quot;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden</span>
+<span class="c1"># manually pasted the answer here but not the code</span>
+<span class="n">desired_column_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Wave&#39;</span><span class="p">:</span> <span class="s1">&#39;eqls_wave&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Country&#39;</span><span class="p">:</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q31&#39;</span><span class="p">:</span> <span class="s1">&#39;marital_status&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q32&#39;</span><span class="p">:</span> <span class="s1">&#39;no_of_children&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_ISCEDsimple&#39;</span><span class="p">:</span> <span class="s1">&#39;education_completed&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q49&#39;</span><span class="p">:</span> <span class="s1">&#39;rural_urban_living&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q67_1&#39;</span><span class="p">:</span> <span class="s1">&#39;citizenship_country&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q67_2&#39;</span><span class="p">:</span> <span class="s1">&#39;citizenship_another_eu_member&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q67_3&#39;</span><span class="p">:</span> <span class="s1">&#39;citizenship_a_non_eu_country&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q67_4&#39;</span><span class="p">:</span> <span class="s1">&#39;citizenship_dont_know&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q67_5&#39;</span><span class="p">:</span> <span class="s1">&#39;citizenship_refusal&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Agecategory&#39;</span><span class="p">:</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_HH2a&#39;</span><span class="p">:</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_HHsize&#39;</span><span class="p">:</span> <span class="s1">&#39;household_size&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_HHsize18plus&#39;</span><span class="p">:</span> <span class="s1">&#39;household_size_over_18&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_HHstructure&#39;</span><span class="p">:</span> <span class="s1">&#39;household_structure&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Education&#39;</span><span class="p">:</span> <span class="s1">&#39;education_3_groups&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_EmploymentStatus&#39;</span><span class="p">:</span> <span class="s1">&#39;employment_7_groups&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Incomequartiles_percapita&#39;</span><span class="p">:</span> <span class="s1">&#39;income_quartiles&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_RuralUrban&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_rural_urban_living&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Degurba&#39;</span><span class="p">:</span> <span class="s1">&#39;degree_of_urbanisation&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_CountryGroupEU28&#39;</span><span class="p">:</span> <span class="s1">&#39;country_group&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q33a&#39;</span><span class="p">:</span> <span class="s1">&#39;direct_contact_with_children&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q33b&#39;</span><span class="p">:</span> <span class="s1">&#39;direct_contact_with_parents&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q33c&#39;</span><span class="p">:</span> <span class="s1">&#39;direct_contact_with_other_relatives&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q33d&#39;</span><span class="p">:</span> <span class="s1">&#39;direct_contact_with_neighbours&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q34a&#39;</span><span class="p">:</span> <span class="s1">&#39;phone_internet_contact_with_children&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q34b&#39;</span><span class="p">:</span> <span class="s1">&#39;phone_internet_contact_with_parents&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q34c&#39;</span><span class="p">:</span> <span class="s1">&#39;phone_internet_contact_with_other_relatives&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q34d&#39;</span><span class="p">:</span> <span class="s1">&#39;phone_internet_contact_with_neighbours&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q35a&#39;</span><span class="p">:</span> <span class="s1">&#39;a_person_to_get_support_from_to_help_around_house_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q35b&#39;</span><span class="p">:</span> <span class="s1">&#39;a_person_to_get_advice_from_about_a_personal_family_matter&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q35c&#39;</span><span class="p">:</span> <span class="s1">&#39;a_person_to_get_support_from_when_looking_for_a_job&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q35d&#39;</span><span class="p">:</span> <span class="s1">&#39;a_person_to_get_support_from_when_feeling_depressed&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q35e&#39;</span><span class="p">:</span> <span class="s1">&#39;a_person_to_get_support_from_to_raise_emergency_money&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q42&#39;</span><span class="p">:</span> <span class="s1">&#39;health_condition&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q43&#39;</span><span class="p">:</span> <span class="s1">&#39;chronic_health_problems_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q44&#39;</span><span class="p">:</span> <span class="s1">&#39;limited_by_chronic_health_problems_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q17&#39;</span><span class="p">:</span> <span class="s1">&#39;no_of_rooms_in_accommodation&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q18&#39;</span><span class="p">:</span> <span class="s1">&#39;tenure&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19a&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_space&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19b&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_rot_in_windows_etc_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19c&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_damp_or_leaks&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19d&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_no_toilet&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19e&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_no_bath_shower&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q19f&#39;</span><span class="p">:</span> <span class="s1">&#39;problems_with_accommodation_no_outside_space&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q20&#39;</span><span class="p">:</span> <span class="s1">&#39;likelihood_of_leaving_accom_within_6_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50a&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_noise&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50b&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_air_quality&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50c&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_quality_of_drinking_water&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50d&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_crime_violence_or_vandalism&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50e&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_litter_or_rubbish&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q50f&#39;</span><span class="p">:</span> <span class="s1">&#39;neighbourhood_problems_traffic&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Accommproblems&#39;</span><span class="p">:</span> <span class="s1">&#39;no_of_problems_with_accommodation&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q47a&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_see_a_doctor_because_of_distance_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q47b&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_see_a_doctor_because_of_delay_in_getting_appointment_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q47c&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_see_a_doctor_because_of_waiting_time_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q47d&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_see_a_doctor_because_of_cost_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q47e&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_see_a_doctor_because_of_lack_of_time_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q51a&#39;</span><span class="p">:</span> <span class="s1">&#39;access_to_postal_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q51b&#39;</span><span class="p">:</span> <span class="s1">&#39;access_to_banking_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q51c&#39;</span><span class="p">:</span> <span class="s1">&#39;access_to_public_transport_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q51d&#39;</span><span class="p">:</span> <span class="s1">&#39;access_to_cinema_theatre_and_cultural_centre_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q51e&#39;</span><span class="p">:</span> <span class="s1">&#39;access_to_recreational_or_green_areas_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q52&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_time_spent_on_travelling_to_work_study_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53a&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_health_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53b&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_education_system_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53c&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_public_transport_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53d&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_child_care_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53e&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_long_term_care_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53f&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_social_municipal_housing_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q53g&#39;</span><span class="p">:</span> <span class="s1">&#39;quality_of_state_pension_system_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54a_1&#39;</span><span class="p">:</span> <span class="s1">&#39;i_or_someone_else_in_household_used_child_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54a_2&#39;</span><span class="p">:</span> <span class="s1">&#39;someone_close_outside_household_used_child_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54a_3&#39;</span><span class="p">:</span> <span class="s1">&#39;nobody_used_child_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54a_4&#39;</span><span class="p">:</span> <span class="s1">&#39;child_care_used_in_12_months_dont_know&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54a_5&#39;</span><span class="p">:</span> <span class="s1">&#39;child_care_used_in_12_months_refusal&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54b_1&#39;</span><span class="p">:</span> <span class="s1">&#39;i_or_someone_else_in_household_used_long_term_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54b_2&#39;</span><span class="p">:</span> <span class="s1">&#39;someone_close_outside_household_used_long_term_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54b_3&#39;</span><span class="p">:</span> <span class="s1">&#39;nobody_used_long_term_care_in_12_months&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54b_4&#39;</span><span class="p">:</span> <span class="s1">&#39;long_term_care_used_in_12_months_dont_know&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q54b_5&#39;</span><span class="p">:</span> <span class="s1">&#39;long_term_care_used_in_12_months_refusal&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q55a&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_child_care_because_of_cost_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q55b&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_child_care_because_of_availability_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q55c&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_child_care_because_of_access_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q55d&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_child_care_because_of_quality_of_care_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q56a&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_long_term_care_because_of_cost_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q56b&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_long_term_care_because_of_availability_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q56c&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_long_term_care_because_of_access_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q56d&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_use_long_term_care_because_of_quality_of_care_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q24&#39;</span><span class="p">:</span> <span class="s1">&#39;can_most_people_be_trusted_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_poor_and_rich_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_management_and_workers_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_men_and_women_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_old_and_young_people_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25e&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_different_racial_ethnic_groups_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25f&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_different_religious_groups_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q25g&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_tension_between_groups_with_different_sexual_orientation_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_parliament_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_legal_system_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_press_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_police_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28e&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_government_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q28f&#39;</span><span class="p">:</span> <span class="s1">&#39;how_much_trust_the_local_authorities_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q21a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_frequently_attend_religious_services_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q21b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_frequently_use_the_internet_other_than_for_work_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q21c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_frequently_take_part_in_sports_or_exercise_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q21d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_frequently_participate_in_social_activities_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q22a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_worked_unpaid_for_community_services_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q22b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_worked_unpaid_for_education_cultural_etc_organisation_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q22c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_worked_unpaid_for_social_movements_charities_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q22d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_worked_unpaid_for_political_parties_or_trade_unions_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q22e&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_worked_unpaid_for_other_voluntary_org_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q23a&#39;</span><span class="p">:</span> <span class="s1">&#39;attended_a_trade_union_political_party_meeting_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q23b&#39;</span><span class="p">:</span> <span class="s1">&#39;attended_a_protest_or_demonstration_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q23c&#39;</span><span class="p">:</span> <span class="s1">&#39;signed_a_petition_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q23d&#39;</span><span class="p">:</span> <span class="s1">&#39;contacted_a_politician_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29e&#39;</span><span class="p">:</span> <span class="s1">&#39;feel_left_out_of_sociey_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29f&#39;</span><span class="p">:</span> <span class="s1">&#39;cant_find_the_way_because_life_has_become_so_complicated_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29g&#39;</span><span class="p">:</span> <span class="s1">&#39;the_value_of_what_i_do_is_not_recognised_by_others_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29h&#39;</span><span class="p">:</span> <span class="s1">&#39;people_look_down_on_me_because_of_my_job_situation_or_income_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29i&#39;</span><span class="p">:</span> <span class="s1">&#39;feel_close_to_people_in_the_area_where_i_live&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_SocExIndex&#39;</span><span class="p">:</span> <span class="s1">&#39;social_exclusion_index&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Volunteering&#39;</span><span class="p">:</span> <span class="s1">&#39;volunteering_frequency&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q57&#39;</span><span class="p">:</span> <span class="s1">&#39;personal_financial_situation&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q58&#39;</span><span class="p">:</span> <span class="s1">&#39;household_able_to_make_ends_meet_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59a&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_to_keep_home_adequately_warm_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59b&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_to_pay_for_a_weeks_annual_holiday_away_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59c&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_to_replace_any_worn_out_furniture_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59d&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_a_meal_with_meat_chicken_fish_every_second_day_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59e&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_to_buy_new_rather_than_second_hand_clothes_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q59f&#39;</span><span class="p">:</span> <span class="s1">&#39;can_afford_to_have_friends_or_family_for_a_drink_meal_at_least_once_a_month_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q60a&#39;</span><span class="p">:</span> <span class="s1">&#39;rent_mortgage_payments_for_accommodation&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q60b&#39;</span><span class="p">:</span> <span class="s1">&#39;utility_bills_such_as_electricity_water_gas&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q60c&#39;</span><span class="p">:</span> <span class="s1">&#39;payments_for_consumer_loans_credit_cards&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q60d&#39;</span><span class="p">:</span> <span class="s1">&#39;payments_for_informal_loans_from_friends_relatives&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q65&#39;</span><span class="p">:</span> <span class="s1">&#39;financial_situation_of_your_household_compared_to_12_months_ago_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q66&#39;</span><span class="p">:</span> <span class="s1">&#39;household_financial_expectations_for_th_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Deprindex&#39;</span><span class="p">:</span> <span class="s1">&#39;deprivation_index_no_of_items_hhold_cant_afford&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29a&#39;</span><span class="p">:</span> <span class="s1">&#39;i_am_optimistic_about_the_future&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29b&#39;</span><span class="p">:</span> <span class="s1">&#39;i_generally_feel_that_what_i_do_in_life_is_worthwhile&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29c&#39;</span><span class="p">:</span> <span class="s1">&#39;i_feel_i_am_free_to_decide_how_to_live_my_life&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q29d&#39;</span><span class="p">:</span> <span class="s1">&#39;i_seldom_have_time_to_do_the_things_i_really_enjoy&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q30&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_life_these_days_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_education_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_present_job_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_present_standard_of_living_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_accommodation_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40e&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_family_life_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40f&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_health_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40g&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_social_life_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q40h&#39;</span><span class="p">:</span> <span class="s1">&#39;how_satisfied_with_economic_situation_in_the_country_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q41&#39;</span><span class="p">:</span> <span class="s1">&#39;how_happy_are_you_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q45a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_cheerful_and_in_good_spirits_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q45b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_calm_and_relaxed_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q45c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_active_and_vigorous_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q45d&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_woke_up_feeling_fresh_and_rested_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q45e&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_your_daily_life_has_been_filled_with_things_that_interest_you_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q46a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_particularly_tense_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q46b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_lonely_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q46c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_felt_downhearted_and_depressed_last_2_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_MWIndex&#39;</span><span class="p">:</span> <span class="s1">&#39;who_5_mental_wellbeing_index&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;w4&#39;</span><span class="p">:</span> <span class="s1">&#39;final_weight_trimmed_and_standardised&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;w5_EU28&#39;</span><span class="p">:</span> <span class="s1">&#39;cross_national_weight_eu28_to_calculate_averages_for_all_eu_in_2013_incl_croatia_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;w5_total&#39;</span><span class="p">:</span> <span class="s1">&#39;weight_5_total&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q7&#39;</span><span class="p">:</span> <span class="s1">&#39;how_many_hours_work_per_week_in_1st_job_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q8&#39;</span><span class="p">:</span> <span class="s1">&#39;how_many_hours_per_week_would_you_prefer_to_work_at_present_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q9&#39;</span><span class="p">:</span> <span class="s1">&#39;how_many_hours_does_your_partner_work_per_week_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q10&#39;</span><span class="p">:</span> <span class="s1">&#39;how_many_hours_per_week_would_you_prefer_your_partner_to_work_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q11&#39;</span><span class="p">:</span> <span class="s1">&#39;working_hours_fit_with_family_social_commitments_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q12a&#39;</span><span class="p">:</span> <span class="s1">&#39;come_home_from_work_too_tired_to_do_some_of_the_household_jobs&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q12b&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_fulfil_family_responsibilities_because_of_the_time_at_work&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q12c&#39;</span><span class="p">:</span> <span class="s1">&#39;difficult_to_concentrate_at_work_because_of_family_responsibilities&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q15&#39;</span><span class="p">:</span> <span class="s1">&#39;how_likely_to_lose_job_in_6_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q16&#39;</span><span class="p">:</span> <span class="s1">&#39;how_likely_to_find_another_job_of_similar_salary_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q36a&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_care_for_your_children_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q36b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_cook_and_doing_housework_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q36c&#39;</span><span class="p">:</span> <span class="s1">&#39;how_often_care_for_elderly_or_disabled_relatives_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q38&#39;</span><span class="p">:</span> <span class="s1">&#39;the_share_of_housework_you_do_is_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q39a&#39;</span><span class="p">:</span> <span class="s1">&#39;as_much_time_as_would_like_with_family_members_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q39b&#39;</span><span class="p">:</span> <span class="s1">&#39;as_much_time_as_would_like_with_others_not_family_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q39c&#39;</span><span class="p">:</span> <span class="s1">&#39;as_much_time_as_would_like_on_own_hobbies_interests_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q39d&#39;</span><span class="p">:</span> <span class="s1">&#39;as_much_time_as_would_like_on_voluntary_work_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Strainbasedconflict&#39;</span><span class="p">:</span> <span class="s1">&#39;work_life_balance_conflict_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q7a&#39;</span><span class="p">:</span> <span class="s1">&#39;worked_at_an_additional_paid_job_last_4_weeks_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Y11_Q7b&#39;</span><span class="p">:</span> <span class="s1">&#39;how_many_hours_per_week_worked_in_the_additional_job_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q7&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_total_number_of_working_hours&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q67&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_citizenship&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q43Q44&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_any_limiting_not_limiting_chronic_health_problem_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q54a&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_anyone_used_would_have_like_to_use_child_care_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q54b&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_anyone_used_would_have_like_to_use_long_term_care_last_12_months_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q55&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_no_of_factors_which_made_it_difficult_to_use_child_care_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q56&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_no_of_factors_which_made_it_difficult_to_use_long_term_care_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q8&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_preferred_working_hours_3_groups_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DV_Q10&#39;</span><span class="p">:</span> <span class="s1">&#39;dv_preferred_working_hours_of_respondents_partner_3_groups_&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ISO3166_Country&#39;</span><span class="p">:</span> <span class="s1">&#39;iso3166_country_url&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;RowID&#39;</span><span class="p">:</span> <span class="s1">&#39;rowid_for_the_uk_data_service_public_api&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;URIRowID&#39;</span><span class="p">:</span> <span class="s1">&#39;root_uri_for_a_row_respondent_that_displays_all_data_values_for_a_single_row_via_the_uk_data_service_public_api&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;UniqueID&#39;</span><span class="p">:</span> <span class="s1">&#39;unique_respondent_id&#39;</span><span class="p">}</span>
+
+<span class="c1"># check each in turn to give best error</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking each column...&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">old_val</span> <span class="ow">in</span> <span class="n">desired_column_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span> <span class="o">==</span> <span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;mismatch at </span><span class="si">{</span><span class="n">old_val</span><span class="si">}</span><span class="s2">.</span>
+<span class="s2">Got: </span><span class="si">{</span><span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">, expected: </span><span class="si">{</span><span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">Exiting check. There may be further errors.&quot;&quot;&quot;</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Column mapping correct... Checking df columns set correctly...&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">desired_column_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">())),</span> <span class="s2">&quot;New column names not set on df&quot;</span>
+
+<span class="c1"># otherwise...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking each column...
+Column mapping correct... Checking df columns set correctly...
+Success!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vs-2011">
+<h2>2007 vs 2011<a class="headerlink" href="#vs-2011" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Which column should be used to distinguish between the collection years? (2007 and 2011)</p></li>
+<li><p>How many rows do we have for each year?</p></li>
+<li><p>For each collection year, what % of null values do we have for each column?</p>
+<ul>
+<li><p>why is this?</p></li>
+<li><p>display these %s in descending  order sorted by: 2007 then 2011</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    43636
+2    35634
+Name: eqls_wave, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">missing</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>eqls_wave</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_quality_of_care_</th>
+      <td>100.0</td>
+      <td>89.603</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_cost_</th>
+      <td>100.0</td>
+      <td>89.534</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_access_</th>
+      <td>100.0</td>
+      <td>89.495</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_availability_</th>
+      <td>100.0</td>
+      <td>89.433</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_child_care_because_of_quality_of_care_</th>
+      <td>100.0</td>
+      <td>83.401</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>weight_5_total</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>iso3166_country_url</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>rowid_for_the_uk_data_service_public_api</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>root_uri_for_a_row_respondent_that_displays_all_data_values_for_a_single_row_via_the_uk_data_service_public_api</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>unique_respondent_id</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+<p>199 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="save">
+<h2>Save<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

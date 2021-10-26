@@ -1,0 +1,1997 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualisation for data exploration &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hands-on Session" href="hands-on.html" />
+    <link rel="prev" title="Storytelling with data visualisation" href="3.4-StoryTelling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.2_Data_Science_project_lifecycle.html">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3-Atlas0fVisualisations.html">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4-StoryTelling.html">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   4.2 Inside a Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m3/3.5-DataVisForExploration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m3/3.5-DataVisForExploration.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m3/3.5-DataVisForExploration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-from-aldabe-et-al-paper">
+   Aside from Aldabe et al. paper
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-the-data">
+   Reading the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-topics-and-groupings">
+   Variables, topics and groupings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes-from-the-user-guide">
+     Notes from the User Guide
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#material-variables">
+       Material Variables
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#occupational-variables">
+       Occupational Variables
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pychosocial-variables">
+       Pychosocial Variables
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other">
+       Other
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-different-countries">
+   Exploring different countries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missigness">
+   MISSIGNESS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dealing-with-missigness">
+     Dealing with Missigness
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relationships-between-variables">
+   Relationships between variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Material variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-reported-health-for-the-uk">
+     Self reported health for the UK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="visualisation-for-data-exploration">
+<h1>Visualisation for data exploration<a class="headerlink" href="#visualisation-for-data-exploration" title="Permalink to this headline">¶</a></h1>
+<p>In this last section we are going dig back into our EQLTS survey dataset and use some of the data visualisation tools we covered in the previous sections to better understand our dataset.</p>
+<p>A reminder of our Research question:</p>
+<blockquote>
+<div><p>We want to investigate the contribution of material, occupational, and psychosocial factors on the self reported health (SRH) across different European countries. We will use SRH information collected by the Wave 2 and 3 of the EQLTS survey, aware that they offer only a partial representation of European populations and that SRH is per-se a highly subjective indicator, difficult to compare across countries.</p>
+</div></blockquote>
+<div class="section" id="aside-from-aldabe-et-al-paper">
+<h2>Aside from Aldabe et al. paper<a class="headerlink" href="#aside-from-aldabe-et-al-paper" title="Permalink to this headline">¶</a></h2>
+<p>We are using the Aldabe et al. 2011, paper as a guideline into our analysis, let’s have a quick recap.
+The study uses the following variables:</p>
+<ul class="simple">
+<li><p>The main model used socio-economic status information (occupation and education level survey question) and age to predict SRH (age was included to control for it).</p></li>
+<li><p>Additional models were tested that included a rather large list of <em>material</em>, <em>occupational</em> and <em>psychosocial</em> variables to test if they mediate the relationship. See Table 1 in the paper.</p></li>
+<li><p>The majority of responses were in “good” health (81.14% of men; 76.91% of woman).</p></li>
+</ul>
+<p>In general, we are interested in exploring predictors that are general (some of the questions are quite specific).</p>
+<p>We can access the data by downloading the <code class="docutils literal notranslate"><span class="pre">csv</span></code> option from <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">here</a>. You would have downloaded a folder with the following directory structure. Here we have only listed the files which we will use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">UKDA</span><span class="o">-</span><span class="mi">7724</span><span class="o">-</span><span class="n">csv</span>
+    <span class="o">-</span> <span class="n">csv</span> <span class="c1"># here is the data</span>
+        <span class="o">-</span> <span class="n">eqls_2011</span><span class="o">.</span><span class="n">csv</span>
+    <span class="o">-</span> <span class="n">mrdoc</span> <span class="c1">#here is additional info</span>
+        <span class="o">-</span> <span class="n">allissue</span> <span class="c1">#data dictionaries</span>
+        <span class="o">-</span> <span class="n">excel</span>
+            <span class="o">-</span> <span class="n">eqls_api_map</span><span class="o">.</span><span class="n">csv</span> <span class="c1"># description of what the column names mean</span>
+            <span class="o">-</span> <span class="n">eqls_concordance_grid</span><span class="o">.</span><span class="n">xlxs</span> <span class="c1">#described which variables were included in which waves and the mapping between waves</span>
+        <span class="o">-</span> <span class="n">pdf</span> <span class="c1"># user guide</span>
+        <span class="o">-</span> <span class="n">UKDA</span> <span class="c1">#study info</span>
+</pre></div>
+</div>
+<p>Create a folder <code class="docutils literal notranslate"><span class="pre">data</span></code> in the same root as this notebook. Copy the folder <code class="docutils literal notranslate"><span class="pre">UKDA-7724-csv</span></code> and its contents there.</p>
+<p>In the data set there are 195 variables but many were not included in wave 3 - <code class="docutils literal notranslate"><span class="pre">eqls_concordance_grid.xlsx</span></code> states which. For simplicity in this example we will only use wave 3 data.</p>
+</div>
+<div class="section" id="reading-the-data">
+<h2>Reading the data<a class="headerlink" href="#reading-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start reading wave 3 data <code class="docutils literal notranslate"><span class="pre">eqls_2011.csv</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;./data/UKDA-7724-csv/&#39;</span>
+<span class="n">df11</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2528</span><span class="o">/</span><span class="mf">717506466.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;./data/UKDA-7724-csv/&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df11</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./data/UKDA-7724-csv/csv/eqls_2011.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df11</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wave</th>
+      <th>Y11_Country</th>
+      <th>Y11_Q31</th>
+      <th>Y11_Q32</th>
+      <th>Y11_ISCEDsimple</th>
+      <th>Y11_Q49</th>
+      <th>Y11_Q67_1</th>
+      <th>Y11_Q67_2</th>
+      <th>Y11_Q67_3</th>
+      <th>Y11_Q67_4</th>
+      <th>...</th>
+      <th>DV_Q7</th>
+      <th>DV_Q67</th>
+      <th>DV_Q43Q44</th>
+      <th>DV_Q54a</th>
+      <th>DV_Q54b</th>
+      <th>DV_Q55</th>
+      <th>DV_Q56</th>
+      <th>DV_Q8</th>
+      <th>DV_Q10</th>
+      <th>RowID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>43636.0</td>
+      <td>43636.000000</td>
+      <td>43392.000000</td>
+      <td>43410.000000</td>
+      <td>43545.000000</td>
+      <td>43541.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>...</td>
+      <td>1131.000000</td>
+      <td>43636.000000</td>
+      <td>43214.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.0</td>
+      <td>17.317192</td>
+      <td>1.880969</td>
+      <td>1.573485</td>
+      <td>4.076886</td>
+      <td>2.671735</td>
+      <td>1.959368</td>
+      <td>1.023673</td>
+      <td>1.019204</td>
+      <td>1.001971</td>
+      <td>...</td>
+      <td>53.019452</td>
+      <td>1.086465</td>
+      <td>2.482390</td>
+      <td>2.815565</td>
+      <td>2.925635</td>
+      <td>0.303442</td>
+      <td>0.231437</td>
+      <td>3.931708</td>
+      <td>3.283482</td>
+      <td>57452.50000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.0</td>
+      <td>9.470192</td>
+      <td>1.197339</td>
+      <td>1.268200</td>
+      <td>1.377113</td>
+      <td>0.972558</td>
+      <td>0.197437</td>
+      <td>0.152030</td>
+      <td>0.137244</td>
+      <td>0.044351</td>
+      <td>...</td>
+      <td>16.056085</td>
+      <td>0.460388</td>
+      <td>0.837227</td>
+      <td>0.721642</td>
+      <td>0.568403</td>
+      <td>0.881979</td>
+      <td>0.827727</td>
+      <td>0.436254</td>
+      <td>1.130667</td>
+      <td>12596.77251</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>35635.00000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.0</td>
+      <td>9.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>43.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>46543.75000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.0</td>
+      <td>17.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>51.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>57452.50000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.0</td>
+      <td>26.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>63.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>68361.25000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.0</td>
+      <td>34.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>8.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>...</td>
+      <td>80.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>79270.00000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 196 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="variables-topics-and-groupings">
+<h2>Variables, topics and groupings<a class="headerlink" href="#variables-topics-and-groupings" title="Permalink to this headline">¶</a></h2>
+<p>We have a large number of variables (196) with coded names. We need to use the <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to understand what each of these columns mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;mrdoc/excel/eqls_api_map.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+
+<span class="n">df_map</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VariableName</th>
+      <th>VariableLabel</th>
+      <th>Question</th>
+      <th>TopicValue</th>
+      <th>KeywordValue</th>
+      <th>VariableGroupValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wave</td>
+      <td>EQLS Wave</td>
+      <td>EQLS Wave</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Administrative Variables</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Y11_Country</td>
+      <td>Country</td>
+      <td>Country</td>
+      <td>Geographies</td>
+      <td>NaN</td>
+      <td>Household Grid and Country</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Y11_Q31</td>
+      <td>Marital status</td>
+      <td>Marital status</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Marital status</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Y11_Q32</td>
+      <td>No. of children</td>
+      <td>Number of children of your own</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Children</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Y11_ISCEDsimple</td>
+      <td>Education completed</td>
+      <td>Highest level of education completed</td>
+      <td>Education - Higher and further</td>
+      <td>Education levels</td>
+      <td>Education</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Y11_Q25e</td>
+      <td>How much tension between different racial/ethn...</td>
+      <td>How much tension is there in this country: Dif...</td>
+      <td>Society and culture - Social attitudes and beh...</td>
+      <td>Disadvantaged groups</td>
+      <td>Quality of Society</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Y11_Q25f</td>
+      <td>How much tension between different religious g...</td>
+      <td>How much tension is there in this country: Dif...</td>
+      <td>Society and culture - Social attitudes and beh...</td>
+      <td>Disadvantaged groups</td>
+      <td>Quality of Society</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Y11_Q25g</td>
+      <td>How much tension between groups with different...</td>
+      <td>How much tension is there in this country: Gro...</td>
+      <td>Society and culture - Social attitudes and beh...</td>
+      <td>Disadvantaged groups</td>
+      <td>Quality of Society</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Y11_Q28a</td>
+      <td>How much trust the parliament?</td>
+      <td>How much you personally trust: [NATIONALITY] p...</td>
+      <td>Society and culture - Social attitudes and beh...</td>
+      <td>Trust</td>
+      <td>Quality of Society</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Y11_Q28b</td>
+      <td>How much trust the legal system?</td>
+      <td>How much you personally trust: The legal system?</td>
+      <td>Society and culture - Social attitudes and beh...</td>
+      <td>Trust</td>
+      <td>Quality of Society</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="notes-from-the-user-guide">
+<h3>Notes from the <a class="reference external" href="http://doc.ukdataservice.ac.uk/doc/7724/mrdoc/pdf/7724_eqls_2007-2011_user_guide_v2.pdf">User Guide</a><a class="headerlink" href="#notes-from-the-user-guide" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Variables are grouped into primary and secondary topics (e.g. Education - Higher and further).</p></li>
+<li><p>Variables are <em>also</em> grouped into variable groupings which differ slightly from the topics.</p></li>
+<li><p>The topics are an attempt to succinctly describe the semantic domain of each variable. The variable groupings are slightly overlapping with these topics (e.g Health crops up twice), but also includes indicators such as ‘Derived Variables’, which clearly is a technical grouping rather than a topic.</p></li>
+<li><p>Derived variables “group numeric responses of other related variables or to collapse groupings of related categorical variables into fewer categories”. The derived variables are potentially useful, since they aim to:</p>
+<ul>
+<li><p>enhance the data quality by aggregating the responses into more usable and consistent format across both waves of the Survey</p></li>
+<li><p>provide a clearer structure of datasets by reducing the number of variables</p></li>
+<li><p>ensure confidentiality and anonymity of personal information and all respondents</p></li>
+</ul>
+</li>
+<li><p>The derived variables are not necessarily the most important questions, they simply occur when the are many related questions that can be aggregated.</p></li>
+</ul>
+<p>Let’s take a look a the grouping os variables and how many questions are in each group.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all Groups</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;VariableGroupValue&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_map</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Accent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;count&#39;, ylabel=&#39;VariableGroupValue&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_11_1.png" src="../../_images/3.5-DataVisForExploration_11_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Public</span> <span class="pre">Services</span></code> are the group that has the highest number of questions associated to it, followed by <code class="docutils literal notranslate"><span class="pre">Employment</span> <span class="pre">and</span> <span class="pre">Work-Life</span> <span class="pre">Balance</span></code>. <code class="docutils literal notranslate"><span class="pre">Eductation</span></code> and <code class="docutils literal notranslate"><span class="pre">Health</span></code> appear to have just a few questions.</p>
+<p>Let’s look now how the questions distribute around Topics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all topics</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;TopicValue&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_map</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Accent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;count&#39;, ylabel=&#39;TopicValue&#39;&gt;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/envs/clase25datos/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 150 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/anaconda3/envs/clase25datos/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 150 missing from current font.
+  font.set_text(s, 0, flags=flags)
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_13_2.png" src="../../_images/3.5-DataVisForExploration_13_2.png" />
+</div>
+</div>
+<p>Now, let’s explore how the <code class="docutils literal notranslate"><span class="pre">TopicValue</span></code> and <code class="docutils literal notranslate"><span class="pre">VariableGroupValue</span></code> map to each other. Furthermore, since the derived variables were made specifically to make the dataset easier to use let’s have a look at these and see how they map onto <em>material</em>, <em>occupational</em>, and <em>psychosocial</em> factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heatmap1_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df_map</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TopicValue&#39;</span><span class="p">],</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;VariableName&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VariableGroupValue&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">heatmap1_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span>
+    <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> 
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+    <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;light&#39;</span><span class="p">,</span>
+    <span class="c1">#fontsize=&#39;x-large&#39;  </span>
+<span class="p">)</span>
+<span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/envs/clase25datos/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:240: RuntimeWarning: Glyph 150 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/anaconda3/envs/clase25datos/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:203: RuntimeWarning: Glyph 150 missing from current font.
+  font.set_text(s, 0, flags=flags)
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_15_1.png" src="../../_images/3.5-DataVisForExploration_15_1.png" />
+</div>
+</div>
+<p>As expected there is not a 1:1 mapping between these two categories, and we only have a subset of topics covered by our derived variables.</p>
+<p>If we revisit the table above with some consideration we can sensibly group the derived variable topics as follows.</p>
+<ul class="simple">
+<li><p>Material</p>
+<ul>
+<li><p>Economics - Income, property and investment</p></li>
+<li><p>Environment, conservation and land use - Land …</p></li>
+<li><p>Housing</p></li>
+</ul>
+</li>
+<li><p>Occupational</p>
+<ul>
+<li><p>Employment and labour - General</p></li>
+</ul>
+</li>
+<li><p>Psychosocial</p>
+<ul>
+<li><p>Social stratification and groupings - General</p></li>
+<li><p>Society and culture - Social attitudes and beh…</p></li>
+</ul>
+</li>
+</ul>
+<p>Let’s have a closer look at these variables using <code class="docutils literal notranslate"><span class="pre">eqls_2011_ukda_data_dictionary.rtf</span></code>. We have also had a manual scan of <code class="docutils literal notranslate"><span class="pre">eqis_api_map</span></code> and included promising looking variables in the list below.</p>
+<div class="section" id="material-variables">
+<h4>Material Variables<a class="headerlink" href="#material-variables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code>:  <code class="docutils literal notranslate"><span class="pre">Y11_Q59a</span></code> to <code class="docutils literal notranslate"><span class="pre">Y11_Q59f</span></code> ask the question ‘Can house afford it if you want it?’, with six examples (home heating, holiday, replacing goods, good food, new clothes, hosting friends). The responses are categorical <code class="docutils literal notranslate"><span class="pre">1</span></code> (YES) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (NO). The <code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code> is a count of the number of yes responses.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_RuralUrban</span></code>: This variable simply condenses a previous question from four categories into two categories - <code class="docutils literal notranslate"><span class="pre">1</span></code> (rural) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (urban).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Accommproblems</span></code>: <code class="docutils literal notranslate"><span class="pre">Y11_Q19a</span></code> - <code class="docutils literal notranslate"><span class="pre">Y11_Q19f</span></code> asks a <code class="docutils literal notranslate"><span class="pre">1</span></code> (YES) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (NO) question about accommodation problems, with six examples. This variable is a count.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_HHsize</span></code>: Household size including children (overlaps with social). Ranges from 1-4 where 4 is 4 or more.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Q32</span></code>: related to above, number of children. Ranges from 1-5 where 5 is 5 or more.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Incomequartiles_percapita</span></code> ranges from 1 (1st quartile) to 4 (4th quartile).</p></li>
+</ul>
+</div>
+<div class="section" id="occupational-variables">
+<h4>Occupational Variables<a class="headerlink" href="#occupational-variables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DV_Q7</span></code>: Count from a couple of working hours questions. Varies from 80-5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_ISCEDsimple</span></code>: Education levels based on the International Standard Classification of Education (ISCED). Ranges from 1-8. Confusing, 1-7 is from no to high education. 8 means N/A.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Education</span></code>: related to above but less granular. 1-3 are primary -&gt; tertiary. 4-6 are various catch answers.</p></li>
+</ul>
+</div>
+<div class="section" id="pychosocial-variables">
+<h4>Pychosocial Variables<a class="headerlink" href="#pychosocial-variables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_SocExIndex</span></code>: average score from four social exclusion question measures on a 5 scale response (1 = strongly disagree, 5 = strongly agree).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_MWIndex</span></code>: There is a set of five questions where the respondents state degree of agreement, measures on a six-point scale. The mental well-being scale converts these to a value between 0 - 100.</p></li>
+</ul>
+<p>So, this gives us <strong>11 variables</strong>, with two pairs that are variations of each other. This is enough to play with and try to build a simple model (see Module 4).</p>
+</div>
+<div class="section" id="other">
+<h4>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Age (5 categories). <code class="docutils literal notranslate"><span class="pre">Y11_Agecategory</span></code></p></li>
+<li><p>Gender. <code class="docutils literal notranslate"><span class="pre">Y11_HH2a</span></code></p></li>
+<li><p>Marital Status. <code class="docutils literal notranslate"><span class="pre">Y11_Q31</span></code>.</p></li>
+<li><p>Country. <code class="docutils literal notranslate"><span class="pre">Y11_Country</span></code>.</p></li>
+</ul>
+<p>To make the manipulation easier we select a subset of the data with only the variables we want and rename them into something more readable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Y11_Q42&quot;</span><span class="p">:</span> <span class="s2">&quot;SRH&quot;</span><span class="p">,</span>
+           <span class="s1">&#39;Y11_Deprindex&#39;</span><span class="p">:</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_RuralUrban&quot;</span><span class="p">:</span> <span class="s2">&quot;RuralUrban&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Accommproblems&quot;</span><span class="p">:</span> <span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_HHsize&quot;</span><span class="p">:</span> <span class="s2">&quot;HouseholdSize&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Q32&quot;</span><span class="p">:</span> <span class="s2">&quot;Children&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Incomequartiles_percapita&quot;</span> <span class="p">:</span> <span class="s2">&quot;IncomeQuartiles&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;DV_Q7&quot;</span><span class="p">:</span><span class="s2">&quot;WorkingHours&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_ISCEDsimple&quot;</span><span class="p">:</span><span class="s2">&quot;ISCED&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Education&quot;</span><span class="p">:</span> <span class="s2">&quot;Education&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_SocExIndex&quot;</span><span class="p">:</span><span class="s2">&quot;SocialExclusionIndex&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_MWIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;MentalWellbeingIndex&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Agecategory&quot;</span><span class="p">:</span><span class="s2">&quot;AgeCategory&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_HH2a&quot;</span><span class="p">:</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Q31&quot;</span><span class="p">:</span><span class="s2">&quot;MaritalStatus&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Country&quot;</span><span class="p">:</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;DV_Q43Q44&quot;</span><span class="p">:</span> <span class="s2">&quot;ChronicHealth&quot;</span>
+<span class="p">}</span>
+
+<span class="n">df11</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">var_map</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df11_set</span> <span class="o">=</span> <span class="n">df11</span><span class="p">[</span><span class="n">var_map</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">df11_set</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SRH</th>
+      <th>DeprIndex</th>
+      <th>RuralUrban</th>
+      <th>AccomProblems</th>
+      <th>HouseholdSize</th>
+      <th>Children</th>
+      <th>IncomeQuartiles</th>
+      <th>WorkingHours</th>
+      <th>ISCED</th>
+      <th>Education</th>
+      <th>SocialExclusionIndex</th>
+      <th>MentalWellbeingIndex</th>
+      <th>AgeCategory</th>
+      <th>Gender</th>
+      <th>MaritalStatus</th>
+      <th>Country</th>
+      <th>ChronicHealth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>3.00</td>
+      <td>100.0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>15</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>2.75</td>
+      <td>64.0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>15</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>15</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>3.50</td>
+      <td>80.0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>15</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>2.00</td>
+      <td>44.0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>15</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exploring-different-countries">
+<h2>Exploring different countries<a class="headerlink" href="#exploring-different-countries" title="Permalink to this headline">¶</a></h2>
+<p>Our data contains 35 different european countries. Let’s take a look at the differences of some of our variables of interest for the different countries in the data.</p>
+<p>First we need to map the country code values to their name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">default_factory</span><span class="o">=</span><span class="p">{</span>
+            <span class="mf">1.0</span><span class="p">:</span> <span class="s2">&quot;Austria&quot;</span><span class="p">,</span>
+            <span class="mf">2.0</span><span class="p">:</span> <span class="s2">&quot;Belgium&quot;</span><span class="p">,</span>
+            <span class="mf">3.0</span><span class="p">:</span> <span class="s2">&quot;Bulgaria&quot;</span><span class="p">,</span>
+            <span class="mf">4.0</span><span class="p">:</span> <span class="s2">&quot;Cyprus&quot;</span><span class="p">,</span>
+            <span class="mf">5.0</span><span class="p">:</span> <span class="s2">&quot;Czech Republic&quot;</span><span class="p">,</span>
+            <span class="mf">6.0</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+            <span class="mf">7.0</span><span class="p">:</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">,</span>
+            <span class="mf">8.0</span><span class="p">:</span> <span class="s2">&quot;Estonia&quot;</span><span class="p">,</span>
+            <span class="mf">9.0</span><span class="p">:</span> <span class="s2">&quot;Greece&quot;</span><span class="p">,</span>
+            <span class="mf">10.0</span><span class="p">:</span> <span class="s2">&quot;Spain&quot;</span><span class="p">,</span>
+            <span class="mf">11.0</span><span class="p">:</span> <span class="s2">&quot;Finland&quot;</span><span class="p">,</span>
+            <span class="mf">12.0</span><span class="p">:</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span>
+            <span class="mf">13.0</span><span class="p">:</span> <span class="s2">&quot;Hungary&quot;</span><span class="p">,</span>
+            <span class="mf">14.0</span><span class="p">:</span> <span class="s2">&quot;Ireland&quot;</span><span class="p">,</span>
+            <span class="mf">15.0</span><span class="p">:</span> <span class="s2">&quot;Italy&quot;</span><span class="p">,</span>
+            <span class="mf">16.0</span><span class="p">:</span> <span class="s2">&quot;Lithuania&quot;</span><span class="p">,</span>
+            <span class="mf">17.0</span><span class="p">:</span> <span class="s2">&quot;Luxembourg&quot;</span><span class="p">,</span>
+            <span class="mf">18.0</span><span class="p">:</span> <span class="s2">&quot;Latvia&quot;</span><span class="p">,</span>
+            <span class="mf">19.0</span><span class="p">:</span> <span class="s2">&quot;Malta&quot;</span><span class="p">,</span>
+            <span class="mf">20.0</span><span class="p">:</span> <span class="s2">&quot;Netherland&quot;</span><span class="p">,</span>
+            <span class="mf">21.0</span><span class="p">:</span> <span class="s2">&quot;Poland&quot;</span><span class="p">,</span>
+            <span class="mf">22.0</span><span class="p">:</span> <span class="s2">&quot;Portugal&quot;</span><span class="p">,</span>
+            <span class="mf">23.0</span><span class="p">:</span> <span class="s2">&quot;Romania&quot;</span><span class="p">,</span>
+            <span class="mf">24.0</span><span class="p">:</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">,</span>
+            <span class="mf">25.0</span><span class="p">:</span> <span class="s2">&quot;Slovenia&quot;</span><span class="p">,</span>
+            <span class="mf">26.0</span><span class="p">:</span> <span class="s2">&quot;Slovakia&quot;</span><span class="p">,</span>
+            <span class="mf">27.0</span><span class="p">:</span> <span class="s2">&quot;UK&quot;</span><span class="p">,</span>
+            <span class="mf">28.0</span><span class="p">:</span> <span class="s2">&quot;Turkey&quot;</span><span class="p">,</span>
+            <span class="mf">29.0</span><span class="p">:</span> <span class="s2">&quot;Croatia&quot;</span><span class="p">,</span>
+            <span class="mf">30.0</span><span class="p">:</span> <span class="s2">&quot;Macedonia (FYROM)&quot;</span><span class="p">,</span>
+            <span class="mf">31.0</span><span class="p">:</span> <span class="s2">&quot;Kosovo&quot;</span><span class="p">,</span>
+            <span class="mf">32.0</span><span class="p">:</span> <span class="s2">&quot;Serbia&quot;</span><span class="p">,</span>
+            <span class="mf">33.0</span><span class="p">:</span> <span class="s2">&quot;Montenegro&quot;</span><span class="p">,</span>
+            <span class="mf">34.0</span><span class="p">:</span> <span class="s2">&quot;Iceland&quot;</span><span class="p">,</span>
+            <span class="mf">35.0</span><span class="p">:</span> <span class="s2">&quot;Norway&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="n">df11_set</span><span class="p">[</span><span class="s2">&quot;Country_cat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df11_set</span><span class="p">[</span><span class="s2">&quot;Country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">default_factory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/envs/clase25datos/lib/python3.7/site-packages/ipykernel_launcher.py:39: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s compare the distributions of the Self Reported Health, Deprivation Index and Social Exclusion Index for the different countries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Country_cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;SRH&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df11_set</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Country_cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df11_set</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Country_cat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;SocialExclusionIndex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df11_set</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span>
+    <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> 
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+    <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;light&#39;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span>  
+<span class="p">)</span>
+<span class="kc">None</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_23_0.png" src="../../_images/3.5-DataVisForExploration_23_0.png" />
+</div>
+</div>
+<p>In the figures above we can observe a large variability between the variables of interest for our study. Taking this into consideration, and for simplicity of the model we are going to build in Module 4 in the rest of this section we will focus only in one country, the UK.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uk</span> <span class="o">=</span> <span class="n">df11_set</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Country == 27&#39;</span><span class="p">)</span>
+<span class="n">df_uk</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SRH</th>
+      <th>DeprIndex</th>
+      <th>RuralUrban</th>
+      <th>AccomProblems</th>
+      <th>HouseholdSize</th>
+      <th>Children</th>
+      <th>IncomeQuartiles</th>
+      <th>WorkingHours</th>
+      <th>ISCED</th>
+      <th>Education</th>
+      <th>SocialExclusionIndex</th>
+      <th>MentalWellbeingIndex</th>
+      <th>AgeCategory</th>
+      <th>Gender</th>
+      <th>MaritalStatus</th>
+      <th>Country</th>
+      <th>ChronicHealth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2251.000000</td>
+      <td>2111.000000</td>
+      <td>2239.000000</td>
+      <td>2242.000000</td>
+      <td>2252.000000</td>
+      <td>2248.000000</td>
+      <td>1695.000000</td>
+      <td>50.000000</td>
+      <td>2243.000000</td>
+      <td>2252.000000</td>
+      <td>2160.000000</td>
+      <td>2241.000000</td>
+      <td>2252.000000</td>
+      <td>2252.000000</td>
+      <td>2245.000000</td>
+      <td>2252.0</td>
+      <td>2238.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.298090</td>
+      <td>1.122217</td>
+      <td>1.531487</td>
+      <td>0.481267</td>
+      <td>2.216252</td>
+      <td>1.716637</td>
+      <td>2.498525</td>
+      <td>40.840000</td>
+      <td>3.997771</td>
+      <td>2.265542</td>
+      <td>2.323611</td>
+      <td>58.456046</td>
+      <td>3.566607</td>
+      <td>1.569272</td>
+      <td>1.928731</td>
+      <td>27.0</td>
+      <td>2.324397</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.025667</td>
+      <td>1.678759</td>
+      <td>0.499119</td>
+      <td>0.874987</td>
+      <td>1.059678</td>
+      <td>1.307691</td>
+      <td>1.119154</td>
+      <td>16.377386</td>
+      <td>1.489030</td>
+      <td>0.593616</td>
+      <td>0.813716</td>
+      <td>22.190912</td>
+      <td>1.221569</td>
+      <td>0.495288</td>
+      <td>1.169388</td>
+      <td>0.0</td>
+      <td>0.886114</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>27.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>29.500000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>1.750000</td>
+      <td>44.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>27.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>42.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.250000</td>
+      <td>64.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>27.0</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.500000</td>
+      <td>50.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>2.750000</td>
+      <td>76.000000</td>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>27.0</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.000000</td>
+      <td>6.000000</td>
+      <td>2.000000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>80.000000</td>
+      <td>8.000000</td>
+      <td>6.000000</td>
+      <td>5.000000</td>
+      <td>100.000000</td>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>27.0</td>
+      <td>3.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="missigness">
+<h2>MISSIGNESS<a class="headerlink" href="#missigness" title="Permalink to this headline">¶</a></h2>
+<p>Lets now investigate the missigness of our variables of interest. There are three categories of missing data: Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR). Understanding the type of missigness present in our dataset is fundamental to justify the use (or dismissal) of a variable in our model. Furthermore, it will help inform the strategy for any kind of imputation done to avoid missing useful data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Following command shows missing/non-missing values in two colors.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_uk</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.25</span><span class="p">,</span> 
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Percentage of missing values&#39;</span><span class="p">)</span>
+<span class="n">eqls_null_counts</span> <span class="o">=</span> <span class="n">df_uk</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_uk</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eqls_null_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2880x2880 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_27_1.png" src="../../_images/3.5-DataVisForExploration_27_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Percentage of missing values
+SRH                     0.000444
+DeprIndex               0.062611
+RuralUrban              0.005773
+AccomProblems           0.004440
+HouseholdSize           0.000000
+Children                0.001776
+IncomeQuartiles         0.247336
+WorkingHours            0.977798
+ISCED                   0.003996
+Education               0.000000
+SocialExclusionIndex    0.040853
+MentalWellbeingIndex    0.004885
+AgeCategory             0.000000
+Gender                  0.000000
+MaritalStatus           0.003108
+Country                 0.000000
+ChronicHealth           0.006217
+Country_cat             0.000000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Working Hours is mostly missing. It is derived from two variables, <code class="docutils literal notranslate"><span class="pre">Y11_Q7</span></code>, <code class="docutils literal notranslate"><span class="pre">Y11_Q7b</span></code> (a secondary job). A reason for this is that if the person does not have a second job then the total working hours is given as NaN. Let’s explore this further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_hours</span> <span class="o">=</span> <span class="n">df11</span><span class="p">[[</span><span class="s1">&#39;WorkingHours&#39;</span><span class="p">,</span><span class="s1">&#39;Y11_Q7&#39;</span><span class="p">,</span><span class="s1">&#39;Y11_Q7b&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Following command shows missing/non-missing values in two colors.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_hours</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">,</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.25</span><span class="p">,</span> 
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2880x2880 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_30_1.png" src="../../_images/3.5-DataVisForExploration_30_1.png" />
+</div>
+</div>
+<div class="section" id="dealing-with-missigness">
+<h3>Dealing with Missigness<a class="headerlink" href="#dealing-with-missigness" title="Permalink to this headline">¶</a></h3>
+<p>In the figure above we can see that only about 40% of respondents filled out the working hours for the first job. Given the large amount of missing data for this variable is probably best to not use it.</p>
+<p>Similarly, about 24% of people do not have an estimated <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code>. Perhaps these are also unemployed? We could impute, but even sophisticated imputation methods (such as drawing from a distribution specified by the existing values) will introduce randomness (unwanted noise) into the relationships across variables. We could calculate the covariance matrix of the existing data and use that to impute. But similarly that will artificially enhance existing relationships and mean that you are more prone to overfitting.</p>
+<p>If we decide to drop the rows with missing data we need to careful balance any increase of noise by imputation to the loss of statiscs of dropping these rows. Furthermore, a research data scientist on this project should try to work with domain experts to uncover if there were any systemic reasons why some entries were missing and therefore by droping rows we are removing a sub-population from the dataset.</p>
+<blockquote>
+<div><p>For example, is it the people that do not have jobs that don’t have incomes? Or perhaps jobless respondents are classed as the first quartile income and it is something else? This should be done before any imputation methods are considered so that we could assess the extent to which the imputation method is distorting both the distribution of the <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> predictor <em>and</em> the joint distribution of <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> and the other variables.</p>
+</div></blockquote>
+<p>In terms of the the missigness jargon mentioned above (MCAR, MAR, MNAR) the only place where is safe to either drop or blindly impute is when data is missing completely at random in a small scale. And this is almost <strong>never</strong> the case.</p>
+<p>As we are lacking some of this information for this example and a a sceptic of adding data just to make your regression work we only select the data where <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> exists if I was to assess <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> as a variable.</p>
+<p>Let’s compare <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> to <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>. They both speak to finances and <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> could be used as a replacement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="n">mn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SRH</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mn</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mf">.6</span><span class="p">,</span><span class="mf">.6</span><span class="p">,</span><span class="mf">.6</span><span class="p">),</span> <span class="n">ls</span> <span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_uk</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;IncomeQuartiles&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">])</span>
+
+    
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">plot_mean</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Deprivation&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_uk</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;IncomeQuartiles&#39;</span><span class="p">,</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">])</span>
+
+    
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">plot_mean</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;IncomeQuartiles&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_uk</span><span class="p">[[</span><span class="s1">&#39;IncomeQuartiles&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_32_0.png" src="../../_images/3.5-DataVisForExploration_32_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_32_1.png" src="../../_images/3.5-DataVisForExploration_32_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 IncomeQuartiles  DeprIndex
+IncomeQuartiles         1.000000  -0.441867
+DeprIndex              -0.441867   1.000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the above figure we can see that the distribution of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> shifts to the left as the income quartile increases (even though zero is the mode throughout). We have plotted it both ways round so better see the relationship.</p>
+<p>Though with such a small range of values a correlation is a little unreliable (and is pushed to lower values), we use Spearman’s rank correlation as a rough assessment of whether scoring higher on <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> means that one scores higher on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>. You can see that the correlation <code class="docutils literal notranslate"><span class="pre">-.4</span></code>. This correlation will be dampened by the mode being zero on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>.</p>
+<p>There is a low amount of data missing in the other variables, with the highest being <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> at 7.6%. If we were to only include rows with a full set of data we would be loosing around 11% of our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_uk</span><span class="p">)</span>
+<span class="n">df11_model</span> <span class="o">=</span> <span class="n">df_uk</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WorkingHours&#39;</span><span class="p">,</span><span class="s1">&#39;IncomeQuartiles&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of Rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df11_model</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Percentage excluded: </span><span class="si">{</span><span class="p">((</span><span class="n">pre_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">df11_model</span><span class="p">))</span> <span class="o">/</span> <span class="n">pre_len</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Rows: 1984
+Percentage excluded: 11.900532859680284%
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="relationships-between-variables">
+<h2>Relationships between variables<a class="headerlink" href="#relationships-between-variables" title="Permalink to this headline">¶</a></h2>
+<p>Let’s now investigate the relationship between our variables variable of interest. This can help us understand how important these will become in our model.</p>
+<p>Notice that we have left a health variable within our selected set variables. This is done just as example for this exercise. Any variable under health should be treated as a candidate dependent measure rather than a predictor. These should correlate with SRH, but in a trivial manner. If we were to include these in the model then we would be assessing a person’s ability to monitor their own health, which is not our research questions.</p>
+<p>From the data map, self-reported health is <code class="docutils literal notranslate"><span class="pre">Y11_Q42</span></code>. The derived health value indicating chronic health problems is <code class="docutils literal notranslate"><span class="pre">DV_Q43Q44</span></code> and we have renamed it as <code class="docutils literal notranslate"><span class="pre">ChronicHealth</span></code>. We can see for from the plots below that as the chronic health variable increases in severity self-reported health gets worse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df11_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;ChronicHealth&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;SRH&#39;</span><span class="p">,</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">])</span>
+    
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">plot_mean</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;SRH&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_uk</span><span class="p">[[</span><span class="s1">&#39;ChronicHealth&#39;</span><span class="p">,</span><span class="s1">&#39;SRH&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_38_0.png" src="../../_images/3.5-DataVisForExploration_38_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               ChronicHealth       SRH
+ChronicHealth       1.000000 -0.607767
+SRH                -0.607767  1.000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t be using any health related variables in our model. Let’s have a look at the other variables.</p>
+<p>We can use the seaborn <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> function to plot multiple pairwise bivariate distributions in our dataset. This shows the relationship for all pair combination of variables in the DataFrame as a matrix of plots and the diagonal plots are the univariate plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to more easily to differences let&#39;s cap the correlation cmap</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;SRH&#39;</span><span class="p">,</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span> <span class="s1">&#39;RuralUrban&#39;</span><span class="p">,</span> <span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span> <span class="s1">&#39;HouseholdSize&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Children&#39;</span><span class="p">,</span> <span class="s1">&#39;ISCED&#39;</span><span class="p">,</span> <span class="s1">&#39;Education&#39;</span><span class="p">,</span> <span class="s1">&#39;SocialExclusionIndex&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;MentalWellbeingIndex&#39;</span><span class="p">,</span> <span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;MaritalStatus&#39;</span><span class="p">,</span> <span class="s1">&#39;ChronicHealth&#39;</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_40_0.png" src="../../_images/3.5-DataVisForExploration_40_0.png" />
+</div>
+</div>
+<p>As most our variables are ranks or categories, the plot matrix above might not be the best to visualise the relationships between variables. In this case is better to look at the rank correlations. Still, we take these with a pinch of salt because some of the variables are categorical rather than ordinal/numeric so the rank has little meaning (e.g. RuralUrban).</p>
+<p>Some initial observations on the below correlation matrix:</p>
+<ul class="simple">
+<li><p>Age correlates with a few variables. Especially SRH + Children</p></li>
+<li><p>Lots of variables correlate with SRH.</p></li>
+<li><p>DeprIndex, MentalWellbeing Index and Social Exclusion Index all correlate with one another.</p></li>
+<li><p>DeprIndex correlates with quite a few varialbes (SRH, AccomProblems, Education).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to more easily to differences let&#39;s cap the correlation cmap</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">df11_model</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">)),</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_43_0.png" src="../../_images/3.5-DataVisForExploration_43_0.png" />
+</div>
+</div>
+<p>Next we can go through each loose grouping of <em>material</em>, <em>occupational</em> and <em>psychosocial</em> to assess the suitability of variables to include in our model.</p>
+<div class="section" id="id1">
+<h3>Material variables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Let’s examine the extent to which the <em>material</em> variables are getting at represeting similar things.</p>
+<p>Some initial thoughts:
+- You would expect that has <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> goes up <code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code> will also go up since the persons cannot afford to remedy accommodation issues.
+- <code class="docutils literal notranslate"><span class="pre">RuralUrban</span></code> only has two categories so doesn’t lend itself to correlational analysis. Whether people are better off in the city, or the country depends on many factors (and varies between country).
+- You would expect <code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code> and <code class="docutils literal notranslate"><span class="pre">Children</span></code> to be similar because <code class="docutils literal notranslate"><span class="pre">Children</span></code> counts towards household size (but <code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code> stops at &gt;=4).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_mat</span> <span class="o">=</span> <span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;RuralUrban&#39;</span><span class="p">,</span><span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span><span class="s1">&#39;HouseholdSize&#39;</span><span class="p">,</span><span class="s1">&#39;Children&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_mat</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">))</span>
+
+<span class="n">df_mat</span><span class="o">=</span><span class="n">df_mat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HouseholdSize&#39;</span><span class="p">,</span><span class="s1">&#39;Children&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">)</span>
+<span class="n">df_mat</span> <span class="o">=</span> <span class="n">df_mat</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;HouseholdSize&quot;</span><span class="p">,</span> <span class="s2">&quot;Children&quot;</span><span class="p">,</span> <span class="s2">&quot;counts&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               DeprIndex  RuralUrban  AccomProblems  HouseholdSize  Children
+DeprIndex       1.000000    0.067098       0.299665       0.007266  0.059037
+RuralUrban      0.067098    1.000000       0.074348       0.024762  0.004160
+AccomProblems   0.299665    0.074348       1.000000       0.144886 -0.014654
+HouseholdSize   0.007266    0.024762       0.144886       1.000000  0.177397
+Children        0.059037    0.004160      -0.014654       0.177397  1.000000
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_45_1.png" src="../../_images/3.5-DataVisForExploration_45_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code> does not appear to monotonically increase with <code class="docutils literal notranslate"><span class="pre">Children</span></code>. Probably the mediation here is <code class="docutils literal notranslate"><span class="pre">Age</span></code>. One can live alone but have five children who each have their own households.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_mat</span><span class="o">=</span><span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;RuralUrban&#39;</span><span class="p">,</span><span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span><span class="s1">&#39;HouseholdSize&#39;</span><span class="p">,</span><span class="s1">&#39;Children&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;AccomProblems&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">)</span>
+<span class="n">df_mat</span> <span class="o">=</span> <span class="n">df_mat</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="s2">&quot;AccomProblems&quot;</span><span class="p">,</span> <span class="s2">&quot;counts&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_mat</span><span class="p">)</span>
+<span class="c1"># 0,0 will overwhelm the heatmap. Let&#39;s cap it.</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AccomProblems    0.0    1.0   2.0   3.0  4.0  5.0  6.0
+DeprIndex                                             
+0.0            935.0  188.0  40.0  15.0  2.0  NaN  3.0
+1.0            145.0   49.0  17.0   7.0  1.0  NaN  3.0
+2.0            115.0   43.0  29.0   5.0  4.0  NaN  NaN
+3.0             66.0   43.0  25.0   6.0  NaN  NaN  NaN
+4.0             52.0   31.0  21.0   5.0  2.0  2.0  NaN
+5.0             28.0   22.0  11.0   7.0  5.0  1.0  NaN
+6.0             30.0   15.0   6.0   3.0  2.0  NaN  NaN
+</pre></div>
+</div>
+<img alt="../../_images/3.5-DataVisForExploration_47_1.png" src="../../_images/3.5-DataVisForExploration_47_1.png" />
+</div>
+</div>
+<p>There is a bias for zero accommodation problems but as deprivation increases the amount of accommodation problems tends to increase.</p>
+</div>
+<div class="section" id="self-reported-health-for-the-uk">
+<h3>Self reported health for the UK<a class="headerlink" href="#self-reported-health-for-the-uk" title="Permalink to this headline">¶</a></h3>
+<p>One thing we haven’t done so far is have a look at the full SRH distribution for the UK.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_uk</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SRH&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_uk</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3.5-DataVisForExploration_50_0.png" src="../../_images/3.5-DataVisForExploration_50_0.png" />
+</div>
+</div>
+<p>You can see that in the UK dataset, as with the global dataset, most of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> responses were zero (right graph above). In the left panel we have SRH. The responses here are:</p>
+<ul class="simple">
+<li><p>1: Very good</p></li>
+<li><p>2: Good</p></li>
+<li><p>3: Fair</p></li>
+<li><p>4: Bad</p></li>
+<li><p>5: Very Bad.</p></li>
+</ul>
+<p>The positive skew (i.e. the mean will be to the right of the median) shows that participants felt more healthy than unhealthy.</p>
+<p>The paper uses the 2003 EQLS dataset which has the answers of [“excellent”, “very good”, “good”, “fair”, “poor”]. The variable was dichotomised for ease of use with logistic regression as “good” health [“excellent”, “very good”, “good”] and “poor” health [“fair”, “poor”].</p>
+<p>Here we have different names of the responses. If we must dichotomise then the debate is around whether to categorise “fair” as good or bad health, since arguably the word semantically means good health rather than poor health. Let’s follow the paper and have a 3-2 split with (“bad”, “very bad”) comprising the negative group.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3.4-StoryTelling.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Storytelling with data visualisation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="hands-on.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Hands-on Session</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
