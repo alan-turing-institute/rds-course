@@ -34,6 +34,7 @@ outstanding subsections:
     - e.g. collection skewed towards/against single demographic
 - badly designed capture/missed variables (e.g. missing q in survey, leading q)
 - data storage (perhaps incorporate into data access subsection)?
+- Pipelines/best practice for stitching pre-processing together in a reproducible way (and ability to appply pipeline to new data)
 
 
 outstanding for hands on:
