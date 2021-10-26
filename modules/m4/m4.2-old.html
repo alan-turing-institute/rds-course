@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.2 Inside a Model &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.1_What_is_data_science.html">
+   Lesson 1.1: What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.2_Data_Science_project_lifecycle.html">
+   Lesson 1.2: Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.3_EDI_for_data_science.html">
+   Lesson 1.3: Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/Lesson_1.4_Collaboration_and_reproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   Visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Hands-on Session
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="m4.2.html">
+   Fitting Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/m4.2-old.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m4/m4.2-old.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   4.2 Inside a Model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction">
+     Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-toy-example-polynomial-curve-fitting-from-bishops">
+     A toy example:  Polynomial Curve Fitting from Bishops
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from-linear-regression-to-logistic-regression">
+     From linear regression to logistic regression
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practical-tought-session">
+     Practical tought session
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparing-our-data-for-modeling">
+     Preparing our data for modeling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-a-logistic-regression">
+     Fitting a logistic regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refereces">
+   Refereces
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="inside-a-model">
+<h1>4.2 Inside a Model<a class="headerlink" href="#inside-a-model" title="Permalink to this headline">¶</a></h1>
+<p><strong>[WIP] Currently in the original draft form. Needs re-drafting after 4.1 and 4.3 were made</strong></p>
+<!-- Assumed known preliminaries from M1-3 + 4.1
+- Module 1: The dichotomisation of the self reported health: we are grouping [“”Very good”, “Good” and “Fair”] as good and [“”Bad”, “Very Bad”] as bad. This results in an imbalanced dataset, but it feels like is the most appropriate grouping. However, in the paper they group “fair” in the bad outcome, this might have been done to fix the imbalance issue, but it doesn’t feel right. In any case, there is a lot of issues in this measure, there are cultural differences in what people find good or bad, and it seems that there is a lot of variability in the distributions of these answers between different countries. It would be good that these things get discussed and the resulting limitations of the analysis are understood.
+
+- Module 2: Missigness, the analysis from Christina shows a lot of missing variables in Wave 2, so we decided to stick to Wave 3 only. But it could be a good hand-on exercise for the students to motivate this. Furthermore, in Wave 3 there is variables with a large percentage of missing data that we end up dropping (for variables with less data missing we’ll use imputation). It could be good that this is understood, and the students also investigate if there are groups (countries, sectors of populations) where there is more data missing than others, and what could be the consequences of any imputation we might do.
+
+- Module 3: In here we will explore relationships between the variables in the data and will motivate the features that will be used in Module 4.
+
+-->
+<!--
+PLAN:
+
+We have learned about parameters and probability distributions. 
+
+Models are specified by parameters.
+
+The simplest model is the average. 
+
+Models are fitted to data through a cost function. 
+
+The average has the minimum cost.
+(do a multi-panel graph showing this)
+
+But this doesn't capture variability. We3 can fit a normal distribution. 
+
+Two common ways of fitting. MLE, RMSE. These cost functions have a global minimum. Cost functions can get very complicated. Fitting in a way is trying out different predictions and seeing how they well they match the data.  n n
+
+
+(Code and graph)
+
+We won't cover the algorithms of how models get fitted.
+
+We now have a probalistic model, from which we can generate data. 
+
+## Modelling relationships: Regression. 
+
+Most RQs are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters dependent on on other variables. 
+
+The simplest method of modelling relationships is to assign a model parameter for each input variable that you want to consider. 
+
+More complex models but from adding in more variables and mathematically specifying the nature of the relationship between variables (e.g. interactions). 
+
+Each input to your model, and it's associated parameter, called _coefficients_ can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the model? 
+
+How many parameters?
+
+It depends what you are interested in and what you want to learn. 
+
+With enough parameters you can fit anything. But the model will not generalise well. We could just be fitting to noise.
+
+(Bishop toy example).
+
+
+### From linear regression to logistic regression.
+
+The data considered so far deal with a continuous outcome variable, or a normal distribution. 
+
+We have dichotomised our variable. 
+
+Logistic regression is conceptrually similar in that we predict a parameter of a distribution, only this time it is a bernouilli distribution.
+
+We obtain category classes by making the assumption that if the mean of the bernouilli distribution is below X. We class the prediction as Y. 
+
+We will step through the development at the beginning of the next section.
+
+[qu: how much of the logistic regression dev in the next section do we include here?]
+
+-->
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>For the remainder of this module we will use the the European Quality of Life Time Series (EQLTS) dataset to ilustrate the steps and considerations to have in mind when building a simple module. More details about this dataset can be found in <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">here</a>.</p>
+<p>As discussed in Module 1, we want to investigate the contribution of material, occupational, and psychosocial factors on the self reported health (SRH) across different European countries. In this particular excersice we will focus on the data from the UK taken for Wave 3.</p>
+<p>In the survey self reported health was assessed using the following question: “In general, would you say your health is …” and response categories were “very good”, “good”, “fair”, and “bad” and “very bad”. For simplicity, we will follow the strategy from (Aldabe et al.) of dicotomising the variable as “good” (“very good”, “good”, “fair”) health versus “bad” health (“bad” and “very bad”).</p>
+<p>In figure X you can see the frequency distribution of the answers that individuals from the UK provided Wave 3 of the survey.</p>
+<p>TODO: DEPENDING IN HOW THE FIGURE LOOK ADD TEXT ON THE ADVANTAGE OF DICHOTOMISING.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p>To the goal of our stury is to capture the relationships that certain socialfactors have with our target variable, the self reported health.  A straight forward way of doing this is to think in
+a multiple linear regression which attempts to model the relationship between two or more explanatory variables and a response variable by fitting a linear equation to observed data.</p>
+<p>In a multiple linear regression every value of the <span class="math notranslate nohighlight">\(n\)</span> independent variables is associated with a value of the dependent variable in the following way:</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_q x_{q} +  \epsilon
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y\)</span> is the value of the dependent variable, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, the coefficients <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>, <span class="math notranslate nohighlight">\(\beta_3\)</span> and <span class="math notranslate nohighlight">\(\beta_q\)</span> describe the mathematical relationship between each independent variable and the dependent variable are to be estimated and <span class="math notranslate nohighlight">\(\epsilon\)</span> is used to account for error and is a normal random variables with mean <span class="math notranslate nohighlight">\(0\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>In our particular case our target variable is an ordered categorical variable that we decided to dichotomise, but we we’ll get to this later when we introduce logistic regression. For now, let’s use a simple toy dataset to explore further how to fit a MLR module and how to assess its quality.</p>
+<div class="section" id="a-toy-example-polynomial-curve-fitting-from-bishops">
+<h2>A toy example:  Polynomial Curve Fitting from Bishops<a class="headerlink" href="#a-toy-example-polynomial-curve-fitting-from-bishops" title="Permalink to this headline">¶</a></h2>
+<p>A python demo of bishops that we can use for this section <a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html</a></p>
+<ul class="simple">
+<li><p>high-level overview of how models are fitted (e.g. wrt some cost function).</p>
+<ul>
+<li><p>Cost of error function</p></li>
+<li><p>choosing the order M of the polynomial, and as we shall see this will turn out to be an example of an important concept called model comparison or model selection.</p></li>
+<li><p>Model complexity and over fitting</p></li>
+<li><p>By adopting a Bayesian approach, the over-fitting problem can be avoided?</p></li>
+<li><p>Colinearity</p></li>
+</ul>
+</li>
+</ul>
+<!--Introduce regression - predicting an outcome as a combination of other variables.
+- most models are regression models of different forms.
+- briefly cover the mathematics and necessary assumptions when making a simple regression model.
+- Discuss colinearity 
+    - here have a very simple toy example with exaggerated examples. 
+    - Graphs + easy calculations
+    - How to assess for coliniarity (correlations, [VIFs](https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/))
+
+- Here also discuss uncertainty (cue this in 4.1 and maybe bring the same figures - but adapted to show where the difference lies - into this module)
+
+_mimic the way that bishop describes modelling in his introductory pages_
+-->
+</div>
+<div class="section" id="from-linear-regression-to-logistic-regression">
+<h2>From linear regression to logistic regression<a class="headerlink" href="#from-linear-regression-to-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>The previous sections have given you an idea of the fundamental concepts of building and testing a linear model regresion model, but the problem we are trying to solve with our research question is not a regression problem but a classification one.  We want to predict a binary dependent variable that has 2 values: either 1 or 0.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y = 
+\begin{cases} 
+      1 &amp; \text{good health} \\
+      0 &amp; \text{bad health} 
+\end{cases}
+\end{split}\]</div>
+<p>This kind of binary choices are represented by a Bernoulli variable where the probabilities of an event belonging to a given class are bounded on both ends (they must be between 0 and 1). In this case we’ll mostly focus on the case when <span class="math notranslate nohighlight">\(Y = 1\)</span> (good health), defined with the following way:</p>
+<div class="math notranslate nohighlight">
+\[
+p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}]
+\]</div>
+<p>Our usual linear regression can deals continuous variables instead of Bernoulli variables, which means that the predictions are not sensible for classification since the true probability must fall between 0 and 1, but the prediction from linear regression it can take any continous values incluing larger than 1 or smaller than 0 as seeen in the Figure X.</p>
+<p><img alt="" src="https://i.imgur.com/PrZtchW.png" />
+Figure from here[<a class="reference external" href="https://www.javatpoint.com/linear-regression-vs-logistic-regression-in-machine-learning">https://www.javatpoint.com/linear-regression-vs-logistic-regression-in-machine-learning</a></p>
+<p>The solution to this issue (and a way to continously using a linear, understandable model) is to transform the linear regression to a logistic regression curve. This means feeding the the predicted values into a sigmoid function, thus converting them into probability as shown next:</p>
+<p>In order to see this more formaly lets define now the  <strong>logistic regression</strong> model.</p>
+<div class="math notranslate nohighlight">
+\[
+\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{p - 1} x_{p - 1}
+\]</div>
+<p>The left hand side is called the <strong>log odds</strong>, which is the log of the odds. The odds are the probability for a positive event <span class="math notranslate nohighlight">\((Y = 1)\)</span> divided by the probability of a negative event <span class="math notranslate nohighlight">\((Y = 0)\)</span>. So when the odds are <span class="math notranslate nohighlight">\(1\)</span>, the two events have equal probability. Odds greater than <span class="math notranslate nohighlight">\(1\)</span> favor a positive event. The opposite is true when the odds are less than <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Essentially, the log odds are the <a class="reference external" href="https://en.wikipedia.org/wiki/Logit">logit</a> transform applied to <span class="math notranslate nohighlight">\(p({\bf x})\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{logit}(\xi) = \log\left(\frac{\xi}{1 - \xi}\right)
+\]</div>
+<p>The inverse logit, otherwise known as the “logistic” or <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> function is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{logit}^{-1}(\xi) = \frac{e^\xi}{1 + e^{\xi}} = \frac{1}{1 + e^{-\xi}}
+\]</div>
+<p>Note that for <span class="math notranslate nohighlight">\(x \in (-\infty, \infty))\)</span>, this function outputs values between 0 and 1.</p>
+<p>Where is the error term?  Notice that the linear regression model with the error term,</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \beta_0 + \beta_1x_1 + \ldots + \beta_qx_q + \epsilon, \ \ \epsilon \sim N(0, \sigma^2)
+\]</div>
+<p>can instead be written as</p>
+<div class="math notranslate nohighlight">
+\[
+Y \mid {\bf X} = {\bf x} \sim N(\beta_0 + \beta_1x_1 + \ldots + \beta_qx_q, \ \sigma^2).
+\]</div>
+<p>While our main focus is on estimating the mean, <span class="math notranslate nohighlight">\(\beta_0 + \beta_1x_1 + \ldots + \beta_qx_q\)</span>, there is also another parameter, <span class="math notranslate nohighlight">\(\sigma^2\)</span> which needs to be estimated. With logistic regression, which uses the Bernoulli distribution, we only need to estimate the Bernoulli distribution’s single parameter <span class="math notranslate nohighlight">\(p({\bf x})\)</span>, which happens to be its mean.</p>
+<div class="math notranslate nohighlight">
+\[
+\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{q} x_{q}
+\]</div>
+<p>So even though we introduced ordinary linear regression first, in some ways, logistic regression is actually simpler.</p>
+<p>Note that applying the inverse logit transformation allow us to obtain an expression for <span class="math notranslate nohighlight">\(p({\bf x})\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}] = \frac{e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}{1 + e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}
+\]</div>
+</div>
+<div class="section" id="practical-tought-session">
+<h2>Practical tought session<a class="headerlink" href="#practical-tought-session" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have all the theoretical basis covered, we can start getting with our dataset ready for modeling. As discussed in Module 2, missing data is an important step that needs to solved before building a model.</p>
+<p>A strategy to deal with missing data is to discard entire rows and/or columns containing missing values. However, this comes with a price os losing data and predictive power or further distorting our sample if the data is not missing completly at random (this could have some serious ethical implications e.g <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/h1w0nbqp/release/3">What gets counted counts</a> TODO: Find others). A better strategy is to do data imputation of the missing values, i.e., to infer them from the known part of the data.</p>
+<p>Data pipelines allow one to transform data from one representation  to another through a series of steps. Pipelines allow one to apply and chain intermediate steps of transform to our data.  For example, one can fill missing values, pass the output to cross  validation and grid search and then fit the model in series of steps chained together where the output of one is the input to another.</p>
+</div>
+<div class="section" id="preparing-our-data-for-modeling">
+<h2>Preparing our data for modeling<a class="headerlink" href="#preparing-our-data-for-modeling" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Simple imputation of missing values</p></li>
+<li><p>Data wrangling step but has such an effect on modelling, and has ethical implications (e.g. persisting dominant norms but imputing the mean or most common values), that it should be considered a key part of the model.</p>
+<ul>
+<li><p>Note that some models (bayesian) have the imputation step explicitly stated within it.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="fitting-a-logistic-regression">
+<h2>Fitting a logistic regression<a class="headerlink" href="#fitting-a-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Turining our regression model to solve a classification problem.</p></li>
+<li><p>First fit of out data</p></li>
+<li><p>First tipical output of the fit: MSE and classification matrix for test sample.</p></li>
+<li><p>This move us to 4.3</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="refereces">
+<h1>Refereces<a class="headerlink" href="#refereces" title="Permalink to this headline">¶</a></h1>
+<p>Aldabe, et al. (2011). Contribution of material, occupational, and psychosocial factors in the explanation of social inequalities in health in 28 countries in Europe. Journal of epidemiology and community health, 65(12), 1123–1131. <a class="reference external" href="https://doi.org/10.1136/jech.2009.102517">https://doi.org/10.1136/jech.2009.102517</a></p>
+<p>Logistic regresssion discussion from <a class="reference external" href="https://daviddalpiaz.github.io/appliedstats/logistic-regression.html#binary-response">https://daviddalpiaz.github.io/appliedstats/logistic-regression.html#binary-response</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

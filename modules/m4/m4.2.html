@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2 Inside a Model &#8212; Research Data Science</title>
+    <title>Fitting Models &#8212; Research Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -285,7 +285,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4.2 Inside a Model
+   Fitting Models
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,9 +344,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m4/m4.2.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/m4.2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -380,6 +380,26 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m4/m4.2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -390,54 +410,22 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   4.2 Inside a Model
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mean-as-a-model">
+   The mean as a model
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction">
-     Introduction
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#models">
-   Models
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling-relationships-regression">
+   Modelling relationships: Regression.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-toy-example-polynomial-curve-fitting-from-bishops">
-     A toy example:  Polynomial Curve Fitting from Bishops
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#from-linear-regression-to-logistic-regression">
-     From linear regression to logistic regression
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#practical-tought-session">
-     Practical tought session
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preparing-our-data-for-modeling">
-     Preparing our data for modeling
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fitting-a-logistic-regression">
-     Fitting a logistic regression
+     From linear regression to logistic regression.
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#refereces">
-   Refereces
-  </a>
  </li>
 </ul>
 
@@ -450,211 +438,155 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="inside-a-model">
-<h1>4.2 Inside a Model<a class="headerlink" href="#inside-a-model" title="Permalink to this headline">¶</a></h1>
-<p><strong>[WIP] Currently in the original draft form. Needs re-drafting after 4.1 and 4.3 were made</strong></p>
-<!-- Assumed known preliminaries from M1-3 + 4.1
-- Module 1: The dichotomisation of the self reported health: we are grouping [“”Very good”, “Good” and “Fair”] as good and [“”Bad”, “Very Bad”] as bad. This results in an imbalanced dataset, but it feels like is the most appropriate grouping. However, in the paper they group “fair” in the bad outcome, this might have been done to fix the imbalance issue, but it doesn’t feel right. In any case, there is a lot of issues in this measure, there are cultural differences in what people find good or bad, and it seems that there is a lot of variability in the distributions of these answers between different countries. It would be good that these things get discussed and the resulting limitations of the analysis are understood.
-
-- Module 2: Missigness, the analysis from Christina shows a lot of missing variables in Wave 2, so we decided to stick to Wave 3 only. But it could be a good hand-on exercise for the students to motivate this. Furthermore, in Wave 3 there is variables with a large percentage of missing data that we end up dropping (for variables with less data missing we’ll use imputation). It could be good that this is understood, and the students also investigate if there are groups (countries, sectors of populations) where there is more data missing than others, and what could be the consequences of any imputation we might do.
-
-- Module 3: In here we will explore relationships between the variables in the data and will motivate the features that will be used in Module 4.
-
--->
-<!--
-PLAN:
-
-We have learned about parameters and probability distributions. 
-
-Models are specified by parameters.
-
-The simplest model is the average. 
-
-Models are fitted to data through a cost function. 
-
-The average has the minimum cost.
-(do a multi-panel graph showing this)
-
-But this doesn't capture variability. We3 can fit a normal distribution. 
-
-Two common ways of fitting. MLE, RMSE. These cost functions have a global minimum. Cost functions can get very complicated.
-
-(Code and graph)
-
-We won't cover the algorithms of how models get fitted.
-
-
-## Modelling relationships: Regression. 
-
-Most RQs are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters dependent on on other variables. 
-
-The simplest method of modelling relationships is to assign a model parameter for each input variable that you want to consider. 
-
-More complex models but from adding in more variables and mathematically specifying the nature of the relationship between variables (e.g. interactions). 
-
-Each input to your model, and it's associated parameter, called _coefficients_ can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the model? 
-
-How many parameters?
-
-It depends what you are interested in and what you want to learn. 
-
-With enough parameters you can fit anything. But the model will not generalise well. We could just be fitting to noise.
-
-(Bishop toy example).
-
-
-### From linear regression to logistic regression.
-
-The data considered so far deal with a continuous outcome variable, or a normal distribution. 
-
-We have dichotomised our variable. 
-
-Logistic regression is conceptrually similar in that we predict a parameter of a distribution, only this time it is a bernouilli distribution.
-
-We obtain category classes by making the assumption that if the mean of the bernouilli distribution is below X. We class the prediction as Y. 
-
-We will step through the development at the beginning of the next section.
-
-[qu: how much of the logistic regression dev in the next section do we include here?]
-
--->
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>For the remainder of this module we will use the the European Quality of Life Time Series (EQLTS) dataset to ilustrate the steps and considerations to have in mind when building a simple module. More details about this dataset can be found in <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">here</a>.</p>
-<p>As discussed in Module 1, we want to investigate the contribution of material, occupational, and psychosocial factors on the self reported health (SRH) across different European countries. In this particular excersice we will focus on the data from the UK taken for Wave 3.</p>
-<p>In the survey self reported health was assessed using the following question: “In general, would you say your health is …” and response categories were “very good”, “good”, “fair”, and “bad” and “very bad”. For simplicity, we will follow the strategy from (Aldabe et al.) of dicotomising the variable as “good” (“very good”, “good”, “fair”) health versus “bad” health (“bad” and “very bad”).</p>
-<p>In figure X you can see the frequency distribution of the answers that individuals from the UK provided Wave 3 of the survey.</p>
-<p>TODO: DEPENDING IN HOW THE FIGURE LOOK ADD TEXT ON THE ADVANTAGE OF DICHOTOMISING.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="models">
-<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
-<p>To the goal of our stury is to capture the relationships that certain socialfactors have with our target variable, the self reported health.  A straight forward way of doing this is to think in
-a multiple linear regression which attempts to model the relationship between two or more explanatory variables and a response variable by fitting a linear equation to observed data.</p>
-<p>In a multiple linear regression every value of the <span class="math notranslate nohighlight">\(n\)</span> independent variables is associated with a value of the dependent variable in the following way:</p>
+  <p><strong>[WIP] This is a draft re-write. The planning notes are found in <code class="docutils literal notranslate"><span class="pre">m4.2.md</span></code>.</strong></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="fitting-models">
+<h1>Fitting Models<a class="headerlink" href="#fitting-models" title="Permalink to this headline">¶</a></h1>
+<p>In the previous section we learned about parameters representing mathematical elements of data. One way to think of models are that they are collection of parameters.</p>
+<p>In order to use models to learn about data we need to tweak the parameter values so that the model is the best representation of the data that it could be.</p>
+<p>This is called <strong>fitting</strong> a model to data.</p>
+<p>We fit a model by constructing a <strong>cost function</strong>. A cost function can be any function where higher values mean a poorer fit and lower values mean a better fit.</p>
+<p>Let us illustrate this by using a very simple and familiar single-parameter model: <em>the mean</em>.</p>
+<div class="section" id="the-mean-as-a-model">
+<h2>The mean as a model<a class="headerlink" href="#the-mean-as-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Let us have a dataset, <span class="math notranslate nohighlight">\(X\)</span>. We wish to represent this dataset as best we can with a single parameter on the same arithmetic scale as the data: <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>We first define a cost function. Since <span class="math notranslate nohighlight">\(\mu\)</span> is meant to be a single quantity that represents the data we want values that a further away to <span class="math notranslate nohighlight">\(\mu\)</span> to have a higher cost. Since we don’t want negative values we could square the error, this will also have the added benefit of penalising higher errors more harshly that lower errors. We can sum all the <strong>squared errors</strong> of each data point from <span class="math notranslate nohighlight">\(\mu\)</span> to get a single value that we could minimise.</p>
 <div class="math notranslate nohighlight">
-\[
-Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_q x_{q} +  \epsilon
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(Y\)</span> is the value of the dependent variable, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, the coefficients <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>, <span class="math notranslate nohighlight">\(\beta_3\)</span> and <span class="math notranslate nohighlight">\(\beta_q\)</span> describe the mathematical relationship between each independent variable and the dependent variable are to be estimated and <span class="math notranslate nohighlight">\(\epsilon\)</span> is used to account for error and is a normal random variables with mean <span class="math notranslate nohighlight">\(0\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
-<p>In our particular case our target variable is an ordered categorical variable that we decided to dichotomise, but we we’ll get to this later when we introduce logistic regression. For now, let’s use a simple toy dataset to explore further how to fit a MLR module and how to assess its quality.</p>
-<div class="section" id="a-toy-example-polynomial-curve-fitting-from-bishops">
-<h2>A toy example:  Polynomial Curve Fitting from Bishops<a class="headerlink" href="#a-toy-example-polynomial-curve-fitting-from-bishops" title="Permalink to this headline">¶</a></h2>
-<p>A python demo of bishops that we can use for this section <a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html</a></p>
-<ul class="simple">
-<li><p>high-level overview of how models are fitted (e.g. wrt some cost function).</p>
-<ul>
-<li><p>Cost of error function</p></li>
-<li><p>choosing the order M of the polynomial, and as we shall see this will turn out to be an example of an important concept called model comparison or model selection.</p></li>
-<li><p>Model complexity and over fitting</p></li>
-<li><p>By adopting a Bayesian approach, the over-fitting problem can be avoided?</p></li>
-<li><p>Colinearity</p></li>
-</ul>
-</li>
-</ul>
-<!--Introduce regression - predicting an outcome as a combination of other variables.
-- most models are regression models of different forms.
-- briefly cover the mathematics and necessary assumptions when making a simple regression model.
-- Discuss colinearity 
-    - here have a very simple toy example with exaggerated examples. 
-    - Graphs + easy calculations
-    - How to assess for coliniarity (correlations, [VIFs](https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/))
+\[\sum (X-\mu)^2\]</div>
+<p>However, this value is in squared error units, which is unintuitive. To keep the cost function in the units of the data we can take the average then take the square root. This gives us a common cost function, <strong>root-mean-squared-error</strong> (RMSE):</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{\frac{1}{n}\sum (X-\mu)^2}\]</div>
+<p>Essentially, we fit this model by trying different predictions for <span class="math notranslate nohighlight">\(\mu\)</span>, calculating the cost, and selecting the value of <span class="math notranslate nohighlight">\(\mu\)</span> that has the minimum cost.</p>
+<p>In this case the minimum of this cost function corresponds exactly to the mean (with some sampling variability).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 
-- Here also discuss uncertainty (cue this in 4.1 and maybe bring the same figures - but adapted to show where the difference lies - into this module)
+<span class="c1">### generate fake data.</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">b0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="mf">.3</span>
+<span class="n">var</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">stdev</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">b0</span><span class="o">+</span><span class="n">b1</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="n">stdev</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">var</span><span class="p">])</span>
 
-_mimic the way that bishop describes modelling in his introductory pages_
--->
+
+<span class="c1">### set predictions for mu</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1">### calculate costs</span>
+<span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">cost</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">]</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">costs</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">costs</span><span class="p">)],</span> <span class="nb">min</span><span class="p">(</span><span class="n">costs</span><span class="p">),</span> <span class="s1">&#39;.r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cost&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">, Mu: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">costs</span><span class="p">)],</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/m4.2_2_0.png" src="../../_images/m4.2_2_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.009848715122044, Mu: 5.01
+</pre></div>
+</div>
+</div>
+</div>
+<p>The mean is a poor model since it predicts the same value each time whereas the data is clearly represented by a range of values.</p>
+<p>Perhaps the most common probablistic models is modelling the data points as coming from a <em>[normal distribution]</em>. A normal distribution, or gaussian distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
+<p>We fit a normal distribution to our data in a similar way to our previous example: we find the parameter values that are demonstrably best with respect to some cost function.</p>
+<p>A common cost function for fitting probability distributions is the <strong>likelihood</strong>. Simply put, a likelihood of a single data point is the probability of that data point occuring given a probability distribution with certain parameters. The combined likelihood of a dataset is each individual likelihood multiplied together. A common fitting technique is to find the <strong>maximum likelihood</strong> of a dataset.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), so the log-likelihood is taken so that we can sum across the datapoints. Further, taking the <em>negative</em> log-likihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> what the authors are normally talking about is <em>minimising the negative log-likelihood</em>.</p>
+</div>
+<p>The log-likelihood is illustrated below with our previous fake dataset. To make the illustration simpler we have fixed the guassian variance parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;C3&#39;</span><span class="p">]</span> <span class="c1">#https://matplotlib.org/stable/users/dflt_style_changes.html</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">test_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">likelihoods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">likelihoods</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span> <span class="c1">#all zeros because the values are so small</span>
+
+<span class="c1"># so we take the negative log-likelihood .</span>
+<span class="n">logliks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">logliks</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Likelihood&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># calculate example gaussians</span>
+<span class="n">mu_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mu_i</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mu_index</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span><span class="n">logliks</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="c1"># plot minimum log-lik (maximum likeilhood)</span>
+<span class="n">mu_min</span> <span class="o">=</span> <span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">logliks</span><span class="p">)]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mu_min</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">logliks</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+</pre></div>
+</div>
+<img alt="../../_images/m4.2_4_1.png" src="../../_images/m4.2_4_1.png" />
+</div>
+</div>
+<p><strong>Plan for remainder</strong>:</p>
+</div>
+<div class="section" id="modelling-relationships-regression">
+<h2>Modelling relationships: Regression.<a class="headerlink" href="#modelling-relationships-regression" title="Permalink to this headline">¶</a></h2>
+<p>Most RQs are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters dependent on on other variables.</p>
+<p>The simplest method of modelling relationships is to assign a model parameter for each input variable that you want to consider.</p>
+<p>More complex models but from adding in more variables and mathematically specifying the nature of the relationship between variables (e.g. interactions).</p>
+<p>Each input to your model, and it’s associated parameter, called <em>coefficients</em> can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the model?</p>
+<p>How many parameters?</p>
+<p>It depends what you are interested in and what you want to learn.</p>
+<p>With enough parameters you can fit anything. But the model will not generalise well. We could just be fitting to noise.</p>
+<p>(Bishop toy example), can show some plots from <a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">here</a></p>
 <div class="section" id="from-linear-regression-to-logistic-regression">
-<h2>From linear regression to logistic regression<a class="headerlink" href="#from-linear-regression-to-logistic-regression" title="Permalink to this headline">¶</a></h2>
-<p>The previous sections have given you an idea of the fundamental concepts of building and testing a linear model regresion model, but the problem we are trying to solve with our research question is not a regression problem but a classification one.  We want to predict a binary dependent variable that has 2 values: either 1 or 0.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-Y = 
-\begin{cases} 
-      1 &amp; \text{good health} \\
-      0 &amp; \text{bad health} 
-\end{cases}
-\end{split}\]</div>
-<p>This kind of binary choices are represented by a Bernoulli variable where the probabilities of an event belonging to a given class are bounded on both ends (they must be between 0 and 1). In this case we’ll mostly focus on the case when <span class="math notranslate nohighlight">\(Y = 1\)</span> (good health), defined with the following way:</p>
-<div class="math notranslate nohighlight">
-\[
-p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}]
-\]</div>
-<p>Our usual linear regression can deals continuous variables instead of Bernoulli variables, which means that the predictions are not sensible for classification since the true probability must fall between 0 and 1, but the prediction from linear regression it can take any continous values incluing larger than 1 or smaller than 0 as seeen in the Figure X.</p>
-<p><img alt="" src="https://i.imgur.com/PrZtchW.png" />
-Figure from here[<a class="reference external" href="https://www.javatpoint.com/linear-regression-vs-logistic-regression-in-machine-learning">https://www.javatpoint.com/linear-regression-vs-logistic-regression-in-machine-learning</a></p>
-<p>The solution to this issue (and a way to continously using a linear, understandable model) is to transform the linear regression to a logistic regression curve. This means feeding the the predicted values into a sigmoid function, thus converting them into probability as shown next:</p>
-<p>In order to see this more formaly lets define now the  <strong>logistic regression</strong> model.</p>
-<div class="math notranslate nohighlight">
-\[
-\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{p - 1} x_{p - 1}
-\]</div>
-<p>The left hand side is called the <strong>log odds</strong>, which is the log of the odds. The odds are the probability for a positive event <span class="math notranslate nohighlight">\((Y = 1)\)</span> divided by the probability of a negative event <span class="math notranslate nohighlight">\((Y = 0)\)</span>. So when the odds are <span class="math notranslate nohighlight">\(1\)</span>, the two events have equal probability. Odds greater than <span class="math notranslate nohighlight">\(1\)</span> favor a positive event. The opposite is true when the odds are less than <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>Essentially, the log odds are the <a class="reference external" href="https://en.wikipedia.org/wiki/Logit">logit</a> transform applied to <span class="math notranslate nohighlight">\(p({\bf x})\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-\text{logit}(\xi) = \log\left(\frac{\xi}{1 - \xi}\right)
-\]</div>
-<p>The inverse logit, otherwise known as the “logistic” or <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> function is defined as follows:</p>
-<div class="math notranslate nohighlight">
-\[
-\text{logit}^{-1}(\xi) = \frac{e^\xi}{1 + e^{\xi}} = \frac{1}{1 + e^{-\xi}}
-\]</div>
-<p>Note that for <span class="math notranslate nohighlight">\(x \in (-\infty, \infty))\)</span>, this function outputs values between 0 and 1.</p>
-<p>Where is the error term?  Notice that the linear regression model with the error term,</p>
-<div class="math notranslate nohighlight">
-\[
-Y = \beta_0 + \beta_1x_1 + \ldots + \beta_qx_q + \epsilon, \ \ \epsilon \sim N(0, \sigma^2)
-\]</div>
-<p>can instead be written as</p>
-<div class="math notranslate nohighlight">
-\[
-Y \mid {\bf X} = {\bf x} \sim N(\beta_0 + \beta_1x_1 + \ldots + \beta_qx_q, \ \sigma^2).
-\]</div>
-<p>While our main focus is on estimating the mean, <span class="math notranslate nohighlight">\(\beta_0 + \beta_1x_1 + \ldots + \beta_qx_q\)</span>, there is also another parameter, <span class="math notranslate nohighlight">\(\sigma^2\)</span> which needs to be estimated. With logistic regression, which uses the Bernoulli distribution, we only need to estimate the Bernoulli distribution’s single parameter <span class="math notranslate nohighlight">\(p({\bf x})\)</span>, which happens to be its mean.</p>
-<div class="math notranslate nohighlight">
-\[
-\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{q} x_{q}
-\]</div>
-<p>So even though we introduced ordinary linear regression first, in some ways, logistic regression is actually simpler.</p>
-<p>Note that applying the inverse logit transformation allow us to obtain an expression for <span class="math notranslate nohighlight">\(p({\bf x})\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}] = \frac{e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}{1 + e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}
-\]</div>
-</div>
-<div class="section" id="practical-tought-session">
-<h2>Practical tought session<a class="headerlink" href="#practical-tought-session" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have all the theoretical basis covered, we can start getting with our dataset ready for modeling. As discussed in Module 2, missing data is an important step that needs to solved before building a model.</p>
-<p>A strategy to deal with missing data is to discard entire rows and/or columns containing missing values. However, this comes with a price os losing data and predictive power or further distorting our sample if the data is not missing completly at random (this could have some serious ethical implications e.g <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/h1w0nbqp/release/3">What gets counted counts</a> TODO: Find others). A better strategy is to do data imputation of the missing values, i.e., to infer them from the known part of the data.</p>
-<p>Data pipelines allow one to transform data from one representation  to another through a series of steps. Pipelines allow one to apply and chain intermediate steps of transform to our data.  For example, one can fill missing values, pass the output to cross  validation and grid search and then fit the model in series of steps chained together where the output of one is the input to another.</p>
-</div>
-<div class="section" id="preparing-our-data-for-modeling">
-<h2>Preparing our data for modeling<a class="headerlink" href="#preparing-our-data-for-modeling" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Simple imputation of missing values</p></li>
-<li><p>Data wrangling step but has such an effect on modelling, and has ethical implications (e.g. persisting dominant norms but imputing the mean or most common values), that it should be considered a key part of the model.</p>
-<ul>
-<li><p>Note that some models (bayesian) have the imputation step explicitly stated within it.</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="fitting-a-logistic-regression">
-<h2>Fitting a logistic regression<a class="headerlink" href="#fitting-a-logistic-regression" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Turining our regression model to solve a classification problem.</p></li>
-<li><p>First fit of out data</p></li>
-<li><p>First tipical output of the fit: MSE and classification matrix for test sample.</p></li>
-<li><p>This move us to 4.3</p></li>
-</ul>
+<h3>From linear regression to logistic regression.<a class="headerlink" href="#from-linear-regression-to-logistic-regression" title="Permalink to this headline">¶</a></h3>
+<p>The data considered so far deal with a continuous outcome variable, or a normal distribution.</p>
+<p>We have dichotomised our variable.</p>
+<p>Logistic regression is conceptrually similar in that we predict a parameter of a distribution, only this time it is a bernouilli distribution.</p>
+<p>We obtain category classes by making the assumption that if the mean of the bernouilli distribution is below X. We class the prediction as Y.</p>
+<p>We will step through the development at the beginning of the next section.</p>
+<p>[qu: how much of the logistic regression dev in the next section do we include here?]</p>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="refereces">
-<h1>Refereces<a class="headerlink" href="#refereces" title="Permalink to this headline">¶</a></h1>
-<p>Aldabe, et al. (2011). Contribution of material, occupational, and psychosocial factors in the explanation of social inequalities in health in 28 countries in Europe. Journal of epidemiology and community health, 65(12), 1123–1131. <a class="reference external" href="https://doi.org/10.1136/jech.2009.102517">https://doi.org/10.1136/jech.2009.102517</a></p>
-<p>Logistic regresssion discussion from <a class="reference external" href="https://daviddalpiaz.github.io/appliedstats/logistic-regression.html#binary-response">https://daviddalpiaz.github.io/appliedstats/logistic-regression.html#binary-response</a></p>
 </div>
 
     <script type="text/x-thebe-config">
