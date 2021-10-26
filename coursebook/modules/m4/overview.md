@@ -8,7 +8,9 @@ Modelling is powerful. Data becomes greater than the sum of its parts, instead b
 
 However, modelling can also seem like a magic black box. How does maths learn from data? What does it mean to fit a model? 
 
-This module provides a high-level introduction to modelling. We aim to demystify the key concepts involved, providing a foundational approach to modelling that one could apply to any modelling problem. In doing so we will also cover the main pitfalls that any modeller needs to contend with. Of course, every generaliseable abstract concept is only really understood through application. Here we use simple models (linear and logistic regression) to bring these concepts to life, but the intended take-homes are not specific to any particular modelling technique. 
+This module provides a high-level introduction to modelling. We aim to demystify the key concepts involved, providing a foundational approach to modelling that one could apply to any modelling problem. In doing so we will also cover the main pitfalls that any modeller needs to contend with. 
+
+Abstract concepts are better understood through application. Here we use simple models (linear and logistic regression) to bring modelling concepts to life, but the intended take-homes are not specific to any particular modelling technique. 
 
 
 The module is structured as follows: 
