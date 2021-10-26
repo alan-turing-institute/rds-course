@@ -246,7 +246,7 @@ An API query has four main components: a base URL, an endpoint, parameters, and 
 
 **Base URL:** The address of the server hosting the data we want to access - all our API queries will start with this. For the Datamuse API it's: `https://api.datamuse.com`
 
-**Endpoint:** Each API might have multiple types of data we can query, known as different "endpoints". The path to the endpoint is added to thee base URL. The Datamuse API has two endpoints:`/words` for searching for relationships (of different types) between words, and `/sug`, which can be used for auto-completion/spelling correction.
+**Endpoint:** Each API might have multiple types of data we can query, known as different "endpoints". The path to the endpoint is added to the base URL. The Datamuse API has two endpoints:`/words` for searching for relationships (of different types) between words, and `/sug`, which can be used for auto-completion/spelling correction.
 
 
 **Parameters:** Define what data subset we're interested in and are provided in the format `name=value`. These are added to the query after a `?` following the endpoint. To specify multiple parameters separate each parameter name and value pair with an `&`. The available parameters should be listed in the API's documentation ([here](https://www.datamuse.com/api/) for Datamuse).
@@ -278,7 +278,7 @@ We get the top 5 words describing "dog" and a score that indicates how strong th
 The most common format for data returned by an API is JSON (JavaScript Object Notation) from the JavaScript language, which is commmonly used in web development. JSONs have a similar structure to Python dictionaries, or lists of Python dictionaries. Python has a built-in library `json` for converting data to and from the JSON format (see [here](https://docs.python.org/3/library/json.html)), and Pandas also has a function for creating a dataframe from a JSON file ([pandas.read_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html)).
 
 We can make the same API query in Python using the 
-[requests](https://docs.python-requests.org/en/master/user/quickstart/) library, as follows (you may need to install the requests library first, using `pip install requests` from a terminal):
+[requests](https://docs.python-requests.org/en/master/user/quickstart/) library, as follows:
 
 ```{code-cell} ipython3
 import requests
@@ -309,7 +309,7 @@ And we can interact with that list in the usual Python way:
 print(result_list[0]["word"])
 ```
 
-You can also load an API query directly into a Pandas dataframe (though this may not work well if your query returns a more complex data structure - in that case it's best to start with the requests library):
+You can also load an API query directly into a Pandas dataframe:
 
 ```{code-cell} ipython3
 import pandas as pd
@@ -318,16 +318,16 @@ df = pd.read_json("https://api.datamuse.com/words?rel_jjb=dog&max=5")
 df
 ```
 
-One final note on APIs - bear in mind it's likely the service you're using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as "pagination" (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you're making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
+But this may not work well if your query returns a more complex data structure - in that case it's best to start with the requests library.
+
+Bear in mind it's likely the service you're using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as "pagination" (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you're making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
 
 This "public-apis" repository on GitHub maintains a list of open APIs that should be good for learning purposes: https://github.com/public-apis/public-apis. The UK government also maintains a list of APIs providing data on many different areas of government & life in the UK: https://www.api.gov.uk/
-
 
 TODO: Exercise making another API query, e.g. find 3 words that rhyme with cat (https://api.datamuse.com/words?rel_rhy=cat&max=3)?
 
 
 ## Image Data
-
 
 Images are commonly represented as a n-dimensional tensor of pixel values. 
 
@@ -363,6 +363,8 @@ Some popular libraries for processing and analysing image data in Python include
 
 ## Text Data
 
+TODO - quick description, maybe point to options for PDFs, word docs
+
 Natural language processing (NLP)
 
 Popular libraries and resources for processing and analysing text data in Python include:
@@ -375,10 +377,13 @@ Popular libraries and resources for processing and analysing text data in Python
 
 ## Other
 
-
 - Audio: commonly stored as `.wav` or `.mp3` and displayed as a [waveform](https://en.wikipedia.org/wiki/Waveform) - digitised audio can be used for things like training speech recognition models. Lots of crossover with signal processing! [Librosa](https://librosa.org/doc/latest/index.html) is a popular python package for working with audio.
 - Video: can be thought of as many images + audio!
 - Geospatial: data relating to any location on the Earth's surface. The [geopandas](https://geopandas.org/) library combines the capabilities of [shapely](https://shapely.readthedocs.io/) and pandas to make working with this datatype easier. 
 - Time Series: Data that can be expressed as observations over time, e.g. stock price data. Honourable mention to [sktime](https://github.com/alan-turing-institute/sktime) for analysis.
 - XML (Extensible Markup Language): We recommend using a library such as [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to help parse this heavily structured format.
 - Web scraping: extracting structured data from web sites. [Scrapy](https://scrapy.org/) is a popular library here.
+
+```{code-cell} ipython3
+
+```
