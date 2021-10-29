@@ -3,4 +3,8 @@ matplotlib
 numpy
 pandas
 seaborn
+sklearn
+statsmodels
 plotly
+graphviz
+
