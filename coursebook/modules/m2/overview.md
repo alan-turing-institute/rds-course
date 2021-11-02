@@ -28,24 +28,24 @@ inline TODOs:
 
 outstanding sections:
 - FeatureEngineering (in progress)
+- Overview
 
-outstanding subsections:
+outstanding subsections (not doing):
 - sampling bias (not a section in own right?)
     - e.g. collection skewed towards/against single demographic
 - badly designed capture/missed variables (e.g. missing q in survey, leading q)
 - data storage (perhaps incorporate into data access subsection)?
-- Pipelines/best practice for stitching pre-processing together in a reproducible way (and ability to appply pipeline to new data)
 
 
 outstanding for hands on:
 - Extra taught to cover
-    - `DataFrame.groupby` - briefly shown in data consistency
     - `Series.str.replace`
     - Selecting rows and columns (`.loc`, `.iloc`, `df[col]`, `df.col`, `df[[col1, col2]]`) - pandas intro, cols and indices, or  data consistency?
 - Hands On
     - handover format?
     - fix error reporting in renaming (doesn't handle key error)
     - missing data - e.g. more for some countries than others?
+        - add parser for categorical encoded data (countries)
 
 
 overlaps?:
@@ -70,8 +70,3 @@ For reference, pandas functions/syntax used in m3/4 I'm not sure we cover in m2 
 - `df.pivot(x, y, z)`
 - **`df[column].apply(myfun)`**
 - `df[column].values`
-
-
-```python
-
-```
