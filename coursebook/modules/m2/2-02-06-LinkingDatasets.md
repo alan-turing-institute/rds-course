@@ -12,7 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# 2.14 Linking Datasets
+# 2.2.6 Linking Datasets
 
 Data linking is the process of joining datasets together.
 Datasets can be useful on their own but bringing them together can unlock new insights. 

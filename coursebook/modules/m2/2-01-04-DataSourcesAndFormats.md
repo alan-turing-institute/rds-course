@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.4 Data Sources and Formats
+# 2.1.4 Data Sources and Formats
 
 Once you've found a dataset for your research question there are many different formats it could be in - tabular data, databases, documents, images or many more. In this section we give an overview of common data types and how they can be loaded into Python.
 

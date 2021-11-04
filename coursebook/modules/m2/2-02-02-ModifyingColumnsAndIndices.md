@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-#  2.7 Modifying Columns and Indices
+#  2.2.3 Modifying Columns and Indices
 
 
 ## Dropping Named Columns and Indices

@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.8 Time and Date Data
+# 2.2.4.1 Time and Date Data
 
 Dealing with time and date data can be tricky. String-formatted data is hard to compare and represent for modelling.
 

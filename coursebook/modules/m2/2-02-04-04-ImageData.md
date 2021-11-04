@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.12 Image Data
+# 2.2.4.4 Image Data
 
 Earlier in this module, we introduced image data as a 2d or 3d tensor representing pixel values.
 

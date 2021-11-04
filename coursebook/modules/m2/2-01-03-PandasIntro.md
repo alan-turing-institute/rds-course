@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.3 Pandas intro
+# 2.1.3 Pandas intro
 
 The Pandas library is a core part of the python data science ecosystem. It provides easy-to-use data structures and data analysis tools.
 

@@ -12,7 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# 2.15 Missing Data
+# 2.2.7 Missing Data
 
 Missing data often refers to missing values in data, where no data value is stored for a variable or observation.
 However, we may also regard missing datasets or data with insufficient disaggregation as a form of missing data.

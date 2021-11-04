@@ -1,4 +1,4 @@
-# 2.5 Controlling access 
+# 2.1.5 Controlling access 
 
 Once you've created a dataset, or taken data from a third party, it becomes your responsibilty to ensure that access to this data copy is controlled appropriately. 
 

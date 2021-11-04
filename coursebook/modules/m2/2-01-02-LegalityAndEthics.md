@@ -1,4 +1,4 @@
-# 2.2 Legality and Ethics
+# 2.1.2 Legality and Ethics
 
 
 Before we dive into using any dataset, we need to consider who **owns** the data that we wish to use and what **restrictions** they or regulatory/governing bodies may have put in place.

@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.10 Text data
+# 2.2.4.2 Text data
 
 We'll often want to manipulate text data (strings) in Python.
 There are many handy libraries for helping us do this, some of which allow some pretty complicated operations.

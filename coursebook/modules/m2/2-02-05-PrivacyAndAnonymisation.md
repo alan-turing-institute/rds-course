@@ -1,4 +1,4 @@
-# 2.13 Privacy and Anonymisation
+# 2.2.5 Privacy and Anonymisation
 
 This section touches, again, on UK GDPR. A comprehensive guide to UK GDPR can be found on the [ICO website](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/).
 
