@@ -66,16 +66,28 @@ However, Pandas also provides the (often preferred) `.loc` labelled indexing met
 
 ### `[]` Indexing
 
-For basic `[]` indexing, we can select a column from a DataFrame and an item from a Series.
+For basic `[]` indexing, we can select columns from a DataFrame and items from a Series.
 
 ```{code-cell} ipython3
 # reusing our DataFrame and Series from earlier
 
 # Basic indexing using `[]` on DataFrame
+# select a single column
+print("single column from DataFrame, gives us a Series:")
 display(df["random_A"])
 
+# select two columns
+print("two columns from DataFrame, gives us a DataFrame:")
+display(df[["random_A", "random_B"]])
+
 # and for a Series
+# select single item
+print("single item from Series, gives us an item (of type numpy.int64, in this case):")
 display(s[2])
+
+# select two items
+print("two items from Series, gives us a Series:")
+display(s[[2,4]])
 ```
 
 Note that we can't do:

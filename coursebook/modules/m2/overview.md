@@ -35,26 +35,13 @@ outstanding subsections (not doing):
     - e.g. collection skewed towards/against single demographic
 - badly designed capture/missed variables (e.g. missing q in survey, leading q)
 - data storage (perhaps incorporate into data access subsection)?
+- raw data is not raw
 
 
 outstanding for hands on:
-- Extra taught to cover
-    - `Series.str.replace`
-    - Selecting rows and columns (`.loc`, `.iloc`, `df[col]`, `df.col`, `df[[col1, col2]]`) - pandas intro, cols and indices, or  data consistency?
 - Hands On
     - handover format?
-    - fix error reporting in renaming (doesn't handle key error)
-    - missing data - e.g. more for some countries than others?
-        - add parser for categorical encoded data (countries)
-
-
-overlaps?:
-- Feature Engineering: m3/4?
-- Missing Data: m3
-
-Extra thoughts to check we cover:
-- raw data is not raw
-
+    
 For reference, pandas functions/syntax used in m3/4 I'm not sure we cover in m2 (suggest we ones in bold as those to introduce in M2):
 - `df.filter(regex=...)`
 - **`df.sort_values(by=column)`**
