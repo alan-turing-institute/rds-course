@@ -150,8 +150,6 @@ df["bmi"] = df["weightkg"] / df["stature"]**2
 df["bmi"].describe()
 ```
 
-As well as curating domain-specific features, another option is to generate many possible combinations of the original columns, and then perhaps select a subset of promising ones after further analysis (see feature selection below). The [`PolynomialFeatures`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures) class in the scikit-learn library generates features that are polynomial combinations of the original features (`weight`, `height`, `weight^2`, `height^2`, `weight * height`, ...), for example.
-
 To apply an arbitrary function to a data frame Pandas you can also use [`apply`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html):
 
 ```python
@@ -183,6 +181,8 @@ df["weightkg"] / df["stature"]**2
 ```
 
 Using `apply` is almost two hundred times slower (the exact ratio will vary depending on your system), and for larger datasets or more complex functions this can add up to a lot of time! We cover ways to make Python code run faster in more detail in the "Programming for Speed" module of our [Research Software Engineering course](https://github.com/alan-turing-institute/rsd-engineeringcourse), but it's better to avoid using `apply` if you can.
+
+As well as curating domain-specific features, another option is to generate many possible combinations of the original columns, and then perhaps select a subset of promising ones after further analysis (see feature selection below). The [`PolynomialFeatures`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures) class in the scikit-learn library generates features that are polynomial combinations of the original features (`weight`, `height`, `weight^2`, `height^2`, `weight * height`, ...), for example.
 
 Which columns and functions to use and combine into new features is problem-specific and there's no one-size-fits-all solution.
 
