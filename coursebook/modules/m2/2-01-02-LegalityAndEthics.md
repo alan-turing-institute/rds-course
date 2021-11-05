@@ -6,7 +6,7 @@ We must also consider the ethical implications of using the dataset.
 
 ## Legality
 
-**Important disclaimer: we are not legal experts and this is not legal advice. 
+**Important disclaimer: we are not legal experts, and this is not legal advice. 
 The content in this section is non-exhaustive, based on our personal experiences, and is aimed at making you aware of these issues.
 Check your university/employer’s policies for guidance. If in any doubt, speak to an expert.**
 
@@ -38,7 +38,7 @@ However, not all licences give so many freedoms. It's always worth checking.
 All open source/open access licensed materials are provided as-is. Use with caution.
 ```
 
-```{admonition} Research vs Non-Research
+```{admonition} Research vs non-Research
 Some licenses will grant permission for *research only*. There is a blurred line on what may constitute research vs non-research.
 We suggest that you check internally with your organisation. This determination can change depending on the nature of the work; this is especially important to remember if your time is split over multiple projects.
 ``` 
@@ -83,7 +83,7 @@ Note: The DPA 2018 sits alongside and supplements [UK GDPR](https://www.legislat
 
 Personal data is information about a particular living individual. It doesn't need to be "private" information.
 
-Truly anonymous information isn't covered - but if you could use the data to identify someone (e.g. by combining it with another source) it still counts as personal data.
+Truly anonymous information isn't covered - but if you could use the data to identify someone (e.g., by combining it with another source) it still counts as personal data.
 
 Summarised from: https://ico.org.uk/for-organisations/guide-to-data-protection/introduction-to-data-protection/some-basic-concepts/
 
@@ -95,11 +95,11 @@ See more at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide
 
 —  *excerpt from [ICO Guide to Data Protection](https://ico.org.uk/for-organisations/guide-to-data-protection/introduction-to-data-protection/some-basic-concepts/?q=apply+to+me#2)*
 
-However, there are a few exemptions to GDPR and some things that are simply outside it's scope.
+However, there are a few exemptions to GDPR and some things that are simply outside its scope.
 
 Personal or household activities are considered outside of the scope of the UK's GDPR. Data **only** for personal use won't make  you subject to GDPR.
 
-Crucially, for academia and research, there are some exemptions. The details of these can be complicated and are certainly beyond the scope of this course. Each organisation will have their own stance on GDPR and you should consult internally to determine how to proceed.
+Crucially, for academia and research, there are some exemptions. The details of these can be complicated and are certainly beyond the scope of this course. Each organisation will have their own stance on GDPR, and you should consult internally to determine how to proceed.
 
 
 For exemptions, see: https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/exemptions/
@@ -111,7 +111,7 @@ Research projects are often collaborative efforts that may span multiple organis
 
 For example:
 
-*VacuumOrg have a contract with your organisation, DullResearchInc, to conduct research into consumer spending on robot vacuum cleaners. As part of this research, MarketingOrg have shared some survey data with you that they have collected over the last 6 months. The data collection was expensive and the data is considered hot-property by MarketingOrg; they don't wish their competitors to have access to it and only share it with you under a Non-Disclosure Agreement (NDA).*
+*VacuumOrg have a contract with your organisation, DullResearchInc, to conduct research into consumer spending on robot vacuum cleaners. As part of this research, MarketingOrg have shared some survey data with you that they have collected over the last 6 months. The data collection was expensive, and the data is considered hot property by MarketingOrg; they don't wish their competitors to have access to it and only share it with you under a Non-Disclosure Agreement (NDA).*
 
 *You want to transfer the data (5Mb) from your colleagues PC to your work laptop. Assuming some oddly limited options, which of the following do you do?*
 -  *A. upload it to your public GitHub repository so you can pull it down later*
@@ -123,7 +123,7 @@ For example:
 **Ethics are a shared responsibility, however, it's another area that we should all feel comfortable seeking expert advice. At Turing, we have an Ethics Advisory Board that we can look to for guidance.**
 
 
-Although there will be a lot of crossover between legailty and ethics, we should be aware that there may be additional ethical considerations over use of a dataset, even when its use is deemed legal.
+Although there will be a lot of crossover between legality and ethics, we should be aware that there may be additional ethical considerations over use of a dataset, even when its use is deemed legal.
 
 
 For example:
@@ -167,14 +167,14 @@ Overarching systems, as well as programmers themselves, can contribute to this c
 
 ### Should A Variable Be Used?
 
-Questions of ethics don't necessary stop at the dataset level. Once we have access to a dataset we can examine the variables that are recorded in the data.
+Questions of ethics don't necessary stop at the dataset level. Once we have access to a dataset, we can examine the variables that are recorded in the data.
 
 Use of machine learning techniques in domains such as criminal justice, insurance, and financial credit raise concerns about fairness.
 These techniques often rely on historic data, containing historic biases against demographic groups, and can perpetuate these biases into their predictions (bias in, bias out!).
 Clearly, decisions made based on these predictions may be unfair. We may wish to address this by excluding demographic variables from the training data.
 
 Our concern here isn't limited to machine learning, however.
-In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data anlaysis. 
+In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data analysis. 
 Yudell et al. (2020) argue that, in COVID-19 analysis, reported disparities in cases across racial demographics can give rise to false beliefs that the disparities are caused by innate racial differences.
 
 We'll revisit this from another angle in [2.15 Data Missingness](./2-15-MissingData.md).
@@ -191,13 +191,13 @@ We should also be aware that a variable `Y` may act as proxies for another varia
 
 We can try to identify proxy variables by looking at data correlations and asking domain experts.
 
-### Algorithmic Fairness: A Tradeoff
+### Algorithmic Fairness: A Trade-off
  
-Many works exists in the area of algorithmic fairness and this is a topic worthy of greater discussion outside of the boundary of this course.
+Many works exist in the area of algorithmic fairness, and this is a topic worthy of greater discussion outside of the boundary of this course.
 Here, we want to briefly highlight a tension between fairness and traditional measures of performance.
 
 Above, we have discussed excluding variables from the data.
-When we have a modeling task, we may find that our reported accuracy is lower without our excluded variables. This represents a tradeoff.
+When we have a modelling task, we may find that our reported accuracy is lower without our excluded variables. This represents a trade-off.
 We should attempt to discern the implications of the change in accuracy and potentially consider these against measures of fairness.
 
 But what is "fairness"? Any answer is certainly beyond the scope of this course! However, a useful collection of (loose) definitions for various "fairness types" can be found in [Google's What-If Tool documentation](https://pair-code.github.io/what-if-tool/ai-fairness.html).
