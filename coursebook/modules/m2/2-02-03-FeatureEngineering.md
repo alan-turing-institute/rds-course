@@ -126,6 +126,7 @@ for col in columns:
 ```python
 df["Age"].plot.hist(bins=20)
 plt.title("Age: Original")
+plt.xlabel("Age")
 ```
 
 ```python
@@ -133,6 +134,7 @@ log_age = np.log(df["Age"])
 
 plt.hist(log_age, bins=20)
 plt.title("Age: Log Transformed")
+plt.xlabel("log(Age)")
 ```
 
 ## Creating New Features
@@ -220,12 +222,13 @@ span_qbins.value_counts(sort=False)
 
 ## Feature Selection and Dimensionality Reduction
 
-It's beyond the scope of what we cover here, but another important topic is the "curse of dimensionality", or what to do when we have many features (columns) relative to the number of samples (rows) in the dataset. [This blog post](http://blog.dominodatalab.com/the-curse-of-dimensionality) summarises how this can cause problems in some models.
+It's beyond the scope of what we cover here, but another important topic is the "curse of dimensionality", or what to do when we have many features (columns) relative to the number of samples (rows) in the dataset. [This blog post](http://blog.dominodatalab.com/the-curse-of-dimensionality) summarises how this can cause problems in some models. 
 
-- Feature selection: 
-- Dimensionality reduction: https://en.wikipedia.org/wiki/Principal_component_analysis https://scikit-learn.org/stable/modules/decomposition.html#pca
-- Regularization: https://programmathically.com/regularization-in-machine-learning/
+Broadly speaking there are three techniques that can be used when this is a problem: 
 
+- **Feature selection:** Only include a subset of the available features in the model, keeping those that are the strongest predictors for the target variable. Scikit-learn has some algorithms for feature selection available, see [here](https://scikit-learn.org/stable/modules/feature_selection.html).
+- **Dimensionality reduction:** Condense the original features into a smaller number of new features (each one being a function/combination of the original features) that maintain important relationships in the data. The most well-known technique here is [Principal Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis), which also has a [scikit-learn implementation](https://scikit-learn.org/stable/modules/decomposition.html#pca).
+- **Regularisation:** Modifies the "cost function" of a model to penalise complexity (i.e. preferring solutions that give a large weighting to a smaller number of features). [See this blog post](https://programmathically.com/regularization-in-machine-learning/) for more details.  
 
 
 ## Other
