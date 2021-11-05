@@ -25,7 +25,7 @@ We use the `datetime.datetime` object in examples below. However, you can also u
 
 ## datetime
 
-We need to represent this data in a format that will allow us to compare items and perform operations such as addition and subtraction.
+We need to represent date data in a format that will allow us to compare items and perform operations such as addition and subtraction.
 
 Python's standard library includes the [`datetime`](https://docs.python.org/3/library/datetime.html) module.
 This allows us to represent dates and times as structured objects.
@@ -43,7 +43,7 @@ This object has structure. We can, for example, extract the year property from t
 print(now.year)
 ```
 
-We can also compare this datetime to others, as well as performing date arithmetic.
+We can also compare this datetime to others, as well as perform date arithmetic.
 
 ```{code-cell} ipython3
 past = datetime.datetime.fromisoformat("2020-12-22")

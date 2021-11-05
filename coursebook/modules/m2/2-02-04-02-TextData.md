@@ -21,7 +21,7 @@ Here, we'll show some basic processing.
 
 ## Inconsistencies
 
-Strings have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace. 
+Strings have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace.
 
 Fortunately, python gives us some handy [built-in functionality](https://docs.python.org/3/library/stdtypes.html#string-methods) for dealing with some of these issues.
 
@@ -55,7 +55,7 @@ print(f"right stripped: '{rstripped}'")
 
 ### Spelling is tricky
 
-The methods we've talked about so far don't address things like misspelling/typos (a common data input concern). 
+The methods we've talked about so far don't address things like misspelling/typos (a common data input concern).
 
 In a relatively simple scenario, with categorical data encoded as strings, you might be able to spot these by checking for all unique values in your data. E.g.
 
@@ -98,7 +98,7 @@ A bit like `str.split(sep=None, maxsplit=-1)` in reverse, `str.join(iterable)` a
 ```{code-cell} ipython3
 my_list = ["a", "list", "of", "words"]
 # join with a space separator
-s = " ".join(my_list) 
+s = " ".join(my_list)
 print(s)
 ```
 

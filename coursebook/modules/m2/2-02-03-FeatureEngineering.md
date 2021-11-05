@@ -4,7 +4,7 @@
 - why
 
 ```{note}
-This section focuses on numerical data, we discuss approaches for other types in later sections. 
+This section focuses on numerical data, we discuss approaches for other types of data in later sections.
 ```
 
 The Anthropometric Survey of US Army Personnel ([ANSUR 2](https://www.openlab.psu.edu/ansur2/)) dataset.
@@ -44,7 +44,7 @@ And the `stature` (the person's height) column is in millimetres:
 df["stature"].describe()
 ```
 
-For interpreting the data ourselves and presenting it to other it's helpful to have values on scales we're familiar with. It's quick to perform simple mathematical operations on columns with Pandas - let's convert the `weightkg` column to actually be in kilograms, and the `stature` column to be in metres:
+For interpreting the data ourselves and presenting it to others it's helpful to have values on scales we're familiar with. It's quick to perform simple mathematical operations on columns with Pandas - let's convert the `weightkg` column to actually be in kilograms, and the `stature` column to be in metres:
 
 ```python
 df["weightkg"] = df["weightkg"] / 10  # 100g -> kg
@@ -150,7 +150,7 @@ df["bmi"] = df["weightkg"] / df["stature"]**2
 df["bmi"].describe()
 ```
 
-To apply an arbitrary function to a data frame Pandas you can also use [`apply`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html):
+To apply an arbitrary function to a Pandas data frame you can also use [`apply`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html):
 
 ```python
 def calculate_bmi(person):
@@ -166,7 +166,7 @@ df.apply(calculate_bmi, axis=1)
 With `axis=1` the function will be applied to each row in the data frame, or with `axis=0` to each column.
 ```
 
-`apply` works like using a `for` loop on the data, which means it doesn't benefit from the optimised vector operations `numpy` provides: 
+`apply` works like using a `for` loop on the data, which means it doesn't benefit from the optimised vector operations `numpy` provides:
 
 ```python
 %%timeit
@@ -196,7 +196,7 @@ Which columns and functions to use and combine into new features is problem-spec
 df["span"].plot.hist(bins=20)
 ```
 
-Pandas provides a binning function [`pd.cut`](https://pandas.pydata.org/docs/reference/api/pandas.cut.html), which by default segments the data into a number of of equal-width bins:
+Pandas provides a binning function [`pd.cut`](https://pandas.pydata.org/docs/reference/api/pandas.cut.html), which by default segments the data into a number of equal-width bins:
 
 ```python
 span_bins = pd.cut(df["span"], 10)
@@ -222,7 +222,7 @@ span_qbins.value_counts(sort=False)
 
 It's beyond the scope of what we cover here, but another important topic is the "curse of dimensionality", or what to do when we have many features (columns) relative to the number of samples (rows) in the dataset. [This blog post](http://blog.dominodatalab.com/the-curse-of-dimensionality) summarises how this can cause problems in some models.
 
-- Feature selection: 
+- Feature selection:
 - Dimensionality reduction: https://en.wikipedia.org/wiki/Principal_component_analysis https://scikit-learn.org/stable/modules/decomposition.html#pca
 - Regularization: https://programmathically.com/regularization-in-machine-learning/
 

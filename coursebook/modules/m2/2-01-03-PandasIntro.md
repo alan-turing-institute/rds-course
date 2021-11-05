@@ -15,9 +15,9 @@ kernelspec:
 
 # 2.1.3 Pandas intro
 
-The Pandas library is a core part of the python data science ecosystem. It provides easy-to-use data structures and data analysis tools.
+The Pandas library is a core part of the Python data science ecosystem. It provides easy-to-use data structures and data analysis tools.
 
-Pandas themselves have some great resources for getting started, including guides if you're coming from other software: https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html#getting-started .
+Pandas has some great resources for getting started, including guides tailored to those familiar with other software for manipulating data: https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html#getting-started .
 
 For now, we'll stick just to what we need for this course.
 
