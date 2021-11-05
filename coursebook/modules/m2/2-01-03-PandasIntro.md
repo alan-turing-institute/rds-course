@@ -44,7 +44,7 @@ df
 ```
 
 Once we have data in these Pandas structures, we can perform some useful operations such as:
-- `info()` - (`DataFrame` only) - prints a concice summary of a `DataFrame`
+- `info()` - (`DataFrame` only) - prints a concise summary of a `DataFrame`
 - `value_counts()` - returns a `Series` containing counts of unique values in the structure
 
 ```{code-cell} ipython3
@@ -62,7 +62,7 @@ We'll see more on how to use these structures, and other Pandas capabilities, la
 Again, we're just covering some basics here. For a complete guide to indexing in Pandas see [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html).
 
 Pandas allows us to use the same basic `[]` indexing and `.` attribute operators that we're used to with Python and NumPy.
-However, Pandas also provides the (often preferred) `.loc` labelled indexing method and the `iloc` position indexing methods.
+However, Pandas also provides the (often preferred) `.loc` labelled indexing method and the `.iloc` position indexing methods.
 
 ### `[]` Indexing
 
@@ -119,7 +119,7 @@ display(s.2)
 
 ### `.loc`
 
-`.loc` provides label based indexing. `.loc` can also be used for slicing and we can even provide a `callable` as its input!
+`.loc` provides label-based indexing. `.loc` can also be used for slicing and we can even provide a `callable` as its input!
 However, here we'll just show single item access.
 
 ```{code-cell} ipython3
@@ -132,7 +132,7 @@ display(s.loc[2])
 
 ### `.iloc`
 
-`.iloc` provides integer based indexing. This closely resembles Python and NumPy slicing. Again, we'll just show single item access.
+`.iloc` provides integer-based indexing. This closely resembles Python and NumPy slicing. Again, we'll just show single item access.
 
 ```{code-cell} ipython3
 # for DataFrame
@@ -157,7 +157,7 @@ s.str.replace("a", "A")
 
 Accessor object for datetime-like properties of Series values. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html).
 
-E.g. (taken almost directly from pandas docs)
+E.g. (taken almost directly from Pandas docs, linked above)
 ```{code-cell} ipython3
 seconds_series = pd.Series(pd.date_range("2000-01-01", periods=3, freq="s"))
 display(seconds_series)

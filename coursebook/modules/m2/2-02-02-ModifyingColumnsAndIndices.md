@@ -53,7 +53,7 @@ print("drop rows 1 and 3")
 display(df.drop(index=[1,3]))
 ```
 
-## Dropping Columns and Indices With Nulls
+## Dropping Columns and Indices with Nulls
 
 It may be that we wish to drop columns according to whether they have missing data.
 Here, we use the [`DataFrame.dropna`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html) method:
@@ -102,7 +102,3 @@ df = df.rename(index={0: 10})
 print("renamed df:")
 display(df)
 ```
-
-TODO: maybe these (and some of the above) are overkill unless needed in hands on?:
- - `set_index` ?
- - `reset_index` ?
