@@ -25,7 +25,7 @@ Commonly, we may wish to resize, reshape, and/or normalise image data.
 The term *resize* can be used to refer to changing the physical size of an image without changing the number of pixels.
 In these contexts, *resampling* is used to refer to the operation that changes the total number of pixels.
 
-However, many popular python image libraries use the term *resize* to refer to changing the total number of pixels.
+However, many popular Python image libraries use the term *resize* to refer to changing the total number of pixels.
 We will follow this convention.
 ```
 

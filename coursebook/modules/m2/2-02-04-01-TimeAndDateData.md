@@ -28,7 +28,7 @@ We use the `datetime.datetime` object in examples below. However, you can also u
 We need to represent this data in a format that will allow us to compare items and perform operations such as addition and subtraction.
 
 Python's standard library includes the [`datetime`](https://docs.python.org/3/library/datetime.html) module.
-This allows us too represent dates and times as structured objects.
+This allows us to represent dates and times as structured objects.
 
 ```{code-cell} ipython3
 import datetime

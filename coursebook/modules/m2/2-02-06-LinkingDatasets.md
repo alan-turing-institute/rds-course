@@ -29,12 +29,12 @@ There can be an increased risk of identification of a person/entity when two dat
  
 ## How to Link
 
-The most straightforward way to link datasets is by a deterministic, rules based linkage, where records are linked if a specific **set of identifiers** match.
+The most straightforward way to link datasets is by a deterministic, rules-based linkage, where records are linked if a specific **set of identifiers** match.
 When working with tabular datasets we will often see this accomplished with a *join* operation.
 
 ### Joining in Pandas
 
-Pandas allows for database-style joins. If you have experience of SQL you'll be familiar with the terminology of left/right/inner/outer etc. joins.
+Pandas allows for database-style joins. If you have experience of SQL, you'll be familiar with the terminology of left/right/inner/outer etc. joins.
 Pandas makes these join types (or similar) available in the Pandas API via with `pd.merge` and provides a comprehensive summary of joins [in the docs](https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging).
 Here, for demonstration, we will give an example using a simple left join, similar to a `LEFT OUTER` join in SQL. 
 
@@ -52,7 +52,7 @@ display(df2)
 ```
 
 note that `df1` contains the key `'zop'` that is not contained in `df2` and that `df2` contains the key `'baz'` that is not contained in `df1`.
-The other two keys, `'foo', 'bar'` are contained in both dataframes.
+The other two keys (`'foo', 'bar'`) are contained in both DataFrames.
 
 ```{code-cell} ipython3
 result = pd.merge(left=df1, right=df2, how="left", on="some_id")
@@ -65,11 +65,11 @@ Meanwhile, the entry for column `'b'` is a null for key `'zop'`.
 
 Different scenarios will require different join types, read the docs carefully! 
 
-### Probalistic Matching
+### Probabilistic Matching
 
 If we don't have a set of common identifiers, we may wish to use probabilistic matching.
 
 Probabilistic matching calculates a matching score between two records.
 Typically, this is done by comparing several field values and assigning a weight to each depending on how closely they match.
 
-Details of probabalistic matching approaches are, unfortunately, beyond the scope of this course.  
+Details of probabilistic matching approaches are, unfortunately, beyond the scope of this course.  
