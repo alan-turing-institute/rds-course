@@ -63,7 +63,6 @@ Each column in a Pandas DataFrame has a single type. The urban population percen
 
 We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 "`non-null`" values), and have a strange additional column `Unnamed: 8` that has _only_ missing (null) values. This is another topic we'll revisit later.
 
-
 ### Customising pandas.read_csv
 
 The original file from the World Bank contains a few lines of metadata at the top:
@@ -105,6 +104,19 @@ df = pd.read_csv(
    comment="#",     # exclude lines starting with "#"
 )
 ```
+
+```{admonition} Exercise
+:class: tip
+Later on we'll be using the "Iris" dataset, which we have saved at the path `data/Iris.csv`. Load this dataset into a pandas data frame. What type of data do you think it contains? What are the types of the columns and do they match what you'd expect?
+```
+
+```{admonition} Solution
+:class: dropdown tip
+`df = pd.read_csv("data/Iris.csv")` to load the data into pandas. We'll discuss the answer to the other questions later, but you may have noticed that some of the columns have the generic `object` type even though it looks like they contain numeric data.
+```
+
+
+
 
 ### Excel Spreadsheets
 
@@ -324,8 +336,15 @@ Bear in mind it's likely the service you're using will limit both the rate of qu
 
 This "public-apis" repository on GitHub maintains a list of open APIs that should be good for learning purposes: https://github.com/public-apis/public-apis. The UK government also maintains a list of APIs providing data on many different areas of government & life in the UK: https://www.api.gov.uk/
 
-TODO: Exercise making another API query, e.g. find 3 words that rhyme with cat (https://api.datamuse.com/words?rel_rhy=cat&max=3)?
+```{admonition} Exercise
+:class: tip
+Use the Datamuse API to find 3 words that rhyme with "cat" and load them into a Pandas data frame. You'll need to use the Datamuse documnetation to find which parameter will search for rhyming words.
+```
 
+```{admonition} Solution
+:class: dropdown tip
+The relevant parameter is `rel_rhy`, and the query and pandas function needed is `pd.read_json("https://api.datamuse.com/words?rel_rhy=cat&max=3")`
+```
 
 ## Image Data
 
@@ -364,11 +383,7 @@ Some popular libraries for processing and analysing image data in Python include
 
 ## Text Data
 
-TODO - quick description, maybe point to options for PDFs, word docs
-
-Natural language processing (NLP)
-
-Popular libraries and resources for processing and analysing text data in Python include:
+Text data is common in data science applications, anything from analysing Tweets and social media to documents and novels. We'll cover some general techniques for handling text data in this module, but we won't delve into the details of the wider field of "Natural Language Processing" (NLP). Some popular libraries and resources for processing and analysing text data in Python include:
 
 - [NLTK](https://www.nltk.org/): Well-established natural language processing toolkit for Python, offering a wide range of text processing techniques in many different languages.
 - [Spacy](https://spacy.io/): A more modern alternative to NLTK, offering higher performance, state of the art algorithms, and better integration with modelling frameworks in some cases.
