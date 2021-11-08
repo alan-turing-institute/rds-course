@@ -15,18 +15,18 @@ kernelspec:
 # 2.2.6 Linking Datasets
 
 Data linking is the process of joining datasets together.
-Datasets can be useful on their own but bringing them together can unlock new insights. 
+Datasets can be useful on their own but bringing them together can unlock new insights.
 
 ```{admonition} Discussion
 When might this be helpful? Can you think of any examples where joining datasets might help us unlock additional insights?
-``` 
+```
 
 ## Impact on Privacy
 
-Before we link datasets together, we should consider the impact on privacy of doing so. 
+Before we link datasets together, we should consider the impact on privacy of doing so.
 There can be an increased risk of identification of a person/entity when two datasets are linked.
 
- 
+
 ## How to Link
 
 The most straightforward way to link datasets is by a deterministic, rules-based linkage, where records are linked if a specific **set of identifiers** match.
@@ -35,8 +35,8 @@ When working with tabular datasets we will often see this accomplished with a *j
 ### Joining in Pandas
 
 Pandas allows for database-style joins. If you have experience of SQL, you'll be familiar with the terminology of left/right/inner/outer etc. joins.
-Pandas makes these join types (or similar) available in the Pandas API via with `pd.merge` and provides a comprehensive summary of joins [in the docs](https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging).
-Here, for demonstration, we will give an example using a simple left join, similar to a `LEFT OUTER` join in SQL. 
+Pandas makes these join types (or similar) available in the Pandas API via `pd.merge` and provides a comprehensive summary of joins [in the docs](https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging).
+Here, for demonstration, we will give an example using a simple left join, similar to a `LEFT OUTER` join in SQL.
 
 ```{code-cell} ipython3
 import pandas as pd
@@ -61,9 +61,9 @@ display(result)
 
 the data for `'baz'` has been dropped after this join as it only appeared on the 'right' side.
 The `how='left'` join only uses keys from the left frame.
-Meanwhile, the entry for column `'b'` is a null for key `'zop'`.  
+Meanwhile, the entry for column `'b'` is null for key `'zop'`.
 
-Different scenarios will require different join types, read the docs carefully! 
+Different scenarios will require different join types, read the docs carefully!
 
 ### Probabilistic Matching
 
@@ -72,4 +72,4 @@ If we don't have a set of common identifiers, we may wish to use probabilistic m
 Probabilistic matching calculates a matching score between two records.
 Typically, this is done by comparing several field values and assigning a weight to each depending on how closely they match.
 
-Details of probabilistic matching approaches are, unfortunately, beyond the scope of this course.  
+Details of probabilistic matching approaches are, unfortunately, beyond the scope of this course.

@@ -27,13 +27,13 @@ Datasets may not exist, where we might expect them to, for a variety of reasons;
  and can be expressive of biases, systematic failures, and/or oppression.
 
 We may also find that, where datasets *do* exist, that the data may not be sufficiently disaggregated to allow for
- analysis that can make issues of inequality apparent. Data may not be broken down by categories such as gender, age, or race, 
+ analysis that can make issues of inequality apparent. Data may not be broken down by categories such as gender, age, or race,
  preventing the exploration of the impact of these factors on other variables.
 
 ```{admonition} Discussion
 What considerations would we want to make around publishing disaggregated data for gender, age, and race?
 How does this disaggregation fit with [previous discussion](./2-02-LegalityAndEthics.html#should-a-variable-be-used) around use of variables such as race in data analysis?
-``` 
+```
 
 ## Missing Data Values
 
@@ -42,7 +42,7 @@ Real world data often has missing values. These may represent gaps in data colle
 Consider the following question in a survey:
 "How many days has it been since your flu jab?"
 
-What answer would you expect from a participant who had not had a flu jab? 
+What answer would you expect from a participant who had not had a flu jab?
 
 ### Representing Missing Values
 
@@ -64,13 +64,13 @@ Pandas has some other ways of denoting missing values, but we won't detail them 
 
 ### Dealing with Missing Values
 
-How do we deal with missing values? There are many approaches, we lay two simple and popular varieties below:
+How do we deal with missing values? There are many approaches, we outline two simple and popular varieties below:
 
 #### Listwise Deletion
 
 Simply drop any rows that contain missing values. This is the simplest method of dealing with missing data!
 
-However, this can introduce bias. We should consider *why* the data is missing. 
+However, this can introduce bias. We should consider *why* the data is missing.
 Listwise deletion will introduce bias when the remaining data can no longer be reflective of the original data.
 
 #### Single Imputation
@@ -89,7 +89,7 @@ Here, we introduce some terminology to help us with the scenarios in which value
 
 The missingness is unrelated to both missing and observed values, e.g., a study participant's weekly questionnaire is lost in the post.
 
-If we were to drop rows with MCAR data, we would reduce our population size but would not introduce any bias. 
+If we were to drop rows with MCAR data, we would reduce our population size but would not introduce any bias.
 
 Unfortunately, missing values are rarely MCAR.
 

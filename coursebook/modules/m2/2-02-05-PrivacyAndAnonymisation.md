@@ -2,13 +2,13 @@
 
 This section touches, again, on UK GDPR. A comprehensive guide to UK GDPR can be found on the [ICO website](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/).
 
-## Anonymisation or Pseudonymisation 
+## Anonymisation or Pseudonymisation
 
-Pseudonymisation and anonymisation are common approaches to meet GDPR principles of ["data minimisation" and "storage limitation"](https://www.privacy-regulation.eu/en/article-5-principles-relating-to-processing-of-personal-data-GDPR.htm). 
+Pseudonymisation and anonymisation are common approaches to meet GDPR principles of ["data minimisation" and "storage limitation"](https://www.privacy-regulation.eu/en/article-5-principles-relating-to-processing-of-personal-data-GDPR.htm).
 
 Many tasks do not require the use of personal identifiers that can often be part of a dataset. In these cases, we should aim to remove this unnecessary, yet sensitive, data.
 
-### Anonymisation 
+### Anonymisation
 
 In a GDPR context, Recital 26 defines anonymous information as:
 > …information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable.
@@ -28,20 +28,20 @@ GDPR does not apply to anonymised information. However, note that when **you** a
 
 This is subtly different to anonymisation. Here, the subject can be re-identified, given additional information.
 
-GDPR does still apply to pseudonymised information. However, this still helps meet the "data minimisation" and "storage limitation" principles.
+GDPR does still apply to pseudonymised information. However, pseudonymisation helps meet the "data minimisation" and "storage limitation" principles.
 
 
 ## Differential Privacy
 
 Separate to concerns over data use in developing algorithms, there is also a concern over what may be inferred about the data by learning the result of some randomised algorithm. Here, the concern shifts from intrusion by the data scientist developing the algorithm to the intrusion by the many consumers of this algorithm.
 
-Broadly, differential privacy provides a mechanism for learning nothing about an individual while learning useful information about a population.
+Broadly, differential privacy provides a mechanism for learning nothing about an individual while learning useful information about the general population.
 
 > “Differential privacy” describes a promise, made by a data holder, or curator, to a data subject: “You will not be affected, adversely or otherwise, by allowing your data to be used in any study or analysis, no matter what other studies, data sets, or information sources, are available.”
 
-—  *[The Algorithmic Foundations of Differential Privacy](https://www.tau.ac.il/~saharon/BigData2018/privacybook.pdf)* - Dwork & Roth (2014) 
+—  *[The Algorithmic Foundations of Differential Privacy](https://www.tau.ac.il/~saharon/BigData2018/privacybook.pdf)* - Dwork & Roth (2014)
 
-Use of differential privacy in data science and machine learning is an ongoing area of research. 
+Use of differential privacy in data science and machine learning is an ongoing area of research.
 We recommend the 2018 blog post, [Privacy and machine learning: two unexpected allies?](http://www.cleverhans.io/privacy/2018/04/29/privacy-and-machine-learning.html), as further reading.
 
 
