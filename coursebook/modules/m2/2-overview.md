@@ -1,4 +1,4 @@
-# Module 2 - Handling data (WORK IN PROGRESS!)
+# Overview
 
 TODO: write overview for module 2. Broadly speaking:
 

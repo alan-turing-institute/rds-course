@@ -27,23 +27,28 @@ parts:
     chapters:
     - file: modules/m2/2-overview
     # getting data
-    - file: modules/m2/2-01-01-WhereToFindData
-    - file: modules/m2/2-01-02-LegalityAndEthics
-    - file: modules/m2/2-01-03-PandasIntro
-    - file: modules/m2/2-01-04-DataSourcesAndFormats
-    - file: modules/m2/2-01-05-ControllingAccess
-      # cleaning and wrangling
-    - file: modules/m2/2-02-01-DataConsistency
-    - file: modules/m2/2-02-02-ModifyingColumnsAndIndices
-    - file: modules/m2/2-02-03-FeatureEngineering
-    - file: modules/m2/2-02-04-DataManipulation
-    - file: modules/m2/2-02-04-01-TimeAndDateData
-    - file: modules/m2/2-02-04-02-TextData
-    - file: modules/m2/2-02-04-03-CategoricalData
-    - file: modules/m2/2-02-04-04-ImageData
-    - file: modules/m2/2-02-05-PrivacyAndAnonymisation
-    - file: modules/m2/2-02-06-LinkingDatasets
-    - file: modules/m2/2-02-07-MissingData
+    - file: modules/m2/2-01-GettingLoading
+      sections:
+      - file: modules/m2/2-01-01-WhereToFindData
+      - file: modules/m2/2-01-02-LegalityAndEthics
+      - file: modules/m2/2-01-03-PandasIntro
+      - file: modules/m2/2-01-04-DataSourcesAndFormats
+      - file: modules/m2/2-01-05-ControllingAccess
+    # cleaning and wrangling
+    - file: modules/m2/2-02-ExploringWrangling
+      sections:
+      - file: modules/m2/2-02-01-DataConsistency
+      - file: modules/m2/2-02-02-ModifyingColumnsAndIndices
+      - file: modules/m2/2-02-03-FeatureEngineering
+      - file: modules/m2/2-02-04-DataManipulation
+        sections:
+        - file: modules/m2/2-02-04-01-TimeAndDateData
+        - file: modules/m2/2-02-04-02-TextData
+        - file: modules/m2/2-02-04-03-CategoricalData
+        - file: modules/m2/2-02-04-04-ImageData
+      - file: modules/m2/2-02-05-PrivacyAndAnonymisation
+      - file: modules/m2/2-02-06-LinkingDatasets
+      - file: modules/m2/2-02-07-MissingData
     # hands on
     - file: modules/m2/2-hands-on
   - caption: "Module 3: Data Visualisation & Exploration"
