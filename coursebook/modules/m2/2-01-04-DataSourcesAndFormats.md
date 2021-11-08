@@ -198,7 +198,7 @@ Some common NoSQL Databases include:
 ![key-value example](https://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG)
 
 **Graph example:**
-![graph example](https://i.imgur.com/jGPRdsA.png)
+![graph example](../../figures/m2/graph_data.png)
 
 
 Unfortunately, different types of databases will often have their own, unique, query languages, beyond SQL - more to learn!
@@ -336,20 +336,21 @@ Images are commonly represented as a n-dimensional tensor of pixel values.
 A simple form of this can be shown with a black and white image. The 13x13 pixel smiley can be represented by a 2D tensor (width,height) of 0s and 1s. Black and white images can be thought of as a binary off/on for each pixel.
 
 
-![black_and_white_smiley](https://i.imgur.com/pCtAXx1.png)
+![black_and_white_smiley](../../figures/m2/black_and_white_smiley.png)
 
 ### Grayscale
 
 If we want to move to grayscale - allowing shades of gray between black and white - we can do this with intermediate values between black and white. Here we change black and white to 0 and 255 (8-bit representation), shades of gray are everything in between.
 
 
-![grayscale_smiley](https://i.imgur.com/pP0qiDy.png)
+![grayscale_smiley](../../figures/m2/grayscale_smiley.png)
 
 
 ### RGB
 
 We can introduce colour using an RGB (Red Green Blue) representation. Here, we store the red, green, and blue values separately - these individual representations are known as channels. We now use a 3D tensor to represent this image (width,height,channels).
 
+% hosted on imgur for size
 ![rgb_smiley](https://i.imgur.com/Z0Z52Ph.gif)
 
 ### Libraries
