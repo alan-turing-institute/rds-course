@@ -7,7 +7,7 @@
 This section focuses on numerical data, we discuss approaches for other types in later sections. 
 ```
 
-The Anthropometric Survey of US Army Personnel ([ANSUR 2](https://www.openlab.psu.edu/ansur2/)) dataset.
+In this section we'll be using data from the Anthropometric Survey of US Army Personnel ([ANSUR 2](https://www.openlab.psu.edu/ansur2/)), which includes comprehensive body shape and size measurements for people in the US army that were taken in 2012 and released publicly in 2017. There's data on both males and females, we'll use the female data here:
 
 ```python
 import pandas as pd
@@ -32,7 +32,7 @@ It's also an interesting example of data documentation, with over 250 pages of n
 
 ### Converting Units
 
-Despite the name, the `weightkg` column is in units of 100 grams, or tenths of a kilogram:
+Despite the name, the `weightkg` column is in units of 100 grams (tenths of a kilogram):
 
 ```python
 df["weightkg"].describe()
@@ -182,7 +182,7 @@ df.apply(calculate_bmi, axis=1)
 df["weightkg"] / df["stature"]**2
 ```
 
-Using `apply` is almost two hundred times slower (the exact ratio will vary depending on your system), and for larger datasets or more complex functions this can add up to a lot of time! We cover ways to make Python code run faster in more detail in the "Programming for Speed" module of our [Research Software Engineering course](https://github.com/alan-turing-institute/rsd-engineeringcourse), but it's better to avoid using `apply` if you can.
+Using `apply` is almost two hundred times slower (the exact ratio will vary depending on your system), and for larger datasets or more complex functions this can add up to a lot of time! We cover ways to make Python code run faster in more detail in the "Programming for Speed" module of our [Research Software Engineering course](https://alan-turing-institute.github.io/rsd-engineeringcourse/html/index.html), but it's better to avoid using `apply` if you can.
 
 As well as curating domain-specific features, another option is to generate many possible combinations of the original columns, and then perhaps select a subset of promising ones after further analysis (see feature selection below). The [`PolynomialFeatures`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures) class in the scikit-learn library generates features that are polynomial combinations of the original features (`weight`, `height`, `weight^2`, `height^2`, `weight * height`, ...), for example.
 
