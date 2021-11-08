@@ -162,7 +162,10 @@ Would use of this data lead us to a "bias in, bias out" situation with any resul
 #### Beyond Data
 
 The idea of "bias in, bias out" may be concerned with more than simply the data that is used.
-Overarching systems, as well as programmers themselves, can contribute to this cycle, such as explored in Mason (2018) and Cowgill et al. (2020).
+Overarching systems, as well as programmers themselves, can contribute to this cycle, such as explored in Mayson (2018) and Cowgill et al. (2020).
+
+In Cowgill et al. (2020), results suggest that simple reminders about bias are effective at improving an algorithm's accuracy.
+This intervention does not directly affect the data available to the programmer, implying a cause of bias beyond this factor.  
 
 
 ### Should A Variable Be Used?
@@ -177,7 +180,11 @@ Our concern here isn't limited to machine learning, however.
 In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data analysis.
 Yudell et al. (2020) argue that, in COVID-19 analysis, reported disparities in cases across racial demographics can give rise to false beliefs that the disparities are caused by innate racial differences.
 
-We'll revisit this from another angle in [2.15 Data Missingness](./2-15-MissingData.md).
+```{tip}
+Ask yourself: "Why am I using this variable? What information does it capture and could there be other identifiers/variables better suited to my analysis and the question I want to answer?"
+```
+
+We'll revisit this from another angle in [2.2.7 Data Missingness](./2-02-07-MissingData.md).
 
 ### Data Proxies
 
@@ -201,6 +208,8 @@ When we have a modelling task, we may find that our reported accuracy is lower w
 We should attempt to discern the implications of the change in accuracy and potentially consider these against measures of fairness.
 
 But what is "fairness"? Any answer is certainly beyond the scope of this course! However, a useful collection of (loose) definitions for various "fairness types" can be found in [Google's What-If Tool documentation](https://pair-code.github.io/what-if-tool/ai-fairness.html).
+
+This trade-off is also discussed in depth, with illustrative examples, in Mayson (2018). 
 
 ## References
 
