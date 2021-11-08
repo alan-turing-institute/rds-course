@@ -6,13 +6,13 @@ We must also consider the ethical implications of using the dataset.
 
 ## Legality
 
-**Important disclaimer: we are not legal experts, and this is not legal advice. 
+**Important disclaimer: we are not legal experts, and this is not legal advice.
 The content in this section is non-exhaustive, based on our personal experiences, and is aimed at making you aware of these issues.
 Check your university/employer’s policies for guidance. If in any doubt, speak to an expert.**
 
 ### Licences
 
-> A licence agreement is a legal arrangement between the creator/depositor of the data set and the data repository, signifying what a user is allowed to do with the data. 
+> A licence agreement is a legal arrangement between the creator/depositor of the data set and the data repository, signifying what a user is allowed to do with the data.
 
 —  *[The Data Management Expert Guide by CESSDA ERI](https://www.cessda.eu/Training/Training-Resources/Library/Data-Management-Expert-Guide)*
 
@@ -29,7 +29,7 @@ Licences range in the freedoms they give to users. Licences that grant users fre
  - [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
      - the dataset may be shared and adapted as long as credit is given, the original is linked, and any changes are noted.
  - [CDLA-Sharing-1.0](https://cdla.io/sharing-1-0/)
-     - a "copy-left" license. Similar restrictions to CC BY 4.0 but you must use the same license if resharing the data (or "enhanced data"). Importantly, restrictions **do not** apply to results of computational use.  
+     - a "copy-left" license. Similar restrictions to CC BY 4.0 but you must use the same license if resharing the data (or "enhanced data"). Importantly, restrictions **do not** apply to results of computational use.
 
 
 However, not all licences give so many freedoms. It's always worth checking.
@@ -39,11 +39,11 @@ All open source/open access licensed materials are provided as-is. Use with caut
 ```
 
 ```{admonition} Research vs non-Research
-Some licenses will grant permission for *research only*. There is a blurred line on what may constitute research vs non-research.
+Some licenses will grant permission for *research only*. There is a blurred line between what may constitute research vs non-research.
 We suggest that you check internally with your organisation. This determination can change depending on the nature of the work; this is especially important to remember if your time is split over multiple projects.
-``` 
+```
 
-**NB**: GitHub's default stance for [no licence](https://choosealicense.com/no-permission) being present is that the work is under exclusive copyright by default.
+**NB**: GitHub's default stance for when there is [no licence](https://choosealicense.com/no-permission) present is that the work is under exclusive copyright.
 
 More information on data licences can be found in [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-data.html).
 
@@ -51,18 +51,18 @@ More information on data licences can be found in [The Turing Way](https://the-t
 ### Data Protection & GDPR
 
 > The Data Protection Act 2018 is the UK’s implementation of the General Data Protection Regulation (GDPR).
-> 
+>
 > Everyone responsible for using personal data has to follow strict rules called ‘data protection principles’. They must make sure the information is:
-> 
+>
 > - used fairly, lawfully and transparently
 > - used for specified, explicit purposes
 > - used in a way that is adequate, relevant and limited to only what is necessary
 > - accurate and, where necessary, kept up to date
 > - kept for no longer than is necessary
 > - handled in a way that ensures appropriate security, including protection against unlawful or unauthorised processing, access, loss, destruction or damage
-> 
+>
 > There is stronger legal protection for more sensitive information, such as:
-> 
+>
 > - race
 > - ethnic background
 > - political opinions
@@ -72,7 +72,7 @@ More information on data licences can be found in [The Turing Way](https://the-t
 > - biometrics (where used for identification)
 > - health
 > - sex life or orientation
-> 
+>
 > There are separate safeguards for personal data relating to criminal convictions and offences.
 
 —  *excerpt from https://www.gov.uk/data-protection*
@@ -136,13 +136,13 @@ As the data do not contain direct personal identifiers, and it is unlikely that 
 > We believe that despite the lack of an explicit consent field in the questionnaire, these materials and all the supporting material in the website give plenty of information and signposting to participants to assure that they know the content and purpose of the survey, the anonymisation process, the way data will become available and also to know where to ask questions if they have concerns.
 > It is reasonable to conclude that participants that were contacted, accepted the invitation, read this material, were briefed by the field worker and went ahead with the interview did consent to their data being collected and used.
 > It is also clear that during this process they had the option to opt out more than once.
-> The type of intended research is not made entirely clear from the forms but there are mentions to improving living conditions in Europe, understanding quality of life and also other examples of uses in the 2007 flyers. 
+> The type of intended research is not made entirely clear from the forms but there are mentions to improving living conditions in Europe, understanding quality of life and also other examples of uses in the 2007 flyers.
 
-— *excerpt from Ethics Advisory Group practice application form submitted for the running this course*
+— *excerpt from Ethics Advisory Group practice application form submitted for the running of this course*
 
 The above excerpt is part of a larger document that outlines our application to Turing's Ethics Advisory Group.
 The decision to move forward with the dataset was made given consideration of the paragraph quoted as well as points set
- out in the rest of the document. 
+ out in the rest of the document.
 
 ### Bias in, bias out
 
@@ -174,14 +174,14 @@ These techniques often rely on historic data, containing historic biases against
 Clearly, decisions made based on these predictions may be unfair. We may wish to address this by excluding demographic variables from the training data.
 
 Our concern here isn't limited to machine learning, however.
-In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data analysis. 
+In biomedical research, for example, there is [debate](https://www.publichealthpost.org/research/why-are-we-still-using-race-as-a-variable-in-health-research) around the use of race as a variable in data analysis.
 Yudell et al. (2020) argue that, in COVID-19 analysis, reported disparities in cases across racial demographics can give rise to false beliefs that the disparities are caused by innate racial differences.
 
 We'll revisit this from another angle in [2.15 Data Missingness](./2-15-MissingData.md).
 
 ### Data Proxies
 
-We should also be aware that a variable `Y` may act as proxies for another variable `X` and, in doing so, lead to the inclusion of a variable that we may have intended to drop.
+We should also be aware that a variable `Y` may act as a proxy for another variable `X` and, in doing so, lead to the inclusion of a variable that we may have intended to drop.
 
 >For example, suppose a system that makes decisions about credit uses zip code as a factor to make its decisions.
 > The direct information about race is not given to the system, but zip code is strongly correlated with race since many neighborhoods are still segregated.
@@ -192,8 +192,8 @@ We should also be aware that a variable `Y` may act as proxies for another varia
 We can try to identify proxy variables by looking at data correlations and asking domain experts.
 
 ### Algorithmic Fairness: A Trade-off
- 
-Many works exist in the area of algorithmic fairness, and this is a topic worthy of greater discussion outside of the boundary of this course.
+
+Many works exist in the area of algorithmic fairness, and it is a topic worthy of greater discussion outside of the boundary of this course.
 Here, we want to briefly highlight a tension between fairness and traditional measures of performance.
 
 Above, we have discussed excluding variables from the data.
@@ -204,9 +204,8 @@ But what is "fairness"? Any answer is certainly beyond the scope of this course!
 
 ## References
 
-Cowgill, B., Dell'Acqua, F., Deng, S., Hsu, D., Verma, N., & Chaintreau, A. (2020, July). Biased programmers? or biased data? a field experiment in operationalizing ai ethics. In Proceedings of the 21st ACM Conference on Economics and Computation (pp. 679-681).
+Cowgill, B., Dell'Acqua, F., Deng, S., Hsu, D., Verma, N., & Chaintreau, A. (2020, July). Biased programmers? Or biased data? A field experiment in operationalizing AI ethics. In Proceedings of the 21st ACM Conference on Economics and Computation (pp. 679-681).
 
 Mayson, S. G. (2018). Bias in, bias out. YAle lJ, 128, 2218.
 
 Yudell, M., Roberts, D., DeSalle, R., Tishkoff, S., & 70 signatories. (2020). NIH must confront the use of race in science. Science, 369(6509), 1313-1314.
-

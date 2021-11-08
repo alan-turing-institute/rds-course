@@ -35,7 +35,7 @@ Tabular data files, and particularly comma-separated values (CSV) files, are lik
 
 The first line (usually) specifies the table column names, with each name separated by a comma. The subsequent lines specify the values of those columns for each row in our data, with each column  value separated by a comma.
 
-As an example, we will use a dataset downloaded from The World Bank, giving the percentage of people living in urban environments in counries worldwide since 1960. You can find the original source data [here](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?view=chart).
+As an example, we will use a dataset downloaded from The World Bank, giving the percentage of people living in urban environments by country worldwide since 1960. You can find the original source data [here](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?view=chart).
 
 To load a CSV file to a Pandas data frame you can use the Pandas [`read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) function:
 
@@ -61,7 +61,7 @@ df.info()
 
 Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (`float64`), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic `object` type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in the data wrangling section.
 
-We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 "`non-null`" values), and have a strange additional column `Unnamed: 8` that _only_ has missing (null) values. This is another topic we'll revisit later.
+We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 "`non-null`" values), and have a strange additional column `Unnamed: 8` that has _only_ missing (null) values. This is another topic we'll revisit later.
 
 
 ### Customising pandas.read_csv
@@ -91,7 +91,7 @@ df.head()
 
 There's not a single CSV data "standard" that everyone follows, so it's common to need to tweak things to load properly. Other examples include:
 
-- Different "delimeters", e.g., Tab-separated values files (TSVs) with tabs separating column values instead of commas.  
+- Different "delimeters", e.g., Tab-separated values files (TSVs) with tabs separating column values instead of commas.
 - Footers: Lines with metadata/other information not part of the table at the end of the file.
 - Comments: Annotations anywhere in the file that shouldn't be included in the table.
 
@@ -119,13 +119,13 @@ df = pd.read_excel(
 )
 ```
 
-Note you must specify which worksheet you want to load as a data frame. If you want to load tables from multiple worksheets you would need to load them into multiple data frames. 
+Note you must specify which worksheet you want to load as a data frame. If you want to load tables from multiple worksheets you would need to load them into multiple data frames.
 
 ## Databases
 
 We can think of databases as containers for data. Typically, databases allow for easy storage, retrieval, update, and analysis of data.
 
-In the case of tabular data, a database may have many tables. A database can be flat, or it can be relational. Flat databases can be simple but also inefficient. Relational databases, with data stored in a series of interconnected tables, can be more complicated but more computationally efficient.
+In the case of tabular data, a database may have many tables. A database can be flat, or it can be relational.
 
 Example:
 
@@ -153,11 +153,11 @@ Example:
 | Ms P    | p@school.com  | 07456456456          |
 | Mrs A   | a@school.com  | 07789789789          |
 
-
+Flat databases can be simple but also inefficient. Relational databases, with data stored in a series of interconnected tables, can be more complicated but more computationally efficient.
 
 ### SQL Databases & RDBMS
 
-Structured Query Lanage (SQL) is a standard language for storing, manipulating and retrieving data in databases. 
+Structured Query Lanage (SQL) is a standard language for storing, manipulating and retrieving data in databases.
 
 An RDBMS (Relational Database Management System) is the basis for SQL and relies on the [relational data model](https://en.wikipedia.org/wiki/Relational_model). Many modern and popular databases implement the ideas of an RDBMS. Some common implementations are:
 
@@ -188,7 +188,7 @@ Some common NoSQL Databases include:
 {
     "name": "Jane",
     "dob": "2012-04-23T18:25:43.511Z",
-    "interests": ["running", "swimming"]
+    "interests": ["running", "swimming"],
     "counter": 104
 }
 ```
@@ -201,7 +201,7 @@ Some common NoSQL Databases include:
 ![graph example](https://i.imgur.com/jGPRdsA.png)
 
 
-Unfortunately, different types of database will often how their own, unique, query languages, beyond SQL - more to learn!
+Unfortunately, different types of databases will often have their own, unique, query languages, beyond SQL - more to learn!
 
 
 ### Where Is the Data?
@@ -213,10 +213,10 @@ Many cloud providers offer database solutions with easy-to-use interfaces, allow
 
 ### Which Database to Use
 
-Which type of database you choose should be driven by your data and how you plan to use it. 
+Which type of database you choose should be driven by your data and how you plan to use it.
 You may find that your data can be expressed in more than one of the forms above or as a table.
 You then need to weigh up different factors to decide which form and which database, if any, to use.
- 
+
  Some factors you may consider (unordered!):
 
  - Ease of use
@@ -277,7 +277,7 @@ We get the top 5 words describing "dog" and a score that indicates how strong th
 
 The most common format for data returned by an API is JSON (JavaScript Object Notation) from the JavaScript language, which is commonly used in web development. JSONs have a similar structure to Python dictionaries or lists of Python dictionaries. Python has a built-in library `json` for converting data to and from the JSON format (see [here](https://docs.python.org/3/library/json.html)), and Pandas also has a function for creating a DataFrame from a JSON file ([pandas.read_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html)).
 
-We can make the same API query in Python using the 
+We can make the same API query in Python using the
 [requests](https://docs.python-requests.org/en/master/user/quickstart/) library, as follows:
 
 ```{code-cell} ipython3
@@ -329,7 +329,7 @@ TODO: Exercise making another API query, e.g. find 3 words that rhyme with cat (
 
 ## Image Data
 
-Images are commonly represented as a n-dimensional tensor of pixel values. 
+Images are commonly represented as a n-dimensional tensor of pixel values.
 
 ### Black and White
 
@@ -356,7 +356,7 @@ We can introduce colour using an RGB (Red Green Blue) representation. Here, we s
 
 Some popular libraries for processing and analysing image data in Python include:
 
-- [opencv-python](https://pypi.org/project/opencv-python/): [OpenCV](https://opencv.org/) (Open-source Computer Vision) packages for Python. Contains hundreds of computer vision algorithms. 
+- [opencv-python](https://pypi.org/project/opencv-python/): [OpenCV](https://opencv.org/) (Open-source Computer Vision) packages for Python. Contains hundreds of computer vision algorithms.
 - [Pillow](https://pillow.readthedocs.io/en/stable/): PIL (Python Imaging Library) fork. "This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities".
 - [torchvision](https://pytorch.org/vision/stable/index.html): Part of the wider [PyTorch](http://pytorch.org/) project. "The torchvision package consists of popular datasets, model architectures, and common image transformations for computer vision".
 - [tf.keras.preprocessing](https://www.tensorflow.org/tutorials/load_data/images#load_using_tfkeraspreprocessing): Part of the wider tensorflow/keras ecosystem, the preprocessing module provides preprocessing utilities for image data.
@@ -369,7 +369,7 @@ Natural language processing (NLP)
 
 Popular libraries and resources for processing and analysing text data in Python include:
 
-- [NLTK](https://www.nltk.org/): Well-established natural language processing toolkit for Python, offering a wide range of text processing techniques in many different languages. 
+- [NLTK](https://www.nltk.org/): Well-established natural language processing toolkit for Python, offering a wide range of text processing techniques in many different languages.
 - [Spacy](https://spacy.io/): A more modern alternative to NLTK, offering higher performance, state of the art algorithms, and better integration with modelling frameworks in some cases.
 - [Scikit-Learn](https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html): Has common NLP preprocessing functions which can be integrated with modelling pipelines using many different machine learning algorithms.
 - [Hugging Face](https://huggingface.co/): For implementations of state-of-the-art deep learning models from research.
@@ -379,7 +379,7 @@ Popular libraries and resources for processing and analysing text data in Python
 
 - Audio: commonly stored as `.wav` or `.mp3` and displayed as a [waveform](https://en.wikipedia.org/wiki/Waveform) - digitised audio can be used for things like training speech recognition models. Lots of crossover with signal processing! [Librosa](https://librosa.org/doc/latest/index.html) is a popular python package for working with audio.
 - Video: can be thought of as many images + audio!
-- Geospatial: data relating to any location on the Earth's surface. The [geopandas](https://geopandas.org/) library combines the capabilities of [shapely](https://shapely.readthedocs.io/) and Pandas to make working with this datatype easier. 
+- Geospatial: data relating to any location on the Earth's surface. The [geopandas](https://geopandas.org/) library combines the capabilities of [shapely](https://shapely.readthedocs.io/) and Pandas to make working with this datatype easier.
 - Time Series: Data that can be expressed as observations over time, e.g., stock price data. Honourable mention to [sktime](https://github.com/alan-turing-institute/sktime) for analysis.
 - XML (Extensible Markup Language): We recommend using a library such as [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to help parse this heavily structured format.
 - Web scraping: extracting structured data from web sites. [Scrapy](https://scrapy.org/) is a popular library here.
