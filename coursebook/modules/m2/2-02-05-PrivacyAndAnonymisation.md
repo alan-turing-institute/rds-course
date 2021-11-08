@@ -35,6 +35,22 @@ GDPR does still apply to pseudonymised information. However, pseudonymisation he
 
 Separate to concerns over data use in developing algorithms, there is also a concern over what may be inferred about the data by learning the result of some randomised algorithm. Here, the concern shifts from intrusion by the data scientist developing the algorithm to the intrusion by the many consumers of this algorithm.
 
+The below image shows a toy version of a membership inference attack.  Here, we're examining whether certain images were used in the training of our cat vs dog classifier.
+
+A data scientist:
+1. Trains a model on the first set of images
+2. Publishes the model to the public internet.
+
+
+An adversary then:
+
+1. Downloads the published model
+2. Makes predictions with the model
+3. Based on the confidence output in the model's predictions, infers that the first image was part of the original training set.
+
+% on imgur due to size
+![toy membership inference figure](https://i.imgur.com/ujb8iPk.jpg)
+
 Broadly, differential privacy provides a mechanism for learning nothing about an individual while learning useful information about the general population.
 
 > “Differential privacy” describes a promise, made by a data holder, or curator, to a data subject: “You will not be affected, adversely or otherwise, by allowing your data to be used in any study or analysis, no matter what other studies, data sets, or information sources, are available.”
