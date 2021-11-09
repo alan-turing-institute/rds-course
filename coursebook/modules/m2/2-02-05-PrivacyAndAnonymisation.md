@@ -35,7 +35,7 @@ GDPR does still apply to pseudonymised information. However, pseudonymisation he
 
 Separate to concerns over data use in developing algorithms, there is also a concern over what may be inferred about the data by learning the result of some randomised algorithm. Here, the concern shifts from intrusion by the data scientist developing the algorithm to the intrusion by the many consumers of this algorithm.
 
-The below image shows a toy version of a membership inference attack.  Here, we're examining whether certain images were used in the training of our cat vs dog classifier.
+The below image shows a **toy version** of a membership inference attack.  Here, an adversary attempts to infer whether certain images were used in the training of a cat vs dog classifier.
 
 A data scientist:
 1. Trains a model on the first set of images
