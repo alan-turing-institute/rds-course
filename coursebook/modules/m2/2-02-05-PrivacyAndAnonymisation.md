@@ -39,14 +39,15 @@ The below image shows a **toy version** of a membership inference attack.  Here,
 
 A data scientist:
 1. Trains a model on the first set of images
-2. Publishes the model to the public internet.
+2. Publishes the model to the public internet
 
 
 An adversary then:
 
-1. Downloads the published model
-2. Makes predictions with the model
-3. Based on the confidence output in the model's predictions, infers that the first image was part of the original training set.
+1. Makes predictions with the model through some public API
+2. Based on the scores in the model's predictions, loosely interpretable as confidence, infers:
+    - first image was part of the original training set
+    - second image was not part of training training set
 
 % on imgur due to size
 ![toy membership inference figure](https://i.imgur.com/ujb8iPk.jpg)
