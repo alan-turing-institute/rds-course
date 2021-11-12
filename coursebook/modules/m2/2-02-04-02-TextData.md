@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.10 Text data
+# 2.2.4.2 Text data
 
 We'll often want to manipulate text data (strings) in Python.
 There are many handy libraries for helping us do this, some of which allow some pretty complicated operations.
@@ -21,7 +21,7 @@ Here, we'll show some basic processing.
 
 ## Inconsistencies
 
-Strings have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace. 
+Strings have their own particular array of consistency issues, such as inconsistent capitalisation and extraneous whitespace.
 
 Fortunately, python gives us some handy [built-in functionality](https://docs.python.org/3/library/stdtypes.html#string-methods) for dealing with some of these issues.
 
@@ -40,7 +40,7 @@ These methods can be useful for ensuring consistency when casing is not importan
 
 ### `str.strip()`
 
-The `str.strip()` method (and it's companions, `str.lstrip` and `str.rstrip()`) return a copy, stripping leading and trailing characters (default to whitespace) from a string. E.g.
+The `str.strip()` method (and its companions, `str.lstrip` and `str.rstrip()`) return a copy, stripping leading and trailing characters (default to whitespace) from a string. E.g.
 
 ```{code-cell} ipython3
 stripped = " foo bar ".strip()
@@ -55,7 +55,7 @@ print(f"right stripped: '{rstripped}'")
 
 ### Spelling is tricky
 
-The methods we've talked about so far don't address things like misspelling/typos (a common data input concern). 
+The methods we've talked about so far don't address things like misspelling/typos (a common data input concern).
 
 In a relatively simple scenario, with categorical data encoded as strings, you might be able to spot these by checking for all unique values in your data. E.g.
 
@@ -98,7 +98,7 @@ A bit like `str.split(sep=None, maxsplit=-1)` in reverse, `str.join(iterable)` a
 ```{code-cell} ipython3
 my_list = ["a", "list", "of", "words"]
 # join with a space separator
-s = " ".join(my_list) 
+s = " ".join(my_list)
 print(s)
 ```
 
@@ -117,12 +117,26 @@ txt = "The rain in Spain falls mainly on the plains. So they say, anyway."
 print(re.findall(r"\b[St]\w+", txt))
 ```
 
-## NLP preprocessing
+## NLP Preprocessing
 
 In Natural Language Processing (NLP) tasks we often see some slightly more complicated preprocessing such as:
 
 - [Stemming and Lemmatisation](https://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html) - reducing words to common base forms
 - Stop-word Removal - removing common words that carry little information
-- "Vectorization" - convert text to a meainingful numeric vector representation (e.g. [term frequency encoding](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer))
+- "Vectorization" - convert text to a meaningful numeric vector representation (e.g. [term frequency encoding](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer))
 
 There are some commonly used libraries for the above tasks, we recommend [NLTK](https://www.nltk.org/) and [scikit-learn](https://scikit-learn.org/stable/).
+
+
+## Pandas String Operations (`Series.str`)
+
+Pandas provides vectorized string functions for Series. Unless explicitly handled, NAs will stay as NA. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.html).
+
+E.g.
+```{code-cell} ipython3
+import pandas as pd
+
+s = pd.Series(["aaa", "aab", "aba"])
+# replace "a" with "A"
+s.str.replace("a", "A")
+```

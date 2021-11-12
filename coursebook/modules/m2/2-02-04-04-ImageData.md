@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.12 Image Data
+# 2.2.4.4 Image Data
 
 Earlier in this module, we introduced image data as a 2d or 3d tensor representing pixel values.
 
@@ -25,13 +25,18 @@ Commonly, we may wish to resize, reshape, and/or normalise image data.
 The term *resize* can be used to refer to changing the physical size of an image without changing the number of pixels.
 In these contexts, *resampling* is used to refer to the operation that changes the total number of pixels.
 
-However, many popular python image libraries use the term *resize* to refer to changing the total number of pixels.
+However, many popular Python image libraries use the term *resize* to refer to changing the total number of pixels.
 We will follow this convention.
 ```
 
 When resizing, interpolation methods determine pixel values when upsampling or downsampling an image. In the case of
  upsampling, the method determines the value for "new" pixels. 
  
+ ```{margin} OpenCV Interpolation
+The OpenCV docs provide some info on [resizing](https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/geometric_transformations.html#resize), with brief mention of interpolation methods.
+A friendly explanation of the interpolation methods available is given in [this article](https://www.pyimagesearch.com/2021/01/20/opencv-resize-image-cv2-resize/) under the "Comparing OpenCV interpolation methods" heading.
+```
+
 For example, using the OpenCV library:
 
 ```{code-cell} ipython3
