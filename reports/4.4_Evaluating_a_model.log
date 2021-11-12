@@ -24,7 +24,7 @@ df_map = pd.read_csv(datafolder + 'mrdoc/excel/eqls_api_map.csv', encoding='lati
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2400/2986366322.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2401/2986366322.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mdatafolder[0m [0;34m=[0m [0;34m'data/UKDA-7724-csv/'[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mdf11[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdatafolder[0m [0;34m+[0m [0;34m'csv/eqls_2011.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mdf_map[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdatafolder[0m [0;34m+[0m [0;34m'mrdoc/excel/eqls_api_map.csv'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'latin1'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
