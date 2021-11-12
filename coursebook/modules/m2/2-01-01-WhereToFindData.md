@@ -4,7 +4,8 @@
 
 ## What is Open Data?
 
-We can use the definition from [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/open/open-data.html): Open data is freely available on the internet. Any user is permitted to download, copy, analyse, re-process, and re-use it for any other purpose with minimal financial, legal, and technical barriers.
+We can use the definition from [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/open/open-data.html):
+> Open data is freely available on the internet. Any user is permitted to download, copy, analyse, re-process, and re-use it for any other purpose with minimal financial, legal, and technical barriers.
 
 The benefits of using an open dataset include (but are not limited to):
 
@@ -69,7 +70,11 @@ General tools and repositories that contain data across many different domains:
 
 If you can start your project with an open dataset that's always preferable. Even if the perfect dataset is not openly available it may be worth first prototyping with related data that is open. For example, it may be that an older version of the data you're interested in has been made public. You can continue to explore options for getting the ideal data in parallel, but gaining data access is frequently an expensive or time-consuming process.
 
-Two common reasons open data may not be available or appropriate are 1) the data is commercially sensitive or valuable, and 2) the data presents a privacy or security risk. Access to detailed healthcare records, for example, is often heavily restricted even if personal identifiers have been removed due to the risk of re-identification. In August 2016 the Australian government openly published a de-identified medical billing dataset, but one month later [researchers at the University of Melbourne](https://arxiv.org/pdf/1712.05627.pdf) demonstrated it was possible to re-identify individuals and the data was taken offline.
+Two common reasons open data may not be available or appropriate are:
+1. The data is commercially sensitive or valuable.
+2. The data presents a privacy or security risk.
+
+Access to detailed healthcare records, for example, is often heavily restricted even if personal identifiers have been removed due to the risk of re-identification. In August 2016 the Australian government openly published a de-identified medical billing dataset, but one month later [researchers at the University of Melbourne](https://arxiv.org/pdf/1712.05627.pdf) demonstrated it was possible to re-identify individuals and the data was taken offline.
 
 Options for finding a non-open dataset include:
 
@@ -79,7 +84,7 @@ Although open data may not be available for your project, a collaborator, someon
 
 ### Paywalled/Restricted Access
 
-Getting access to a dataset that's behind closed doors is likely to involve a registration or application process and may include a fee. Bear in mind that data can be _expensive_, and could easily cost thousands of pounds, for example. If the application is approved, the resulting contract/ research agreement may specify precisely which data you can have access to (down to the level of individual fields), who will have access, the duration of access, and exactly what you're allowed to do with it. As an example, [this website](https://www.ukbiobank.ac.uk/enable-your-research) describes the process for accessing the UK Biobank, a large biomedical database for health research.
+Getting access to a dataset that's behind closed doors is likely to involve a registration or application process and may include a fee. Bear in mind that data can be _expensive_, and could easily cost thousands of pounds. If the application is approved, the resulting contract/ research agreement may specify precisely which data you can have access to (down to the level of individual fields), who will have access, the duration of access, and exactly what you're allowed to do with it. As an example, [this website](https://www.ukbiobank.ac.uk/enable-your-research) describes the process for accessing the UK Biobank, a large biomedical database for health research.
 
 ### Creating Your Own Dataset
 
@@ -87,10 +92,8 @@ Ultimately the data you need might not be available anywhere, in which case the 
 
 
 
-<!-- #region -->
-## Assessing Dataset Quality and Suitability
 
-TODO
+## Assessing Dataset Quality and Suitability
 
 In Module 1 (Section 1.2, question 3 for scoping projects) we gave these overarching questions for evaluating a dataset:
 - Does the dataset contain what's needed to solve the research question available?
@@ -99,21 +102,22 @@ In Module 1 (Section 1.2, question 3 for scoping projects) we gave these overarc
 - Is the dataset well-understood and tested?
 - Is data quality and quantity appropriate?
 
-
 Another useful concept here is [data readiness levels](https://arxiv.org/pdf/1705.02245.pdf):
-- A
-- B
-- C
+- **Band C: Accessibility**
+   - C4: You believe the data may exist, but haven't seen/verified that it does.
+   - C1: The data is ready to be loaded into an analysis: You have access, it's in an appropriate format, and you have (both ethical and legal) permission to use it.
+- **Band B: Faihfulness & Representation**
+   - B1: The data has been used in an exploratory analysis, and you have verified the contents match what you expected. You understand any limitations (e.g. how missing values were treated).
+- **Band A: Data in Context**
+   - A1: The data has been prepared and is suitable to answer a _specific_ research question.
 
-<!-- #endregion -->
+In this module we cover many of the steps needed to take data from Band C to Band B: we start with data we know exists but don't know how to analyse, and end with beginning an exploratory analysis.
 
-## Data Attached to a Research Project
+For evaluating all of these, **data documentation** is essential. See [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-metadata.html) and this [Radboud University article](https://www.ru.nl/rdm/processing-data/documenting-data/) for a details of what good documentation should contain.
 
-TODO
 
-- how to and advocating for making data open
-- open versions of sensitive data
+## Sharing Data
 
-FAIR principles
+If your project is working with, or has generated, a dataset consider whether you can publish it with an open license. The community can then benefit from all the advantages of open data we've talked about! It's also becoming more common for funders and journals to _require_ code and data to be published with papers.
 
-https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-sharing.html#rr-rdm-sharing
+We won't discuss this here but the [Sharing and Archiving Data](https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-sharing.html) chapter in the Turing Way is a great place to start.
