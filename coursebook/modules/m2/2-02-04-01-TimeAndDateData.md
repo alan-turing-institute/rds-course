@@ -13,7 +13,7 @@ kernelspec:
   name: python3
 ---
 
-# 2.8 Time and Date Data
+# 2.2.4.1 Time and Date Data
 
 Dealing with time and date data can be tricky. String-formatted data is hard to compare and represent for modelling.
 
@@ -25,10 +25,10 @@ We use the `datetime.datetime` object in examples below. However, you can also u
 
 ## datetime
 
-We need to represent this data in a format that will allow us to compare items and perform operations such as addition and subtraction.
+We need to represent date data in a format that will allow us to compare items and perform operations such as addition and subtraction.
 
 Python's standard library includes the [`datetime`](https://docs.python.org/3/library/datetime.html) module.
-This allows us too represent dates and times as structured objects.
+This allows us to represent dates and times as structured objects.
 
 ```{code-cell} ipython3
 import datetime
@@ -43,7 +43,7 @@ This object has structure. We can, for example, extract the year property from t
 print(now.year)
 ```
 
-We can also compare this datetime to others, as well as performing date arithmetic.
+We can also compare this datetime to others, as well as perform date arithmetic.
 
 ```{code-cell} ipython3
 past = datetime.datetime.fromisoformat("2020-12-22")
@@ -78,4 +78,19 @@ And to convert a date *to* string we can use `datetime.datetime.strftime(format)
 ```{code-cell} ipython3
 s = now.strftime("%d/%m/%y %H:%M")
 print(f"{s}. Type: {type(s)}")
+```
+
+## Pandas Datetime Accessor (`Series.dt`)
+
+Pandas provides an accessor object for datetime-like properties of Series values. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html).
+
+E.g. (taken almost directly from Pandas docs, linked above)
+```{code-cell} ipython3
+import pandas as pd
+
+seconds_series = pd.Series(pd.date_range("2000-01-01", periods=3, freq="s"))
+display(seconds_series)
+
+# access seconds property of values in series
+display(seconds_series.dt.second)
 ```
