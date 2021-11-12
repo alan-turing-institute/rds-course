@@ -1,5 +1,8 @@
 [tool.poetry]
 name = "rds-course"
+packages = [
+    { include = "coursebook" },
+]
 version = "0.1.0"
 description = ""
 authors = ["ChristinaLast <christina.last@outlook.com>", "James Bishop <jbishop@turing.ac.uk>", "Jack Roberts <jroberts@turing.ac.uk>"]
