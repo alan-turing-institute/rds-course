@@ -22,8 +22,6 @@ statsmodels = "^0.13.0"
 plotly = "^5.3.1"
 graphviz = "^0.18"
 scipy = "^1.7.2"
-
-[tool.poetry.dev-dependencies]
 jupyter-book = "^0.11.2"
 
 [build-system]
