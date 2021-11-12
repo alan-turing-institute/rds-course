@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.3 Equality, diversity and inclusion in data science &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lesson 1.4: Collaboration and reproducibility" href="1.4-CollaborationAndReproducibility.html" />
+    <link rel="prev" title="1.2 Research Data Science project lifecycle" href="1.2-DataScienceProjectLifecycle.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.1-WhatIsDataScience.html">
+   1.1 What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2-DataScienceProjectLifecycle.html">
+   1.2 Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1.3 Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4-CollaborationAndReproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Module 1 hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   3.3 Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   3.4 Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   3.5 Walkthrough: visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Module 3: hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   Fitting (Regression) Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m1/1.3-EDIForDataScience.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m1/1.3-EDIForDataScience.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m1/1.3-EDIForDataScience.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-data-the-new-oil">
+   Is data the new oil?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-style-color-blue-team-exercise-split-in-groups-span">
+   <span style="color:blue">
+    Team exercise (Split in groups)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-and-power">
+   Data and power
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-of-oppression">
+   Matrix of oppression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-data-do-we-collect">
+   What data do we collect?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-do-we-use-data-for">
+   What do we use data for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-controls-the-data-and-algorithms">
+   Who controls the data and algorithms?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-works-in-data-science">
+   Who works in data science?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-narratives-and-myths">
+   Data narratives and myths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-challenge-bias-and-oppression-as-a-data-scientist">
+   How to challenge bias and oppression as a data scientist
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-scientist-as-public-intellectual">
+     1. Data scientist as public intellectual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#counter-data">
+     2. Counter-data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-scoping-conversations">
+     3. Project scoping conversations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ethics-review-processes">
+     4. Ethics review processes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crediting-visible-and-invisible-labour">
+     5. Crediting visible and invisible labour
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teach-each-other">
+     6. Teach each other
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="equality-diversity-and-inclusion-in-data-science">
+<h1>1.3 Equality, diversity and inclusion in data science<a class="headerlink" href="#equality-diversity-and-inclusion-in-data-science" title="Permalink to this headline">¶</a></h1>
+<p>Data science has grown a lot during the last decade and its applications now span most scientific fields and play an important role in industry and government. As a result, data science and data scientists have growing influence and power. Decisions taken using data affect individuals and communities around the world in more ways than ever before.</p>
+<p>Despite this influence, a number of important topics around the ethics of data science and its impact on equality, diversity and inclusion have been under-emphasised in literature, the media as well as most data science training.</p>
+<p>In this lesson we:</p>
+<ul class="simple">
+<li><p>Discuss and criticise some widely used metaphors and ideas about the role of data science in today’s world.</p></li>
+<li><p>Discuss power and its relationship to data science. We try to capture some of the ways in which data science reflects, reproduces or causes inequalities and oppression in society.</p></li>
+<li><p>Demonstrate how data scientists can detect and challenge practices, ideas and privileges that reinforce inequality.</p></li>
+<li><p>Give examples of real-world data science projects where EDI principles have been applied with or without success and demonstrate how to do participatory data science.</p></li>
+</ul>
+<p>Note that this lesson presents concepts and theories that are only part of the debate around data ethics. We do not endorse all of them but we believe they are a useful starting point for approaching these topics.</p>
+<div class="section" id="is-data-the-new-oil">
+<h2>Is data the new oil?<a class="headerlink" href="#is-data-the-new-oil" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Popular metaphor to highlight importance and value of data for economy</p></li>
+<li><p>We can mine, process and use data for profit</p></li>
+<li><p>But does the methaphor capture the role of data today?</p></li>
+</ul>
+<p><img alt="ddl" src="../../_images/ddl.jpeg" /></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>As we have seen at the beginning of this module, the importance and value of data are often highlighted in the press with a popular metaphor: ‘Data is the new oil’  (e.g. see <a class="reference external" href="https://www.economist.com/leaders/2017/05/06/the-worlds-most-valuable-resource-is-no-longer-oil-but-data">this</a> article in the Economist). This is meant to convey that data is a resource that is out there, available to be extracted and with large value for fueling the modern digital economy.</p>
+<p>The metaphor sounds appealing and accurate: Data is indeed a resource that (like oil) we can mine, process and use to generate profit.</p>
+<p>But the metaphor can hide some aspects of the role of data in the real-world.</p>
+</div>
+</div>
+<div class="section" id="span-style-color-blue-team-exercise-split-in-groups-span">
+<h2><span style="color:blue">Team exercise (Split in groups)</span><a class="headerlink" href="#span-style-color-blue-team-exercise-split-in-groups-span" title="Permalink to this headline">¶</a></h2>
+<p>Let’s discuss the following questions in groups:</p>
+<ul class="simple">
+<li><p>Where does this ‘data’ come from?</p></li>
+<li><p>How is data ‘extracted’? Is it fair to treat it as a free resource?</p></li>
+<li><p>Who benefits from this ‘new oil’? Who doesn’t and why?</p></li>
+<li><p>Who has control over the process of gathering and analysing data and making data-driven decisions?</p></li>
+</ul>
+</div>
+<div class="section" id="data-and-power">
+<h2>Data and power<a class="headerlink" href="#data-and-power" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Data is important for the economy and has the capacity to make the world a better place</p></li>
+<li><p>Data and data science can also be <strong>oppressive</strong></p></li>
+<li><p>To more fully understand the role of data, we need to examine <strong>power</strong> and its relation to data.
+<img alt="power" src="../../_images/power.jpeg" /></p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>Data increasingly plays a major role in fueling our economies. It can and is being used to make the world a better place, for instance <a class="reference external" href="https://www.turing.ac.uk/blog/five-ways-turing-helping-tackle-climate-change">by helping tackle climate change</a>. At the same time, <strong>data and data science can be oppressive</strong> and there are multiple instances and hisitorical examples of this in various fields.</p>
+<p>To understand how data oppression operates in today’s world, it is useful to start by examining a related concept: <strong>power</strong>. How does power operate in society? How are data used within existing power structures?</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Defining power:</strong> Here, we provide one definition of power which is useful within our context. With this, we do not aim to even remotely contribute to discourses on the nature of power, which has been the topic of counteless philosophical, sociological and other studies. But the following definition can help us examine how the relationship between power and data science. According to the book <a class="reference external" href="https://data-feminism.mitpress.mit.edu/">Data Feminism</a>:</p>
+<blockquote>
+<div><p>Power is the current configuration of structural privilege and structural oppression, in which some groups experience unearned advantages — because various systems have been designed by people like them and work for people like them — and other groups experience systematic disadvantages — because those same systems were not designed by them or with people like them in mind.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="matrix-of-oppression">
+<h2>Matrix of oppression<a class="headerlink" href="#matrix-of-oppression" title="Permalink to this headline">¶</a></h2>
+<p>One way to think about how power is organised and experienced, is by using the following <strong>matrix of oppression</strong> proposed in <a class="reference external" href="https://projects.iq.harvard.edu/hksdigitalbookdisplay/publications/black-feminist-thought-knowledge-consciousness-and-politics">Black Feminist Thought</a> and used in Data Feminism.</p>
+<p>Data science overlaps with these four domains in various ways. These forces of oppression are encountered in our daily lives but are also present in our datasets, our data science industry, our research, our code. Some examples are provided in the next sections.</p>
+<p><img alt="matrix" src="../../_images/matrix.png" /></p>
+</div>
+<div class="section" id="what-data-do-we-collect">
+<h2>What data do we collect?<a class="headerlink" href="#what-data-do-we-collect" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Political and cultural factors influence what types of data are collected and not collected.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>The choices our governments, organisations and corporations make say a lot about which problems are prioritised in our societies and in our data science communities. The disciplinary and hegemominc domains are often important in this discussion.</p>
+</div>
+</li>
+<li><p>There are many examples of datasets not being collected, groups within the population being underrepresented or ommitted, important variables being neglected, algorithms being trained on biased/unrepresentative data.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show examples</p>
+<ul class="simple">
+<li><p>There are many datasets you would expect exist but, surprisingly, they don’t. For example, see this <a class="reference external" href="https://github.com/MimiOnuoha/missing-datasets">Missing Datasets list</a>. Our decisions not to collect these data often express biases, systematic failures, oppression.</p></li>
+<li><p>Up to 2018, there was still no national system in the US for tracking complications sustained in pregnancy and childbirth, even though similar systems had long been in place for tracking any number of other health issues, such as teen pregnancy, hip replacements, or heart attacks (<a class="reference external" href="https://www.usatoday.com/series/deadlydeliveries/">USA today</a>). Recent research has shown that black women are over 3 times more likely than white women to die from such complications (<a class="reference external" href="https://www.propublica.org/article/nothing-protects-black-women-from-dying-in-pregnancy-and-childbirth">ProPublica article</a>). It took a social media post from Serena Williams who experienced complications when giving birth to her daughter to ignite a public converstation.</p></li>
+<li><p>A lot of the data we collect for research and industrial purposes are predominantly male (see <a class="reference external" href="https://data2x.org/wp-content/uploads/2019/05/Data2X_MappingGenderDataGaps_FullReport.pdf">this</a> and Caroline Criado Perez, Invisible Women: Exposing Data Bias in a World Designed for Men). For example, car crash dummies were until recently designed to represent male bodies, which meant a significant increase in the risk of injury for women.</p></li>
+<li><p>Many of the datasets that organisations/states publish might be missing important variables, not break down numbers by gender, age, race etc (which can hide many biases) and/or exclude people that should be there (e.g. children’s mental health is often not measured, data used for designing products or conducting medical research have historically been male-dominated).</p></li>
+<li><p>A well known example of biased data collection and use comes from the domain of face recongition, where it was recently <a class="reference external" href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf">shown</a> that commercial facial recognition software misclassifies darker-skinned people significantly more than lighter-skinned people, due to biased training and benchmarking data (78% male and 84% white).</p></li>
+</ul>
+</div>
+</li>
+</ul>
+<p><img alt="missing_data" src="../../_images/missing_data.jpeg" />
+<a class="reference external" href="https://www.lancaster.ac.uk/stor-i-student-sites/matthew-randall/2020/02/21/methods-for-missing-data/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=methods-for-missing-data">source</a></p>
+</div>
+<div class="section" id="what-do-we-use-data-for">
+<h2>What do we use data for?<a class="headerlink" href="#what-do-we-use-data-for" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Many applications of data science have helped shed light to <a class="reference external" href="https://www.turing.ac.uk/events/innovative-data-science-alzheimers-research">important societal problems</a>, improve services and health outcomes or solve important scientific problems.</p></li>
+<li><p>But it is more common to collect and analyse data to:</p>
+<ul>
+<li><p>Generate profit</p></li>
+<li><p>Perform surveillance</p></li>
+<li><p>Administer scarcity</p></li>
+<li><p>Do science that benefits specific groups</p></li>
+</ul>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Show examples</p>
+<ul class="simple">
+<li><p><strong>Datafication</strong>: There is a major drive to convert even the most mundane aspects of human lives and experience to data in pursuit of profit. This is often described as ‘datafication’. We collect data about every simple action we do online (e.g. how many seconds a user looks at a Facebook post or what their searches are), data about our behaviour in the workplace (e.g. see <a class="reference external" href="https://www.theverge.com/2019/4/25/18516004/amazon-warehouse-fulfillment-centers-productivity-firing-terminations">Amazon’s tracking of workers’ movements</a> and the increasingly prevalent <a class="reference external" href="https://desktime.com/employee-time-tracking-guide">monitoring of employees’ usage of their computers</a>), a large number of things that happen in our cities and roads, data about crime and police reaction to it. There are connections here to the concept of <a class="reference external" href="https://en.wikipedia.org/wiki/Biopolitics">‘biopolitics’</a> as described by Michel Foucault but also the more recent concept of ‘psychopolitics’ as described in Byung-Chul Han’s <a class="reference external" href="https://www.worldcat.org/title/psychopolitics-neoliberalism-and-new-technologies-of-power/oclc/1004206745">Psychopolitics: Neoliberalism and New Technologies of Power</a>.</p></li>
+<li><p><strong>Social media</strong>: Social media like Facebook use data collected by user in ways that have been ethically challenged, e.g. see recent stories about the <a class="reference external" href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal">Cambridge Analytica scandal</a> and the documentary <a class="reference external" href="https://www.thesocialdilemma.com/">The Social Dilemma</a> which claimed that Facebook design their platform to be addictive and discussed the impact this has on society and individuals (also see Facebook’s reply to the allegations <a class="reference external" href="https://about.fb.com/wp-content/uploads/2020/10/What-The-Social-Dilemma-Gets-Wrong.pdf">here</a>).</p></li>
+<li><p><strong>Data-driven oppression</strong>: There are multiple instances where data and algorithms have reinforced existing oppression and injustice. For example, <a class="reference external" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">this</a> widely circulated report by ProPublica demonstrated how a machine learning algorithm built to predict recidivism of convicted criminals was racially biased. Despite not using race as a feature, the algorithm used various other features which acted as a proxy for race. Algorithms like this one have been used in many US states.
+<img alt="propublica" src="../../_images/propublica.png" />
+<a class="reference external" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">source</a></p></li>
+<li><p><strong>Predicting the past</strong>: A similar example of racial bias comes from algorithms used to predict high crime rate areas with the purpose of focusing police presence there. <a class="reference external" href="https://www.predpol.com/technology/">PredPol</a> in an example of such tools used by the City of Los Angeles for nearly a decade to determine which neighborhoods to patrol more heavily. Like many tools based on historic data, PredPol actually predicts the <strong>past</strong>, rather than the future. Historically, police presence has disproportinoately focused on black neighbourhoods. This practice now finds its way through the algorithm to the present; the algorithm predicts higher crime in those neighbourhoods and police presence is increased; but increased police presence leads to more crime being detected and reported, creating a feedback loop that perpetuates the same practices.</p></li>
+<li><p><strong>Surveillance</strong>: There is a flip side to the coin of biased facial recongition software mentioned above. These systems are increasingly used for aggressive surveillance around the world; you might not want your face to be recognisable if this is going to lead to violence or oppression against you!</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="who-controls-the-data-and-algorithms">
+<h2>Who controls the data and algorithms?<a class="headerlink" href="#who-controls-the-data-and-algorithms" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Data collection and control is concentrated</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>The collection and control of large, valuable datasets is increasingly concentrated in the hands of a few major organisations (e.g. Google, Facebook, Amazon, Apple, Alibaba) and some smaller ones, most of which are not under democratic control. These organisations have accumulated power in the form of data and algorithms.</p>
+</div>
+</li>
+<li><p>Users and society have limited control over their data</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>Despite the high value of data, users and citizens have limited choice when it comes to giving away their data if they want to maintain access to certain platforms;</p>
+</div>
+</li>
+<li><p>This enables innovation but creates imbalances and potential for misuse.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>Collecting large volumes of data in one place can enable the creation of sophisticated tools and services and has contributed to some impressive advances in AI in the last 10 years. But there are arguments against it too. These massive platformS are essentially monopolies and can misuse data away from societal control. Their decision can have big impact on all of us. Some people believe they should be regulated (legislation is still lagging behind the data wave).</p>
+</div>
+</li>
+</ul>
+<p><img alt="market_cap" src="../../_images/market_cap.jpeg" />
+<a class="reference external" href="https://www.stadafa.com/2020/07/largest-companies-2010-vs-2020.html">source</a></p>
+</div>
+<div class="section" id="who-works-in-data-science">
+<h2>Who works in data science?<a class="headerlink" href="#who-works-in-data-science" title="Permalink to this headline">¶</a></h2>
+<p>There is a lot of evidence that data science employees are not representative of society, not unlike other STEM fields. People employed in the field strongly tend to be white and male and from a relatively limited set of academic backgrounds (mostly STEM).</p>
+<p>Indicatively:</p>
+<ul>
+<li><p>The data science funnel loses women in all stages [1]</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show figure</p>
+<p><img alt="funnel" src="../../_images/funnel.png" /></p>
+</div>
+</li>
+<li><p>Women computer science degree share has regressed [2]</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show figure</p>
+<p><img alt="cs" src="../../_images/cs.png" /></p>
+</div>
+</li>
+<li><p>RSE/RDS is even more male and white than data science in general. RSEs in the UK are only 14% female and 5% BAME [3]</p></li>
+<li><p>The Turing’s REG team (responsible for developing this course) are 34% female and mostly from STEM backgrounds.</p></li>
+<li><p>This creates biases, blind spots and outcomes that do not take everyone into account.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>These diversity issues create unconscious or conscious biases and affect the way data science operates in the world. If data scientists belong to particular groups that are already privileged in society in many ways, there is a high chance that blind spots will appear; it might be difficult for members of privileged groups to imagine the ways in which their work might affect people outside those groups. Data science <strong>from</strong> these groups is likely to result in data products <strong>for</strong> those groups.</p>
+</div>
+</li>
+</ul>
+<p>[1] “What’s Keeping Women Out of Data Science? “, BCG report, <a class="reference external" href="https://www.bcg.com/publications/2020/what-keeps-women-out-data-science">https://www.bcg.com/publications/2020/what-keeps-women-out-data-science</a></p>
+<p>[2] Figure 1.2 from Data Feminism: <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/3">https://data-feminism.mitpress.mit.edu/pub/vi8obxh7/release/3</a></p>
+<p>[3] Chue Hong, Neil P. and Cohen, Jeremy and Jay, Caroline, “Understanding Equity, Diversity and Inclusion Challenges Within the Research Software Community”, <a class="reference external" href="http://dx.doi.org/10.1007/978-3-030-77980-1_30">http://dx.doi.org/10.1007/978-3-030-77980-1_30</a>, 2021</p>
+</div>
+<div class="section" id="data-narratives-and-myths">
+<h2>Data narratives and myths<a class="headerlink" href="#data-narratives-and-myths" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>There are specific <strong>narratives and myths</strong> about data that are dominating the public conversation.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>A number of narratives about data science and scientists circulate widely since the field exploded in popularity in the 2010s. These can reinforce a particular understanding of what data science is, what it can do and how it should collaborate with other fields. This understanding can influence data scientists but especially the public and non-expert collaborators who might not have exposure to the ins and outs of data science work. Many of these narratives have been criticised.</p>
+</div>
+</li>
+<li><p><strong>Data scientists as “wizards” or “superstars”:</strong> These narratives are based on the idea that data scientists can magically solve any problem given a bunch of data.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>This is far from the scientific reality and the experience of most people that work with real data.</p>
+<ul class="simple">
+<li><p><strong>Collaboration:</strong> Data scientists’ success becomes possible via collaboration with domain experts, researchers, software developers and users. Data scientists are strangers in the datasets and problems they work with; they need input from users and domain experts to understand how data were collected, why they have certain characteristics, why some values are missing.</p></li>
+<li><p><strong>Tools:</strong> Data scientists rely heavily on a massive array of open source software that has been developed by others and on methodologies developed by academics and researchers over long stretches of time.</p></li>
+<li><p><strong>Unrecognised contributors:</strong> The datasets that data scientists use have been created using data from patients, citizens and users and have been labeled, put together and documented by various individuals and organisations.</p></li>
+<li><p><strong>Unrealistic expectations:</strong> Thinking of data scientists as omnipotent geniuses can underestimate feedback from domain experts, communities and other stakeholders in their projects and make people overconfident that a solution can be found even though sometimes it is hard or impossible!</p></li>
+<li><p><strong>Marginalisation:</strong> It is often the voices of marginalised groups that are silenced in this process, given the lack of diversity in data science teams and the resulting biases (e.g. think of the case of biased data sets in face recognition).</p></li>
+</ul>
+<p><img alt="pain" src="../../_images/ds_selling.png" />
+<a class="reference external" href="https://syafiqahassan.medium.com/what-ive-learned-what-you-need-to-know-about-data-science-d7e9d6a71576">source</a></p>
+</div>
+</li>
+<li><p><strong>Data are raw/neutral/objective:</strong> It is often taken for granted that data “tell the truth”, are “raw” and can be trusted blindly in analyses.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<ul class="simple">
+<li><p>Actually, data are (more often than not) the biased output of unequal social, historical and economic conditions and they should be treated as such [1].</p></li>
+<li><p>Examples given above (e.g. COMPAS algorithm) demonstrate how data can be biased and lead to negative social outcomes.</p></li>
+<li><p>Treating data as raw and truthful leads to ignoring important information about the data generating process, e.g. there might be errors in the process that need to be understood before data can be used, in order to avoid erroneous analyses outcomes.</p></li>
+<li><p>The idea that data represent truth and are neutral is also reflected in how data visualisations are often perceived and presented in the press. More on this is discussed in Module 3.</p></li>
+</ul>
+</div>
+</li>
+<li><p><strong>Solving problems with data is preferable:</strong> The idea that data-driven solutions are by default “good” or “better” than other solutions is common.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<ul class="simple">
+<li><p>There are many reasons why a data-driven solution might be more biased, less fair and/or worse socially that the non-data-driven state of the art. For example redlining maps created by banks to rate the risk of granting mortgages based on area rather than credit scores. Or various cases where the data used are insufficient, biased or wrong (e.g. research and development of products is often based on data from men’s bodies and much less from women’s).</p></li>
+<li><p>It is important to always think about how the projects you work with will affect users, citizens, society, in what organisational context they will be deployed and if data-driven is appropriate. Data science solutions usually have a political dimension; instead of pretending that it is not there, we should try to address it and understand it when designing our projects; we should be explicit about the power dynamics and privilege hazards involved.</p></li>
+</ul>
+</div>
+</li>
+<li><p><strong>Data science for good:</strong> There are many initiatives in the data science world with a stated goal to do data science for good (including events organised by The Alan Turing Institute [2]).</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>While many of these efforts are commendable and have had real positive impact, there are a number of valid questions about them:</p>
+<ul class="simple">
+<li><p>What is good and who defines it?</p></li>
+<li><p>Do the data scientists involved have enough knowledge about the domain to make meaningful contributions?</p></li>
+<li><p>Who maintains and uses the code after the event?</p></li>
+<li><p>Are communities and users involved?</p></li>
+</ul>
+<p><img alt="dsg" src="../../_images/dsg.jpeg" />
+<a class="reference external" href="https://www.turing.ac.uk/collaborate-turing/data-study-groups">source</a></p>
+</div>
+</li>
+</ul>
+<p>[1] Data Feminism: <a class="reference external" href="https://data-feminism.mitpress.mit.edu/">https://data-feminism.mitpress.mit.edu/</a></p>
+<p>[2] The Alan Turing Institute: Data Science for Social Good: <a class="reference external" href="https://www.turing.ac.uk/collaborate-turing/data-science-social-good">https://www.turing.ac.uk/collaborate-turing/data-science-social-good</a></p>
+</div>
+<div class="section" id="how-to-challenge-bias-and-oppression-as-a-data-scientist">
+<h2>How to challenge bias and oppression as a data scientist<a class="headerlink" href="#how-to-challenge-bias-and-oppression-as-a-data-scientist" title="Permalink to this headline">¶</a></h2>
+<p>What can a research data scientist do to detect and challenge the various power imbalances, biases and practices in the field that create/reinforce oppression? There is no easy answer and this is a constantly developing field with contributions from a lot of academics and practitioners. Some key points are listed below.</p>
+<div class="section" id="data-scientist-as-public-intellectual">
+<h3>1. Data scientist as public intellectual<a class="headerlink" href="#data-scientist-as-public-intellectual" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Data scientist work should delve into the ethical, cultural, legal and political aspects of projects and be outward facing [1].</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>Think of context and how to act in a public capacity. Keeping the matrix of domination in mind is a good starting point. Think what your work means in the context of the structural and disciplinary dimensions of the matrix:
+- What are the current legal and administrative practices in the field and do they involve oppressive elements? How does the project fit in?
+- Could one of the outputs of your project be to publish a report or advise related to current legal or regularoty practices?
+- Can your research impact culture and norms in society or challenge them, e.g. by giving public talks or using other forms of communication?
+- How does it affect individuals and communities in the personal level?
+- Can relationships be built with people that provide the data or that are affected by them and can these people lead part of the project, particularly people belonging to oppressed or underrepresented groups?</p>
+</div>
+</li>
+<li><p>There are many examples out there of projects or organisations that successfully do this.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<ul class="simple">
+<li><p>ProPublica [2]: This investigative journalism organisation analyse a large number of public datasets and produce reports that impact the public conversation on issues of racism, healthcare and others.</p></li>
+<li><p>Forensic Architecture [3]: This organisation analyses various types of data (including photographs, video and others) in order to investigate state and corporate violence, human rights violations and environmental destruction all over the world and reconstruct violent events.</p></li>
+<li><p>As UK’s national institute for data science, The Alan Turing Institute’s role involoves leading the public converstation around data through agenda-setting research, public engagement, and expert technical advice, driving new and innovative ideas which have a significant influence on industry, government, regulation, or societal views, or which have an impact on how data science and artificial intelligence research is undertaken. Examples of these activities are the <a class="reference external" href="https://www.turing.ac.uk/research/research-programmes/public-policy">Public Policy Programme</a> and the regularly organised <a class="reference external" href="https://www.turing.ac.uk/collaborate-turing/data-study-groups">Data Study Groups</a>.</p></li>
+</ul>
+<p><img alt="grenfell" src="../../_images/grenfell.jpeg" />
+<a class="reference external" href="https://forensic-architecture.org/investigation/the-grenfell-tower-fire">source</a></p>
+</div>
+</li>
+</ul>
+<p>[1] Data Feminism: <a class="reference external" href="https://data-feminism.mitpress.mit.edu/">https://data-feminism.mitpress.mit.edu/</a></p>
+<p>[2] ProPublica: <a class="reference external" href="https://www.propublica.org/">https://www.propublica.org/</a></p>
+<p>[3] Forensic Architecture: <a class="reference external" href="https://forensic-architecture.org/">https://forensic-architecture.org/</a></p>
+</div>
+<div class="section" id="counter-data">
+<h3>2. Counter-data<a class="headerlink" href="#counter-data" title="Permalink to this headline">¶</a></h3>
+<p>This is the practice of collecting data using grass-roots organising and/or platforms designed for that, focusinig on data collection that is ommitted by states or organisations. More on this will be covered in Module 2.</p>
+</div>
+<div class="section" id="project-scoping-conversations">
+<h3>3. Project scoping conversations<a class="headerlink" href="#project-scoping-conversations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data scientists should be conscious of the ethical and societal implications of their research.</p></li>
+<li><p>They should question and discuss the framing of the research questions, the data used, the meaning and content of the features they use.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Show questions</p>
+<ul class="simple">
+<li><p><strong>Should this problem be solved with data science methods?</strong></p></li>
+<li><p><strong>How was the data collected?</strong> Was explicit consent provided for using the data within the context of this project?</p></li>
+<li><p><strong>Should we be thinking about data privacy and anonymisation to prevent individuals’ identification?</strong></p></li>
+<li><p><strong>What are the purposes of this project?</strong> By whom and how will the end product be used? Are there possible secondary uses by the same or other organisations that might be haramful? What can be done to mitigate risks?</p></li>
+<li><p><strong>Do data adequately represent the quantities we are interested in?</strong> For example, different surveys ask questions about mental health in different ways. The exact question needs to be know in order to understand if the answers are what we need in order to address our research question. Also, the number of categories used can be important, e.g. is mental health categorised as “Good” and “Bad” or are more categories used? Or is a qualitative description used? Is this appropriate? Do we need to get extra data? Another important example is data that record gender and biological sex. How do we ask these questions given that both of these characteristics exist in a spectrum? How do we treat them in our analyses?</p></li>
+<li><p><strong>What does existing literature tell us about our research question?</strong> In many cases, there are well-established theories and frameworks that address part of all of our research question and it is almost always a good idea to take those into account and reuse them rather than reinventing them!</p></li>
+<li><p><strong>Is the project team diverse?</strong> A useful way to cultivate awareness of the team’s position and privileges is to explicitly ask all participants to reflect on their backgrounds and multiple identities and how these could affect their work in the project. Documenting those if people feel comfortable with it can increase transparency about who worked on this project.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ethics-review-processes">
+<h3>4. Ethics review processes<a class="headerlink" href="#ethics-review-processes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Academic institutions (e.g. universities, research institutes) have ethics review panels or groups that can be a valuable resource when planning a new project.</p></li>
+<li><p>Their remit involves advising on ethical and proportionate use of datasets, individuals’ data privacy and security and general impact and potential hazards resulting from project work. This can increase transparency and public trust on your research.</p></li>
+<li><p>Our course went through an ethics review process within the Alan Turing Institute, whose outcome can be found <a class="reference external" href="https://github.com/alan-turing-institute/rds-course/issues/9">here</a>.</p></li>
+</ul>
+<p><img alt="odi" src="../../_images/odi.png" />
+<a class="reference external" href="https://theodi.org/article/nearly-9-in-10-people-think-its-important-that-organisations-use-personal-data-ethically/">source</a></p>
+</div>
+<div class="section" id="crediting-visible-and-invisible-labour">
+<h3>5. Crediting visible and invisible labour<a class="headerlink" href="#crediting-visible-and-invisible-labour" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Credit is often only attributed to data scientists or researchers.</p></li>
+<li><p>Many other people contribute to data science projects in less obvious ways and this should be acknowledged.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>It is often the case than when data products are released credit is mostly attributed to researchers and data scientists. But there are many other people that might have contributed to the development of this product e.g. by providing data, labeling data, collecting, preprocessing and documenting them, developing code that we reused, providing informal and formal feedback that made the project possible. These “services” are often free and very often unacknowledged. An interesting example comes from large platforms like Facebook, Amazon and Google. All of them are based on a large number of low-pay work that often is overlooked (e.g. Amazon MTurk, Google’s book scanners, Facebook’s reviewers). Research data science benefits from acknowledging the work of everyone involved directly or indirectly in the development of a product; and doing so during the development of the project rather than afterwards. See the <a class="reference external" href="https://www.turing.ac.uk/collaborate-turing/data-study-groups">Turing Way</a> as a small example of how to do that.</p>
+</div>
+</div>
+<div class="section" id="teach-each-other">
+<h3>6. Teach each other<a class="headerlink" href="#teach-each-other" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Support your collaborators and help them learn</p></li>
+<li><p>Transfer knowledge to facilitate long-term sustainability of code</p></li>
+<li><p>Develop and participate in training and collaborative data science events</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Show more</p>
+<p>Part of the role of a research data scientist is to support their collaborators and help them pick up new skills that will allow them to become more comfortable with collaborative work, data science methods, reproducibility, version control and other techniques. This can also be a way to make sure your projects will be maintained after you stop working on them! Sharing knowledge even more widely by tweeting, writing blog posts, or developing teaching resources that extend beyond the strictly technical elements of data science is also important.</p>
+</div>
+<p><img alt="review" src="../../_images/review.png" />
+<a class="reference external" href="https://mtlynch.io/human-code-reviews-1/">source</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1.2-DataScienceProjectLifecycle.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">1.2 Research Data Science project lifecycle</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1.4-CollaborationAndReproducibility.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesson 1.4: Collaboration and reproducibility</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

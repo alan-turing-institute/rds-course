@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 What is (research) data science? &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2 Research Data Science project lifecycle" href="1.2-DataScienceProjectLifecycle.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome to REG’s Introduction to Research Data Science
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1.1 What is (research) data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.2-DataScienceProjectLifecycle.html">
+   1.2 Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.3-EDIForDataScience.html">
+   1.3 Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1.4-CollaborationAndReproducibility.html">
+   Lesson 1.4: Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Module 1 hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Module 2 - Handling data (WORK IN PROGRESS!)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-01-WhereToFindData.html">
+   2.1 Where to find data?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-02-LegalityAndEthics.html">
+   2.2 Legality and Ethics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-03-PandasIntro.html">
+   2.3 Pandas intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-04-DataSourcesAndFormats.html">
+   2.4 Data Sources and Formats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-05-ControllingAccess.html">
+   2.5 Controlling access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-06-DataConsistency.html">
+   2.6 Data Consistency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-07-ModifyingColumnsAndIndices.html">
+   2.7 Modifying Columns and Indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-08-TimeAndDateData.html">
+   2.8 Time and Date Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-09-FeatureEngineering.html">
+   2.9 Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-10-TextData.html">
+   2.10 Text data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-11-CategoricalData.html">
+   2.11 Categorical Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-12-ImageData.html">
+   2.12 Image Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-13-PrivacyAndAnonymisation.html">
+   2.13 Privacy and Anonymisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-14-LinkingDatasets.html">
+   2.14 Linking Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/2-15-MissingData.html">
+   2.15 Missing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Hands-on
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   3.3 Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   3.4 Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   3.5 Walkthrough: visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Module 3: hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.1.html">
+   The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/m4.2.html">
+   Fitting (Regression) Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3_Building_simple_model.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4_Evaluating_a_model.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m1/1.1-WhatIsDataScience.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m1/1.1-WhatIsDataScience.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m1/1.1-WhatIsDataScience.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scarcity-abundance">
+     Scarcity &amp; Abundance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representativeness">
+     Representativeness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation">
+     Creation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science">
+   Data Science
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collecting-and-storing">
+     Collecting and Storing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#processing-and-exploring">
+     Processing and Exploring
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modeling">
+     Modeling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science-in-research">
+   Data science in research
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fourth-paradigm">
+     A Fourth Paradigm?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-driven-science">
+     Data-Driven Science?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-driven-science-with-a-critical-mindset">
+     Data-Driven Science with a Critical Mindset
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-data-scientist">
+   Research data scientist
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-research-data-science">
+<h1>1.1 What is (research) data science?<a class="headerlink" href="#what-is-research-data-science" title="Permalink to this headline">¶</a></h1>
+<p>There is an incredible abundance of webpages, Youtube videos, newspaper articles and books defining what data science is. Instead of providing yet another clear-cut single definition of such a complex, multifaced and buzzwordy topic, we have decided to approach data science by discussing the main components of this profession and from there presenting what the role of a research data scientist is in particular.</p>
+<p>In this submodule we will offer an overview of:</p>
+<ul class="simple">
+<li><p>what we mean when we say “data” in data science</p></li>
+<li><p>the different types of tasks that a data scientist covers</p></li>
+<li><p>what role data science plays in research</p></li>
+</ul>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Data is central to data science</p></li>
+<li><p>Data is not a natural resource</p></li>
+</ul>
+<p><img alt="data_oil" src="../../_images/data_oil.jpeg" /></p>
+<details>
+<p>We start from the most essential element of this profession, data. The prompt availability of large-scale datasets for training face recognition algorithms or language models is not something that we should take for granted and it is absolutely not something that has always been in place. Concepts such as “Data mining” and “Data is the new oil” depict data as something crude, non human, like a natural, primitive and unrefined resource and hide the enormous amount of labour, resources, infrastructure and time that has taken to make such data available. While we will expand further around such concepts in lesson 1.3, we highlight already here a few central points that are essential in our course.</p>
+</details>
+<div class="section" id="scarcity-abundance">
+<h3>Scarcity &amp; Abundance<a class="headerlink" href="#scarcity-abundance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The availability of data is a fairly new phenomenon</p></li>
+<li><p>Acquiring data remains very complex</p></li>
+</ul>
+<p><img alt="digitisation" src="../../_images/digitisation.jpeg" />
+<a class="reference external" href="https://www.bl.uk/help/initiate-a-new-digitisation-project-with-the-british-library">Image link</a></p>
+<details>
+<p>The abundance of data, which has led around ten years ago to the advent of another very popular buzzword, “big data”, is something our society has rapidly got accustomed to (due to its huge demand), but is a fairly new phenomenon. Let us consider a specific example from the field of speech recognition: In the Eighties a group of researchers at IBM research decided to develop a system that, instead of a top-down rules-based approach (a so-called knowledge system), would employ a statistical method focused on how often words appear in the same context. However to train such a method, an enormous amount of textual data would have been needed, especially compared to what was available back then. IBM researchers tried everything, from digitised technical manuals to children’s books and patents. Now that data is everywhere and everything is seen as data we tend to forget how rapidly things have changed with the advent of the Internet first and the World Wide Web right after, together with continuous investments in data storage facilities. To get a quick idea, check websites like <a class="reference external" href="https://www.internetlivestats.com/">Internet Live Stats</a> or explore the collection of an impossible to achieve project such as <a class="reference external" href="https://archive.org/about/">The Internet Archive</a></p>
+</details>
+</div>
+<div class="section" id="representativeness">
+<h3>Representativeness<a class="headerlink" href="#representativeness" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Each dataset, no matter how large it is, remains a sample</p></li>
+<li><p>The question we should ask ourselves is “how well can this be representative of the phenomenon I want to study?”</p></li>
+</ul>
+<p><img alt="twitter" src="../../_images/twitter.jpeg" />
+<a class="reference external" href="https://www.businessinsider.com/library-of-congress-twitter-wont-archive-every-public-tweet-anymore-2017-12?r=US&amp;IR=T">Image link</a></p>
+<details>
+<p>Together with data scarcity, the other aspect that we should never underestimate when we speak about data is whether they are representative of the phenomenon we aim to study. In a recent article by Anna Rogers, the author considers the following argument: “the size of the data is so large that, in fact, our training sets are not a sample at all, they are the entire data universe”. Rogers replies to it by saying that this argument would stand if the “data universe” that we use for training for instance a speech regognition system was the same as “the totality of human speech/writing”. It is not, and will hopefully never be, because collecting all speech is problematic for ethical, legal, and practical reasons. Anything less than that is a sample. Given the existing social structures, no matter how big that sample is, it is not representative due to (at least) unequal access to technology, unequal possibility to defend one’s privacy and copyright, and limited access to the huge volumes of speech produced in the “walled garden” platforms like Facebook.</p>
+</details>
+</div>
+<div class="section" id="creation">
+<h3>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data is <ins>always</ins> the product of human decisions and actions</p></li>
+<li><p>It is the outcome of an enormous amount of labour, resources, infrastructure and time</p></li>
+</ul>
+<p><img alt="imagenet" src="../../_images/imagenet.jpeg" />
+<a class="reference external" href="https://excavating.ai/">Image link</a></p>
+<details>
+Data is not a natural resource, but the product of human decisions. Whether we are conscious of it or not, there is always a human-in-the-loop when we speak about data creation. Data creation can be, for instance, collecting information or the tracking of historical information, organising information in specific categories, measuring and storing information as data on digital infrastructure. When we find a data collection enriched with metadata information or specific labels, we always need to remember that someone has either directly provided those labels or those have been automatically assigned by a tool trained on other manual labels.
+To give a specific example, the famous ImageNet dataset, central component for the development of many well known image recognition pipelines in the last ten years, relies on two pillars:
+- a taxonomy developed since 1985 as part of the lexical database WordNet, which provides a top-down hierarchical structure of concepts ("chair" is under artifact->furnishing->furniture->seat->chair)
+- an enormous amount of cheap workforce provided by Amazon Mechanical Turk.
+<p>ImageNet is not an abstract resource, but the result of a gigantic effort and the specific representation of the World of <em>1)</em> the people who have designed WordNet, <em>2)</em> the researchers who have decided which WordNet categories are included and which are not in ImageNet and <em>3)</em> the many, many annotators who have selected which images associate to concepts like “brother”, “boss”, “debtor”, “drug-addict” and “call girl”, all included both in WordNet and ImageNet (at least until 2019).</p>
+</details></div>
+</div>
+<div class="section" id="data-science">
+<h2>Data Science<a class="headerlink" href="#data-science" title="Permalink to this headline">¶</a></h2>
+<p>We use the term to refer to a varied ensemble of practices, methodologies and tools that may be used to learn from or about data.</p>
+<p><img alt="The data science hierarchy of needs" src="../../_images/pyramid_of_needs.png" /></p>
+<details>
+<p>Having established that the necessary premise of data science is its relationship with data, the other fundamental component is constituted by a broad and multifaced ensemble of practices, methodoloogies and tools that, combined together, can lead to obtain “new insights” from or about a given dataset. If we consider Monica Rogati’s representation of the “Data science hierarchy of needs” we can see that while developing new machine learning models sits at the top of the pyramid, methaphorically becoming the most visible component of a data scientist’s work, this actually relies on many other steps, which we briefly introduce here and will be discussed in details in modules 2, 3 and 4.</p>
+</details>
+<div class="section" id="collecting-and-storing">
+<h3>Collecting and Storing<a class="headerlink" href="#collecting-and-storing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data collection and storage is (often) part of our job</p></li>
+<li><p>If data needs to be generated in the first place, this should be an entirely different project!</p></li>
+</ul>
+<p><img alt="newspapers" src="../../_images/newspapers.jpeg" /> <a class="reference external" href="https://blogs.bl.uk/thenewsroom/2019/07/moving-from-a-newspaper-collection-to-a-news-collection.html">Image link</a></p>
+<details>
+<p>Part of the work of a data scientist is knowing the challenges and hurdles involved in data collection and storage. While, depending on the size of the team, such practices might be taken care of by software engineers or data curators, it is essential that we know who owns the data, which restrictions apply, how a resource should be stored for long-term preservation and made available to collaborators, how complex it would be to set up a secure environment such as a Data Safe Haven. In small team contexts, as data scientists we often take care directly of such responsibilities. Data collection additionally implies also data generation, in settings where the research team aims to produce a new dataset (instead of acquiring one already available). This would imply an even larger set of skills, ranging from selecting a representative sample, preparing annotation guidelines, hiring and monitoring the work of annotators, measuring their agreement and finding ways of improving their performance, etc. Our course does not cover such aspects because in many settings if data needs to be generated in the first place (through a data collection and annotation task for instance), that would become an independent project on its own.</p>
+</details>
+</div>
+<div class="section" id="processing-and-exploring">
+<h3>Processing and Exploring<a class="headerlink" href="#processing-and-exploring" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data cleaning implies actions such as: removing, normalising, ignoring, structuring, correcting</p></li>
+<li><p>This is an incredibly important and often undervalued part of our job</p></li>
+<li><p>Data exploration allows you to know the collection under study</p></li>
+<li><p>So that you can use it beyond its original purpose</p></li>
+</ul>
+<p><img alt="cleaning" src="../../_images/cleaning.jpeg" /> <a class="reference external" href="https://www.nytimes.com/2021/10/29/technology/apple-polishing-cloth.htmll">Image link</a></p>
+<details>
+<p>Another famous expression in the community is “data cleaning” and many practicioners would say that 80% of their time is spent processing, wrangling, cleaning and preparing raw data to be used, by bringing structure in an unstructured chaos. While we do such steps, which often imply removing missing values in tables, ignoring images with inconsistent annotations, normalising labels to binary options, skipping words that might contained OCR errors in documents, etc, we should always think what we are losing by imposing our “clean” vision. Cleaning data means that we are imposing our control over a given collection and explicitly (or more often implicitly) shaping it following our own definition of “clean”. Additionally note that, even if this task takes generally the largest part of a data scientist’s work, it is often undervalued and, especially in an academic context, it is often done rapidly as a first stage in order to reach the data exploration and model building phases. Only issues emerging in these later phases would bring the research team to re-consider going through and improving the pre-processing step.</p>
+<p>For many disciplines and companies, the new availability of large datasets is absolutely unprecedented. While we will focus later on how this is changing science as a whole, for the moment it is important to understand that defining new research questions or business goals is very complex, as without data exploration you often don’t know what is contained in the data and what’s not, how this could be used and which new insight you could derive. If we take an example directly from our work at the Turing, <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/project-odysseus-understanding-london-busyness-and-exiting-lockdown">Project Odysseus</a> relies on information on the level of activity in London during the pandemic, which is derived from data collected from JamCam cameras, traffic intersection monitors, and aggregate GPS activity which were initially adopted by another Turing project, the <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/london-air-quality">London Air Quality</a> project. Knowing your data collection, the way it has been created and the additional information it might contain is an essential skill for a data scientist. For this reason in Module 3 we will focus on data exploration techniques, to help data scientists get a better understanding of the collection, allow collaborators to move from a general intuition to a specific question and allow serendipitous discoveries.</p>
+</details>
+</div>
+<div class="section" id="modeling">
+<h3>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Often presented as the core activity of a data scientist</p></li>
+<li><p>We build models with a specific goal in mind</p></li>
+<li><p>And (properly!) assess which solution is the best, in a given setting</p></li>
+</ul>
+<p><img alt="free_lunch" src="../../_images/free_lunch.jpg" /> <a class="reference external" href="https://fineartamerica.com/featured/theres-no-such-thing-as-a-free-lunch-dana-fradon.html">Image link</a></p>
+<details>
+<p>Modeling is generally considered the core activity of a data scientist. While we have already stressed the fact that modeling is just one of the steps of our work, it is also important to remark from the beginning on two aspects of modeling that are inherently present in each data science activity: first of all, that we build models with a specific goal in mind. In fact we focus a large part of our project scoping activities (which we will see in Lesson 1.2) on defining a specific question, a corresponding data science task and a measure of success. So the modeling that we do is always clearly focused to address a specific, well defined need.</p>
+<p>Second, and highly related, modeling is about comparing solutions to determine what works “best” in a given setting. For instance, if the task is segmenting cells given a microscope image, we would first implement and test a series of established approaches for the task and then we would assess whether, for instance, recent advancements in the field of computer vision would offer improvements in this specific setting. As we will remark later, the job of a data scientist is usually not to improve over a given state-of-the-art method (this might be the job of a researcher in machine learning for computer vision for instance), but to implement and assess the current “best” approach for a given task. In certain situations, this might lead to an improvement over the state-of-the-art or it might just reconfirm that a very well known and established baseline remains the most reliable solution for a problem.</p>
+</details>
+</div>
+</div>
+<div class="section" id="data-science-in-research">
+<h2>Data science in research<a class="headerlink" href="#data-science-in-research" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Never-experienced-before availability and often abundance of data</p></li>
+<li><p>The emergence of a figure (the data scientist) able to work with it</p></li>
+<li><p>Since the late 2000s academia started discussing “a new way of acquiring knowledge”</p></li>
+</ul>
+<p><img alt="big_data" src="../../_images/big_data.png" /> <a class="reference external" href="https://www.nytimes.com/2012/02/12/sunday-review/big-datas-impact-in-the-world.html">Image link</a></p>
+<div class="section" id="a-fourth-paradigm">
+<h3>A Fourth Paradigm?<a class="headerlink" href="#a-fourth-paradigm" title="Permalink to this headline">¶</a></h3>
+<p>From “Beyond the Data Deluge” (Bell et al., 2009, Science):</p>
+<ul class="simple">
+<li><p>Experimental and theoretical science as the basic research paradigms for understanding nature</p></li>
+<li><p>Recently, computer simulations have become an essential third paradigm</p></li>
+<li><p>Now a fourth paradigm is emerging, consisting of the techniques and technologies needed to perform data-intensive science</p></li>
+</ul>
+<p><img alt="fourth_para" src="../../_images/fourth_para.jpg" /></p>
+<details>
+<p>As Bell, Hey and Szalay (2009) said in a famous short article in Science, for a long time “scientists have recognized experimental and theoretical science as the basic research paradigms for understanding nature. In recent decades, computer simulations have become an essential third paradigm […]” and now “a fourth paradigm is emerging, consisting of the techniques and technologies needed to perform data-intensive science. Today, some areas of science are facing hundred- to thousandfold increases in data volumes from satellites, telescopes, highthroughput instruments, sensor networks, accelerators, and supercomputers, compared to the volumes generated only a decade ago. […] Other research fields also face major data management challenges. In almost every laboratory, “born digital” data proliferate in files, spreadsheets, or databases stored on hard drives, digital notebooks, Web sites, blogs, and wikis. The management, curation, and archiving of these digital data are becoming increasingly burdensome for research scientists.”</p>
+</details>
+</div>
+<div class="section" id="data-driven-science">
+<h3>Data-Driven Science?<a class="headerlink" href="#data-driven-science" title="Permalink to this headline">¶</a></h3>
+<p>From “The end of Theory” (Anderson, 2008, Wired):</p>
+<ul class="simple">
+<li><p>Are we at the “end of theory” and the advent of “data-driven” science?</p></li>
+<li><p>Is it true that “Correlation is enough” and that “we can analyze the data without hypotheses about what it might show”?</p></li>
+<li><p>There is no need for a priori theory, models or hypotheses</p></li>
+</ul>
+<p><img alt="theory" src="../../_images/theory.jpg" />
+<a class="reference external" href="https://www.wired.com/2008/06/pb-theory/">Image link</a></p>
+<details>
+<p>In just a few years the discussion around the fourth-paradigm has moved to even a more contentious topic: The “end of theory” and the advent of “data-driven” science. Such discussion was started by a provocative article by Chris Anderson on Wired (2008) containing statements such as “Petabytes allow us to say: ‘Correlation is enough. We can analyze the data without hypotheses about what it might show. We can throw the numbers into the biggest computing clusters the world has ever seen and let statistical algorithms find patterns where science cannot. Correlation supersedes causation, and science can advance even without coherent models, unified theories, or really any mechanistic explanation at all.” As Kitchin (2014) has highlighted in similar tones there is “a powerful and attractive set of ideas at work in the empiricist epistemology that runs counter to the deductive approach that is hegemonic within modern science:</p>
+<ul class="simple">
+<li><p>Big Data can capture a whole domain and provide full resolution;</p></li>
+<li><p>there is no need for a priori theory, models or hypotheses;</p></li>
+<li><p>through the application of agnostic data analytics the data can speak for themselves free of human bias or framing, and any patterns and relationships within Big Data are inherently meaningful and truthful;</p></li>
+<li><p>meaning transcends context or domain-specific knowledge, thus can be interpreted by anyone who can decode a statistic or data visualization.</p></li>
+</ul>
+</details>
+</div>
+<div class="section" id="data-driven-science-with-a-critical-mindset">
+<h3>Data-Driven Science with a Critical Mindset<a class="headerlink" href="#data-driven-science-with-a-critical-mindset" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Our perception of data science in society and research has drastically changed</p></li>
+<li><p>The core of our course will be on how to approach data, methods and questions in a critical way</p></li>
+</ul>
+<p><img alt="fourth_para" src="../../_images/atlas_ai.png" />
+<a class="reference external" href="https://www.cambridge.org/core/journals/mrs-bulletin/article/abs/nomad-the-fair-concept-for-big-datadriven-materials-science/1EEF321F62D41997CA16AD367B74C4B0">Image link</a></p>
+<details>
+<p>Reading such statements now might leave us speechless, especially after a few years of discussions around the limitations of computational methods, of biases embedded in trained models, on the fact that data don’t speak for themselves or that we need experts in defining the scope of the study and interpret the results, and of the impact that neglecting or undervaluing all these things has on science and society as a whole. In our course we will spend a lot of time focusing on how to approach data, methods and research questions in a highly critical way to ensure (for the best we can) that the new findings that we encounter are reliable and reproducible.</p>
+</details>
+</div>
+</div>
+<div class="section" id="research-data-scientist">
+<h2>Research data scientist<a class="headerlink" href="#research-data-scientist" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We are often central element in research projects (connecting data providers, domain experts, final users)</p></li>
+<li><p>We will be in the position of asking “why” people want to use data science approaches</p></li>
+<li><p>We contribute in shaping research directions and guaranteing reproducibility</p></li>
+</ul>
+<p><img alt="reg" src="../../_images/reg.png" /></p>
+<details>
+As we have higlighted in this introduction to the first module, the role of a data scientist in research brings with it many responsibilities. We will often be the central element in the projects we are involved with, connecting data providers, domain experts and final users and it will be our duty to understand all challenges involved in each step to facilitate cross-disciplinary communication. Even more importantly, in such position we will be in the position of asking "why" people want to use data science methods to address a particular research question, always ensuring that people are aware of both the limitations and the risk that such methodological frameworks might further emphasize established social hierarchies in very subtle ways.
+<p>If we consider the large-scale <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/living-machines">Living with Machines</a> project, a five-year study on the Industrial Revolution using data-driven approache and which has over twenty members and currently five REG members working on it, we will see in how many different aspects they are now become essential elements. RDS are for instance highly involved in data acquisition, classification (based on the level of sensitivity) and storage. They coordinate the use of a secure environment (a <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/data-safe-havens-cloud">Data Safe Haven</a>) to work on copyright protected collections and ensure the secure egress of all outputs from this environment. They are also responsible of organising acquired materials in databases and of providing the necessary skills to other researchers on the project so that they will be able to access such resources easily. As the project employs many different types of data sources (digitised maps, newspaper articles and tables of census records), RDS develop tools for facilitating their adoption, for instance <a class="reference external" href="https://github.com/Living-with-machines/histLM">historical language models</a>, methods for dealing with <a class="reference external" href="https://github.com/Living-with-machines/DeezyMatch">fuzzy string matching</a> or for <a class="reference external" href="https://github.com/Living-with-machines/PressPicker_public">sampling resources</a>) as well as they contribute to research papers based on data science methods (see for instance: <a class="reference external" href="https://arxiv.org/pdf/2005.11140.pdf">Living Machines: A study of atypical animacy</a> or <a class="reference external" href="https://web.archive.org/web/20210423221450id_/https://watermark.silverchair.com/vcab009.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAArcwggKzBgkqhkiG9w0BBwagggKkMIICoAIBADCCApkGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM1AlAgUtq5ba0pasxAgEQgIICal_obCGyNK5g70TgQwLWGBcI748EBTsJcVj0MKBXtN2ktjgLdQxm8MkLSEMf65JLQZZifGp_UZfGzn6K6ZeHQ04ODsAElr2wIqj0cA0dFHsAV9pC1hbbWuvEv5QwzrAGRDAg4nh2ALPok39NLd4CKzDv0zjeKLUQOMyoxxUPaIXA4KDkL1aq1EXbcjDdSIB65L9e8K5F0bfpPToIMdck_QztBtCm05JVYJMIWAOWDrshmAbnDVoz4STt99fCj9mML860iRGvlcOExguDKTLtFVxxMuKHRY6tduTApzTiAsGhgFTKE1dZ47pzZVV_giTA9od6U9BQbhpyJ1spDoKHf4RGjecgO7hbi3DdrN73BzOEmBsnv9uUhpKGOYBtd4PMIgXh-SNFpMtWQ2SdoOLxKSmM-lN8LdnyMILUqxneyzMMd-oKGOLJodHP71Xy8Y97N3uqnLtZZ_7Fcb87BnLRNQv5So3udV0UzJWxOxyJwB3iym2mmH1XKwrv2xLMY7hKMNBCp87qNZcUVHZitcjNh40HgPualpIjU_sibvokmEWCiBo1gTZmKf5kr2f6JtO3W9chQaKTJpqVf-LCCq2ABiURFDewU11SGg-81jot7lLHH22QSetHc8UlyRZvUo7bkxxGnsjNnRkL8JNUJyl2nnGYUAV2TWOwU0k_tXIFCNEWGlgwr9RCqat0DtjiQqPgOeL4l72gFyWDQ4VPfFmZELBgoxzoe8HrCJRbsuicqbqV4jn6C4ui55T17hKnJtkm68YaT-3S8ni4tNX3gGZyBnCps6E3Je9oyPOwU8ArXRs42G1kzlHzW2IsFg">Maps of a Nation?</a>. On such works, RDS not only build benchmarks and assess the performance of the methods employed but especially contribute in shaping the research goal from the very beginning and make sure that results are reprodubile and limitations are clearly discussed in the paper.</p>
+<p>Finally, they also take under their wings many project management tasks, for instance planning and leading specific sub-projects, taking care of scheduling milestones, deliverables and handling stake-holders expectations. While Living with Machines remains almost a unicum at the Turing for its size and its interdisciplinary dynamics, it offers a clear overview of the many many skills, duties and responsibilities that are part of our job.</p>
+<p>In order to offer you a broad overview of such duties across Research Data Science projects, in module 1.2 we will start by examining the importance of the project lifecycle and how being proactive in shaping it around each specific research project will guarantee that we will be able to at least deliver the minimum valuable outcome that has been agreed initially by all parties involved. Due to the fact that data science is so present in public conversations in and out of academia, it is also our role to fight against the many myths and toxic narratives that are highly common regarding the field. On the opposite, our role involves making our collaborators aware of the many risks and challenges that data science poses. For this reason, module 1.3 will address many aspects of the current debate about Equality, Diversity and Inclusion (EDI) in data science. Finally, as we have already remarked, being a research data scientist implies working in highly interdisciplinary collaborative environments, so for this reason the last submodule, 1.4, will conclude discussing best practices for collaborative coding.</p>
+</details>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Anderson, C. (2008). The end of theory: The data deluge makes the scientific method obsolete. Wired magazine, 16(7), 16-07.</p>
+<p>Bell, G., Hey, T., &amp; Szalay, A. (2009). Beyond the data deluge. Science, 323(5919), 1297-1298.</p>
+<p>Crawford, K. (2021). The Atlas of AI. Yale University Press.</p>
+<p>D’ignazio, C., &amp; Klein, L. F. (2020). Data feminism. MIT press.</p>
+<p>Kitchin, R. (2014). Big Data, new epistemologies and paradigm shifts. Big data &amp; society, 1(1).</p>
+<p>Rogers, A. (2021). Changing the World by Changing the Data. arXiv preprint arXiv:2105.13947.</p>
+<p>Wickham, H. (2014). Tidy data. Journal of statistical software, 59(1), 1-23.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course# Online location of your book",
+            ref: "book",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Overview</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1.2-DataScienceProjectLifecycle.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.2 Research Data Science project lifecycle</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Research Engineering Group, The Alan Turing Institute<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
