@@ -1,4 +1,4 @@
-# Module 3: hands-on session
+# Module 3 hands-on session
 
 ## Description
 In this hands-on session participants are divided in groups of 4 o 5 participants and paired with a helper. Each group, 
