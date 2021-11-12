@@ -63,9 +63,10 @@ parts:
   - caption: "Module 4: Introduction to Modelling"
     chapters:
     - file: modules/m4/overview
-    - file: modules/m4/m4.1
-    - file: modules/m4/m4.2
+    - file: modules/m4/4.1_What_and_Why
+    - file: modules/m4/4.2_Fitting_Models
     - file: modules/m4/4.3_Building_simple_model
     - file: modules/m4/4.4_Evaluating_a_model
-    - file: modules/m4/summary
+    - file: modules/m4/hands-on
+    #ç- file: modules/m4/summary
     
