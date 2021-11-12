@@ -7,4 +7,5 @@ sklearn
 statsmodels
 plotly
 graphviz
+scipy
 
