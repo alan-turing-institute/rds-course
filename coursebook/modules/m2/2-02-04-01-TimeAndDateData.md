@@ -79,3 +79,18 @@ And to convert a date *to* string we can use `datetime.datetime.strftime(format)
 s = now.strftime("%d/%m/%y %H:%M")
 print(f"{s}. Type: {type(s)}")
 ```
+
+## Pandas Datetime Accessor (`Series.dt`)
+
+Pandas provides an accessor object for datetime-like properties of Series values. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html).
+
+E.g. (taken almost directly from Pandas docs, linked above)
+```{code-cell} ipython3
+import pandas as pd
+
+seconds_series = pd.Series(pd.date_range("2000-01-01", periods=3, freq="s"))
+display(seconds_series)
+
+# access seconds property of values in series
+display(seconds_series.dt.second)
+```

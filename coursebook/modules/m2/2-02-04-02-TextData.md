@@ -126,3 +126,17 @@ In Natural Language Processing (NLP) tasks we often see some slightly more compl
 - "Vectorization" - convert text to a meaningful numeric vector representation (e.g. [term frequency encoding](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer))
 
 There are some commonly used libraries for the above tasks, we recommend [NLTK](https://www.nltk.org/) and [scikit-learn](https://scikit-learn.org/stable/).
+
+
+## Pandas String Operations (`Series.str`)
+
+Pandas provides vectorized string functions for Series. Unless explicitly handled, NAs will stay as NA. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.html).
+
+E.g.
+```{code-cell} ipython3
+import pandas as pd
+
+s = pd.Series(["aaa", "aab", "aba"])
+# replace "a" with "A"
+s.str.replace("a", "A")
+```

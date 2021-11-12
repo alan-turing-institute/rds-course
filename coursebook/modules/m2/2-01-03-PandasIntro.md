@@ -141,27 +141,3 @@ display(df.iloc[5])
 # and for a Series
 display(s.iloc[2])
 ```
-
-## String Operations (`Series.str`)
-
-Pandas provides vectorized string functions for Series. Unless explicitly handled, NAs will stay as NA. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.html).
-
-E.g.
-```{code-cell} ipython3
-s = pd.Series(["aaa", "aab", "aba"])
-# replace "a" with "A"
-s.str.replace("a", "A")
-```
-
-## Datetime Accessor (`Series.dt`)
-
-Accessor object for datetime-like properties of Series values. See [here](https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html).
-
-E.g. (taken almost directly from Pandas docs, linked above)
-```{code-cell} ipython3
-seconds_series = pd.Series(pd.date_range("2000-01-01", periods=3, freq="s"))
-display(seconds_series)
-
-# access seconds property of values in series
-display(seconds_series.dt.second)
-```
