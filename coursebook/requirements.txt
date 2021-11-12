@@ -1,11 +1,12 @@
 jupyter-book
 matplotlib
 numpy
+opencv-python
 pandas
+requests
 seaborn
 sklearn
 statsmodels
 plotly
 graphviz
 scipy
-
