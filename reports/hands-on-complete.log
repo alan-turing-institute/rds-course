@@ -22,7 +22,7 @@ df.info()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2315/3771845804.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2169/3771845804.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mdf[0m[0;34m.[0m[0minfo[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mNameError[0m: name 'df' is not defined
