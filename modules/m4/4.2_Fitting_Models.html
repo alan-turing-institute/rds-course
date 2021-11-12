@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitting (Regression) Models &#8212; Research Data Science</title>
+    <title>4.2 Fitting (Regression) Models &#8212; Research Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="4.3 Building a simple model" href="4.3_Building_simple_model.html" />
-    <link rel="prev" title="The What and Why of Statistical Modelling" href="m4.1.html" />
+    <link rel="prev" title="4.1 The What and Why of Statistical Modelling" href="4.1_What_and_Why.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,7 +127,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../m1/1.4-CollaborationAndReproducibility.html">
-   Lesson 1.4: Collaboration and reproducibility
+   1.4 Collaboration and reproducibility
   </a>
  </li>
  <li class="toctree-l1">
@@ -277,12 +277,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
-   Figures gone wrong
+   3.1 Figures gone wrong
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
-   Rules of the data visualisation game
+   3.2 Rules of the data visualisation game
   </a>
  </li>
  <li class="toctree-l1">
@@ -302,7 +302,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../m3/hands-on.html">
-   Module 3: hands-on session
+   Module 3 hands-on session
   </a>
  </li>
 </ul>
@@ -318,13 +318,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="m4.1.html">
-   The What and Why of Statistical Modelling
+  <a class="reference internal" href="4.1_What_and_Why.html">
+   4.1 The What and Why of Statistical Modelling
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Fitting (Regression) Models
+   4.2 Fitting (Regression) Models
   </a>
  </li>
  <li class="toctree-l1">
@@ -338,8 +338,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="summary.html">
-   Summary
+  <a class="reference internal" href="hands-on.html">
+   Module 4 hands-on session
   </a>
  </li>
 </ul>
@@ -383,7 +383,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m4/m4.2.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/4.2_Fitting_Models.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -403,7 +403,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m4/m4.2.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m4/4.2_Fitting_Models.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -424,7 +424,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m4/m4.2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m4/4.2_Fitting_Models.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -488,7 +488,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="fitting-regression-models">
-<h1>Fitting (Regression) Models<a class="headerlink" href="#fitting-regression-models" title="Permalink to this headline">¶</a></h1>
+<h1>4.2 Fitting (Regression) Models<a class="headerlink" href="#fitting-regression-models" title="Permalink to this headline">¶</a></h1>
 <p>In the previous section we learned about parameters representing mathematical elements of data. One way to think of models are that they are collection of parameters.</p>
 <p>In order to use models to learn about data we need to tweak the parameter values so that the model is the best representation of the data that it could be.</p>
 <p>This is called <strong>fitting</strong> a model to data.</p>
@@ -557,8 +557,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/m4.2_1_0.png" src="../../_images/m4.2_1_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.031324476641686, Mu: 5.04
+<img alt="../../_images/4.2_Fitting_Models_1_0.png" src="../../_images/4.2_Fitting_Models_1_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 4.99890899729169, Mu: 4.99
 </pre></div>
 </div>
 </div>
@@ -615,7 +615,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Likelihood: 0.0
 </pre></div>
 </div>
-<img alt="../../_images/m4.2_3_1.png" src="../../_images/m4.2_3_1.png" />
+<img alt="../../_images/4.2_Fitting_Models_3_1.png" src="../../_images/4.2_Fitting_Models_3_1.png" />
 </div>
 </div>
 </div>
@@ -728,11 +728,11 @@ In the code below we take advantage of a couple of findings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.8911843365015457
-Slope: 0.314014014014014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 2.107017105399798
+Slope: 0.2891891891891892
 </pre></div>
 </div>
-<img alt="../../_images/m4.2_6_1.png" src="../../_images/m4.2_6_1.png" />
+<img alt="../../_images/4.2_Fitting_Models_6_1.png" src="../../_images/4.2_Fitting_Models_6_1.png" />
 </div>
 </div>
 <div class="section" id="how-many-parameters">
@@ -829,11 +829,11 @@ p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}] = \frac{e^{\beta_0 + \beta_1 x_{1} 
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="m4.1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="4.1_What_and_Why.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The What and Why of Statistical Modelling</p>
+            <p class="prev-next-title">4.1 The What and Why of Statistical Modelling</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="4.3_Building_simple_model.html" title="next page">
