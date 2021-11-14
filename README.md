@@ -1,6 +1,4 @@
-# [WIP] Introduction to Research Data Science
-
-**This course is under development**
+# Introduction to Research Data Science
 
 
 ## For Students
