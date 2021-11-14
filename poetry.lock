@@ -2,7 +2,7 @@
 name = "alabaster"
 version = "0.7.12"
 description = "A configurable sidebar-enabled Sphinx theme"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -99,7 +99,7 @@ python-versions = "*"
 name = "beautifulsoup4"
 version = "4.10.0"
 description = "Screen-scraping library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">3.0.0"
 
@@ -157,7 +157,7 @@ unicode_backport = ["unicodedata2"]
 name = "click"
 version = "7.1.2"
 description = "Composable command line interface toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -205,7 +205,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "docutils"
 version = "0.16"
 description = "Docutils -- Python Documentation Utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -218,10 +218,18 @@ optional = false
 python-versions = ">=2.7"
 
 [[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "gitdb"
 version = "4.0.9"
 description = "Git Object Database"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -232,7 +240,7 @@ smmap = ">=3.0.1,<6"
 name = "gitpython"
 version = "3.1.24"
 description = "GitPython is a python library used to interact with Git repositories"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -257,7 +265,7 @@ test = ["pytest (>=6)", "pytest-mock (>=2)", "mock (>=3)", "pytest-cov"]
 name = "greenlet"
 version = "1.1.2"
 description = "Lightweight in-process concurrent programming"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
@@ -276,7 +284,7 @@ python-versions = ">=3.5"
 name = "imagesize"
 version = "1.3.0"
 description = "Getting image size from png/jpeg/jpeg2000/gif file"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -378,7 +386,7 @@ python-versions = "*"
 name = "ipywidgets"
 version = "7.6.5"
 description = "IPython HTML widgets for Jupyter"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -464,7 +472,7 @@ format_nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-
 name = "jupyter-book"
 version = "0.11.3"
 description = "Jupyter Book: Create an online book with Jupyter Notebooks"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -498,7 +506,7 @@ testing = ["altair", "beautifulsoup4", "cookiecutter", "coverage", "matplotlib",
 name = "jupyter-cache"
 version = "0.4.3"
 description = "A defined interface for working with a cache of jupyter notebooks."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -580,7 +588,7 @@ test = ["coverage", "pytest (>=6.0)", "pytest-cov", "pytest-mock", "requests", "
 name = "jupyter-server-mathjax"
 version = "0.2.3"
 description = "MathJax resources as a Jupyter Server Extension."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -594,7 +602,7 @@ test = ["jupyter-server", "pytest"]
 name = "jupyter-sphinx"
 version = "0.3.2"
 description = "Jupyter Sphinx Extensions"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">= 3.6"
 
@@ -652,7 +660,7 @@ test = ["codecov", "ipykernel", "pytest (>=5.3.2)", "pytest-cov", "jupyter-serve
 name = "jupyterlab-widgets"
 version = "1.0.2"
 description = "A JupyterLab extension."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -660,7 +668,7 @@ python-versions = ">=3.6"
 name = "jupytext"
 version = "1.10.3"
 description = "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -686,7 +694,7 @@ python-versions = ">=3.7"
 name = "latexcodec"
 version = "2.0.1"
 description = "A lexer and codec to work with LaTeX code in Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -697,7 +705,7 @@ six = ">=1.4.1"
 name = "linkify-it-py"
 version = "1.0.2"
 description = "Links recognition library with FULL unicode support."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -714,7 +722,7 @@ test = ["coverage", "pytest", "pytest-cov"]
 name = "markdown-it-py"
 version = "0.6.2"
 description = "Python port of markdown-it. Markdown parsing, done right!"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -768,7 +776,7 @@ traitlets = "*"
 name = "mdit-py-plugins"
 version = "0.2.6"
 description = "Collection of plugins for markdown-it-py"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -808,7 +816,7 @@ python-versions = "*"
 name = "myst-nb"
 version = "0.12.3"
 description = "A Jupyter Notebook Sphinx reader built on top of the MyST markdown parser."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -835,7 +843,7 @@ testing = ["coverage (<5.0)", "jupytext (>=1.8.0,<1.9.0)", "matplotlib (>=3.3.0,
 name = "myst-parser"
 version = "0.13.7"
 description = "An extended commonmark compliant parser, with bridges to docutils & sphinx."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -872,7 +880,7 @@ test = ["pytest", "pytest-tornasync", "pytest-console-scripts"]
 name = "nbclient"
 version = "0.5.8"
 description = "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.1"
 
@@ -919,7 +927,7 @@ test = ["pytest", "pytest-cov", "ipykernel", "jupyter-client (>=5.3.1)", "ipywid
 name = "nbdime"
 version = "3.1.1"
 description = "Diff and merge of Jupyter Notebooks"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1011,6 +1019,17 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 numpy = ">=1.21.2"
+
+[[package]]
+name = "openpyxl"
+version = "3.0.9"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+et-xmlfile = "*"
 
 [[package]]
 name = "packaging"
@@ -1160,7 +1179,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "pybtex"
 version = "0.24.0"
 description = "A BibTeX-compatible bibliography processor in Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*"
 
@@ -1176,7 +1195,7 @@ test = ["pytest"]
 name = "pybtex-docutils"
 version = "1.0.1"
 description = "A docutils backend for pybtex."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1196,7 +1215,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pydata-sphinx-theme"
 version = "0.7.2"
 description = "Bootstrap-based Sphinx theme from the PyData community"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1272,7 +1291,7 @@ python-versions = ">=3.6"
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1376,7 +1395,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "smmap"
 version = "5.0.0"
 description = "A pure Python implementation of a sliding window memory map manager"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1392,7 +1411,7 @@ python-versions = ">=3.5"
 name = "snowballstemmer"
 version = "2.1.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1400,7 +1419,7 @@ python-versions = "*"
 name = "soupsieve"
 version = "2.3.1"
 description = "A modern CSS selector implementation for Beautiful Soup."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1408,7 +1427,7 @@ python-versions = ">=3.6"
 name = "sphinx"
 version = "3.5.4"
 description = "Python documentation generator"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1439,7 +1458,7 @@ test = ["pytest", "pytest-cov", "html5lib", "cython", "typed-ast"]
 name = "sphinx-book-theme"
 version = "0.1.7"
 description = "Jupyter Book: Create an online book with Jupyter Notebooks"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1461,7 +1480,7 @@ testing = ["coverage", "myst-nb (>=0.13,<1.0)", "pytest (>=6.0.1,<6.1.0)", "pyte
 name = "sphinx-comments"
 version = "0.0.3"
 description = "Add comments and annotation to your documentation."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1477,7 +1496,7 @@ testing = ["beautifulsoup4", "myst-parser", "pytest", "pytest-regressions", "sph
 name = "sphinx-copybutton"
 version = "0.4.0"
 description = "Add a copy button to each of your code cells."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1492,7 +1511,7 @@ rtd = ["sphinx", "ipython", "sphinx-book-theme"]
 name = "sphinx-external-toc"
 version = "0.2.3"
 description = "A sphinx extension that allows the site-map to be defined in a single YAML file."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -1511,7 +1530,7 @@ testing = ["coverage", "pytest (>=3.6,<4)", "pytest-cov", "pytest-regressions"]
 name = "sphinx-jupyterbook-latex"
 version = "0.4.6"
 description = "Latex specific features for jupyter book"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1529,7 +1548,7 @@ testing = ["coverage (<5.0)", "myst-nb (>=0.13,<0.14)", "pytest (>=3.6,<4)", "py
 name = "sphinx-multitoc-numbering"
 version = "0.1.3"
 description = "Supporting continuous HTML section numbering"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1545,7 +1564,7 @@ testing = ["pytest (>=5.4,<6.0)", "pytest-cov (>=2.8,<3.0)", "coverage (<5.0)", 
 name = "sphinx-panels"
 version = "0.5.2"
 description = "A sphinx extension for creating panels in a grid layout."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1563,7 +1582,7 @@ themes = ["sphinx-rtd-theme", "pydata-sphinx-theme (>=0.4.0,<0.5.0)", "sphinx-bo
 name = "sphinx-thebe"
 version = "0.0.10"
 description = "Integrate interactive code blocks into your documentation with Thebe and Binder."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1578,7 +1597,7 @@ testing = ["pytest", "pytest-regressions", "beautifulsoup4"]
 name = "sphinx-togglebutton"
 version = "0.2.3"
 description = "Toggle page content and collapse admonitions in Sphinx."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1593,7 +1612,7 @@ sphinx = ["myst-nb", "sphinx-book-theme"]
 name = "sphinxcontrib-applehelp"
 version = "1.0.2"
 description = "sphinxcontrib-applehelp is a sphinx extension which outputs Apple help books"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1605,7 +1624,7 @@ test = ["pytest"]
 name = "sphinxcontrib-bibtex"
 version = "2.2.1"
 description = "Sphinx extension for BibTeX style citations."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1619,7 +1638,7 @@ Sphinx = ">=2.1"
 name = "sphinxcontrib-devhelp"
 version = "1.0.2"
 description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1631,7 +1650,7 @@ test = ["pytest"]
 name = "sphinxcontrib-htmlhelp"
 version = "2.0.0"
 description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1643,7 +1662,7 @@ test = ["pytest", "html5lib"]
 name = "sphinxcontrib-jsmath"
 version = "1.0.1"
 description = "A sphinx extension which renders display math in HTML via JavaScript"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1654,7 +1673,7 @@ test = ["pytest", "flake8", "mypy"]
 name = "sphinxcontrib-qthelp"
 version = "1.0.3"
 description = "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1666,7 +1685,7 @@ test = ["pytest"]
 name = "sphinxcontrib-serializinghtml"
 version = "1.1.5"
 description = "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1678,7 +1697,7 @@ test = ["pytest"]
 name = "sqlalchemy"
 version = "1.4.27"
 description = "Database Abstraction Library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
 
@@ -1776,7 +1795,7 @@ python-versions = ">=3.6"
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -1811,7 +1830,7 @@ python-versions = "*"
 name = "uc-micro-py"
 version = "1.0.1"
 description = "Micro subset of unicode data files for linkify-it-py projects."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1863,7 +1882,7 @@ test = ["websockets"]
 name = "widgetsnbextension"
 version = "3.5.2"
 description = "IPython HTML widgets for Jupyter"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1885,7 +1904,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<3.11"
-content-hash = "93c5413f0d40696ca5195669117d3bebc9c1a9f56243eb510adaec18211e4900"
+content-hash = "a83f0c959b2e00aed05525e8868e99ee4905b6bdb08819b6ec2e37ae7f477b39"
 
 [metadata.files]
 alabaster = [
@@ -2047,6 +2066,10 @@ docutils = [
 entrypoints = [
     {file = "entrypoints-0.3-py2.py3-none-any.whl", hash = "sha256:589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19"},
     {file = "entrypoints-0.3.tar.gz", hash = "sha256:c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"},
+]
+et-xmlfile = [
+    {file = "et_xmlfile-1.1.0-py3-none-any.whl", hash = "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada"},
+    {file = "et_xmlfile-1.1.0.tar.gz", hash = "sha256:8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c"},
 ]
 gitdb = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
@@ -2474,6 +2497,10 @@ opencv-python = [
     {file = "opencv_python-4.5.4.58-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bc34cdbfbab463750713118c8259a5d364547adab8ed91e94ba888349f33590a"},
     {file = "opencv_python-4.5.4.58-cp39-cp39-win32.whl", hash = "sha256:9998ce60884f3cda074f02b56d2b57ee6bd863e2ddba132da2b0af3b9487d584"},
     {file = "opencv_python-4.5.4.58-cp39-cp39-win_amd64.whl", hash = "sha256:5370a11757fbe94b176771269aff599f4da8676c2a672b13bcbca043f2e3eea8"},
+]
+openpyxl = [
+    {file = "openpyxl-3.0.9-py2.py3-none-any.whl", hash = "sha256:8f3b11bd896a95468a4ab162fc4fcd260d46157155d1f8bfaabb99d88cfcf79f"},
+    {file = "openpyxl-3.0.9.tar.gz", hash = "sha256:40f568b9829bf9e446acfffce30250ac1fa39035124d55fc024025c41481c90f"},
 ]
 packaging = [
     {file = "packaging-21.2-py3-none-any.whl", hash = "sha256:14317396d1e8cdb122989b916fa2c7e9ca8e2be9e8060a6eff75b6b7b4d8a7e0"},
