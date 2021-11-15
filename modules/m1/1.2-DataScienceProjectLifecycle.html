@@ -651,7 +651,7 @@
 <p class="admonition-title">Show more</p>
 <p>As we discussed already in lesson 1.1, research data science is used to address problems, take decisions and answer questions in a data-driven way, while keeping a critical mindset. A research data science project begins with an initial question or problem. This can originate from:</p>
 <ul class="simple">
-<li><p>A research or business leader who wants to address a particular aspect.</p></li>
+<li><p>A research or business leader who wants to pursue a research idea or address a problem.</p></li>
 <li><p>A domain expert who observes some issue in their day-to-day work and questions how to address it.</p></li>
 <li><p>An informal or formal discussion between various members of a team or unit that leads to an idea.</p></li>
 <li><p>An external client with a specific request.</p></li>
@@ -718,9 +718,10 @@
 <div class="section" id="question-2-what-is-the-specific-research-question-how-does-it-translate-to-a-data-science-problem">
 <h3>Question 2: What is the specific research question? How does it translate to a data science problem?<a class="headerlink" href="#question-2-what-is-the-specific-research-question-how-does-it-translate-to-a-data-science-problem" title="Permalink to this headline">¶</a></h3>
 <p>Starting from a possibly vague and broad challenge which sets the context, we want to help the researchers and domain experts clarify the scope of the project by:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Defining a specific research question</strong></p></li>
-<li><p><strong>Translating the question into a well-defined data science (computational) problem that can be solved by using an algorithm.</strong></p>
+<li><p><strong>Translating the question into a well-defined data science problem that can be solved by using an algorithm.</strong></p></li>
+</ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Show examples</p>
 <p>If we consider the case studies presented in Question 1, asking questions about the domain of the problem is a good starting point for moving from a broad challenge to a specific task. For instance:</p>
@@ -729,7 +730,7 @@
 <li><p>On Living with machines: Asking about data availability can help clarify what types of data science solutions are conceivable, e.g. “Which collections are promptly available and how representative are they?”</p></li>
 </ul>
 </div>
-</li>
+<ul>
 <li><p><strong>Choosing a data science algorithm or method.</strong></p>
 <div class="dropdown admonition">
 <p class="admonition-title">Show more</p>
@@ -745,14 +746,14 @@
 <ul class="simple">
 <li><p>Domain experts have a lot of knowledge about their area but:</p>
 <ul>
-<li><p>Often do not have a good grasp of data science methods and computing, e.g. they might not know what machine learning or other methods can and cannot do or, on the opposite, they might only know the most popular methods of the moment (e.g., deep learning toolkits).</p></li>
+<li><p>Often do not have a good grasp of data science methods and computing, e.g. they might not know what machine learning or other methods can and cannot do or, on the opposite, they might only know the most popular methods of the moment (e.g. deep learning toolkits).</p></li>
 <li><p>Might not be able to translate what they want to a list of technical requirements and a plan to deliver the output:</p></li>
 <li><p>Might not understand how much time the technical work is likely to take.</p></li>
 </ul>
 </li>
 <li><p>Research data scientists have an understanding of data and analytics but:</p>
 <ul>
-<li><p>Often are strangers to the domain area, without a good understanding of how the field operates, how data are generated (and their related complexities), what knowledge on previous interdisciplinary studies in the area etc. Narratives that present data scientists as rock stars, geniuses, able to move across academia because all can be turned into a data science task in the same way only exacerbate this problem, by giving a false sense of omnipotence. We should always act against this type of narrative and it is part of our job to recognise the differences and adapt to various fields of study and communities. We will come back to this in 1.3.</p></li>
+<li><p>Often are strangers to the domain area, without a good understanding of how the field operates, how data are generated (and their related complexities), what previous research has been done in the area etc. Narratives that present data scientists as rock stars, geniuses and/or claiming that data can and should be used to solve any problem exacerbate this problem. Data scientists should instead recognise their limitations, learn and and adapt. We will come back to this in Lesson 1.3.</p></li>
 <li><p>Might rush the scoping process to get on with the work, leading to gaps in understanding that can cost later.</p></li>
 </ul>
 </li>
@@ -761,7 +762,7 @@
 <div class="tip admonition">
 <p class="admonition-title">Mitigation</p>
 <ul class="simple">
-<li><p>It is part of the job of the research data scientist to closely work with collaborators, co-define requirements and map out a technical solution and project plan. Data scientists should invest time in understanding the domain area. We highly recommend, whenever possible, to spend time in the environment where data are generated, previous research is discussed and domain experts, users or scientists spend their day.</p></li>
+<li><p>It is part of the job of the research data scientist to closely work with collaborators, co-define requirements and map out a technical solution and project plan. Data scientists should invest time in understanding the domain area. We recommend, whenever possible, to spend time in the environment where data are generated or previous research is conducted and where domain experts, users or scientists spend their day.</p></li>
 <li><p>Data scientists should help collaborators understand what is possible when using data-driven methods and learning algorithms and especially what is not. They should spend time describing in lay terms how a technical solution will work, what data are needed, what issues may arise. They should ask a lot of probing questions to shed light in dark corners of the project scope and detect blockers and inconsistencies early on.</p></li>
 </ul>
 </div>
@@ -774,13 +775,13 @@
 <p class="admonition-title">Show more</p>
 <p>The dilemma of whether to first develop a research question and then find a dataset, or first select a known dataset and then develop the question is well-known. The default way to do science is the former, but at the same time data science as a field is driven by the availability in digital format of an unprecedented new amount of data.</p>
 <p>Therefore in reality it is common to follow a hybrid approach: Define a broad research question or select a wider area of research, then select datasets that provide rich information for this area and finally examine the datasets to understand how to best refine your question in order to be impactful, interesting but also answerable.</p>
-<p>The opposite approach of first choosing a dataset and then try to find research questions that arise from looking at it is usually not advisable as it often leads to biased hypotheses. It might also run counter to the ideas of data minimisation, i.e. collecting personal data only for defined purposes, rather than just to store them and decide how to use them later.</p>
+<p>The approach of first choosing a dataset and then trying to find research questions that arise from looking at it is usually not advisable as it often leads to biased hypotheses. It might also run counter to the ideas of data minimisation, i.e. collecting personal data only for defined purposes, rather than just to store them and decide how to use them later.</p>
 </div>
 </li>
 <li><p><strong>Data non-availability: Redefine research aims vs. collect new data</strong></p>
 <div class="dropdown admonition">
 <p class="admonition-title">Show more</p>
-<p>Refining the research question should lead to a better understanding of what data are needed to solve the problem and if existing data sources adequately represent variables that have been identified as important.</p>
+<p>Knowing the research question helps understand what data are needed to solve the problem and if existing data sources adequately represent variables that have been identified as important.</p>
 <p>There are cases where the question cannot be answered with available data. This might lead to further work and discussion in order to redefine the research question given the constraints of the data we have available.</p>
 <p>Or it might lead to a decision to collect new data (which could become a different research project altogether).</p>
 </div>
@@ -804,7 +805,7 @@
 <li><p><strong>Is the dataset well-understood and tested?</strong></p>
 <div class="dropdown admonition">
 <p class="admonition-title">Show more</p>
-<p>When choosing a dataset, an additional concern is to what extent this dataset has been tested and how much code and insights about it already exist out there. Many datasets have been created without propoerly documenting the contents. It is advisable to come in touch with data curators/owners but also with domain experts that might be able to shed light in those cases. The easiest datasets to work with are the ones where (1) there is local or community experience using the dataset that can be put to use, and/or (2) the dataset is relatively easy to access, learn, and use.</p>
+<p>When choosing a dataset, an additional concern is to what extent this dataset has been tested and how much code and insights about it already exist out there. Many datasets have been created without properly documenting the contents. It is advisable to come in touch with data curators/owners but also with domain experts that might be able to shed light in those cases. The easiest datasets to work with are the ones where (1) there is local or community experience using the dataset that can be put to use, and/or (2) the dataset is relatively easy to access, learn, and use.</p>
 </div>
 </li>
 <li><p><strong>Is data quality and quantity appropriate?</strong></p>
@@ -936,7 +937,7 @@
 <div class="section" id="question-9-how-do-we-measure-the-success-of-the-project">
 <h3>Question 9: How do we measure the success of the project?<a class="headerlink" href="#question-9-how-do-we-measure-the-success-of-the-project" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p>We should always aim to define a success metric. In many cases this should be quantitative and allow us to track how successive iterations change it, but there are exceptions.</p>
+<li><p>We should aim to define a success metric if possible. In many cases this should be quantitative and allow us to track how successive iterations change it, but there are exceptions.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Show more</p>
 <p>Success metrics can include (the list is not exhaustive):</p>
@@ -959,13 +960,14 @@
 </ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Example</p>
-<p>The researchers in Living with Machines need a new tool for identifying mentions of cities in a collection of newspapers. As an MVP we would test a commonly used tool (a named entity recogniser available in the python library Spacy), we would assess the performance on a test-set developed with thee researchers and examine the errors and limitations. Next, we would extend this tool by fine-tuning the pre-trained model on in-domain data and measure whether this would lead to a significant improvement in performance.</p>
+<p>The researchers in Living with Machines need a new tool for identifying mentions of cities in a collection of newspapers. As a baseline, we could use a commonly used tool (a named entity recogniser available in the python library Spacy). We assess performance on a test-set developed with the researchers and examine the errors and limitations. During the project, we extend this tool by fine-tuning the pre-trained model on in-domain data and measure whether this leads to an improvement in performance.</p>
 </div>
 </div>
 <div class="section" id="question-10-how-do-we-monitor-and-explain-output">
 <h3>Question 10: How do we monitor and explain output?<a class="headerlink" href="#question-10-how-do-we-monitor-and-explain-output" title="Permalink to this headline">¶</a></h3>
 <p>A common issue in real data science applications is when a data science product is built without any care for explainability and reporting, almost like a black box. This is the case of an algorithm that just produces predictions but without providing any information on how these are produced, what factors are considered, how performance changes over time and how individual users are affected. It is important to agree ways to achieve those things in the scoping stage and to consider these challenges if we plan to reproduce the results of a tool presented by other researchers.</p>
 <p>If we don’t, this is likely to come back to haunt us in the future. Users might be unwilling to use our tool because they do not understand it, it will be difficult to understand when the algorithm’s performance is drifting and in some cases it can lead to ethical issues.</p>
+<p>Explainability of AI is a very active area of reasearch, partially due to the importance of it from a legal/regulatory standpoint (e.g. see <a class="reference external" href="https://en.wikipedia.org/wiki/Right_to_explanation">here</a>). Libraries have been developed to help explain what black box models do (e.g. <a class="reference external" href="https://github.com/marcotcr/lime">lime</a>).</p>
 <p><img alt="monitor" src="../../_images/monitor.png" />
 <a class="reference external" href="https://towardsdatascience.com/machine-learning-monitoring-what-it-is-and-what-we-are-missing-e644268023ba">source</a></p>
 </div>
