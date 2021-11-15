@@ -23,9 +23,9 @@ sphinx:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/alan-turing-institute/rds-course# Online location of your book
+  url: https://github.com/alan-turing-institute/rds-course # Online location of your book
   path_to_book: "coursebook"  # Optional path to your book, relative to the repository root
-  branch: book  # Which branch of the repository should be used when creating links (optional)
+  branch: allow_thebe  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
