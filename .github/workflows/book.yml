@@ -4,7 +4,7 @@ name: deploy-book
 on:
   push:
     branches:
-    - harmonise
+    - develop
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -14,14 +14,14 @@ jobs:
     - uses: actions/checkout@v2
 
     # Install dependencies
-    - name: Set up Python 3.7
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7
+        python-version: 3.9
 
     - name: Install dependencies
       run: |
-        pip install -r ./coursebook/requirements.txt
+        pip install .
     # Build the book
     - name: Build the book
       run: |
