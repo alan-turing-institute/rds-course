@@ -766,7 +766,7 @@ memory usage: 1.2+ MB
 <p>Typically, it’s not possible to input strings representing categories directly into a machine learning algorithm or other analysis, so they must be transformed into a numerical form first. This also applies if we have coded categories  (such as ID numbers) in the data - blindly feeding these into an algorithm can have unexpected results. Below we describe common ways of encoding categorical data into numeric forms.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Here we are talking encoding data with a <em>countable</em> number of categories. For data without a set of pre-defined options, like free text fields, it’s more appropriate to use other feature engineering techniques (such as those from Natural Language Processing - see previous section).</p>
+<p>Here we are talking encoding data with a <em>countable</em> number of categories. For data without a set of pre-defined options, like free text fields, it’s more appropriate to use other feature engineering techniques (such as those from Natural Language Processing - see <a class="reference internal" href="2-02-04-02-TextData.html"><span class="doc std std-doc">Section 2.2.4.2</span></a>).</p>
 </div>
 <div class="section" id="binary-data">
 <h3>Binary Data<a class="headerlink" href="#binary-data" title="Permalink to this headline">¶</a></h3>
@@ -833,7 +833,7 @@ Name: Number Of Hours Worked Each Week, dtype: int64
 </div>
 </div>
 </div>
-<p>This is essentially binned data (see feature engineering section) - the source data is numeric, but we have it summarised in groups due to the design of the survey. It’s also common to see this for privacy/anonymisation reasons in public versions of sensitive datasets.</p>
+<p>This is essentially binned data (see <a class="reference internal" href="2-02-03-FeatureEngineering.html"><span class="doc std std-doc">Section 2.2.3</span></a>, feature engineering) - the source data is numeric, but we have it summarised in groups due to the design of the survey. It’s also common to see this for privacy/anonymisation reasons in public versions of sensitive datasets.</p>
 <p>One approach here is to encode the data using the mid-point of each group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -856,7 +856,7 @@ Name: Number Of Hours Worked Each Week, dtype: int64
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We could use techniques for manipulating strings, like those seen in the previous section, to extract the digits and calculate the mid-points rather than doing it manually.</p>
+<p>We could use techniques for manipulating strings, like those seen in the <a class="reference internal" href="2-02-04-02-TextData.html"><span class="doc std std-doc">Section 2.2.4.2</span></a>, to extract the digits and calculate the mid-points rather than doing it manually.</p>
 </div>
 <p>Alternatively, we can have ordinal data that was not numeric to start with, such as the “Education Status” column in this dataset:</p>
 <div class="cell docutils container">
@@ -1125,7 +1125,7 @@ Name: Preferred Language, dtype: int64
 <div class="section" id="data-dictionaries">
 <h2>Data Dictionaries<a class="headerlink" href="#data-dictionaries" title="Permalink to this headline">¶</a></h2>
 <p>We’ve talked about converting a dataset of strings into numerical representations that can be incorporated into a model or other further analysis. It’s also common to be given a dataset that has coded values (numbers or other identifiers) to start with. For example, what if we started with data where <code class="docutils literal notranslate"><span class="pre">Education</span> <span class="pre">Status</span></code> was encoded as values 1 to 5. How would we know what 3 means?</p>
-<p>Datasets <em>should</em> come with “data dictionaries” that explain what these values mean. You could change the encoded values to their meanings by defining them in a Python dictionary  and using <code class="docutils literal notranslate"><span class="pre">replace</span></code> in the same way as above. Or you may need to link to another table or dataset - see the linking datasets section.</p>
+<p>Datasets <em>should</em> come with “data dictionaries” that explain what these values mean. You could change the encoded values to their meanings by defining them in a Python dictionary  and using <code class="docutils literal notranslate"><span class="pre">replace</span></code> in the same way as above. Or you may need to link to another table or dataset - see linking datasets, <a class="reference internal" href="2-02-06-LinkingDatasets.html"><span class="doc std std-doc">Section 2.2.6</span></a>.</p>
 </div>
 </div>
 

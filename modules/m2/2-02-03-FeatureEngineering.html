@@ -510,7 +510,7 @@
   <div class="section" id="feature-engineering">
 <h1>2.2.3 Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h1>
 <p>What we’ve seen so far is how to load data into a Pandas data frame and perform some initial exploration and sanity checks to verify it looks how we expect. Following that, it’s still unlikely the data will be ready to be fed straight into an analysis or model so we must mould it to fit our needs.</p>
-<p>This is what we’ll focus on for most of the rest of this module. In the literature you’ll find it referred to as “preprocessing”, “wrangling”, “feature engineering” and many other terms, which all cover some aspect of curating and manipulating the raw source data. In this section we focus on numerical data, but we discuss approaches for other types of data in later sections.</p>
+<p>This is what we’ll focus on for most of the rest of this module. In the literature you’ll find it referred to as “preprocessing”, “wrangling”, “feature engineering” and many other terms, which all cover some aspect of curating and manipulating the raw source data. In this section we focus on numerical data, but we discuss approaches for other types of data in <a class="reference internal" href="2-02-04-DataManipulation.html"><span class="doc std std-doc">Section 2.2.4</span></a>.</p>
 <p>Here we’ll be using data from the Anthropometric Survey of US Army Personnel (<a class="reference external" href="https://www.openlab.psu.edu/ansur2/">ANSUR 2</a>), which includes comprehensive body shape and size measurements for people in the US army that were taken in 2012 and released publicly in 2017. There’s data on both males and females, we’ll use the female data here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -996,7 +996,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.7 ms ± 1.41 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.4 ms ± 371 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1010,7 +1010,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>253 µs ± 8.48 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>147 µs ± 2.66 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1169,7 +1169,7 @@ Length: 1986, dtype: int8
 </div>
 </div>
 </div>
-<p>We talk more about categorical data in a later section. Pandas also provides an alternative binning function, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html"><code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code></a>, which creates bins based on quantiles. In this case each bin contains approximately the same proportion of the data:</p>
+<p>We talk more about categorical data in <a class="reference internal" href="2-02-04-03-CategoricalData.html"><span class="doc std std-doc">Section 2.2.4.3</span></a>. Pandas also provides an alternative binning function, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html"><code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code></a>, which creates bins based on quantiles. In this case each bin contains approximately the same proportion of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">span_qbins</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;span&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

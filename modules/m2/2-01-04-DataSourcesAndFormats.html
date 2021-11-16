@@ -718,7 +718,7 @@ memory usage: 18.8+ KB
 </div>
 </div>
 </div>
-<p>Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in the data wrangling section.</p>
+<p>Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in <a class="reference internal" href="2-02-01-DataConsistency.html"><span class="doc std std-doc">Section 2.2.1</span></a>.</p>
 <p>We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 “<code class="docutils literal notranslate"><span class="pre">non-null</span></code>” values), and have a strange additional column <code class="docutils literal notranslate"><span class="pre">Unnamed:</span> <span class="pre">8</span></code> that has <em>only</em> missing (null) values. This is another topic we’ll revisit later.</p>
 </div>
 <div class="section" id="customising-pandas-read-csv">
@@ -756,7 +756,7 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ParserError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1961</span><span class="o">/</span><span class="mf">270367433.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1948</span><span class="o">/</span><span class="mf">270367433.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/urban_population_header.csv&quot;</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
