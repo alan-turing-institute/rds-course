@@ -397,11 +397,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/alan-turing-institute/rds-course# Online location of your book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/alan-turing-institute/rds-course"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/alan-turing-institute/rds-course# Online location of your book/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/2-hands-on.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/2-hands-on.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -422,7 +422,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course# Online location of your book/book?urlpath=tree/coursebook/modules/m2/2-hands-on.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-hands-on.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -448,36 +448,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-local-python-environment">
-   Create a Local Python Environment
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-pyenv-poetry">
-     Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Pyenv
-      </span>
-     </code>
-     &amp;
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Poetry
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-dependencies">
-     Install Dependencies
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download-data">
-   Download Data
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -486,13 +458,45 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-local-python-environment">
+   Create a Local Python Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#managing-python-versions">
+     Managing Python Versions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-virtual-environment-with-poetry">
+     Creating a Virtual Environment with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Poetry
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jupyter">
    Jupyter
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
+  <a class="reference internal nav-link" href="#download-data">
+   Download Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-setup">
+   Notebook Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-the-downloaded-files">
+   Exploring the Downloaded Files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -506,8 +510,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-data-types">
+   Different Data Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#making-things-more-readable">
    Making Things More Readable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#self-reported-health">
+   Self-Reported Health
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values">
+   Missing Values
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -516,8 +535,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-missingness">
-   More Missingness
+  <a class="reference internal nav-link" href="#uk-vs-spain">
+   UK vs Spain
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn!
   </a>
  </li>
 </ul>
@@ -535,91 +559,103 @@
 <h1>Module 2: Hands-on session<a class="headerlink" href="#module-2-hands-on-session" title="Permalink to this headline">¶</a></h1>
 <p>In this hands-on notebook we’ll</p>
 <ul class="simple">
-<li><p>Create a Local Python Environment (guided)</p></li>
-<li><p>Download the data (guided)</p></li>
-<li><p>Load and explore the data (exercise)</p></li>
-<li><p>Make the data more readable (exercise)</p></li>
+<li><p>Create a Local Python Environment</p></li>
+<li><p>Download the data</p></li>
+<li><p>Load and explore the data</p></li>
+<li><p>Understand the different data types present</p></li>
+<li><p>Make the data more readable</p></li>
+<li><p>Consider how missing data is represented</p></li>
 <li><p>Explore some differences between 2007 and 2011 data</p></li>
 <li><p>Compare data from UK and Spain respondees with respect to data missingness</p></li>
 </ul>
 <p>We have marked the exercise parts of this notebook as <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">TODO</span></code> with some comments as guidance. You can refer back to the taught material, or external documentation, for further information.</p>
-<div class="section" id="create-a-local-python-environment">
-<h2>Create a Local Python Environment<a class="headerlink" href="#create-a-local-python-environment" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="using-pyenv-poetry">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">Pyenv</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Poetry</span></code><a class="headerlink" href="#using-pyenv-poetry" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>See and follow <a class="reference external" href="https://github.com/pyenv/pyenv#installation"><code class="docutils literal notranslate"><span class="pre">Pyenv</span></code> Installation</a> for instructions on installing <code class="docutils literal notranslate"><span class="pre">Pyenv</span></code>.
-Note: the homebrew installation can take a while - especially if you’re updating brew, as recommended!</p></li>
-<li><p>Install and initialise. From the terminal:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install python 3.9.5</span>
-pyenv install <span class="m">3</span>.9.5
-<span class="c1"># set local version of python to our installed 3.9.5</span>
-pyenv <span class="nb">local</span> <span class="m">3</span>.9.5
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Activate the shell. From the terminal:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv shell <span class="m">3</span>.9.5
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Install <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> following instructions <a class="reference external" href="https://python-poetry.org/docs/#installation">here</a>.
-<code class="docutils literal notranslate"><span class="pre">Poetry</span></code> can help manage <a class="reference external" href="https://python-poetry.org/docs/managing-environments/">multiple environments</a>, in particular <a class="reference external" href="https://python-poetry.org/docs/managing-environments/#switching-between-environments">switching between environments </a></p></li>
-<li><p>Set your <code class="docutils literal notranslate"><span class="pre">pyenv</span></code> installed python to activate <code class="docutils literal notranslate"><span class="pre">venv</span></code>.</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from rds-course repository root</span>
-poetry env use ~/.pyenv/versions/3.9.5/bin/python
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Check the environment is activated:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry env list
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Initialise the environment:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry shell
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-dependencies">
-<h3>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h3>
-<p>We need to install third-party packages necessary for the course. These are listed in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and have versions fixed in <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> will pick these files up and install the required packages in a predictable manner.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from within poetry shell</span>
-poetry install
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="download-data">
-<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>As described in module 1, we can find the data available for download from the UK Data Service <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/access-data">here</a></p></li>
-<li><p>Observe the licence and take this opportunity to check your obligations</p></li>
-<li><p>Download the CSV data</p></li>
-<li><p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> this should give us <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code></p></li>
-</ol>
-<p><code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course. If you change the directory that you hold this data in, you’ll need to make appropriate changes to the <code class="docutils literal notranslate"><span class="pre">DATA_ROOT_PATH</span></code> variable below.</p>
-<ol class="simple">
-<li><p>Explore the data in Excel/Numbers/Application of your choice</p></li>
-</ol>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>To setup and run the commands in this notebook you will need a (preferably bash/similar) shell with these installed:</p>
+<ul class="simple">
+<li><p>Python 3.7 or later</p>
+<ul>
+<li><p>Check by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code> in your shell</p></li>
+</ul>
+</li>
+<li><p>Git (optional)</p>
+<ul>
+<li><p>Check by running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code> in your shell</p></li>
+</ul>
+</li>
+<li><p>Curl (optional)</p>
+<ul>
+<li><p>Check by running <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">--version</span></code> in your shell</p></li>
+</ul>
+</li>
+</ul>
+<p>If you don’t have these we have instructions in our <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/course_prerequisites/index.html">Research Software Engineering course</a>.</p>
 </div>
 <div class="section" id="clone-the-course-repository">
 <h2>Clone the Course Repository<a class="headerlink" href="#clone-the-course-repository" title="Permalink to this headline">¶</a></h2>
 <p>In order to work locally with this notebook, you should clone the course repository.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from a sensible location (this will create a new dir for the course in current dir)</span>
-
-<span class="c1"># https in case git ssl not set up</span>
-git clone https://github.com/alan-turing-institute/rds-course.git 
-<span class="c1"># change directory to the repository root</span>
-<span class="nb">cd</span> rds-course 
+<ol>
+<li><p>Go to the GitHub repository in a web browser: <a class="reference external" href="https://github.com/alan-turing-institute/rds-course">https://github.com/alan-turing-institute/rds-course</a></p></li>
+<li><p>Click on the green “Code” button and copy the address under “Clone - HTTPS”.</p></li>
+<li><p>In your shell, run the following command from a sensible location (this will create a new dir for the course in current dir):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/alan-turing-institute/rds-course.git
 </pre></div>
 </div>
-<p>if you do not have git installed, you can download the zip from <a class="reference external" href="https://github.com/alan-turing-institute/rds-course">https://github.com/alan-turing-institute/rds-course</a> and unpack it locally.</p>
+</li>
+<li><p>Change directory to the repository root</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">rds</span><span class="o">-</span><span class="n">course</span>
+</pre></div>
+</div>
+</li>
+<li><p>We’re currently using the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch, so check that out</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">develop</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Troubleshooting:</strong></p>
+<ul class="simple">
+<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">git</span></code>:</strong> We recommend using git, but if you don’t have it installed you can download a zip of the code by clicking on “Download Zip” in step 2 above instead, and unpack it locally.</p></li>
+<li><p><strong>If you previously cloned/downloaded the repo:</strong> Please run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">develop</span></code> and then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory to ensure you have the latest version of the material.</p></li>
+</ul>
+</div>
+<div class="section" id="create-a-local-python-environment">
+<h2>Create a Local Python Environment<a class="headerlink" href="#create-a-local-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>We need to install third-party packages necessary for the course, with the same package versions as it was developed with to ensure compatibility and reproducibility.</p>
+<div class="section" id="managing-python-versions">
+<h3>Managing Python Versions<a class="headerlink" href="#managing-python-versions" title="Permalink to this headline">¶</a></h3>
+<p>As well as the versions of packages your codebase should specify which version(s) of Python itself that it’s compatible with. The code for this course should run with Python 3.7 or above. We don’t cover it here to speedup setup, but if you need to use multiple versions of Python on your system we recommend <a class="reference external" href="https://github.com/pyenv/pyenv">Pyenv</a> and <a class="reference external" href="https://conda.io/projects/conda/en/latest/index.html">Conda</a>.</p>
+</div>
+<div class="section" id="creating-a-virtual-environment-with-poetry">
+<h3>Creating a Virtual Environment with <code class="docutils literal notranslate"><span class="pre">Poetry</span></code><a class="headerlink" href="#creating-a-virtual-environment-with-poetry" title="Permalink to this headline">¶</a></h3>
+<p>The Python ecosystem has many different ways of managing packaging and installing dependencies (<a class="reference external" href="https://packaging.python.org/key_projects/#pipenv">this page</a> lists some of them). The most well-known is <code class="docutils literal notranslate"><span class="pre">pip</span></code> with dependencies listed in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
+<p>In this course we use the tool <a class="reference external" href="https://python-poetry.org/">Poetry</a>, which can help manage <a class="reference external" href="https://python-poetry.org/docs/managing-environments/">multiple environments</a>, in particular <a class="reference external" href="https://python-poetry.org/docs/managing-environments/#switching-between-environments">switching between environments </a>.</p>
+<p>Dependencies are listed in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and have versions fixed in <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> will pick these files up and install the required packages in a predictable manner, and into a virtual environment isolated from other projects on your system.</p>
+<ol>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> by following their instructions <a class="reference external" href="https://python-poetry.org/docs/#installation">here</a>.</p></li>
+<li><p>From the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, run the following command to create the virtual environment and install the third-party packages necessary for the course:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry install
+</pre></div>
+</div>
+</li>
+<li><p>Check the details of the virtual environment that’s been created:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry env info
+</pre></div>
+</div>
+</li>
+<li><p>Initialise the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry shell
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The last step creates a new shell setup to use the Python virtual environment we just created (e.g. <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, should now show the path returned earlier by <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">env</span> <span class="pre">info</span></code> above, rather the path to your global Python executable). If you want to stop using the virtual environment <code class="docutils literal notranslate"><span class="pre">exit</span></code> the shell.</p>
+<p><strong>Troubleshooting:</strong></p>
+<ul class="simple">
+<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">curl</span></code> is used to download a Python script (currently <a class="reference external" href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">this script</a> but check the <a class="reference external" href="https://python-poetry.org/docs/#installation">Poetry documentation</a> for the latest URL). Save this script as <code class="docutils literal notranslate"><span class="pre">get-poetry.py</span></code> and then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-poetry.py</span></code> to install Poetry.</p></li>
+<li><p><strong>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">Poetry</span></code></strong>: You can install the course dependencies by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, but we recommend doing this in an alternative virtual environment of your choice (not in your global Python installation).</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="jupyter">
 <h2>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
@@ -631,10 +667,21 @@ git clone https://github.com/alan-turing-institute/rds-course.git
 <p>We recommend following the rest of the notebook via the JupyterLab instance that should spawn!</p>
 <p>Click through the file explorer in the left-hand pane to bring up this notebook.</p>
 <p>The notebook should be present at: <code class="docutils literal notranslate"><span class="pre">rds-course/coursebook/modules/m2/2-hands-on.ipynb</span></code></p>
+<p>If you’ve not used <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> before you might find their <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html">Notebook basics</a> and <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Running%20Code.html">Running code</a> documentation helpful.</p>
 </div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>import necessary packages for this work</p>
+<div class="section" id="download-data">
+<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>As described in module 1, we can find the data available for download from the UK Data Service <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/access-data">here</a></p></li>
+<li><p>Observe the licence and take this opportunity to check your obligations</p></li>
+<li><p>Download the CSV data</p></li>
+<li><p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> this should give us <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course. If you change the directory that you hold this data in, you’ll need to make appropriate changes to the <code class="docutils literal notranslate"><span class="pre">DATA_ROOT_PATH</span></code> variable below.</p>
+</div>
+<div class="section" id="notebook-setup">
+<h2>Notebook Setup<a class="headerlink" href="#notebook-setup" title="Permalink to this headline">¶</a></h2>
+<p>Import necessary packages for this work:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -656,6 +703,31 @@ git clone https://github.com/alan-turing-institute/rds-course.git
 <span class="c1"># consts for loading categorical data value maps</span>
 <span class="n">CATEGORICAL_VALUES_XLSX_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_ROOT_PATH</span><span class="p">,</span> <span class="s2">&quot;mrdoc/excel/eqls_concordance_grid.xlsx&quot;</span><span class="p">)</span>
 <span class="n">CATEGORICAL_VALUES_XLSX_SHEET_NAME</span> <span class="o">=</span> <span class="s2">&quot;Values&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exploring-the-downloaded-files">
+<h2>Exploring the Downloaded Files<a class="headerlink" href="#exploring-the-downloaded-files" title="Permalink to this headline">¶</a></h2>
+<p>Take some time to familiarise yourself with the file structure of the downloaded files (in the <code class="docutils literal notranslate"><span class="pre">UKDA-7724-csv</span></code> directory), opening them in Excel/Numbers/relevant application of your choice initially. In particular:</p>
+<ul class="simple">
+<li><p>The table of files <code class="docutils literal notranslate"><span class="pre">mrdoc/excel/7724_file_information_csv.csv</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">csv</span></code> directory</p>
+<ul>
+<li><p>What data does each file contain?</p></li>
+</ul>
+</li>
+<li><p>The user guide <code class="docutils literal notranslate"><span class="pre">mrdoc/pdf/7724_eqls_2007-2011_user_guide_v2.pdf</span></code></p></li>
+<li><p>The “Variables” and “Values” worksheet in <code class="docutils literal notranslate"><span class="pre">mrdoc/excel/eqls_concordance_grid.xlsx</span></code></p>
+<ul>
+<li><p>How many variables are there? Can they be grouped in any way?</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
 </pre></div>
 </div>
 </div>
@@ -704,7 +776,7 @@ git clone https://github.com/alan-turing-institute/rds-course.git
 </div>
 <div class="section" id="load-and-explore">
 <h2>Load and Explore<a class="headerlink" href="#load-and-explore" title="Permalink to this headline">¶</a></h2>
-<p>Read the data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p>Read the combined 2007 and 2011 data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO read in the file and display the head</span>
@@ -724,7 +796,7 @@ git clone https://github.com/alan-turing-institute/rds-course.git
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2195</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2199</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
@@ -747,7 +819,7 @@ git clone https://github.com/alan-turing-institute/rds-course.git
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO - fill in the below with the correct values</span>
-<span class="n">n_columns</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many columns are there in the DataFrame?</span>
+<span class="n">n_columns</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many columns are there in the DataFrame? Does this match number of variables you expected?</span>
 <span class="n">n_float64_columns</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many columns are of dtype float64?</span>
 <span class="n">Y11_Q31_mean_value</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#  what is the mean of the values in the Y11_Q31 column?</span>
 <span class="n">Y11_Country_n_unique</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many unique values in the Y11_Country column?</span>
@@ -791,6 +863,50 @@ Y11_Country_n_unique answer incorrect
 </div>
 </div>
 </div>
+<div class="section" id="different-data-types">
+<h2>Different Data Types<a class="headerlink" href="#different-data-types" title="Permalink to this headline">¶</a></h2>
+<p>Are there columns containing the following types of data? If so give examples.</p>
+<ul class="simple">
+<li><p>Numeric data (without a set of pre-defined categories)</p></li>
+<li><p>Binary data</p></li>
+<li><p>Categorical data, unordered</p></li>
+<li><p>Categorical data, ordered</p></li>
+<li><p>Text data</p></li>
+<li><p>Time or date data</p></li>
+</ul>
+<p>Note: The dataset contains at least 4 of these, try to have another look if you found fewer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For one example of each type, what are the possible values the data can take, according to the documentation? What does each value mean? Is each possible value present in the dataset?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the minimum, maximum and mean value in each of your example columns? Taking into consideration the type of data in the column, are all of these values meaningful?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For one of the categorical columns, replace the numerical encodings with their actual meaning (category title). You can do this by manually creating a Python dictionary with the values to replace (we’ll look at extracting them with code later). What is the most common value?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="making-things-more-readable">
 <h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
 <p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
@@ -807,7 +923,7 @@ Y11_Country_n_unique answer incorrect
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2195</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2199</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="nn">      1 # we have to explicitly use latin1 encoding as the file is not saved</span> in <span class="ni">utf-8 </span><span class="nt">(our platform default)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1162,6 +1278,75 @@ Encountered a KeyError. This means the expected key isn&#39;t in your column map
 </div>
 </div>
 </div>
+<div class="section" id="self-reported-health">
+<h2>Self-Reported Health<a class="headerlink" href="#self-reported-health" title="Permalink to this headline">¶</a></h2>
+<p>The research question we defined in Module 1 and will explore in more detail in Modules 3 and 4 aims to explore the contribution of various factors on self-reported health.</p>
+<p>Which column in the dataset contains self-reported health values? How many people had “Very good” self-reported health?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the models we develop in Module 4 we’ll convert self-reported health into a binary variable. What might be a sensible way to group the categories into only two possible values? Create a new column with your proposed binary encoding for self-reported health.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="missing-values">
+<h2>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
+<p>There are at least three different ways missing data and unknown information are represented in this dataset.</p>
+<p>Look at one row of the data. What value does Pandas use to represent missing data? How many missing values are there in the row you picked?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the possible values for each column in the dataset documentation, find two different columns and at least two different values that are also used to represent missing or unknown information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the columns you picked:</p>
+<ul class="simple">
+<li><p>How many missing values does Pandas say the column has?</p></li>
+<li><p>How many values match the numeric representation of missing data you found from the documentation (e.g. if the documentation says -99 means unknown, how many -99 values are there in the column)?</p></li>
+<li><p>Does Pandas include the numeric representation in its count of missing values?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Replace the numbers representing missing values in the columns you picked with the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> type from <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. What is the Pandas count of missing values now?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are there different types of missing data in the dataset (different reasons values can be unknown)? Does this have any implications for the way you would analyse the data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="vs-2011">
 <h2>2007 vs 2011<a class="headerlink" href="#vs-2011" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -1169,8 +1354,8 @@ Encountered a KeyError. This means the expected key isn&#39;t in your column map
 <li><p>How many rows do we have for each year?</p></li>
 <li><p>For each collection year, what % of null values do we have for each column?</p>
 <ul>
-<li><p>why is this?</p></li>
-<li><p>display these %s in descending  order sorted by: 2007 then 2011</p></li>
+<li><p>Why is this?</p></li>
+<li><p>Display these %s in descending  order sorted by: 2007 then 2011</p></li>
 </ul>
 </li>
 </ul>
@@ -1182,8 +1367,8 @@ Encountered a KeyError. This means the expected key isn&#39;t in your column map
 </div>
 </div>
 </div>
-<div class="section" id="more-missingness">
-<h2>More Missingness<a class="headerlink" href="#more-missingness" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uk-vs-spain">
+<h2>UK vs Spain<a class="headerlink" href="#uk-vs-spain" title="Permalink to this headline">¶</a></h2>
 <p>Further to the missing data we saw above, grouped by wave/year, how do missing values look for each country of collection?</p>
 <p>Compare the UK with Spain:</p>
 <ul class="simple">
@@ -1327,14 +1512,38 @@ Encountered a KeyError. This means the expected key isn&#39;t in your column map
 </div>
 </div>
 </div>
+<div class="section" id="your-turn">
+<h2>Your Turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>We now leave it to you to learn something interesting from the dataset, using any of the techniques we’ve learned. You could attempt to explore questions like the ones below, for example, but pick anything that appeals to you. Always take care to consider whether the values you’ve calculated are likely to be representative.</p>
+<ul class="simple">
+<li><p>Which age group is most optimistic about the future?</p></li>
+<li><p>Which country has the most trust in the police? And the least?</p></li>
+<li><p>Are there differences between genders for the highest level of education completed? Does this vary by country and/or age group?</p></li>
+</ul>
+<p>If you prefer, you could also do this with one of the example datasets we used during teaching:</p>
+<ul class="simple">
+<li><p>World Bank percentage of people living in urban environments (Section 2.1.4 Data Sources and Formats)</p></li>
+<li><p>Iris dataset (Section 2.2.1 Data Consistency)</p></li>
+<li><p>Anthropometric Survey of US Army Personnel (Section 2.2.3 Feature Engineering)</p></li>
+<li><p>New York Patient Characteristics Survey (Section 2.2.4.3 Categorical Data)</p></li>
+</ul>
+<p>These datasets are stored in the <code class="docutils literal notranslate"><span class="pre">coursebook/modules/m2/data</span></code> directory, but you may prefer to download the original versions as we made modifications for teaching.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "alan-turing-institute/rds-course# Online location of your book",
-            ref: "book",
+            repo: "alan-turing-institute/rds-course",
+            ref: "develop",
         },
         codeMirrorConfig: {
             theme: "abcdef",
