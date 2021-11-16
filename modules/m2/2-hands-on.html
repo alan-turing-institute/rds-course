@@ -796,7 +796,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2163</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2181</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
@@ -923,7 +923,7 @@ Y11_Country_n_unique answer incorrect
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2163</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2181</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="nn">      1 # we have to explicitly use latin1 encoding as the file is not saved</span> in <span class="ni">utf-8 </span><span class="nt">(our platform default)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1251,31 +1251,6 @@ Y11_Country_n_unique answer incorrect
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking each column...
-Encountered a KeyError. This means the expected key isn&#39;t in your column mapping!
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">b15451a599e2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>             <span class="s2">&quot;Encountered a KeyError. This means the expected key isn&#39;t in your column mapping!&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">218</span>         <span class="k">raise</span> <span class="n">e</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span> 
-<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Column mapping correct... Checking df columns set correctly...&quot;</span><span class="p">)</span>
-
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">b15451a599e2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">assert</span> <span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">210</span>             <span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span> <span class="o">==</span> <span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>         <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;mismatch at </span><span class="si">{</span><span class="n">old_val</span><span class="si">}</span><span class="s2">.</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="s2"> Got: </span><span class="si">{</span><span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">, expected: </span><span class="si">{</span><span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="ne">KeyError</span>: &#39;Wave&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="self-reported-health">
@@ -1399,94 +1374,6 @@ Encountered a KeyError. This means the expected key isn&#39;t in your column map
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Variable name</th>
-      <th>Variable label</th>
-      <th>Variable question text</th>
-      <th>Topic Classifications</th>
-      <th>Keywords</th>
-      <th>Variable Groups</th>
-      <th>Values if present - 2007</th>
-      <th>Values if present - 2011</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Wave</td>
-      <td>EQLS Wave</td>
-      <td>EQLS Wave</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Administrative Variables</td>
-      <td>2 = 2007\n3 = 2011</td>
-      <td>2 = 2007\n3 = 2011</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Y11_Country</td>
-      <td>Country</td>
-      <td>Country</td>
-      <td>Geographies</td>
-      <td>NaN</td>
-      <td>Household Grid and Country</td>
-      <td>1 = Austria\n2 = Belgium\n3 = Bulgaria\n4 = Cy...</td>
-      <td>1 = Austria\n2 = Belgium\n3 = Bulgaria\n4 = Cy...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Y11_Q31</td>
-      <td>Marital status</td>
-      <td>Marital status</td>
-      <td>Social stratification and groupings - Family l...</td>
-      <td>Marital status</td>
-      <td>Family and Social Life</td>
-      <td>1 = Married or living with partner\n2 = Separa...</td>
-      <td>1 = Married or living with partner\n2 = Separa...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Y11_Q32</td>
-      <td>No. of children</td>
-      <td>Number of children of your own</td>
-      <td>Social stratification and groupings - Family l...</td>
-      <td>Children</td>
-      <td>Family and Social Life</td>
-      <td>5 = 5 or more children</td>
-      <td>5 = 5 or more children</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Y11_ISCEDsimple</td>
-      <td>Education completed</td>
-      <td>Highest level of education completed</td>
-      <td>Education - Higher and further</td>
-      <td>Education levels</td>
-      <td>Education</td>
-      <td>1 = No education completed (ISCED 0)\n2 = Prim...</td>
-      <td>1 = No education completed (ISCED 0)\n2 = Prim...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>You can write your own function to extract the data you need from the <code class="docutils literal notranslate"><span class="pre">cat_vals_df</span></code> dataframe, input it manually, or use our prewritten function</p>
 <div class="cell docutils container">
