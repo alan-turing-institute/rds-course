@@ -808,7 +808,7 @@ Name: Smokes, dtype: int64
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It’s also possible to replace YES/NO values in multiple columns at a time, e.g., with df[[“Smokes”,  “Cancer”]].replace(yesno_encoding), or in the whole data frame with df.replace(yesno_encoding).</p>
+<p>It’s also possible to replace YES/NO values in multiple columns at a time, e.g., with <code class="docutils literal notranslate"><span class="pre">df[[&quot;Smokes&quot;,</span>&#160; <span class="pre">&quot;Cancer&quot;]].replace(yesno_encoding)</span></code>, or in the whole data frame with <code class="docutils literal notranslate"><span class="pre">df.replace(yesno_encoding)</span></code>.</p>
 </div>
 <p>This can be applied to any data with only two possible values, a coin flip dataset with a column <code class="docutils literal notranslate"><span class="pre">side</span> <span class="pre">=</span> <span class="pre">[&quot;Heads&quot;,</span> <span class="pre">&quot;Tails&quot;,</span> <span class="pre">&quot;Heads&quot;]</span></code> could be encoded as a single column <code class="docutils literal notranslate"><span class="pre">heads</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>, for example.</p>
 </div>
