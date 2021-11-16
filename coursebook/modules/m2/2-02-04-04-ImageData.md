@@ -17,7 +17,7 @@ kernelspec:
 
 Earlier in this module, we introduced image data as a 2d or 3d tensor representing pixel values.
 
-Commonly, we may wish to resize, reshape, and/or normalise image data. 
+Commonly, we may wish to resize, reshape, normalise or standardise image data. 
 
 ## Resizing (and Resampling)
 
@@ -75,11 +75,11 @@ ax[2].axis('off')
 plt.show()
 ```
 
-## Normalisation
+## Standardisation
 
-Image processing will often expect the data to be normalised.
+Image processing will often expect the data to be standardised.
 
-As we've seen that our image data is represented in a numeric 2d or 3d tensor, we can normalise by converting the image
+As we've seen that our image data is represented in a numeric 2d or 3d tensor, we can standardise by converting the image
  to have zero mean, and unit variance.
 
 ```{code-cell} ipython3
@@ -124,7 +124,7 @@ ax[1].axis('off')
 plt.show()
 ```
 
-Some sanity checks (code and output) for normalisation hidden below.
+Some sanity checks (code and output) for standardisation/normalisation hidden below.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -146,7 +146,7 @@ print()
 ```
 
  
-However, for many deep learning tasks, it is common to normalise image data by using precomputed dataset means and stds,
+However, for many deep learning tasks, it is common to standardise image data by using precomputed dataset means and standard deviations,
 rather than calculate these for each image. For example, using the ImageNet values:
 
 ```{code-cell} ipython3
