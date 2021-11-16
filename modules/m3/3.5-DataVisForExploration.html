@@ -497,13 +497,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missigness">
-   Missigness
+  <a class="reference internal nav-link" href="#missingness">
+   Missingness
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dealing-with-missingness">
      Dealing with Missingness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-questions-to-consider">
+     Other questions to consider
     </a>
    </li>
   </ul>
@@ -596,7 +601,7 @@ The study uses the following variables:</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2295</span><span class="o">/</span><span class="mf">717506466.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2268</span><span class="o">/</span><span class="mf">717506466.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;./data/UKDA-7724-csv/&#39;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df11</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
 
@@ -1652,9 +1657,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div></div></div>
 </div>
 </div>
-<div class="section" id="missigness">
-<h2>Missigness<a class="headerlink" href="#missigness" title="Permalink to this headline">¶</a></h2>
-<p>Lets now investigate the missigness of our variables of interest. There are three categories of missing data: Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR). Understanding the type of missigness present in our dataset is fundamental to justify the use (or dismissal) of a variable in our model. Furthermore, it will help inform the strategy for any kind of imputation done to avoid missing useful data.</p>
+<div class="section" id="missingness">
+<h2>Missingness<a class="headerlink" href="#missingness" title="Permalink to this headline">¶</a></h2>
+<p>Lets now investigate the missingness of our variables of interest. There are three categories of missing data: Missing Completely at Random (MCAR), Missing at Random (MAR), Missing Not at Random (MNAR). Understanding the type of missigness present in our dataset is fundamental to justify the use (or dismissal) of a variable in our model. Furthermore, it will help inform the strategy for any kind of imputation done to avoid missing useful data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Following command shows missing/non-missing values in two colors.</span>
@@ -1782,7 +1787,7 @@ DeprIndex              -0.441867   1.000000
 </div>
 </div>
 <p>From the above figure we can see that the distribution of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> shifts to the left as the income quartile increases (even though zero is the mode throughout). We have plotted it both ways round so better see the relationship.</p>
-<p>Though with such a small range of values a correlation is a little unreliable (and is pushed to lower values), we use Spearman’s rank correlation as a rough assessment of whether scoring higher on <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> means that one scores higher on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>. You can see that the correlation <code class="docutils literal notranslate"><span class="pre">-.4</span></code>. This correlation will be dampened by the mode being zero on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>.</p>
+<p>Though with such a small range of values a correlation is a little unreliable (and is pushed to lower values), we use Spearman’s rank correlation as a rough assessment of whether scoring higher on <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> means that one scores higher on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>. You can see that the correlation is -0.4. This correlation will be dampened by the mode being zero on the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>.</p>
 <p>There is a low amount of data missing in the other variables, with the highest being <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> at 7.6%. If we were to only include rows with a full set of data we would be losing around 11% of our data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1800,6 +1805,19 @@ Percentage excluded: 11.900532859680284%
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="other-questions-to-consider">
+<h3>Other questions to consider<a class="headerlink" href="#other-questions-to-consider" title="Permalink to this headline">¶</a></h3>
+<p>The presence and pattern of missing data in a dataset can contain valuable information. Before trying to remove or replace missing values, it can be helpful to understand what can be learned from their presence. This can be considered a data science problem in itself, and to explore it, many of the same data science techniques can be used that we cover in other parts of this course.</p>
+<p>While we do not consider this issue further, some questions that can be useful to ask when confronted with a dataset with missing values:</p>
+<ul class="simple">
+<li><p>Are there any fields that are commonly missing together? Are there particular patterns of missingness that are observed?</p></li>
+<li><p>Can they be visualized?</p></li>
+<li><p>Can the missingness of a field be modelled using the values of other fields? Which features were most informative for this?</p></li>
+<li><p>Do the above relationships involving missingness offer any insight into the underlying cause of the missing data?</p></li>
+<li><p>If so, can these be addressed or understood? For example, by discussing with the data provider or a domain expert?</p></li>
+</ul>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=PnNMfCRWL7k">This video</a> describes some case studies where visualizing patterns of missing values in a dataset resulted in useful insights.</p>
 </div>
 </div>
 <div class="section" id="relationships-between-variables">
@@ -1821,7 +1839,7 @@ Percentage excluded: 11.900532859680284%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_38_0.png" src="../../_images/3.5-DataVisForExploration_38_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_40_0.png" src="../../_images/3.5-DataVisForExploration_40_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               ChronicHealth       SRH
 ChronicHealth       1.000000 -0.607767
 SRH                -0.607767  1.000000
@@ -1842,7 +1860,7 @@ SRH                -0.607767  1.000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_40_0.png" src="../../_images/3.5-DataVisForExploration_40_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_42_0.png" src="../../_images/3.5-DataVisForExploration_42_0.png" />
 </div>
 </div>
 <p>As most our variables are ranks or categories, the plot matrix above might not be the best to visualise the relationships between variables. In this case is better to look at the rank correlations. Still, we take these with a pinch of salt because some of the variables are categorical rather than ordinal/numeric so the rank has little meaning (e.g. RuralUrban).</p>
@@ -1865,7 +1883,7 @@ SRH                -0.607767  1.000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_43_0.png" src="../../_images/3.5-DataVisForExploration_43_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_45_0.png" src="../../_images/3.5-DataVisForExploration_45_0.png" />
 </div>
 </div>
 <p>Next we can go through each loose grouping of <em>material</em>, <em>occupational</em> and <em>psychosocial</em> to assess the suitability of variables to include in our model.</p>
@@ -1898,7 +1916,7 @@ HouseholdSize   0.007266    0.024762       0.144886       1.000000  0.177397
 Children        0.059037    0.004160      -0.014654       0.177397  1.000000
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_45_1.png" src="../../_images/3.5-DataVisForExploration_45_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_47_1.png" src="../../_images/3.5-DataVisForExploration_47_1.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code> does not appear to monotonically increase with <code class="docutils literal notranslate"><span class="pre">Children</span></code>. Probably the mediation here is <code class="docutils literal notranslate"><span class="pre">Age</span></code>. One can live alone but have five children who each have their own households.</p>
@@ -1925,7 +1943,7 @@ DeprIndex
 6.0             30.0   15.0   6.0   3.0  2.0  NaN  NaN
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_47_1.png" src="../../_images/3.5-DataVisForExploration_47_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_49_1.png" src="../../_images/3.5-DataVisForExploration_49_1.png" />
 </div>
 </div>
 <p>There is a bias for zero accommodation problems but as deprivation increases the amount of accommodation problems tends to increase.</p>
@@ -1943,7 +1961,7 @@ DeprIndex
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_50_0.png" src="../../_images/3.5-DataVisForExploration_50_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_52_0.png" src="../../_images/3.5-DataVisForExploration_52_0.png" />
 </div>
 </div>
 <p>You can see that in the UK dataset, as with the global dataset, most of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> responses were zero (right graph above). In the left panel we have SRH. The responses here are:</p>
