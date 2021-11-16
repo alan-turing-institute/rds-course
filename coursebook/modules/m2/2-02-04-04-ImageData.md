@@ -19,9 +19,14 @@ Earlier in this module, we introduced image data as a 2d or 3d tensor representi
 
 Commonly, we may wish to resize, reshape, normalise or standardise image data. 
 
+
+```{admonition} Normalisation vs Standardisation
+*Normalisation* will typically rescale the values into a range of [0,1]. *Standardisation* will typically rescale data to have a mean of 0 and a standard deviation of 1 (unit variance).
+```
+
 ## Resizing (and Resampling)
 
-```{note}
+```{admonition} Resizing vs Resampling
 The term *resize* can be used to refer to changing the physical size of an image without changing the number of pixels.
 In these contexts, *resampling* is used to refer to the operation that changes the total number of pixels.
 
@@ -99,7 +104,7 @@ print(f"stds: {stds}")
 print()
 
 # subtract means and divide by stds
-normed = (im - means) / stds
+result = (im - means) / stds
 ```
 
 (code to display hidden below)
@@ -110,38 +115,38 @@ normed = (im - means) / stds
 # continue from last
 # display with matplotlib
 # scale range to [0,255] for display 
-normed_for_vis = cv2.normalize(normed, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
+for_vis = cv2.normalize(result, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
 ax[0].imshow(im, cmap='gray')
 ax[0].set_title("original")
 ax[0].axis('off')
 
-ax[1].imshow(normed_for_vis)
-ax[1].set_title("normed (for display only)")
+ax[1].imshow(for_vis)
+ax[1].set_title("standardised (for display only)")
 ax[1].axis('off')
 
 plt.show()
 ```
 
-Some sanity checks (code and output) for standardisation/normalisation hidden below.
+Some sanity checks (code and output) for standardisation hidden below.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
 
 ### sanity checks
 # check new means and stds
-normed_means, normed_stds = cv2.meanStdDev(normed)
+means, stds = cv2.meanStdDev(result)
 
 # check our new means are 0 (within given tolerance)
-np.testing.assert_allclose(normed_means, 0, atol=1e-07)
+np.testing.assert_allclose(means, 0, atol=1e-07)
 # check our new stds are 1 (within given tolerance)
-np.testing.assert_allclose(normed_stds, 1)
+np.testing.assert_allclose(stds, 1)
 
 
 # show top left "pixel"
 print(f"original top left: {im[0, 0, :]}")
-print(f"normed top left: {normed[0, 0, :]}")
+print(f"standardised top left: {result[0, 0, :]}")
 print()
 ```
 
@@ -163,8 +168,8 @@ imagenet_stds = [0.229, 0.224, 0.225]
 scaled = cv2.normalize(im, None, 0, 1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
 
 # subtract means and divide by stds
-imagenet_normed = (scaled - imagenet_means) / imagenet_stds
-print(imagenet_normed[0,0,:])
+imagenet_result = (scaled - imagenet_means) / imagenet_stds
+print(imagenet_result[0,0,:])
 ```
 
 ```{code-cell} ipython3
@@ -173,15 +178,15 @@ print(imagenet_normed[0,0,:])
 # continue from last
 # display with matplotlib
 # scale range to [0,255] for display 
-normed_for_vis = cv2.normalize(imagenet_normed, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
+imagenet_for_vis = cv2.normalize(imagenet_result, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U) 
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 5), dpi=80, sharex=True, sharey=True,)
 ax[0].imshow(im, cmap='gray')
 ax[0].set_title("original")
 ax[0].axis('off')
 
-ax[1].imshow(normed_for_vis)
-ax[1].set_title("ImageNet normed (for display only)")
+ax[1].imshow(imagenet_for_vis)
+ax[1].set_title("ImageNet standarised (for display only)")
 ax[1].axis('off')
 
 plt.show()
@@ -190,4 +195,4 @@ plt.show()
 We see that the image doesn't appear to have been altered to the same extent as before.
 This is due to the ImageNet values being less skewed towards the blue channel.
 
-note: many packages like [torchvision](https://pytorch.org/vision/stable/) will have convenience methods to do normalization for you.
+note: many packages like [torchvision](https://pytorch.org/vision/stable/) will have convenience methods to do standardisation/normalisation for you.
