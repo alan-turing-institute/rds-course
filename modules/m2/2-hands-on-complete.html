@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 2: Hands-on session &#8212; Research Data Science</title>
+    <title>Module 2: Hands-on session (Solutions) &#8212; Research Data Science</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Module 2: Hands-on session (Solutions)" href="2-hands-on-complete.html" />
-    <link rel="prev" title="2.2.7 Missing Data" href="2-02-07-MissingData.html" />
+    <link rel="next" title="Overview" href="../m3/overview.html" />
+    <link rel="prev" title="Module 2: Hands-on session" href="2-hands-on.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -256,13 +256,13 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-hands-on.html">
    Module 2: Hands-on session
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2-hands-on-complete.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Module 2: Hands-on session (Solutions)
   </a>
  </li>
@@ -386,7 +386,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-hands-on.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-hands-on-complete.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -406,7 +406,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/2-hands-on.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/2-hands-on-complete.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -427,7 +427,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-hands-on.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-hands-on-complete.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -560,8 +560,12 @@
         
               <div>
                 
-  <div class="section" id="module-2-hands-on-session">
-<h1>Module 2: Hands-on session<a class="headerlink" href="#module-2-hands-on-session" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-2-hands-on-session-solutions">
+<h1>Module 2: Hands-on session (Solutions)<a class="headerlink" href="#module-2-hands-on-session-solutions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These are sample solutions to the exercises for the Module 2 hands-on session. We don’t recommend looking here before you’ve attempted them!</p>
+</div>
 <p>In this hands-on notebook we’ll</p>
 <ul class="simple">
 <li><p>Create a Local Python Environment</p></li>
@@ -686,16 +690,8 @@
 <p>The last step creates a new shell setup to use the Python virtual environment we just created (e.g. <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, should now show the path returned earlier by <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">env</span> <span class="pre">info</span></code> above, rather the path to your global Python executable). If you want to stop using the virtual environment <code class="docutils literal notranslate"><span class="pre">exit</span></code> the shell.</p>
 <p><strong>Troubleshooting:</strong></p>
 <ul class="simple">
-<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code></strong>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">curl</span></code> is used to download a Python script (currently <a class="reference external" href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">this script</a> but check the <a class="reference external" href="https://python-poetry.org/docs/#installation">Poetry documentation</a> for the latest URL). Save this script as <code class="docutils literal notranslate"><span class="pre">get-poetry.py</span></code> and then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-poetry.py</span></code> to install Poetry.</p></li>
-</ul>
-</li>
-<li><p><strong>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">Poetry</span></code></strong>:</p>
-<ul>
-<li><p>You can install the course dependencies by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, but we recommend doing this in an alternative virtual environment of your choice (not in your global Python installation).</p></li>
-</ul>
-</li>
+<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">curl</span></code> is used to download a Python script (currently <a class="reference external" href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">this script</a> but check the <a class="reference external" href="https://python-poetry.org/docs/#installation">Poetry documentation</a> for the latest URL). Save this script as <code class="docutils literal notranslate"><span class="pre">get-poetry.py</span></code> and then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-poetry.py</span></code> to install Poetry.</p></li>
+<li><p><strong>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">Poetry</span></code></strong>: You can install the course dependencies by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, but we recommend doing this in an alternative virtual environment of your choice (not in your global Python installation).</p></li>
 </ul>
 </div>
 </div>
@@ -767,13 +763,7 @@
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Answer:</strong> There are 199 variables listed in <code class="docutils literal notranslate"><span class="pre">mrdoc/excel/eqls_concordance_grid.xlsx</span></code>. There are a number of “Variable Groups” (e.g. “Family and Social Life”) and “Topic Classifications” (e.g. “Social stratification and groupings - Family life and marriage”)</p>
 </div>
 <div class="section" id="code-for-later-skip-for-now">
 <h2>Code For Later (skip for now!)<a class="headerlink" href="#code-for-later-skip-for-now" title="Permalink to this headline">¶</a></h2>
@@ -821,12 +811,11 @@
 <p>Read the combined 2007 and 2011 data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO read in the file and display the head</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANSWER read in the file and display the head</span>
 <span class="c1">####</span>
-<span class="c1"># your code here</span>
-<span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">COMBINED_CSV_PATH</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
-<span class="c1"># end your code</span>
 <span class="c1">####  </span>
 
 <span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
@@ -837,138 +826,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2042</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">79270</span><span class="p">,</span> <span class="s2">&quot;unexpected no. of rows&quot;</span> <span class="c1"># check number of rows matches expected</span>
-
-<span class="ne">AssertionError</span>: df is not a DataFrame
-</pre></div>
-</div>
-</div>
-</div>
-<p>Take a look at some summary statistics and use these to assign the variables below correctly.</p>
-<p>You can assign the variables manually from inspecting printed output or assign them results from methods/properties.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO - code to explore dataframe can go here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO - fill in the below with the correct values</span>
-<span class="n">n_columns</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many columns are there in the DataFrame? Does this match number of variables you expected?</span>
-<span class="n">n_float64_columns</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many columns are of dtype float64?</span>
-<span class="n">Y11_Q31_mean_value</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#  what is the mean of the values in the Y11_Q31 column?</span>
-<span class="n">Y11_Country_n_unique</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># how many unique values in the Y11_Country column?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden! don&#39;t look here!</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># not using assert statements as they give away the answers!</span>
-<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="n">n_columns_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_columns</span> <span class="o">==</span> <span class="mi">199</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">n_float64_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_float64_columns</span> <span class="o">==</span> <span class="mi">187</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">Y11_Q31_mean_value_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Y11_Q31_mean_value</span><span class="p">,</span> <span class="mf">1.856049</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">Y11_Country_n_unique_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">Y11_Country_n_unique</span> <span class="o">==</span> <span class="mi">35</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_columns answer </span><span class="si">{</span><span class="n">n_columns_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_float64_columns answer </span><span class="si">{</span><span class="n">n_float64_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Q31_mean_value answer </span><span class="si">{</span><span class="n">Y11_Q31_mean_value_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Country_n_unique answer </span><span class="si">{</span><span class="n">Y11_Country_n_unique_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_columns answer incorrect
-n_float64_columns answer incorrect
-Y11_Q31_mean_value answer incorrect
-Y11_Country_n_unique answer incorrect
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="different-data-types">
-<h2>Different Data Types<a class="headerlink" href="#different-data-types" title="Permalink to this headline">¶</a></h2>
-<p>Are there columns containing the following types of data? If so give examples.</p>
-<ul class="simple">
-<li><p>Numeric data (without a set of pre-defined categories)</p></li>
-<li><p>Binary data</p></li>
-<li><p>Categorical data, unordered</p></li>
-<li><p>Categorical data, ordered</p></li>
-<li><p>Text data</p></li>
-<li><p>Time or date data</p></li>
-</ul>
-<p>Note: The dataset contains at least 4 of these, try to have another look if you found fewer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>For one example of each type, what are the possible values the data can take, according to the documentation? What does each value mean? Is each possible value present in the dataset?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>What is the minimum, maximum and mean value in each of your example columns? Taking into consideration the type of data in the column, are all of these values meaningful?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>For one of the categorical columns, replace the numerical encodings with their actual meaning (category title). You can do this by manually creating a Python dictionary with the values to replace (we’ll look at extracting them with code later). What is the most common value?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="making-things-more-readable">
-<h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
-<p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
-<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code>.</p>
-<p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have to explicitly use latin1 encoding as the file is not saved in utf-8 (our platform default)</span>
-<span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
-<span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2042</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">      1 # we have to explicitly use latin1 encoding as the file is not saved</span> in <span class="ni">utf-8 </span><span class="nt">(our platform default)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2064</span><span class="o">/</span><span class="mf">756009396.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># ANSWER read in the file and display the head</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">####</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">COMBINED_CSV_PATH</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
 
 <span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
@@ -1026,10 +890,699 @@ Y11_Country_n_unique answer incorrect
 <span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">                 handle,</span>
 <span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                 ioargs.mode,</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/UKDA-7724-csv/mrdoc/excel/eqls_api_map.csv&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/UKDA-7724-csv/csv/eqls_2007and2011.csv&#39;
 </pre></div>
 </div>
 </div>
+</div>
+<p>Take a look at some summary statistics and use these to assign the variables below correctly.</p>
+<p>You can assign the variables manually from inspecting printed output or assign them results from methods/properties.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANSWER - example functions to explore and answer questions below</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2064</span><span class="o">/</span><span class="mf">3757882994.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># ANSWER - example functions to explore and answer questions below</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wave</th>
+      <th>Y11_Country</th>
+      <th>Y11_Q31</th>
+      <th>Y11_Q32</th>
+      <th>Y11_ISCEDsimple</th>
+      <th>Y11_Q49</th>
+      <th>Y11_Q67_1</th>
+      <th>Y11_Q67_2</th>
+      <th>Y11_Q67_3</th>
+      <th>Y11_Q67_4</th>
+      <th>...</th>
+      <th>DV_Q7</th>
+      <th>DV_Q67</th>
+      <th>DV_Q43Q44</th>
+      <th>DV_Q54a</th>
+      <th>DV_Q54b</th>
+      <th>DV_Q55</th>
+      <th>DV_Q56</th>
+      <th>DV_Q8</th>
+      <th>DV_Q10</th>
+      <th>RowID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>79270.000000</td>
+      <td>79270.000000</td>
+      <td>78756.000000</td>
+      <td>78769.000000</td>
+      <td>78556.000000</td>
+      <td>79082.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>...</td>
+      <td>2225.000000</td>
+      <td>43636.000000</td>
+      <td>78312.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>43636.000000</td>
+      <td>79270.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.550473</td>
+      <td>16.841138</td>
+      <td>1.856049</td>
+      <td>1.598141</td>
+      <td>4.019146</td>
+      <td>2.640955</td>
+      <td>1.959368</td>
+      <td>1.023673</td>
+      <td>1.019204</td>
+      <td>1.001971</td>
+      <td>...</td>
+      <td>52.612135</td>
+      <td>1.086465</td>
+      <td>2.485992</td>
+      <td>2.815565</td>
+      <td>2.925635</td>
+      <td>0.303442</td>
+      <td>0.231437</td>
+      <td>3.931708</td>
+      <td>3.283482</td>
+      <td>39635.500000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.497449</td>
+      <td>9.358320</td>
+      <td>1.186271</td>
+      <td>1.276425</td>
+      <td>1.368993</td>
+      <td>0.987352</td>
+      <td>0.197437</td>
+      <td>0.152030</td>
+      <td>0.137244</td>
+      <td>0.044351</td>
+      <td>...</td>
+      <td>15.696943</td>
+      <td>0.460388</td>
+      <td>0.838558</td>
+      <td>0.721642</td>
+      <td>0.568403</td>
+      <td>0.881979</td>
+      <td>0.827727</td>
+      <td>0.436254</td>
+      <td>1.130667</td>
+      <td>22883.422256</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>9.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>43.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>19818.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.000000</td>
+      <td>16.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>50.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>39635.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>25.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>61.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>59452.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.000000</td>
+      <td>35.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>8.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>...</td>
+      <td>80.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>79270.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 196 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANSWER</span>
+<span class="n">n_columns</span> <span class="o">=</span> <span class="mi">199</span> <span class="c1"># how many columns are there in the DataFrame? This matches the number expected from the documentation.</span>
+<span class="n">n_float64_columns</span> <span class="o">=</span> <span class="mi">187</span> <span class="c1"># how many columns are of dtype float64?</span>
+<span class="n">Y11_Q31_mean_value</span> <span class="o">=</span> <span class="mf">1.856049</span> <span class="c1">#  what is the mean of the values in the Y11_Q31 column?</span>
+<span class="n">Y11_Country_n_unique</span> <span class="o">=</span> <span class="mi">35</span> <span class="c1"># how many unique values in the Y11_Country column?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden! don&#39;t look here!</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># not using assert statements as they give away the answers!</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">n_columns_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_columns</span> <span class="o">==</span> <span class="mi">199</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">n_float64_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_float64_columns</span> <span class="o">==</span> <span class="mi">187</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">Y11_Q31_mean_value_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Y11_Q31_mean_value</span><span class="p">,</span> <span class="mf">1.856049</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+<span class="n">Y11_Country_n_unique_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">Y11_Country_n_unique</span> <span class="o">==</span> <span class="mi">35</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_columns answer </span><span class="si">{</span><span class="n">n_columns_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_float64_columns answer </span><span class="si">{</span><span class="n">n_float64_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Q31_mean_value answer </span><span class="si">{</span><span class="n">Y11_Q31_mean_value_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Country_n_unique answer </span><span class="si">{</span><span class="n">Y11_Country_n_unique_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_columns answer correct
+n_float64_columns answer correct
+Y11_Q31_mean_value answer correct
+Y11_Country_n_unique answer correct
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="different-data-types">
+<h2>Different Data Types<a class="headerlink" href="#different-data-types" title="Permalink to this headline">¶</a></h2>
+<p>Are there columns containing the following types of data? If so give examples.</p>
+<ul class="simple">
+<li><p>Numeric data (without a set of pre-defined categories)</p></li>
+<li><p>Binary data</p></li>
+<li><p>Categorical data, unordered</p></li>
+<li><p>Categorical data, ordered</p></li>
+<li><p>Text data</p></li>
+<li><p>Time or date data</p></li>
+</ul>
+<p>Note: The dataset contains at least 4 of these, try to have another look if you found fewer.</p>
+<p><strong>Answer</strong>:</p>
+<p>A few examples:</p>
+<ul class="simple">
+<li><p>Numeric data</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Q8</span></code> (How many hours would you prefer to work)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Q52</span></code> (How much time spent on travelling to work/study)</p></li>
+</ul>
+</li>
+<li><p>Binary data</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Q67_1</span></code> (I am a citizen of the country)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_HH2a</span></code> (Gender - discussion point re inclusivity)</p></li>
+</ul>
+</li>
+<li><p>Categorical data, unordered</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Country</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_EmploymentStatus</span></code> (e.g. no clear ordering between retired, unable to work, homemaker and unemployed)</p></li>
+</ul>
+</li>
+<li><p>Categorical data, ordered</p>
+<ul>
+<li><p>Majority of the data can be treated as ordered categories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Agecategory</span></code> (Age)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Q53a</span></code> (Quality of Health services)</p></li>
+</ul>
+</li>
+<li><p>Text data</p>
+<ul>
+<li><p>There are no free text fields, but there are a couple of columns with strings (IDs/URLs mostly), e.g. <code class="docutils literal notranslate"><span class="pre">ISO3166_Country</span></code>, <code class="docutils literal notranslate"><span class="pre">UniqueID</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Time or date data</p>
+<ul>
+<li><p>None in this dataset (could claim that <code class="docutils literal notranslate"><span class="pre">Wave</span></code> is perhaps as it represents a year)</p></li>
+</ul>
+</li>
+</ul>
+<p>For one example of each type, what are the possible values the data can take, according to the documentation? What does each value mean? Is each possible value present in the dataset?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numeric example:</span>
+<span class="c1"># Note the question of &quot;what are the possible values&quot; only really makes sense for categorical data,</span>
+<span class="c1"># but we could talk about the range of values in the data.</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q8&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="c1"># units are hours</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    37958.000000
+mean        29.658043
+std         16.476718
+min          0.000000
+25%         20.000000
+50%         36.000000
+75%         40.000000
+max        120.000000
+Name: Y11_Q8, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Binary example:</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q67_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="c1"># 1 means No and 2 means Yes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0    41863
+1.0     1773
+Name: Y11_Q67_1, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unordered categorical example:</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_EmploymentStatus&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Values represent employment status: 1 = Employed (includes on leave), 2 = Unemployed, 3 = Unable to work - disability/illness,</span>
+<span class="c1"># 4 = Retired, 5 = Homemaker, 6 = Student, 7 = Other&quot;</span>
+<span class="c1"># There are rows with all 7 values present.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    36381
+4    22925
+5     7372
+2     5375
+6     4259
+3     1720
+7     1238
+Name: Y11_EmploymentStatus, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ordered categorical example:</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q53a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># Values are respondent&#39;s rating of the quality of health services, from 1 (very poor) to 10 (very high).</span>
+<span class="c1"># There are rows with all 10 values present.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0      3481
+2.0      2876
+3.0      5041
+4.0      5963
+5.0     12780
+6.0      9705
+7.0     13805
+8.0     13970
+9.0      5672
+10.0     4715
+Name: Y11_Q53a, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the minimum, maximum and mean value in each of your example columns? Taking into consideration the type of data in the column, are all of these values meaningful?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Can use &quot;describe&quot; or the &quot;min&quot;, &quot;max&quot; and &quot;mean&quot; functions</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q8&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>  <span class="c1"># Numeric</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    37958.000000
+mean        29.658043
+std         16.476718
+min          0.000000
+25%         20.000000
+50%         36.000000
+75%         40.000000
+max        120.000000
+Name: Y11_Q8, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q67_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>  <span class="c1"># Binary</span>
+
+<span class="c1"># The mean represents the proportion of people that answered &quot;Yes&quot; here (1.96  means 96% of</span>
+<span class="c1"># people answered Yes (2), and 4% no (1). Would be clearer if no was 0 and yes was 1.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    43636.000000
+mean         1.959368
+std          0.197437
+min          1.000000
+25%          2.000000
+50%          2.000000
+75%          2.000000
+max          2.000000
+Name: Y11_Q67_1, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_EmploymentStatus&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># Unordered category</span>
+
+<span class="c1"># Note: The mean or an unordered category is not meaningful!</span>
+<span class="c1"># E.g. if we had 2 people, one with a value of 4 (retired), and one with 5 (homemaker), we&#39;d compute</span>
+<span class="c1"># a mean of 4.5 - does that mean they&#39;re part-time retired, part-time homemaker?!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    79270.000000
+mean         2.713145
+std          1.793318
+min          1.000000
+25%          1.000000
+50%          2.000000
+75%          4.000000
+max          7.000000
+Name: Y11_EmploymentStatus, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_Q53a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>  <span class="c1"># Ordered  category</span>
+
+<span class="c1"># Need to be careful about interpreting the mean for ordered categories. For this column the</span>
+<span class="c1"># categories are ratings from 1 to 10, and the mean rating represents what you&#39;d expect. Others may</span>
+<span class="c1"># be more nuanced, e.g. the age category column has categories with different sized bins (18-24</span>
+<span class="c1"># covers 7 years, 35-49 covers 15 years, 65+ covers N years).</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    78008.000000
+mean         6.113873
+std          2.293152
+min          1.000000
+25%          5.000000
+50%          6.000000
+75%          8.000000
+max         10.000000
+Name: Y11_Q53a, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>For one of the categorical columns, replace the numerical encodings with their actual meaning (category title). You can do this by manually creating a Python dictionary with the values to replace (we’ll look at extracting them with code later). What is the most common value?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">status_encoding</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Employed (includes on leave)&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Unemployed&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Unable to work - disability/illness&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Retired&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Homemaker&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Student&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Other&quot;</span>
+<span class="p">}</span>
+
+<span class="n">employment_status</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_EmploymentStatus&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">status_encoding</span><span class="p">)</span>
+<span class="n">employment_status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Employed (includes on leave)           36381
+Retired                                22925
+Homemaker                               7372
+Unemployed                              5375
+Student                                 4259
+Unable to work - disability/illness     1720
+Other                                   1238
+Name: Y11_EmploymentStatus, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="making-things-more-readable">
+<h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
+<p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
+<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code>.</p>
+<p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have to explicitly use latin1 encoding as the file is not saved in utf-8 (our platform default)</span>
+<span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VariableName</th>
+      <th>VariableLabel</th>
+      <th>Question</th>
+      <th>TopicValue</th>
+      <th>KeywordValue</th>
+      <th>VariableGroupValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wave</td>
+      <td>EQLS Wave</td>
+      <td>EQLS Wave</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Administrative Variables</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Y11_Country</td>
+      <td>Country</td>
+      <td>Country</td>
+      <td>Geographies</td>
+      <td>NaN</td>
+      <td>Household Grid and Country</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Y11_Q31</td>
+      <td>Marital status</td>
+      <td>Marital status</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Marital status</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Y11_Q32</td>
+      <td>No. of children</td>
+      <td>Number of children of your own</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Children</td>
+      <td>Family and Social Life</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Y11_ISCEDsimple</td>
+      <td>Education completed</td>
+      <td>Highest level of education completed</td>
+      <td>Education - Higher and further</td>
+      <td>Education levels</td>
+      <td>Education</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>TODO:</p>
 <ul class="simple">
@@ -1056,8 +1609,28 @@ Y11_Country_n_unique answer incorrect
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-<span class="n">column_mapping</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer</span>
+<span class="n">old_cols</span> <span class="o">=</span> <span class="n">eqls_api_map_df</span><span class="p">[</span><span class="s2">&quot;VariableName&quot;</span><span class="p">]</span>
+
+<span class="c1"># The 4 .str calls below:</span>
+<span class="c1">#  convert to lowercase</span>
+<span class="c1">#  remove apostrophes</span>
+<span class="c1">#  replace whitespace with _</span>
+<span class="c1">#  rremove consecutive underscores</span>
+<span class="n">new_cols</span> <span class="o">=</span> <span class="n">eqls_api_map_df</span><span class="p">[</span><span class="s2">&quot;VariableLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^\w]&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>\
+                                        <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_+&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="n">column_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">old_cols</span><span class="p">,</span> <span class="n">new_cols</span><span class="p">))</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_20762/2321633883.py:9: FutureWarning: The default value of regex will change from True to False in a future version.
+  new_cols = eqls_api_map_df[&quot;VariableLabel&quot;].str.lower()\
 </pre></div>
 </div>
 </div>
@@ -1293,6 +1866,13 @@ Y11_Country_n_unique answer incorrect
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking each column...
+Column mapping correct... Checking df columns set correctly...
+Success!
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="self-reported-health">
@@ -1301,7 +1881,20 @@ Y11_Country_n_unique answer incorrect
 <p>Which column in the dataset contains self-reported health values? How many people had “Very good” self-reported health?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The relevant column is &quot;health_condition&quot; (Y11_Q42 before renaming)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;health_condition&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># 16898 people reported &quot;very good&quot; health (value of 1 below)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0    16898
+2.0    31248
+3.0    22265
+4.0     6916
+5.0     1802
+Name: health_condition, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1309,7 +1902,70 @@ Y11_Country_n_unique answer incorrect
 <p>For the models we develop in Module 4 we’ll convert self-reported health into a binary variable. What might be a sensible way to group the categories into only two possible values? Create a new column with your proposed binary encoding for self-reported health.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Could assign 1, 2, 3 (very good, good, fair) as &quot;good health&quot;, and 4, 5 (bad, very bad) as &quot;bad health&quot;.</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;bad_health&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;health_condition&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;health_condition&quot;</span><span class="p">,</span> <span class="s2">&quot;bad_health&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Note this creates very imbalanced classes.</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;bad_health&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>health_condition</th>
+      <th>bad_health</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>71338</th>
+      <td>4.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>71986</th>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>46178</th>
+      <td>2.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>36138</th>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>28539</th>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    70552
+1     8718
+Name: bad_health, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1321,19 +1977,62 @@ Y11_Country_n_unique answer incorrect
 <p>Look at one row of the data. What value does Pandas use to represent missing data? How many missing values are there in the row you picked?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># missing values represented by &quot;nan&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 4.0, 0.0, 4.0, 4.0, nan, nan, nan, nan, nan, 1, 1, 4, nan, 5,
+       2.0, 6, nan, 2.0, nan, 2, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, 1.0, 2.0, nan, 4.0, 3.0, 1.0, 2.0, 2.0,
+       2.0, 2.0, 1.0, 4.0, nan, nan, nan, nan, nan, nan, 2.0, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, 7.0, 6.0, 8.0, 7.0,
+       nan, nan, 6.0, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, 6.0, 2.0, 2.0, 2.0, 2.0,
+       2.0, 2.0, nan, 7.0, 6.0, 7.0, 8.0, 8.0, nan, nan, nan, nan, nan,
+       nan, nan, nan, nan, nan, 2.0, nan, nan, 2.0, 3.0, 1.0, 2.0, 4.0,
+       nan, 3.5, nan, nan, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0,
+       nan, nan, nan, nan, 0.0, 2.0, nan, nan, nan, 3.0, 9.0, nan, 9.0,
+       7.0, 8.0, 10.0, 10.0, nan, 7.0, 3.0, 2.0, 2.0, 1.0, 2.0, nan, nan,
+       nan, 80.0, 3.6421, 1.80451061034635, 1.80982660081538, nan, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, nan, 2.0, 5.0, 2.0, nan,
+       nan, nan, nan, nan, nan, nan, nan, nan, 3.0, nan, nan, nan, nan,
+       nan, nan, &#39;https://www.iso.org/obp/ui/#iso:code:3166:AT&#39;, 1,
+       &#39;https://api.ukdataservice.ac.uk/V1/datasets/eqls/rows/1&#39;,
+       &#39;AT9000083&#39;, 0], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="c1"># no. of missing values in this row</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113
 </pre></div>
 </div>
 </div>
 </div>
 <p>Looking at the possible values for each column in the dataset documentation, find two different columns and at least two different values that are also used to represent missing or unknown information.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Answer:</strong> Examples include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">education_3_groups</span></code> (<code class="docutils literal notranslate"><span class="pre">Y11_Education</span></code> before renaming)</p>
+<ul>
+<li><p>5 = “Don’t know”, 6 = “Refused to Answer”.</p></li>
+<li><p>4 = “Educated abroad”: Could also be considered missing (as we don’t know whether it was primary/secondary/tertiary education)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direct_contact_with_children</span></code> (<code class="docutils literal notranslate"><span class="pre">Y11_Q33a</span></code> before renaming)</p>
+<ul>
+<li><p>6 = “NA”</p></li>
+</ul>
+</li>
+</ul>
 <p>For the columns you picked:</p>
 <ul class="simple">
 <li><p>How many missing values does Pandas say the column has?</p></li>
@@ -1342,7 +2041,24 @@ Y11_Country_n_unique answer incorrect
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;education_3_groups&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Pandas missing values&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Numeric representation of missing values</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;direct_contact_with_children&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Pandas missing values&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Numeric representation of missing values&quot;</span><span class="p">)</span>
+
+<span class="c1"># In both cases Pandas does NOT know to include the numeric values in its count of missing data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>education_3_groups : 623 Pandas missing values
+education_3_groups : 276 Numeric representation of missing values
+
+direct_contact_with_children : 47519 Pandas missing values
+direct_contact_with_children : 6860 Numeric representation of missing values
 </pre></div>
 </div>
 </div>
@@ -1350,19 +2066,27 @@ Y11_Country_n_unique answer incorrect
 <p>Replace the numbers representing missing values in the columns you picked with the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> type from <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. What is the Pandas count of missing values now?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;education_3_groups&quot;</span>
+<span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Pandas missing values&quot;</span><span class="p">)</span>
+
+<span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;direct_contact_with_children&quot;</span>
+<span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;Pandas missing values&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>education_3_groups : 899 Pandas missing values
+direct_contact_with_children : 54379 Pandas missing values
 </pre></div>
 </div>
 </div>
 </div>
 <p>Are there different types of missing data in the dataset (different reasons values can be unknown)? Does this have any implications for the way you would analyse the data?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Answer:</strong> Yes, as described above in the <code class="docutils literal notranslate"><span class="pre">education_3_groups</span></code> values could be unknown becuase they’re missing, the person refused to anwer, or the person was educated abroad. Being educated abroad, for example, is quite a different reason for not knowing what level of education they received (and perhaps could be correlated with having more opportunities or wealth).</p>
 </div>
 <div class="section" id="vs-2011">
 <h2>2007 vs 2011<a class="headerlink" href="#vs-2011" title="Permalink to this headline">¶</a></h2>
@@ -1378,11 +2102,112 @@ Y11_Country_n_unique answer incorrect
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Column to use is &quot;eqls_wave&quot;</span>
+<span class="c1"># 2 is 2007, and 3 is 2011</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    43636
+2    35634
+Name: eqls_wave, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">missing</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>eqls_wave</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_quality_of_care_</th>
+      <td>100.0</td>
+      <td>89.603</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_cost_</th>
+      <td>100.0</td>
+      <td>89.534</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_access_</th>
+      <td>100.0</td>
+      <td>89.495</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_long_term_care_because_of_availability_</th>
+      <td>100.0</td>
+      <td>89.433</td>
+    </tr>
+    <tr>
+      <th>difficult_to_use_child_care_because_of_quality_of_care_</th>
+      <td>100.0</td>
+      <td>83.401</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>iso3166_country_url</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>rowid_for_the_uk_data_service_public_api</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>root_uri_for_a_row_respondent_that_displays_all_data_values_for_a_single_row_via_the_uk_data_service_public_api</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>unique_respondent_id</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>bad_health</th>
+      <td>0.0</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Why? In <code class="docutils literal notranslate"><span class="pre">UKDA-7724-csv/mrdoc/excel/eqls_concordance_grid.xlsx</span></code> we can see some variables not collected for given year.</p>
 </div>
 <div class="section" id="uk-vs-spain">
 <h2>UK vs Spain<a class="headerlink" href="#uk-vs-spain" title="Permalink to this headline">¶</a></h2>
@@ -1396,7 +2221,8 @@ Y11_Country_n_unique answer incorrect
 <p>For simplicity, just look at 2011 data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2011</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select 2011 data</span>
+<span class="n">df_2011</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;eqls_wave&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1416,29 +2242,260 @@ Y11_Country_n_unique answer incorrect
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable name</th>
+      <th>Variable label</th>
+      <th>Variable question text</th>
+      <th>Topic Classifications</th>
+      <th>Keywords</th>
+      <th>Variable Groups</th>
+      <th>Values if present - 2007</th>
+      <th>Values if present - 2011</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Wave</td>
+      <td>EQLS Wave</td>
+      <td>EQLS Wave</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Administrative Variables</td>
+      <td>2 = 2007\n3 = 2011</td>
+      <td>2 = 2007\n3 = 2011</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Y11_Country</td>
+      <td>Country</td>
+      <td>Country</td>
+      <td>Geographies</td>
+      <td>NaN</td>
+      <td>Household Grid and Country</td>
+      <td>1 = Austria\n2 = Belgium\n3 = Bulgaria\n4 = Cy...</td>
+      <td>1 = Austria\n2 = Belgium\n3 = Bulgaria\n4 = Cy...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Y11_Q31</td>
+      <td>Marital status</td>
+      <td>Marital status</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Marital status</td>
+      <td>Family and Social Life</td>
+      <td>1 = Married or living with partner\n2 = Separa...</td>
+      <td>1 = Married or living with partner\n2 = Separa...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Y11_Q32</td>
+      <td>No. of children</td>
+      <td>Number of children of your own</td>
+      <td>Social stratification and groupings - Family l...</td>
+      <td>Children</td>
+      <td>Family and Social Life</td>
+      <td>5 = 5 or more children</td>
+      <td>5 = 5 or more children</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Y11_ISCEDsimple</td>
+      <td>Education completed</td>
+      <td>Highest level of education completed</td>
+      <td>Education - Higher and further</td>
+      <td>Education levels</td>
+      <td>Education</td>
+      <td>1 = No education completed (ISCED 0)\n2 = Prim...</td>
+      <td>1 = No education completed (ISCED 0)\n2 = Prim...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>You can write your own function to extract the data you need from the <code class="docutils literal notranslate"><span class="pre">cat_vals_df</span></code> dataframe, input it manually, or use our prewritten function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_mapping_2011</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># TODO</span>
-
-
-<span class="c1"># uncomment beow if you want to use our pre-written function to parse the data for country mappings</span>
-<span class="c1"># note: if you get &quot;NameError: name &#39;parse_country_values_2011&#39; is not defined&quot;, go and run the code in the &quot;Code For Later&quot; section.</span>
-<span class="c1">#country_mapping_2011 = parse_country_values_2011(categorical_values_df=cat_vals_df)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note: if you get &quot;NameError: name &#39;parse_country_values_2011&#39; is not defined&quot;, go and run</span>
+<span class="c1"># the code in the &quot;Code For Later&quot; section.</span>
+<span class="n">country_mapping_2011</span> <span class="o">=</span> <span class="n">parse_country_values_2011</span><span class="p">(</span><span class="n">categorical_values_df</span><span class="o">=</span><span class="n">cat_vals_df</span><span class="p">)</span>
 
 <span class="c1"># display</span>
 <span class="n">country_mapping_2011</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO - Null values in UK vs Spain</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: &#39;Austria&#39;,
+ 2: &#39;Belgium&#39;,
+ 3: &#39;Bulgaria&#39;,
+ 4: &#39;Cyprus&#39;,
+ 5: &#39;Czech Republic&#39;,
+ 6: &#39;Germany&#39;,
+ 7: &#39;Denmark&#39;,
+ 8: &#39;Estonia&#39;,
+ 9: &#39;Greece&#39;,
+ 10: &#39;Spain&#39;,
+ 11: &#39;Finland&#39;,
+ 12: &#39;France&#39;,
+ 13: &#39;Hungary&#39;,
+ 14: &#39;Ireland&#39;,
+ 15: &#39;Italy&#39;,
+ 16: &#39;Lithuania&#39;,
+ 17: &#39;Luxembourg&#39;,
+ 18: &#39;Latvia&#39;,
+ 19: &#39;Malta&#39;,
+ 20: &#39;Netherlands&#39;,
+ 21: &#39;Poland&#39;,
+ 22: &#39;Portugal&#39;,
+ 23: &#39;Romania&#39;,
+ 24: &#39;Sweden&#39;,
+ 25: &#39;Slovenia&#39;,
+ 26: &#39;Slovakia&#39;,
+ 27: &#39;UK&#39;,
+ 28: &#39;Turkey&#39;,
+ 29: &#39;Croatia&#39;,
+ 30: &#39;Macedonia (FYROM)&#39;,
+ 31: &#39;Kosovo&#39;,
+ 32: &#39;Serbia&#39;,
+ 33: &#39;Montenegro&#39;,
+ 34: &#39;Iceland&#39;,
+ 35: &#39;Norway&#39;}
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add country_human column with mapped value</span>
+<span class="n">df_2011</span><span class="p">[</span><span class="s2">&quot;country_human&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_2011</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">country_mapping_2011</span><span class="p">)</span> <span class="c1"># ignore set with copy warning</span>
+
+<span class="c1"># % missing values in each column for each country</span>
+<span class="n">by_country</span> <span class="o">=</span> <span class="n">df_2011</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_human&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="c1"># extract UK and Spain</span>
+<span class="n">uk_vs_spain</span> <span class="o">=</span> <span class="n">by_country</span><span class="p">[[</span><span class="s2">&quot;UK&quot;</span><span class="p">,</span> <span class="s2">&quot;Spain&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_20762/1548146086.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_2011[&quot;country_human&quot;] = df_2011[&quot;country&quot;].map(country_mapping_2011) # ignore set with copy warning
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one 0% NA but not the other</span>
+<span class="n">uk_vs_spain</span><span class="p">[(</span><span class="n">uk_vs_spain</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>country_human</th>
+      <th>UK</th>
+      <th>Spain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rural_urban_living</th>
+      <td>0.577</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>dv_rural_urban_living</th>
+      <td>0.577</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>degree_of_urbanisation</th>
+      <td>5.595</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>health_condition</th>
+      <td>0.044</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>how_frequently_take_part_in_sports_or_exercise_</th>
+      <td>0.089</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>how_frequently_participate_in_social_activities_</th>
+      <td>0.089</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>how_often_worked_unpaid_for_community_services_last_12_months_</th>
+      <td>0.000</td>
+      <td>0.794</td>
+    </tr>
+    <tr>
+      <th>how_often_worked_unpaid_for_education_cultural_etc_organisation_last_12_months_</th>
+      <td>0.000</td>
+      <td>0.794</td>
+    </tr>
+    <tr>
+      <th>how_satisfied_with_present_standard_of_living_</th>
+      <td>0.044</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>how_satisfied_with_accommodation_</th>
+      <td>0.044</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>how_satisfied_with_family_life_</th>
+      <td>0.755</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="your-turn">
@@ -1451,19 +2508,181 @@ Y11_Country_n_unique answer incorrect
 </ul>
 <p>If you prefer, you could also do this with one of the example datasets we used during teaching:</p>
 <ul class="simple">
-<li><p>World Bank percentage of people living in urban environments (<a class="reference internal" href="2-01-04-DataSourcesAndFormats.html"><span class="doc std std-doc">Section 2.1.4 Data Sources and Formats</span></a>)</p></li>
-<li><p>Iris dataset (<a class="reference internal" href="2-02-01-DataConsistency.html"><span class="doc std std-doc">Section 2.2.1 Data Consistency</span></a>)</p></li>
-<li><p>Anthropometric Survey of US Army Personnel (<a class="reference internal" href="2-02-03-FeatureEngineering.html"><span class="doc std std-doc">Section 2.2.3 Feature Engineering</span></a>)</p></li>
-<li><p>New York Patient Characteristics Survey (<a class="reference internal" href="2-02-04-03-CategoricalData.html"><span class="doc std std-doc">Section 2.2.4.3 Categorical Data</span></a>)</p></li>
+<li><p>World Bank percentage of people living in urban environments (Section 2.1.4 Data Sources and Formats)</p></li>
+<li><p>Iris dataset (Section 2.2.1 Data Consistency)</p></li>
+<li><p>Anthropometric Survey of US Army Personnel (Section 2.2.3 Feature Engineering)</p></li>
+<li><p>New York Patient Characteristics Survey (Section 2.2.4.3 Categorical Data)</p></li>
 </ul>
 <p>These datasets are stored in the <code class="docutils literal notranslate"><span class="pre">coursebook/modules/m2/data</span></code> directory, but you may prefer to download the original versions as we made modifications for teaching.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which age group is most optimistic about the future?</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)[</span><span class="s2">&quot;i_am_optimistic_about_the_future&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># younger people seem to be more optimistic on average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age
+1    2.163824
+2    2.346278
+3    2.548597
+4    2.679574
+5    2.752320
+Name: i_am_optimistic_about_the_future, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which country has the most trust in the police? And the least?</span>
+
+<span class="n">df_2011</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_human&quot;</span><span class="p">)[</span><span class="s2">&quot;how_much_trust_the_police_&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="c1"># Bulgaria have the least trust, Finland the most</span>
+
+<span class="c1"># Caveat for all of this: ~1000 respondents per country (and check user guide for details on data collection)!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_human
+Bulgaria             4.168737
+Serbia               4.331643
+Montenegro           4.531773
+Romania              4.583611
+Macedonia (FYROM)    4.660144
+Croatia              4.662614
+Slovakia             4.718782
+Cyprus               4.771574
+Greece               4.876754
+Latvia               4.958420
+Slovenia             4.971660
+Hungary              5.078764
+Czech Republic       5.098802
+Poland               5.243012
+Lithuania            5.260073
+Kosovo               5.314096
+Portugal             5.587649
+Italy                5.750224
+France               5.783880
+Belgium              5.892430
+Spain                6.129593
+Malta                6.338809
+Estonia              6.411224
+Netherlands          6.498004
+UK                   6.529096
+Luxembourg           6.575605
+Ireland              6.644359
+Turkey               6.708880
+Sweden               6.716000
+Germany              6.842923
+Austria              6.927734
+Denmark              7.830059
+Iceland              7.952953
+Finland              8.138643
+Name: how_much_trust_the_police_, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Are there differences between genders for the highest level of education completed? Does this vary</span>
+<span class="c1"># by country and/or age group?</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;education_completed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># Males seem to reach (are given the opportunity to reach) a slightly higher education level</span>
+<span class="c1"># on average, but we&#39;d need to check the significance of this.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gender
+1    4.106716
+2    3.952754
+Name: education_completed, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edu_age_m</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)[</span><span class="s2">&quot;education_completed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">edu_age_f</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)[</span><span class="s2">&quot;education_completed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">edu_age_m</span> <span class="o">-</span> <span class="n">edu_age_f</span>
+<span class="c1"># The difference appears to be larger in older people and disappears (maybe even reverts)</span>
+<span class="c1"># in younger people.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age
+1   -0.049220
+2   -0.007889
+3    0.043056
+4    0.145832
+5    0.453163
+Name: education_completed, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edu_cntry_m</span> <span class="o">=</span> <span class="n">df_2011</span><span class="p">[</span><span class="n">df_2011</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_human&quot;</span><span class="p">)[</span><span class="s2">&quot;education_completed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">edu_cntry_f</span> <span class="o">=</span> <span class="n">df_2011</span><span class="p">[</span><span class="n">df_2011</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_human&quot;</span><span class="p">)[</span><span class="s2">&quot;education_completed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="p">(</span><span class="n">edu_cntry_m</span> <span class="o">-</span> <span class="n">edu_cntry_f</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="c1"># Ireland, Estonia, Latvia : Top 3 countries with higher female education than male</span>
+<span class="c1"># Turkey, Romania, Malta : Top 3 countries with  higher male education than female</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_human
+Ireland             -0.375420
+Estonia             -0.181662
+Latvia              -0.171925
+Finland             -0.126074
+Lithuania           -0.087181
+Bulgaria            -0.032975
+Iceland             -0.017156
+Slovenia             0.004494
+Hungary              0.026447
+Denmark              0.030770
+Sweden               0.047772
+France               0.060102
+Austria              0.072093
+Italy                0.097751
+Portugal             0.098896
+Poland               0.107906
+Cyprus               0.113697
+UK                   0.127559
+Czech Republic       0.131751
+Montenegro           0.138855
+Belgium              0.150959
+Serbia               0.166398
+Spain                0.185198
+Macedonia (FYROM)    0.185369
+Netherlands          0.187195
+Slovakia             0.194347
+Croatia              0.258897
+Greece               0.294329
+Germany              0.297801
+Kosovo               0.333768
+Luxembourg           0.385009
+Malta                0.387355
+Romania              0.486371
+Turkey               0.562414
+Name: education_completed, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CAVEAT!</strong> The dataset includes weighting factors that should be used when computing some stats and comparing countries. We’ve simplified and not included that here. See the user guide for details if needed.</p>
 </div>
 </div>
 
@@ -1492,17 +2711,17 @@ Y11_Country_n_unique answer incorrect
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="2-02-07-MissingData.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="2-hands-on.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">2.2.7 Missing Data</p>
+            <p class="prev-next-title">Module 2: Hands-on session</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2-hands-on-complete.html" title="next page">
+    <a class='right-next' id="next-link" href="../m3/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Module 2: Hands-on session (Solutions)</p>
+        <p class="prev-next-title">Overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
