@@ -59,7 +59,7 @@ The `.info()` method of a DataFrame gives us a useful summary of the columns it 
 df.info()
 ```
 
-Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (`float64`), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic `object` type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in the data wrangling section.
+Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (`float64`), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic `object` type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in [Section 2.2.1](2-02-01-DataConsistency).
 
 We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 "`non-null`" values), and have a strange additional column `Unnamed: 8` that has _only_ missing (null) values. This is another topic we'll revisit later.
 
