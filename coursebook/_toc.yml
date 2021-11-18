@@ -51,6 +51,7 @@ parts:
       - file: modules/m2/2-02-07-MissingData
     # hands on
     - file: modules/m2/2-hands-on
+    - file: modules/m2/2-hands-on-complete
   - caption: "Module 3: Data Visualisation & Exploration"
     chapters:
     - file: modules/m3/overview
