@@ -633,7 +633,36 @@
 <p>Dependencies are listed in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and have versions fixed in <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> will pick these files up and install the required packages in a predictable manner, and into a virtual environment isolated from other projects on your system.</p>
 <ol>
 <li><p>Install <code class="docutils literal notranslate"><span class="pre">Poetry</span></code> by following their instructions <a class="reference external" href="https://python-poetry.org/docs/#installation">here</a>.</p></li>
-<li><p>From the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, run the following command to create the virtual environment and install the third-party packages necessary for the course:</p>
+<li><p>Change to the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory (the directory of the git repository cloned above), if you’re  not there already:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/rds-course
+</pre></div>
+</div>
+</li>
+<li><p>Set the relevant Python executable for Poetry to use:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> returns a version number of 3.7 or above:</p>
+<ul>
+<li><p>Skip to step 4</p></li>
+</ul>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> is less than 3.7 (e.g. 2.7), but <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code> gives 3.7 or above:</p>
+<ul>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">env</span> <span class="pre">use</span> <span class="pre">python3</span></code></p></li>
+</ul>
+</li>
+<li><p>If you have a Python 3.7+ environment available somewhere else:</p>
+<ul>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">env</span> <span class="pre">use</span> <span class="pre">/full/path/to/python</span></code></p></li>
+</ul>
+</li>
+<li><p>If you don’t have Python 3.7+ installed or don’t know where to find it:</p>
+<ul>
+<li><p>Refer back to the instructions in the prerequisites and/or ask for help.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Run the following command to create the virtual environment and install the third-party packages necessary for the course:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry install
 </pre></div>
 </div>
@@ -652,8 +681,16 @@
 <p>The last step creates a new shell setup to use the Python virtual environment we just created (e.g. <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, should now show the path returned earlier by <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">env</span> <span class="pre">info</span></code> above, rather the path to your global Python executable). If you want to stop using the virtual environment <code class="docutils literal notranslate"><span class="pre">exit</span></code> the shell.</p>
 <p><strong>Troubleshooting:</strong></p>
 <ul class="simple">
-<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">curl</span></code> is used to download a Python script (currently <a class="reference external" href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">this script</a> but check the <a class="reference external" href="https://python-poetry.org/docs/#installation">Poetry documentation</a> for the latest URL). Save this script as <code class="docutils literal notranslate"><span class="pre">get-poetry.py</span></code> and then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-poetry.py</span></code> to install Poetry.</p></li>
-<li><p><strong>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">Poetry</span></code></strong>: You can install the course dependencies by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, but we recommend doing this in an alternative virtual environment of your choice (not in your global Python installation).</p></li>
+<li><p><strong>If you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code></strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span></code> is used to download a Python script (currently <a class="reference external" href="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py">this script</a> but check the <a class="reference external" href="https://python-poetry.org/docs/#installation">Poetry documentation</a> for the latest URL). Save this script as <code class="docutils literal notranslate"><span class="pre">get-poetry.py</span></code> and then run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-poetry.py</span></code> to install Poetry.</p></li>
+</ul>
+</li>
+<li><p><strong>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">Poetry</span></code></strong>:</p>
+<ul>
+<li><p>You can install the course dependencies by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> from the <code class="docutils literal notranslate"><span class="pre">rds-course</span></code> directory, but we recommend doing this in an alternative virtual environment of your choice (not in your global Python installation).</p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -796,7 +833,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2165</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1923</span><span class="o">/</span><span class="mf">2753480471.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
@@ -923,7 +960,7 @@ Y11_Country_n_unique answer incorrect
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2165</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1923</span><span class="o">/</span><span class="mf">1491095932.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="nn">      1 # we have to explicitly use latin1 encoding as the file is not saved</span> in <span class="ni">utf-8 </span><span class="nt">(our platform default)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">eqls_api_map_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MAPPING_CSV_PATH</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">eqls_api_map_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
