@@ -8,10 +8,10 @@ In this module we provide useful tips that can help you tell good figures from b
 
 This module is structured as follows: 
 - **Figures Gone Wrong**. We start by looking to the real-world for examples of bad figures to show how easy it is to (knowingly or unknowingly) make mistakes.
-- **Rules of the data visualisation game**. A whip-round of the basics of data visualisation (rules of the game).
-- **Directory of Visualisations**. We will look at how the fundamentals of visualisation are commonly adapted for different scenarios and data types.
-- **Figures are Stories**. Summarised the previous sections, we touch on how to ensure your figure is delivering the appropriate message.
-- **Visualisation for Data Exploration**. Finally, we discuss how data scientists routinely use figures to get to know datasets.
+- **Rules of the data visualisation game**. A whip-round of the basics of data visualisation.
+- **Atlas of Visualisations**. We will look at how visualisations are commonly adapted for different scenarios and data types.
+- **Storytelling with data visualisation**. Summarised the previous sections, we touch on how to ensure your figure is delivering the appropriate message.
+- **Visualisation for Data Exploration**. Finally, we get to know the dataset introduced in Modules 1 & 2 through visualisations.
 
 
 **References**:
