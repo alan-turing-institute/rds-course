@@ -1,7 +1,7 @@
 # Module 3 hands-on session
 
 ## Description
-In this hands-on session participants are divided in groups of 4 o 5 participants and paired with a helper. Each group, 
+In this hands-on session participants are divided in groups of 4 to 5 participants and paired with a helper. Each group, 
 should choose one of the proposed tasks (or propose a new one if keen!) and work together on it. At the end of the
 session the students will present their work to the class.
 The timeline for this session is the following:
