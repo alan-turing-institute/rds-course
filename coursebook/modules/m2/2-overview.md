@@ -4,7 +4,8 @@
    - Open data and data sources
    - Licensing, ethics, security.
    - Pandas intro/primer
-   - Data formats (CSV, database, API, image, ...) - how to load them into Python with Pandas (mostly).
+   - Data formats (CSV, database, API, image, ...)
+      - How to load them into Python with Pandas (mostly).
 
 - Part 2: Exploring and wrangling data
     - Loading a dataset for  the first time (sanity checks, data parsing issues, ...)

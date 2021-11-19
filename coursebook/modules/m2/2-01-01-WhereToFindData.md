@@ -1,7 +1,5 @@
 # 2.1.1 Where to find data?
 
-
-
 ## What is Open Data?
 
 We can use the definition from [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/open/open-data.html):
@@ -54,7 +52,6 @@ Large humanitarian organisations often make data available, such as:
   - [World Health Organisation](https://www.who.int/data/collections)
   - [International Monetary Fund](https://www.imf.org/en/Data)
 
-
 ### General
 
 General tools and repositories that contain data across many different domains:
@@ -63,8 +60,6 @@ General tools and repositories that contain data across many different domains:
    - GitHub: Although large datasets can't be stored on GitHub there are many smaller datasets to be found in GitHub repositories. There are also community-maintained lists of interesting datasets, e.g., [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets).
    - [Zenodo](https://zenodo.org/): Combined repository for open data, papers, and code.
    - [FAIRsharing](https://fairsharing.org/): A catalogue of databases across many  different domains.
-
-
 
 ## When Open Data Isn't Available
 
@@ -90,12 +85,9 @@ Getting access to a dataset that's behind closed doors is likely to involve a re
 
 Ultimately the data you need might not be available anywhere, in which case the only option could be to collect it yourself. Designing datasets is not the focus of this course, but if you're making your own remember you'll be the one analysing it! Investing time in thinking about how your data will be structured and how you'll deal with missing values and the many other issues common in datasets will save a lot of time later. You must also carefully consider whether it is ethical to collect the data and have approval from your organisation to do so.
 
-
-
-
 ## Assessing Dataset Quality and Suitability
 
-In Module 1 (Section 1.2, question 3 for scoping projects) we gave these overarching questions for evaluating a dataset:
+In Module 1 ([Section 1.2](../m1/1.2-DataScienceProjectLifecycle), question 3 for scoping projects) we gave these overarching questions for evaluating a dataset:
 - Does the dataset contain what's needed to solve the research question available?
 - Can I legally and ethically use the data?
 - Is the data easily accessible?
@@ -114,7 +106,6 @@ Another useful concept here is [data readiness levels](https://arxiv.org/pdf/170
 In this module we cover many of the steps needed to take data from Band C to Band B: we start with data we know exists but don't know how to analyse, and end with beginning an exploratory analysis.
 
 For evaluating all of these, **data documentation** is essential. See [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-metadata.html) and this [Radboud University article](https://www.ru.nl/rdm/processing-data/documenting-data/) for a details of what good documentation should contain.
-
 
 ## Sharing Data
 
