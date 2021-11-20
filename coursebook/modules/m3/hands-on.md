@@ -24,7 +24,7 @@ Students are encouraged to use code developed in the hands-on session for module
     Think of ways of visualising these relationships that would  convince a PI (and yourself!) and a given variable should (or should not) be part of the model.
 
 ```{note}
-In Module 4's hands-on you will be building your own models with variables of your choosing. We have selected a subset of variables to make the task manageable, but feel free to assess any variables that is in the EQLS dataset that you think are interesting. 
+In Module 4's hands-on you will be building your own models with variables of your choosing. We have selected a subset of variables to make the task manageable, but feel free to explore further and assess any variables in the EQLS dataset that you think are interesting. You will be able to use these variables in Module 4's hands-on.
 ```
 2. **Use data visualisation to explore data missingness**: In [_Section 3.5_](section3.5) we looked at the missingness of some variables rather superficially. For simplicity we decided to drop rows with missing values. This is a dangerous approach, particularly if we have data that is not missing completely at random. For example, if for some unknown factor people living in the most deprived areas are less likely to answer to some survey question that group would end up being underrepresented in our dataset. In this task you are invited to:
    - Further explore the missingness in our variables of interest related to Module 4 (`AgeCategory`,`DeprIndex`,`ISCED`,

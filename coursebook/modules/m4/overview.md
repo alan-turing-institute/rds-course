@@ -12,7 +12,7 @@ Abstract concepts are better understood through application. Here we use simple 
 The module is structured as follows: 
 
 - **The what and why of statistical modelling**. We begin by defining what modelling is and motivating the power of modelling.
-- **The how: inside a model**. Here we go through the components of a model, including describing how to fit one to data.
+- **Fitting models**. Here we go through the components of a model, including describing how to fit one to data.
 - **Building a simple model**. We then carefully build a model based on the understanding of our data, taking care to understand the model.
 - **Evaluation a a model**. It is not enough to have a model that is fitted to your data. The model has to be useful. The final section will cover how to evaluate your model and iteratively improve upon your model.
 
