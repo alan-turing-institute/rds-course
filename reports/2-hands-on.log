@@ -24,7 +24,7 @@ eqls_api_map_df.head()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2042/1491095932.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2067/1491095932.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m# we have to explicitly use latin1 encoding as the file is not saved in utf-8 (our platform default)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0meqls_api_map_df[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mMAPPING_CSV_PATH[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'latin1'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0meqls_api_map_df[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

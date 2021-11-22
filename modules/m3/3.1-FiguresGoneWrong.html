@@ -497,7 +497,7 @@
 <h1>3.1 Figures gone wrong<a class="headerlink" href="#figures-gone-wrong" title="Permalink to this headline">¶</a></h1>
 <p>Every data scientist will create hundreds of figures in their professional lifetime. Creating plots is easy, complicated figures can be achieved in a single line of code.</p>
 <p>Creating <strong>good</strong> plots is hard.</p>
-<p>Here we’ve collated examples of figures that do a poor job of communicating the data. As we go through these examples we will have a brief discussion about each figure. Once you’ve had a chance to look at an example you can expand our notes below each example (you can find many more examples at &#64;GraphCrimes on twitter).</p>
+<p>Here we’ve collated examples of figures that do a poor job of communicating the data. As we go through these examples we will have a brief discussion about each figure (we will use a hackmd to collaborate). Once you’ve had a chance to look at an example you can expand our notes below each example (you can find many more examples at &#64;GraphCrimes on twitter).</p>
 <div class="section" id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="https://i.imgur.com/u16vTqy.png" />
@@ -529,7 +529,7 @@ Here data has been selectively plotted to exaggerate an idea. There are a number
 <p><img alt="" src="https://i.imgur.com/eHM3JzA.png" /></p>
 <details>
     <summary>Example 3 notes</summary>
-Example 3 is very confusing because the _scale_ of the x-axis is altered mid-plot. Even after reading the caption it is very difficult to get a feel for the data because the grid-lines give a powerful signal of uniformity. 
+Example 3 is very confusing because the scale of the x-axis is altered mid-plot. Even after reading the caption it is very difficult to get a feel for the data because the grid-lines give a powerful signal of uniformity. 
 </details>
 </div>
 <div class="section" id="example-4">
@@ -537,7 +537,7 @@ Example 3 is very confusing because the _scale_ of the x-axis is altered mid-plo
 <p><img alt="" src="https://i.imgur.com/9lu7jVP.png" /></p>
 <details>
     <summary>Example 4 notes</summary>
-The phenomenon that this xkcd comic is getting at is _Normalisation_. Normalisation is where you alter a scale to be between zero and one (usually). Failure to normalise is when different measurements that themselves have different scales are plotted on the same scale. The comic shows the classic failure to normalise measurements by population. A variable that was consistently 10% of the population would appear to vary across the map.
+The phenomenon that this xkcd comic is getting at is Normalisation. Normalisation is where you alter a scale to be between zero and one (usually). Failure to normalise is when different measurements that themselves have different scales are plotted on the same scale. The comic shows the classic failure to normalise measurements by population. A variable that was consistently 10% of the population would appear to vary across the map.
 </details>
 </div>
 <div class="section" id="example-5">
@@ -546,8 +546,7 @@ The phenomenon that this xkcd comic is getting at is _Normalisation_. Normalisat
 [ADD SOURCE - I think from factfulness]</p>
 <details>
     <summary>Example 5 notes</summary>
-Both these plots are examples of where using only averages means that the figure does not communicate all of the information, such as the spread of the distribution. 
-    The _kernel density estimates_ (more on those in _Section 3.3_) below show a slice of one particular year, offering complementary information that allows us to interpret the averages in context.
+Both these plots are examples of where using only averages means that the figure does not communicate all of the information, such as the spread of the distribution. The kernel density estimates (more on those in Section 3.3) below show a slice of one particular year, offering complementary information that allows us to interpret the averages in context.
 <p><img alt="" src="https://i.imgur.com/LYySCdh.png" /></p>
 </details>
 </div>
@@ -566,7 +565,7 @@ This figure does not appear to have been created to clearly communicate data. Th
 <font size="1"><a class="reference external" href="https://twitter.com/10DowningStreet/status/1322614557181960195">Source</a></font></p>
 <details>
     <summary>Example 7 notes</summary>
-This figure was presented quickly in a UK Government Covid briefing. In such a situation rapid and clear comprehension of figures is paramount. Here this figure is guilty of _overplotting_, which is attempting to squeeze too much information into one figure, ultimately rendering it difficult to comprehend.
+This figure was presented quickly in a UK Government Covid briefing. In such a situation rapid and clear comprehension of figures is paramount. Here this figure is guilty of overplotting, which is attempting to squeeze too much information into one figure, ultimately rendering it difficult to comprehend.
 </details>
 </div>
 <div class="section" id="example-8">
@@ -595,6 +594,11 @@ Though this pie chart represents the data well there are confusing aesthetic cho
     <summary>Example 10 notes</summary>
 Similarly to Example 10, the aesthetics of this graph detract from communicating the data. The y axis could be represented on a scale of millions (i.e. from 0 to $500), and there is no need to note all the data points. If one wants to write out the data, use a table!
 </details>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Exercise</p>
+<p>The hackmd link we were using to share comments will stay live for the duration of the course. If you have came across any figures that you think could be instructive to the group (good or bad), please share! (include a source if possible).</p>
+<p>Feel free to also share your own figures. Figure creation is iterative and improved by critique from others.</p>
+</div>
 </div>
 </div>
 

@@ -493,9 +493,9 @@
               <div>
                 
   <div class="section" id="fitting-regression-models">
-<h1>4.2 Fitting (Regression) Models<a class="headerlink" href="#fitting-regression-models" title="Permalink to this headline">¶</a></h1>
+<span id="section4-2"></span><h1>4.2 Fitting (Regression) Models<a class="headerlink" href="#fitting-regression-models" title="Permalink to this headline">¶</a></h1>
 <p>In the previous section we learned about parameters representing mathematical elements of data. One way to think of models are that they are collection of parameters.</p>
-<p>In order to use models to learn about data we need to tweak the parameter values so that the model is the best representation of the data that it could be.</p>
+<p>In order to use models to learn about data we need to tweak the parameter values so that the model is an adequate representation of the data.</p>
 <p>This is called <strong>fitting</strong> a model to data.</p>
 <p>We fit a model by minimising a <strong>cost function</strong>. A cost function can be any function where higher values mean that the model evaluated on the estimated parameters are less representative of data.</p>
 <p>Let us illustrate this by using a very simple and familiar single-parameter model: <em>the mean</em>.</p>
@@ -537,7 +537,7 @@
 
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
@@ -563,18 +563,18 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/4.2_Fitting_Models_1_0.png" src="../../_images/4.2_Fitting_Models_1_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 4.92377908113838, Mu: 4.92
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 4.9105261864312855, Mu: 4.91
 </pre></div>
 </div>
 </div>
 </div>
-<p>The mean is a poor model since it predicts the same value each time whereas the data is clearly represented by a range of values.</p>
-<p>Perhaps the most common probablistic models is modelling the data points as coming from a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. A normal (or gaussian) distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
+<p>The mean is a poor model when you want to capture the data distribution since it predicts the same value each time.</p>
+<p>One of the most common probablistic approaches is to model the data points as coming from a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. A normal (or gaussian) distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
 <p>We fit a normal distribution to our data in a similar way to our previous example: we find the parameter values that are demonstrably best with respect to some cost function.</p>
 <p>A common cost function for fitting probability distributions is the <strong>likelihood</strong>. Simply put, a likelihood of a single data point is the probability of that data point occuring given a probability distribution with certain parameters. The combined likelihood of a dataset is each individual likelihood multiplied together. A common fitting technique is to find the <strong>maximum likelihood</strong> of a dataset.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), so the <strong>log-likelihood</strong> is taken so that we can sum across the datapoints. Further, taking the <em>negative</em> log-likihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> the authors are normally talking about <em>minimising the negative log-likelihood</em>.</p>
+<div class="important admonition">
+<p class="admonition-title">The log-likelihood</p>
+<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), therefore the <strong>log-likelihood</strong> is taken so that we can sum across the datapoints. Further, taking the <em>negative</em> log-likihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> the authors are normally talking about <em>minimising the negative log-likelihood</em>.</p>
 </div>
 <p>The <strong>log-likelihood</strong> is illustrated below with our previous fake dataset. To make the illustration simpler we have fixed the guassian standard deviation parameter.</p>
 <div class="cell docutils container">
@@ -591,7 +591,7 @@
 <span class="c1"># so we take the negative log-likelihood .</span>
 <span class="n">logliks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(Y)&#39;</span><span class="p">)</span>
@@ -629,56 +629,65 @@
 <p>So far we have been modelling observations of a single variable, <span class="math notranslate nohighlight">\(Y\)</span> as coming from a normal distribution with a mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and a standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ Y \sim Normal(\mu,\sigma)\]</div>
-<p>Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters <em>dependent</em> on other variables. Notice that our data actually seemed related to another variable when plotted in two dimensions.</p>
-<p>Since we already are under the assumption that <span class="math notranslate nohighlight">\(Y\)</span> varies around a mean, it stands to reason that we would model the <em>mean</em> as changing with <span class="math notranslate nohighlight">\(Y\)</span>, accepting that <span class="math notranslate nohighlight">\(X\)</span> would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of <span class="math notranslate nohighlight">\(X\)</span> varies <em>linearly</em> with <span class="math notranslate nohighlight">\(Y\)</span>. Meaning that one capture the relationship by a line with an intercept and a slope.</p>
+<p>Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters <em>dependent</em> on other variables.</p>
+<p>We call our other variable <span class="math notranslate nohighlight">\(X\)</span>. Since we already are under the assumption that <span class="math notranslate nohighlight">\(Y\)</span> varies around a mean, it stands to reason that we would model the <em>mean</em> as changing with <span class="math notranslate nohighlight">\(X\)</span>, accepting that <span class="math notranslate nohighlight">\(Y\)</span> would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of <span class="math notranslate nohighlight">\(Y\)</span> varies <em>linearly</em> with <span class="math notranslate nohighlight">\(X\)</span>. Meaning that one capture the relationship by a line with an intercept and a slope.</p>
 <div class="math notranslate nohighlight">
 \[ \mu = \beta_0 + \beta_1X \]</div>
-<p>Here, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, meaning the value that <span class="math notranslate nohighlight">\(X\)</span> would take when <span class="math notranslate nohighlight">\(Y=0\)</span>, and <span class="math notranslate nohighlight">\(\beta_1\)</span> is a parameter that scales how much a change in <span class="math notranslate nohighlight">\(Y\)</span> corresponds to the change in <span class="math notranslate nohighlight">\(X\)</span>. An alternative common way of writing this is:</p>
+<p>Here, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, meaning the value that <span class="math notranslate nohighlight">\(Y\)</span> would take when <span class="math notranslate nohighlight">\(X=0\)</span>, and <span class="math notranslate nohighlight">\(\beta_1\)</span> is a parameter that scales how much a change in <span class="math notranslate nohighlight">\(X\)</span> corresponds to the change in <span class="math notranslate nohighlight">\(Y\)</span>. An alternative common way of writing this is:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition-notation admonition">
+<p class="admonition-title">Notation</p>
 <p>It is convention in Regression models to have your input variables as a matrix <span class="math notranslate nohighlight">\(X_{ni}\)</span> and your predicted values as <span class="math notranslate nohighlight">\(Y_i\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> refers to the variable index and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation index. The parameters are often stored as a vector <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 </div>
 </div>
 <div class="math notranslate nohighlight">
 \[ Y_i = \beta_0 + \beta_1X_i + \epsilon \]</div>
-<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> refers to <strong>residual error</strong> that is normally distributed around zero: <span class="math notranslate nohighlight">\(\epsilon \sim Normal(0,\sigma)\)</span>, and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation.</p>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> refers to <strong>residual error</strong> that is normally distributed around zero: <span class="math notranslate nohighlight">\(\epsilon \sim Normal(0,\sigma)\)</span>, and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation. You can also write this as:</p>
+<div class="math notranslate nohighlight">
+\[ Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \]</div>
 <p>Modelling in this way is called <strong>Linear Regression</strong>. Parameters that scale the relationship between an input variable to an output variable are called <strong>Coefficients</strong>.</p>
-<div class="admonition-regression admonition">
-<p class="admonition-title">Regression</p>
-<p>Modelling one variable as dependent on another variable is (a little confusingly) called <em>regression</em> after Francis Galton originally described the method when reporting the phenomenon of <em>regression to the mean</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Regression_analysis">Regression Analysis wikipedia page</a>). This does make some sense in the general statistical context, if you think of <em>Regression</em> referring to the notion of finding the mean line that points vary around (or regress to).</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p><strong>Interpretating Coefficients</strong></p>
-<p>Each input to your model, and it’s associated parameter, called <em>coefficients</em> can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the output? In the case of our simple example, the coefficient <span class="math notranslate nohighlight">\(\beta_1\)</span> specifies how much the input variable contributes to the output variable <em>only</em> once the intercept is known.</p>
-<p><strong>something about scale/magnitude of input</strong></p>
-<p>This is important to remember</p>
-</div>
-<p>We will now tweak our previous code to fit this new regression model via maximum likelihood, as we have been doing.</p>
-<details>
-    <summary>Code Preliminaries</summary>
-In the code below we take advantage of a couple of findings:
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1) You can analytically find the intercept given the coefficients. Rearranging the formula above gives $Y - \beta_1X = \beta_0 + \epsilon$. Since this is identical to $Normal(\beta_0, \epsilon)$, averaging retrieves $\beta_0$. 
-2) The _dot product_ of an input matrix $X$ and a vector of parameters $\beta$ is a quick way of finding the predicted values. Essentially the dot product multiplies the $X_n$ by each $\beta_n$ and sums the result.
-</pre></div>
-</div>
-</details>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Why Regression?</p>
+<p>Modelling one variable as dependent on another variable is (a little confusingly) called <em>regression</em> after Francis Galton originally described the method when reporting the phenomenon of <em>regression to the mean</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Regression_analysis">Regression Analysis wikipedia page</a>). This does make some sense in the general statistical context, if you think of <em>Regression</em> referring to the notion of finding the mean line that points vary around (or regress to).</p>
+</div>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Interpreting Coefficients</p>
+<p>Each input to your model has an associated parameter called a <strong>coefficient</strong>. Two important things to remember:</p>
+<ul class="simple">
+<li><p>Coefficients can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the output? In the case of our simple example, the coefficient <span class="math notranslate nohighlight">\(\beta_1\)</span> specifies how much the input variable contributes to the output variable <em>only</em> once the intercept is known.</p></li>
+<li><p>Coefficients scale your input so are dependent on the magnitude of our input. The larger your input, the smaller your coefficient. If you wish to compare coefficients across input variables you need your input variables to be on a similar scale. This is called <em>standardising</em> your inputs.</p></li>
+</ul>
+</div>
+<p>We will now tweak our previous code to fit this new regression model via maximum likelihood, as we have been doing.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Code Preliminaries</p>
+<ol class="simple">
+<li><p>You can analytically find the intercept given the coefficients. Rearranging the formula above gives <span class="math notranslate nohighlight">\(Y - \beta_1X = \beta_0 + \epsilon\)</span>. Since this is identical to <span class="math notranslate nohighlight">\(Normal(\beta_0, \epsilon)\)</span>, averaging retrieves <span class="math notranslate nohighlight">\(\beta_0\)</span>.</p></li>
+<li><p>The <em>dot product</em> of an input matrix <span class="math notranslate nohighlight">\(X\)</span> and a vector of parameters <span class="math notranslate nohighlight">\(\beta\)</span> is a quick way of finding the predicted values. Essentially the dot product multiplies the <span class="math notranslate nohighlight">\(X_n\)</span> by each <span class="math notranslate nohighlight">\(\beta_n\)</span> and sums the result.</p></li>
+</ol>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Least squares</p>
 <p>For normal linear regression there is actually an analytic <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinary_least_squares">ordinary least squares</a> solution to finding the maximum likelihood, but to be consistent we will emphasis finding the parameter values through minimising the negative log-likelihood.</p>
 </div>
 </div>
 <div class="admonition-fitting-algorithms admonition">
 <p class="admonition-title">Fitting Algorithms</p>
-<p>Since our example is simple (only two fitted parameters) we can do an exhaustive search of the parameter space (up to a level of granularity) and find the minimum negative log-likelihood. This method of fitting is intractable for more complicated models where the parameters space is larger. Optimisation algorithms for effectively exploring a parameter space (that may have constraints) and finding the minimum of a cost function (called <strong>convergence</strong>) is a big field with active research. Fortunately, the available statistical packages use well-established algorithms that converge well for most models (i.e. find the minimum of your cost function). For this introductory course, then, we will treat the optimisation algorithm as an unnecessary implementation detail. Note, however, that for your own research you may run into convergence problems with complex models that requires further knowledge of how the parameter space is explored.</p>
+<p>Since our example is simple (only two fitted parameters) we can do an exhaustive search of the parameter space (up to a level of granularity) and find the minimum negative log-likelihood. This method of fitting is intractable for more complicated models where the parameters space is larger. Optimisation algorithms for effectively exploring a parameter space (that may have constraints) and finding the minimum of a cost function is a big field with active research. Fortunately, the available statistical packages use well-established algorithms that perform well for most models. For this introductory course, then, we will treat the optimisation algorithm as an unnecessary implementation detail. Note, however, that for your own research you may run into issues with complex models that requires further knowledge of how the parameter space is explored.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###  Code block to fit the linear regression model with MLE.</span>
+<span class="c1">###  See &quot;Code Preliminaries&quot; margin note for useful tips for following this code.</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">b1s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">b1</span><span class="o">-</span><span class="mf">.4</span><span class="p">,</span><span class="n">b1</span><span class="o">+</span><span class="mf">.4</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -705,7 +714,7 @@ In the code below we take advantage of a couple of findings:
 <span class="n">logliks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span> <span class="k">for</span> <span class="n">b1</span> <span class="ow">in</span> <span class="n">b1s</span><span class="p">]</span>
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
@@ -733,8 +742,8 @@ In the code below we take advantage of a couple of findings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.9117670691263684
-Slope: 0.3012012012012012
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.9625782384833386
+Slope: 0.29479479479479476
 </pre></div>
 </div>
 <img alt="../../_images/4.2_Fitting_Models_6_1.png" src="../../_images/4.2_Fitting_Models_6_1.png" />
@@ -742,70 +751,89 @@ Slope: 0.3012012012012012
 </div>
 <div class="section" id="how-many-parameters">
 <h3>How many parameters?<a class="headerlink" href="#how-many-parameters" title="Permalink to this headline">¶</a></h3>
-<!--- use the original linear regression notes --> 
-<p>More complex models arise from adding more variables and perhaps mathematically specifying the nature of the relationship between variables (e.g. if we assume modulation of one variable with another we might multiply them together). The general linear regression formula is below.</p>
+<p>You get more complex models by adding more variables, and perhaps mathematically specifying the nature of the relationship between variables (e.g. if we assume modulation of one variable with another we might multiply them together). The linear regression formula for <span class="math notranslate nohighlight">\(n\)</span> parameters is below.</p>
 <div class="math notranslate nohighlight">
 \[
-Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_q x_{q} +  \epsilon
+Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_n x_{n} +  \epsilon
 \]</div>
 <p>The amount of parameters depends what you are interested in and what you want to learn.</p>
 <p>With enough parameters you can fit anything. But there is risk that we could just be fitting to noise. For example, if a designer was modelling a product they wouldn’t want to include a scratch on one particular product that arose from the randomness of the production process.</p>
 <p>This phenomenon is called <strong>overfitting</strong>. It is a key consideration in modelling and we will be revisiting it frequently throughout the following sections.</p>
-<p>(Bishop toy example), can show some plots from <a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">here</a></p>
+<p>Bishop’s <a class="reference external" href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Machine Learning for Pattern Recognition</a> textbook has an instructive example on fitting curves of increasing complexity. This has been usefully translated to a python notebook by Mantas Lukoševičius (<a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">link</a>).</p>
+<div class="important admonition">
+<p class="admonition-title">Regularisation</p>
+<p>Regularisation refers to a set of methods that help combat overfitting. Broadly speaking, overfitting arises when coefficients are too large or where there are too many parameters. Regularisation techniques often add a term to the cost function that is dependent on either the number or the magnitude (or both) of the coefficient parameters. Therefore, many and large coefficients are penalised. Fewer and smaller coefficients make for a more conservative model fit. (Though too few and/or small coefficients can lead to underfitting).</p>
+</div>
 </div>
 </div>
 <div class="section" id="beyond-normal-linear-regression">
 <h2>Beyond Normal Linear Regression<a class="headerlink" href="#beyond-normal-linear-regression" title="Permalink to this headline">¶</a></h2>
-<p>It is important to always keep in mind that the normal linear regression equation above is, more explicitly, the following:</p>
+<p>It is important to keep in mind that the normal linear regression equation above is the following:</p>
 <div class="math notranslate nohighlight">
-\[ Y \sim Normal(\beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_q x_{q}, \sigma) \]</div>
-<p>The <strong>linear regression</strong> part refers to modelling a parameter, in this case the mean, as a sum of scaled inputs. There is actually no requirement in linear regression models for the modelling output to be linear, since it depends on your inputs.</p>
-<p>There is also no requirement for you to assume that your errors will be normally distributed around the mean (for example if you are using MLE to fit your model). As we have mentioned, models are very flexible.</p>
+\[ Y \sim Normal(\beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_n x_{n}, \sigma) \]</div>
+<p>The <strong>linear regression</strong> part refers to modelling a parameter, in this case the mean, as a <strong>sum of scaled inputs</strong>. There is actually no requirement in linear regression models for the modelled output to be linear.</p>
+<p>There is also no requirement for you to assume that the errors will be normally distributed around the mean. With MLE you can model the errors as coming from a wide range of probability distributions (the <em>exponential family</em>). Indeed, your model complexity is in theory only limited by your ability to fit the model.</p>
 <p>Let us zoom out and look at the components of our model so far:</p>
 <ol class="simple">
-<li><p>We have the term that is predicting <span class="math notranslate nohighlight">\(\mu\)</span>. This is called the <strong>linear predictor</strong>, let us call this <span class="math notranslate nohighlight">\(\eta\)</span>, with is a sum of inputs <span class="math notranslate nohighlight">\(X\)</span> scaled by coefficients, <span class="math notranslate nohighlight">\(\beta\)</span>, which are unknown.</p></li>
-<li><p>We have a probability distribution, let us call it <span class="math notranslate nohighlight">\(F\)</span>, and sometimes dispersion parameter (called <span class="math notranslate nohighlight">\(\tau\)</span> to separate it from the standard deviation parameter <span class="math notranslate nohighlight">\(\sigma\)</span>). The probability distribution controls how our residuals are distributed.</p></li>
+<li><p>We have the term that is predicting <span class="math notranslate nohighlight">\(\mu\)</span>. This is called the <strong>linear predictor</strong>, let us call this <span class="math notranslate nohighlight">\(\eta\)</span>, which is a sum of inputs <span class="math notranslate nohighlight">\(X\)</span> scaled by coefficients, <span class="math notranslate nohighlight">\(\beta\)</span>, which are unknown.</p></li>
+<li><p>We have a probability distribution, let us call it <span class="math notranslate nohighlight">\(F\)</span>, and sometimes a dispersion parameter (called <span class="math notranslate nohighlight">\(\tau\)</span> to separate it from the guassian-specific standard deviation parameter <span class="math notranslate nohighlight">\(\sigma\)</span>). The probability distribution controls how our residuals are distributed.</p></li>
 </ol>
+<div class="important admonition">
+<p class="admonition-title">Generalized linear models</p>
 <p>So we can re-write our model as a <strong>generalized</strong> linear model:</p>
 <div class="math notranslate nohighlight">
 \[ Y = F(\eta, \tau) \]</div>
-<p>In our case, <span class="math notranslate nohighlight">\(F = Normal, \tau = \sigma, \text{and } \eta = \mu\)</span>.</p>
-<p>Before moving on, we observe that while our linear predictor <span class="math notranslate nohighlight">\(\eta\)</span> always relates to <span class="math notranslate nohighlight">\(\mu\)</span>, it can do so through a function, <span class="math notranslate nohighlight">\(f\)</span> (this is called a <em>link function</em>). In the normal linear regression case this is the identity function, meaning <span class="math notranslate nohighlight">\(f(\mu) = \mu\)</span>. But we will move on to an example when it isn’t the case.</p>
+<p>The linear predictor <span class="math notranslate nohighlight">\(\eta\)</span> is always related to <span class="math notranslate nohighlight">\(\mu\)</span>, but it can do via a <strong>link function</strong>, <span class="math notranslate nohighlight">\(g\)</span>, meaning:</p>
 <div class="math notranslate nohighlight">
-\[ Y = F(f(\eta),\tau) \]</div>
+\[ \eta = g(\mu) \]</div>
+<p>You can recover <span class="math notranslate nohighlight">\(\mu\)</span> by applying the inverse of the link function, <span class="math notranslate nohighlight">\(g^{-1}\)</span> to the <span class="math notranslate nohighlight">\(\eta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \mu = g^{-1}(\eta) \]</div>
+<p>So the general case is:</p>
+<div class="math notranslate nohighlight">
+\[ g(Y) = F(g^{-1}(\eta),\tau) \]</div>
+<p>In normal linear regression, <span class="math notranslate nohighlight">\(F = Normal\)</span>, <span class="math notranslate nohighlight">\(\tau = \sigma\)</span>, and <span class="math notranslate nohighlight">\(g\)</span> is the identity function, meaning <span class="math notranslate nohighlight">\(g(\mu)=\mu\)</span>.</p>
+</div>
 </div>
 <div class="section" id="from-linear-regression-to-logistic-regression">
 <h2>From linear regression to logistic regression.<a class="headerlink" href="#from-linear-regression-to-logistic-regression" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note - rewrite this to interpret logistic regression within the general framework since the reader is already familar with the bernouilli distribution from M4.1</strong></p>
-<p>Now, we can have an scenario where the output variable you want to predict is not a continous but a binary one that has 2 possible values: either 1 or 0 (for example, a coin toss).</p>
-<p>This kind of binary choices are represented by a Bernoulli variable where the probabilities of an event belonging to a given class are bounded on both ends (they must be between 0 and 1), in the following way:</p>
+<p>From <a class="reference internal" href="4.1_What_and_Why.html#section4-1"><span class="std std-ref"><em>Section 4.1</em></span></a> and <a class="reference internal" href="#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> so far we are familiar with the following:</p>
+<ul class="simple">
+<li><p>Linear regression where the residuals are gaussian</p></li>
+<li><p>The generalised regression framework</p></li>
+<li><p>The bernouilli distribution for modelling binary outcomes.</p></li>
+</ul>
+<p>The gaussian distribution is useful when the output variable is continuous and symmetrically distributed. If we want to regress a binary variable onto predictors (i.e. find a mean line that the residuals vary around) then we need to consider the bernouilli distribution.</p>
+<p>Remember our general framework of a probability distribution, <span class="math notranslate nohighlight">\(F\)</span>, a linear predictor <span class="math notranslate nohighlight">\(\eta\)</span>, a link function <span class="math notranslate nohighlight">\(g\)</span>, and a dispersion parameter <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}]
-\]</div>
-<p>In linear regression the prediction of the output variable can take any continous values incluing larger than 1 or smaller than 0, therefore as a model is not suitable for classification problem of binary outcomes. The solution to this issue (and a way to continously using a linear, understandable model) is to transform the linear regression to a logistic regression curve. This means feeding the the predicted values into a sigmoid function, thus converting them into probability as shown in the next steps:</p>
-<p>First, we start from our ordinary linear regression,</p>
+\[ Y = F(g^{-1}(\eta),\tau) \]</div>
+<p>Remember that the bernouilli is fairly special in having a single parameter, <span class="math notranslate nohighlight">\(p(x)\)</span>. There is no dispersion parameter. So:</p>
 <div class="math notranslate nohighlight">
-\[
-Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_q x_{q} 
-\]</div>
-<p>The inverse logit, otherwise known as the “logistic” or <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> function is applied as follows:</p>
+\[\begin{split}
+\begin{aligned}
+Y &amp;= F(g^{-1}(\eta)) \\
+g^{-1}(\eta) &amp;= p(x) \\
+\eta &amp;= g(p(x))
+\end{aligned}
+\end{split}\]</div>
+<p>In logistic regression instead of modelling <span class="math notranslate nohighlight">\(\mu\)</span> on the arithmetic scale, as in normal regression, we use the <strong>log-odds</strong> to model the mean in <em>logistic units</em>, which is why it is sometimes called the <strong>logit</strong> function. So our link function transforms the linear predictor <span class="math notranslate nohighlight">\(\eta\)</span> into log-odds:</p>
+<div class="math notranslate nohighlight">
+\[ logodds(p) = log( \frac{p}{1-p}) \]</div>
+<p>Which results in what we call the <strong>logistic regression</strong> model</p>
+<div class="math notranslate nohighlight">
+\[\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{n} x_{n} \]</div>
+<p>Recall that <span class="math notranslate nohighlight">\(p(x)\)</span> is bounded between 0 and 1, since it is a probability. We can transform log-odds to the probability range <span class="math notranslate nohighlight">\(\{0,1\}\)</span> by the <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function"><strong>sigmoid</strong></a> function, or <strong>inverse-logit</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 \text{logit}^{-1}(Y) =  \frac{e^Y}{1 + e^{Y}} = \frac{1}{1 + e^{-Y}} 
 \]</div>
-<p>which is equivalent to the probability of our outcome variable:</p>
+<p>Meaning you can get <span class="math notranslate nohighlight">\(p(x)\)</span> directly from the predictor variables.</p>
 <div class="math notranslate nohighlight">
 \[
-p({\bf x}) = P[Y = 1 \mid {\bf X} = {\bf x}] = \frac{e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}{1 + e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{p-1} x_{(p-1)}}}
+p({\bf x}) = \frac{e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{n}}}{1 + e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{(n)}}} = \frac{1}{1+e^{-\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{n}}}
 \]</div>
-<p>Which results into what we are used see as the <strong>logistic regression</strong> model.</p>
-<div class="math notranslate nohighlight">
-\[
-\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{p - 1} x_{p - 1}
-\]</div>
-<p>The left hand side is called the <strong>log odds</strong>, which is the log of the odds. The odds are the probability for a positive event <span class="math notranslate nohighlight">\((Y = 1)\)</span> divided by the probability of a negative event <span class="math notranslate nohighlight">\((Y = 0)\)</span>. So when the odds are <span class="math notranslate nohighlight">\(1\)</span>, the two events have equal probability. Odds greater than <span class="math notranslate nohighlight">\(1\)</span> favor a positive event. The opposite is true when the odds are less than <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>We will discuss more in detail about this model in the next section, as we use logistic regression as a tool to dive into our research question.</p>
+<p>In our general framework, <span class="math notranslate nohighlight">\(g = logit\)</span>, <span class="math notranslate nohighlight">\(g^{-1} = sigmoid \)</span>.</p>
+<p>It may seem strange to model the log-odds. In the next section we will step through why this is the case as we use logistic regression to dive into our research question.</p>
 </div>
 </div>
 

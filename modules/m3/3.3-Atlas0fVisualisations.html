@@ -464,9 +464,7 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#examples">
-       <strong>
-        Examples
-       </strong>
+       Examples
       </a>
      </li>
     </ul>
@@ -506,6 +504,13 @@
     <a class="reference internal nav-link" href="#histograms">
      Histograms
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#kernel-density-figures">
@@ -513,7 +518,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
+      <a class="reference internal nav-link" href="#id3">
        Example
       </a>
      </li>
@@ -525,7 +530,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
+      <a class="reference internal nav-link" href="#id4">
        Examples
       </a>
      </li>
@@ -537,7 +542,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
+      <a class="reference internal nav-link" href="#id5">
        Example
       </a>
      </li>
@@ -578,7 +583,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
+      <a class="reference internal nav-link" href="#id6">
        Example
       </a>
      </li>
@@ -590,7 +595,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id7">
        Example
       </a>
      </li>
@@ -602,7 +607,7 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id8">
        Examples
       </a>
      </li>
@@ -635,7 +640,7 @@
                 
   <div class="section" id="atlas-of-visualisations">
 <h1>3.3 Atlas of Visualisations<a class="headerlink" href="#atlas-of-visualisations" title="Permalink to this headline">¶</a></h1>
-<p>This section is a quick overview of various types of plots and charts typically used in data visualisation. We will provide guidance of which types of plots are the best for different types of data and what to be careful of when using a given chart.</p>
+<p>This section is a quick overview of various types of plots and figures typically used in data visualisation. We will provide guidance of which types of plots are the best for different types of data and what to be careful of when using a given figure.</p>
 <p>We emphasise that figures are a graphical layer on top of your data. <strong>The nature of the figure should be dictated by the nature of the data</strong>.</p>
 <p>Though different types of data lend themselves to different styles of charts, the figure components discussed in <em>Section 3.2</em> apply to all figures. All figures should be appropriately scaled, coloured, and labelled.</p>
 <p>The content discussed in this section is largely based on Chapters 5 to 16 from the book <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#a-case-for-pie-charts">Fundamentals of data visualisation</a> by Claus Wilke. Due to restrictions of time this is a high-level overview of some of those ideas, therefore we highly encourage you to look at those chapters to get a deeper understanding of best practices for data visualisation.</p>
@@ -655,14 +660,14 @@
 </div>
 <div class="section" id="visualising-amounts">
 <h2>Visualising amounts<a class="headerlink" href="#visualising-amounts" title="Permalink to this headline">¶</a></h2>
-<p>When visualising amounts we interested in the magnitude of a group of numbers, e.g: we have a set of categories and a quantitative value for each category.</p>
+<p>When visualising amounts we are interested in the magnitude of a group of numbers, e.g. we have a set of categories and a quantitative value for each category.</p>
 <div class="section" id="bar-plots">
 <h3>Bar plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">¶</a></h3>
 <p>Bars plots are a good option when the dataset we want to visualise contains <strong>numerical values for a set of categories</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Bar plots</p>
 <p>Points to consider when using <strong>bar plots</strong> in a figure:</p>
 <ul class="simple">
 <li><p>The <strong>bar length</strong> is proportional to the amount shown, therefore bars need to start at zero.</p></li>
@@ -673,10 +678,10 @@
 </div>
 </div>
 <div class="section" id="examples">
-<h4><strong>Examples</strong><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
 <p>We can use the US Covid-19 vaccination data from the previous section. Bar plots are excellent candidates in this case given that we are visualising amounts (share of population of fully vaccinated people)
 for different categories (US entity or state).</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the data from here https://ourworldindata.org/us-states-vaccinations</span>
 <span class="n">df_vaccination</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/us-covid-share-fully-vaccinated.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
@@ -698,7 +703,7 @@ for different categories (US entity or state).</p>
 <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_sorted</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">,</span><span class="n">errwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -717,15 +722,15 @@ for different categories (US entity or state).</p>
 dot plots can be useful when you want to visualise <strong>numerical values for a set of categories with small differences between categories</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Dot plots</p>
 <p>Similarly to bar plots, <strong>dot plots</strong> should be <strong>ordered</strong> by data values (for un-ordered categories) and we should beware of visualising datasets with a very <strong>large number of categories</strong>.</p>
 </div>
 </div>
 <div class="section" id="example">
 <h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
 <p>We can use the same dataset as above for this example. The benefit of dot plots is that, by not having to start at zero, we can better grasp the differences between vaccination rates in different entities.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of an non useful plot. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -737,7 +742,7 @@ dot plots can be useful when you want to visualise <strong>numerical values for 
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;people_fully_vaccinated_per_hundred&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_vaccination_sorted</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Share of the population fully vaccinated against COVID-19 (%)&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -755,8 +760,8 @@ dot plots can be useful when you want to visualise <strong>numerical values for 
 <p>You can use heatmaps when interested in highlighting a trend in a dataset with <strong>numerical values for a set of categories and for different groups</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Heatmaps</p>
 <p>Some points to beware of when using <strong>heatmaps</strong>:</p>
 <ul class="simple">
 <li><p>Similarly to bar plots, the <strong>order of the categorical data</strong> values matters.</p></li>
@@ -767,9 +772,9 @@ dot plots can be useful when you want to visualise <strong>numerical values for 
 </div>
 <div class="section" id="id1">
 <h4>Example:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>For this example we can use the US vaccination data time series (in the examples above we only selected the cumulative value in the last available day). A heatmap will help us see the trends on increase of vaccination rates for different states.
-Again, in here we are sorting the entities by the one that has the highest vaccination rate at the last day of the time series.</p>
-<div class="cell docutils container">
+<p>For this example we can use the US vaccination data time series (in the examples above we only selected the cumulative value in the last available day). A heatmap will help us see any trends of increasing vaccination rates for different states.</p>
+<p>Similar to the above plots we are sorting the states by the one that has the highest vaccination rate at the last day of the time series.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
 
@@ -790,18 +795,16 @@ Again, in here we are sorting the entities by the one that has the highest vacci
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;BETTER: Share of the population fully vaccinated against COVID-19 through 2021&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_vax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax2</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(1159.5909090909088, 0.5, &#39;&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_9_1.png" src="../../_images/3.3-Atlas0fVisualisations_9_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_9_0.png" src="../../_images/3.3-Atlas0fVisualisations_9_0.png" />
 </div>
 </div>
-<p>In the figure in the left we are using a rainbow color scale, which can be very popular in figures of scientific papers but it can be misleading. One of its problems is that people can see the brightest color as a peak. Also, a rainbow scale can create a misperception of the magnitude of the data. Abrupt changes between different colours (green to yellow or blue to green) can make the values seem distant, while they are not necessarily far from each other.</p>
-<p>In the figure on the right we are using a diverging scale that shows color progression in two directions from blue to red. This scale has less hues and intensities than the rainbow color scale and is also a more friendly scale for colour-blind people. For more tips about colours and heatmaps, look at this <a class="reference external" href="https://blog.bioturing.com/2018/09/24/heatmap-color-scale/">blog post</a>.</p>
+<p>In the <em>left</em> figure we use a rainbow color scale, which is common but can be misleading. An issue is that people sometimes perceive the brightest color as a peak (highest value). Also, the abrupt changes between different colours (green to yellow or blue to green) can make the values seem distant, while their real magnitudes may be similar.</p>
+<p>In the <em>right</em> figure we are using a diverging scale that shows color progression in two directions, from blue to red. This scale has less hues and intensities than the rainbow color scale and is also colour-blind people friendly. For more tips about colours and heatmaps, look at this <a class="reference external" href="https://blog.bioturing.com/2018/09/24/heatmap-color-scale/">blog post</a>.</p>
 </div>
 </div>
 </div>
@@ -813,14 +816,15 @@ Again, in here we are sorting the entities by the one that has the highest vacci
 <p>Histograms are used to show <strong>frequencies of occurrences of a continuous variable</strong>. Histograms are generated by <strong>binning the data</strong> (grouping the data values into a number of ranges), so their visual appearance depends on the choice of the bin width.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Histograms</p>
 <p>When working with histograms it is best practice to always <strong>explore multiple bin widths</strong>.</p>
 </div>
 </div>
-<p><strong>Examples</strong></p>
+<div class="section" id="id2">
+<h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>For the following examples we will be using the Covid-19 data from Our World in Data that we used in the previous section. Let’s now look at distributions of the life expectancy from that dataset.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To illustrate these we will use data on Covid-19 hosted by our world in data. </span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv&#39;</span>
@@ -853,18 +857,19 @@ Again, in here we are sorting the entities by the one that has the highest vacci
 </div>
 <p>In this case, the 1 year bin size bin can be too small for the distribution, the histogram seems peaky and has ranges without data. On the other hand, a histogram with a bin size of 10 years loses some of the information on the shape of the data.</p>
 </div>
+</div>
 <div class="section" id="kernel-density-figures">
 <h3>Kernel density figures<a class="headerlink" href="#kernel-density-figures" title="Permalink to this headline">¶</a></h3>
 <p>Kernel density estimation (KDE) is a way to estimate the probability density function of a random variable. We can use it to create <strong>density curves of a continuous variable</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Kernel density plots are highly sensitive to a banwidth parameter used to estimate the density function. It behaves similarly to the bin width in histograms and can affect the appaearance of the figure. As a result the plot may misrepresent the data leading to incorrect conclusions. Furthermore, KDE can produce the appearance of data where none exists (in particular in the tails of the distribution), again leading to incorrect conclusions.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">KDE</p>
+<p>Kernel density plots are highly sensitive to the bandwidth parameter used to estimate the density function. It behaves similarly to the bin width in histograms and can affect the appearance of the figure. As a result the plot may misrepresent the data leading to incorrect conclusions. Furthermore, KDE can produce the appearance of data where none exists (in particular in the tails of the distribution), again leading to incorrect conclusions.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>Let’s use the same life expectancy variable from our dataset to create a density curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -891,18 +896,18 @@ Again, in here we are sorting the entities by the one that has the highest vacci
 </div>
 <div class="section" id="box-or-violin-plots">
 <h3>Box or violin plots<a class="headerlink" href="#box-or-violin-plots" title="Permalink to this headline">¶</a></h3>
-<p>We can use Box or violin plots to <strong>visualise and compare several groups of distributions</strong>. Box plots show summary statistics such as mean/median and inter-quartile range whereas violin plots show the range and shape distribution of the data.</p>
+<p>We can use Box or violin plots to <strong>visualise and compare several groups of distributions</strong>. Box plots show summary statistics such as mean/median and inter-quartile range, whereas violin plots show the range and shape of the distribution of the data.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Violin plots</p>
 <p>Violin plots use kernel density estimates and need to have enough data points in each group to justify showing the point densities as smooth lines.</p>
 </div>
 </div>
-<div class="section" id="id3">
-<h4>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>Let’s compare the life expectancy distribution for different continents. We could do this by superposing the distributions in one canvas or by using box or violin plots.</p>
-<div class="cell docutils container">
+<div class="section" id="id4">
+<h4>Examples<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Let’s compare the life expectancy distribution for different continents. We could do this by superposing the kernel density estimates onto one canvas, or by using box or violin plots.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_countries</span><span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">])</span>
 
@@ -924,28 +929,25 @@ Again, in here we are sorting the entities by the one that has the highest vacci
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Continent&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Continent&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_17_1.png" src="../../_images/3.3-Atlas0fVisualisations_17_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_17_0.png" src="../../_images/3.3-Atlas0fVisualisations_17_0.png" />
 </div>
 </div>
-<p>Each figure in this example gives us some different view from the data. The density curves are great when comparing a few distributions
-but in this figure they feel busy. The box plot is a better tool to compare the summary statistics of these distributions, however we are missing information compared to the shape
+<p>Each figure in this example gives us a different view from the data. The density curves are great when comparing a few distributions, but with many distributions the figure can feel busy. The box plot is a better tool to compare the summary statistics of these distributions, however we are missing information compared to the shape
 that the violin plot is providing.</p>
 </div>
 </div>
 <div class="section" id="ridge-line-plots">
 <h3>Ridge line plots<a class="headerlink" href="#ridge-line-plots" title="Permalink to this headline">¶</a></h3>
 <p>Ridge line plots can help us visualise and <strong>compare several distributions at the same time in a horizontal axis</strong> without overwhelming the figure by superposing it in the same canvas (as shown in the figure above). Ridgeline plots are very useful if we want to <strong>show trends in distributions over time</strong>.</p>
-<div class="section" id="id4">
-<h4>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4>Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>Let’s compare the shape life expectancy distribution for different continents using ridge line plots.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the FacetGrid object</span>
 <span class="n">pal</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-</span><span class="mf">.25</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
@@ -975,14 +977,12 @@ that the violin plot is providing.</p>
 <span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">g</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f2e66828640&gt;
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_20_1.png" src="../../_images/3.3-Atlas0fVisualisations_20_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_20_0.png" src="../../_images/3.3-Atlas0fVisualisations_20_0.png" />
 </div>
 </div>
 </div>
@@ -997,13 +997,13 @@ that the violin plot is providing.</p>
 </div>
 <div class="section" id="staked-bars">
 <h3>Staked bars<a class="headerlink" href="#staked-bars" title="Permalink to this headline">¶</a></h3>
-<p>We can use grouped bar charts when our dataset has <strong>numerical values for a set of categories for different groups when the sum of the amounts represented by the individual groups is important for the message.</strong>. The can be useful when the point is to show that a value is the sum of other values, but you’re only interested in comparing the totals.</p>
+<p>We can use grouped bar charts when our dataset has <strong>numerical values for a set of categories for different groups when the sum of the amounts represented by the individual groups is important for the message.</strong> The can be useful when the point is to show that a value is the sum of other values, but you’re only interested in comparing the totals.</p>
 <p>When using grouped bars beware they get harder to read the more segments each bar has and that they do not allow for an easy visual comparison of relative proportions.</p>
 </div>
 <div class="section" id="pie-charts">
 <h3>Pie charts<a class="headerlink" href="#pie-charts" title="Permalink to this headline">¶</a></h3>
 <p>In general, pie charts can work well when we want to highlight simple fractions between a small number of categories. They also work well when we have very small datasets.</p>
-<p>A summary of the various pros and cons of pie charts, stacked bars, and side-by-side bars extracted from the book Fundamentals of data visualisation can be found in this <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#tab:pros-cons-pie-bar">link</a>.</p>
+<p>A summary of the various pros and cons of pie charts, stacked bars, and side-by-side bars in the book Fundamentals of data visualisation can be found in this <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#tab:pros-cons-pie-bar">link</a>.</p>
 </div>
 </div>
 <div class="section" id="relationships-between-two-or-more-variables">
@@ -1011,10 +1011,10 @@ that the violin plot is providing.</p>
 <div class="section" id="scatter-plots">
 <h3>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h3>
 <p>Scatter plots are a common visualisation tool and allow us to explore relationships between two quantitative variables.</p>
-<div class="section" id="id5">
-<h4>Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>The relationship between life expectancy of a given country and its human development index has a very clear association that is visible in the scatter plot.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># only keep columns with life expectancy and human development index, removing the duplicates </span>
 <span class="c1">#(there can be several entries per country given that the data is a time series)</span>
@@ -1025,14 +1025,12 @@ that the violin plot is providing.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relationship between Life expectancy in a country and human development index&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Human development index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Human development index&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_26_1.png" src="../../_images/3.3-Atlas0fVisualisations_26_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_26_0.png" src="../../_images/3.3-Atlas0fVisualisations_26_0.png" />
 </div>
 </div>
 </div>
@@ -1040,10 +1038,10 @@ that the violin plot is providing.</p>
 <div class="section" id="correlograms">
 <h3>Correlograms<a class="headerlink" href="#correlograms" title="Permalink to this headline">¶</a></h3>
 <p>When we want to explore the associations among several quantitative variables, using only scatter plots can become unmanageable. In this case, it is more useful to visualise the correlation between pairs of variables rather than the raw data. This is where correlograms come to use, they are the visualizations of correlation coefficients of a number of variables.</p>
-<div class="section" id="id6">
-<h4>Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>Example<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>Lets explore the relationship between some of the variables available in the Covid-19 dataset from Our World in Data. For example the relationships between a given country population density, gdp per capita, extreme poverty, life expectancy, etc .</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_correlations</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;population_density&#39;</span><span class="p">,</span>
        <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="s1">&#39;extreme_poverty&#39;</span><span class="p">,</span>
@@ -1051,18 +1049,16 @@ that the violin plot is providing.</p>
         <span class="s1">&#39;hospital_beds_per_thousand&#39;</span><span class="p">,</span>
        <span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="s1">&#39;human_development_index&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df_correlations</span><span class="p">,</span> <span class="n">dropna</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f2e665f9d30&gt;
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_28_1.png" src="../../_images/3.3-Atlas0fVisualisations_28_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_28_0.png" src="../../_images/3.3-Atlas0fVisualisations_28_0.png" />
 </div>
 </div>
 <p>As stated above, when we have many variables scatter plots can be overwhelming. We could use the correlogram to summarise the information relevant to the strength of the relationships between the variables.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -1073,14 +1069,12 @@ that the violin plot is providing.</p>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_30_1.png" src="../../_images/3.3-Atlas0fVisualisations_30_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_30_0.png" src="../../_images/3.3-Atlas0fVisualisations_30_0.png" />
 </div>
 </div>
 <p>Note that this kind of figure has the disadvantages of heatmaps, e.g. it can be hard to map the color scale to numbers and vice versa.
@@ -1098,21 +1092,16 @@ There are some ways of improving these plots. You can find some examples <a clas
 <p>Slopegraphs can show for example how values have changed over a period of time or which data points are markedly different across two categories, and in which direction.</p>
 </div>
 </div>
-<div class="section" id="id7">
-<h4>Examples<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4>Examples<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>Lets use again the US vaccination data we were using in the first examples. Lets visualise and compare how the states with lowest vaccination rates have been progressing in the last month, a slopegraph is an ideal tool for this goal.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets select only the ones with the lowest vaccination rate.</span>
 <span class="n">df_vaccination_low10</span> <span class="o">=</span> <span class="n">df_vaccination</span><span class="p">[</span><span class="n">df_vaccination</span><span class="p">[</span><span class="s1">&#39;Entity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_vaccination_sorted</span><span class="o">.</span><span class="n">Entity</span><span class="p">[</span><span class="mi">45</span><span class="p">:])]</span>
 <span class="n">df_slope</span> <span class="o">=</span> <span class="n">df_vaccination_low10</span><span class="p">[(</span><span class="n">df_vaccination_low10</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;28-07-2021&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df_vaccination_low10</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;2021-06-28&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;people_fully_vaccinated_per_hundred&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Entity&quot;</span><span class="p">,</span>
                    <span class="n">data</span><span class="o">=</span><span class="n">df_slope</span><span class="p">)</span>
@@ -1130,7 +1119,7 @@ There are some ways of improving these plots. You can find some examples <a clas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.3-Atlas0fVisualisations_35_0.png" src="../../_images/3.3-Atlas0fVisualisations_35_0.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_34_0.png" src="../../_images/3.3-Atlas0fVisualisations_34_0.png" />
 </div>
 </div>
 </div>
@@ -1138,12 +1127,27 @@ There are some ways of improving these plots. You can find some examples <a clas
 </div>
 <div class="section" id="uncertainty">
 <h2>Uncertainty<a class="headerlink" href="#uncertainty" title="Permalink to this headline">¶</a></h2>
-<p>In Data Science we aim to transform data and domain knowledge into insight. Any insight always has an uncertainty associated with it. Communicating insight without uncertainty is a job half done, however things like errors, confidence intervals, and likelihoods are not always present in data visualisation, which leads to judgements based on simplified summaries expressed as means, medians, or extremes. Uncertainty is a complex topic and visualising it can be a very challenging but important task.</p>
+<p>In Data Science we aim to transform data and domain knowledge into insight. <strong>Any insight always has an uncertainty associated with it</strong>. Communicating insight without uncertainty is a job half done. Howevever, uncertainty information like errors, confidence intervals, and likelihoods are not always present in data visualisation, which leads to judgements based on simplified summaries expressed as means, medians, or extremes. Furthermore, including unceratinty in a graph can make it look busy and difficult to comprehend. Uncertainty is a complex topic and visualising it can be a very challenging but important task.</p>
 <p>A good example of a field that has embraced communicating risk and uncertainty is the one of weather forecasting.
 In this case failing to communicate uncertainty of weather predictions can result in the public losing faith in weather warnings and refusing to comply with evacuation or preparation orders when this is necessary.</p>
-<p>Another example is a very current one, the Covid-19 pandemic, which has been characterised for the vast traffic in official and unofficial information and claims based on data and statistical models. A lot can be said in how effective has been the communication of uncertainty of these models, but shortcomings in this area <a class="reference external" href="https://www.dailymail.co.uk/news/article-9748975/SAGE-scientist-admits-modelling-spooked-No10-delaying-Freedom-Day-wrong.html">has been exploited by media outlets</a> possibly affecting the levels of trust from the public on the scientific advice.</p>
+<p>Another example is a very current one, the Covid-19 pandemic, which has been characterised for the vast traffic in official and unofficial information and claims based on data and statistical models. A lot can be said on how effective the communication of uncertainty of these models has been, but shortcomings in this area <a class="reference external" href="https://www.dailymail.co.uk/news/article-9748975/SAGE-scientist-admits-modelling-spooked-No10-delaying-Freedom-Day-wrong.html">have been exploited by media outlets</a>, possibly affecting the levels of trust from the public on the scientific advice.</p>
 <p>All this becomes even more important considering our next big global threat posed by climate change, where scenarios, data, models, uncertainties, and public trust are expected to be as much or more intertwined to what we have experienced during the pandemic.</p>
 <p>For reasons of time in this module we have not developed content about visualising uncertainty, however we highly recommend to take look at this <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-uncertainty.html">chapter</a> of the Fundamentals of Data visualisation book as well as reading the article <a class="reference external" href="https://www.nature.com/articles/d41586-020-03189-1">Five rules for evidence communication</a>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Exercise</p>
+<p><strong>Group Discussion</strong></p>
+<ul class="simple">
+<li><p>When do you think it is important to include uncertainty in a figure?</p></li>
+<li><p>How do you think it should be included?</p></li>
+<li><p>How is uncertainty usually communicated/visualised in your field?</p></li>
+</ul>
+<p><strong>Your data types</strong>
+What we have covered in this section is the tip of the iceberg. People come up with innovative ways of visualising data all the time.</p>
+<ul class="simple">
+<li><p>What kind of data is common in your field?</p></li>
+<li><p>How is it visualised?</p></li>
+</ul>
+</div>
 <div class="section" id="references-and-further-reading">
 <h3>References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://clauswilke.com/dataviz/">Fundamentals of data visualisation by Claus O’ Wilke</a></p>

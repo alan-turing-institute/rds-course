@@ -505,17 +505,16 @@
               <div>
                 
   <div class="section" id="the-what-and-why-of-statistical-modelling">
-<h1>4.1 The What and Why of Statistical Modelling<a class="headerlink" href="#the-what-and-why-of-statistical-modelling" title="Permalink to this headline">¶</a></h1>
+<span id="section4-1"></span><h1>4.1 The What and Why of Statistical Modelling<a class="headerlink" href="#the-what-and-why-of-statistical-modelling" title="Permalink to this headline">¶</a></h1>
 <p>Models are used in all walks of life to facilitate learning. A product designer may build a mock-up of the intended product to learn how the real-life counterpart may work. Similarly, architects use blueprints to learn and communicate something about a building.</p>
 <p>These models are abstractions of the real world that capture key characteristics of the thing they imitate.</p>
 <p>No model is perfect because the real world is endlessly complex. Rather, models are approximations of some phenonemon. Models are useful when they allow us to learn something about the subject.</p>
 <p><em>Statistical</em> modelling is conceptually similar. Simply put, a statistical model is a mathematical abstraction.</p>
 <p>In theory, models are infinitely flexible. However, there are many trade-offs, for example between complexity and interpretability, that we will cover in this module. The flexibility of models means that it is important to ask <em>why</em> you are modelling before embarking on a modelling problem. Broadly, modelling efforts are of two types (see below box).</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p><strong>Reasons for Modelling</strong></p>
+<div class="important admonition">
+<p class="admonition-title">Reasons for Modelling</p>
 <p><strong>Modelling for Prediction</strong>. The model’s performance is more important than understanding the mechanism of data generation. Here, robust prediction of an outcome or reliable discrimination between different types of data is more important than explaining the underlying phenomenon. These data science tasks crop up often in industry, for example it may be more important to accurately predict movie preferences from a set of input variables than understand <em>how</em> your input variables translate to movie preferences.</p>
-<p><strong>Modelling for Explanation</strong>. A premium is placed on understanding the mechanism of data generation. A highly complex model that achieves excellent performance but does not allow us to better understand the underlying phenomenon from which the data was generated is undesirable. When model interpretability is important there is a trade-off between model complexity and scientific value.</p>
+<p><strong>Modelling for Explanation</strong>. A premium is placed on understanding the mechanism of data generation. We don’t want a highly complex model that achieves excellent performance yet does not allow us to better understand the underlying phenomenon. When model interpretability is important there is a trade-off between model complexity and scientific value.</p>
 </div>
 <p>In this course we will focus on <strong>modelling for explanation</strong>, since this type of modelling in more common in scientific research. We do not pretend to be a module that covers the wide variety of machine learning techniques available to apply to your data science problem.</p>
 <p>From now on when we are using the term <em>models</em> what we are <em>actually</em> referring to <em>statistical models</em>.</p>
@@ -526,15 +525,15 @@
 <p>Data is a messy peek into an underlying phenomenon. What we really want to learn about is a <strong>phenomenon</strong>, for example what contributes to good health. However, the real-world is complicated and phenomena are never known precisely. Many natural phenomena have intrinsic variability, or <em>randomness</em>. For example, human bodies are massively variable between individuals, so it is reasonable to expect that their health, and also the myriad factors that contribute to it, will be different.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Randomness</p>
 <p>Even when a process is deterministic (i.e. the same start state produce the same end state each time) it can be complicated enough so that it useful to model it as a random process. In fact, there are very few things that are truly random, we just don’t know the models in enough detail. Remember that models are <em>useful approximations</em> of the real world.</p>
 </div>
 </div>
-<p>Phenomena are only ever accessed through a process of <strong>measurement</strong>. Measurement brings with it two barriers to the underlying phenomena.</p>
+<p>Phenomena are only ever accessed through a process of <strong>measurement</strong>. Measurement brings two barriers to the underlying phenomena.</p>
 <ul class="simple">
 <li><p><strong>Sampling Bias</strong>. We can never observe the whole population. This means that we only ever <em>sample</em> some of the distribution. The sample will fail to capture all the characteristics of the population. For example, an alien that picks a couple of individuals from the human timeline might choose a couple of vikings and therefore conclude that all humans have beards. This is called <strong>sampling bias</strong>.</p></li>
-<li><p><strong>Measurement Error</strong>. The measuring device <em>itself</em> could be inaccurate or imprecise (we discussed the ethical implications of this in Module 1). In our example the measuring device is self-reporting, which may have its own variability - the same person may respond differently on different days, and some people may be over or under confident.</p></li>
+<li><p><strong>Measurement Error</strong>. The measuring device <em>itself</em> could be inaccurate or imprecise. In our example the measuring device is self-reporting, which may have its own variability - the same person may respond differently on different days, and some people may be over or under confident.</p></li>
 </ul>
 <p>Measurement, or observation, provides a set of data. Data are <em>related</em> to the underlying phenomenon, but have been contorted by sampling bias (intrinsic variability will mean that each sample will be different) and measurement uncertainty.</p>
 <p>Together, the phenomenon and method of observation make up the <strong>data generating process</strong>.</p>
@@ -629,7 +628,7 @@
 <span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7faadce4fc70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f14f8cffd30&gt;
 </pre></div>
 </div>
 </div>
@@ -651,20 +650,21 @@
 <li><p>We can treat <span class="math notranslate nohighlight">\(P(x)\)</span> as a <strong>frequency</strong>. If <span class="math notranslate nohighlight">\(P(chocolate) = .7\)</span> means that if we were to serve millions of customers they would choose chocolate 70% of the time.</p></li>
 <li><p>We can treat <span class="math notranslate nohighlight">\(P(x)\)</span> as a <strong>belief</strong>. In this framework <span class="math notranslate nohighlight">\(P(chocolate)\)</span> indicates our degree of confidence that someone will choose chocolate.</p></li>
 </ul>
-<p>The first type of probabilistic framework is called <strong>Frequentist</strong> Probability. The second is called the <strong>Bayesian</strong> approach. These two frameworks support different types of inferences. Most of the modelling concepts covered in this module appear in both frameworks, but it is important to understand where they differ. We will highlight when this is the case.</p>
+<p>The first type of probabilistic framework is called <strong>Frequentist</strong> Probability. The second is called the <strong>Bayesian</strong> approach. These two frameworks support different types of inferences. Most of the modelling concepts covered in this module appear in both frameworks.</p>
 </div>
 <div class="section" id="conditional-probability">
 <h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h3>
-<p>In most cases when we think about probability of some events happening we assume that other events that have <em>already happened</em>. In our ice cream example we do not concern ourselves with the probability that there is a shop selling ice cream, or the probability that a customer would walk in to it. We assume that these have already happened and then make sure the <em>event space</em> we are interested in sum to one so that we can reason about the uncertainty.</p>
-<p>This is called <strong>Conditional Probability</strong>. <span class="math notranslate nohighlight">\(P(x)\)</span> is the probability within a bounded event space, conditioned on some stuff that is assumed to have happened. Let <span class="math notranslate nohighlight">\(y\)</span> be the probability that a customer walks into an ice cream shop, and <span class="math notranslate nohighlight">\(x\)</span> be the probability that someone chooses chocolate. The conditional probability formula is given by</p>
+<p>In most cases when we think about probability of some events happening we assume that other events that have <em>already happened</em>. In our ice cream example we do not concern ourselves with the probability that there is a shop selling ice cream, or the probability that a customer would walk in to it. We assume that these have already happened and then make sure the <em>event space</em> we are interested in sums to one so that we can reason about the uncertainty.</p>
+<p>This is called <strong>Conditional Probability</strong>. <span class="math notranslate nohighlight">\(P(x)\)</span> is the probability of <span class="math notranslate nohighlight">\(x\)</span> happening within a bounded event space, conditioned on some stuff that is assumed to have happened. Let <span class="math notranslate nohighlight">\(y\)</span> be the probability that a customer walks into an ice cream shop, and <span class="math notranslate nohighlight">\(x\)</span> be the probability that someone chooses chocolate. The conditional probability formula is given by:</p>
 <div class="math notranslate nohighlight">
 \[P(x|y) = \frac{P(x \cap y)}{P(y)}\]</div>
+<p>The left hand side, <span class="math notranslate nohighlight">\(P(x|y)\)</span>, is often read “Probability of <span class="math notranslate nohighlight">\(x\)</span> given <span class="math notranslate nohighlight">\(y\)</span>”. The right hand side consists of the <em>intersection</em> of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(P(x \cap y)\)</span>, which is all events of <em>both</em> <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. This is also called the <em>joint probability</em>.</p>
 <p>Conditional probability essentially normalises the event space within the mini universe under consideration, as visualised in <a class="reference external" href="https://setosa.io/conditional/">this beautiful animation by Victor Powell</a>.</p>
 <div class="admonition-conditional-probability admonition">
 <p class="admonition-title">Conditional Probability</p>
 <p>Conditional probability is everywhere in modelling. In particular there are two important conditional probabilities:</p>
 <ul class="simple">
-<li><p>The probability of the data, given the parameters of the distribution: <span class="math notranslate nohighlight">\(P(x | \theta)\)</span>. This is called the <strong>likelihood</strong>. Models are often fitted by assuming some starting values for the parameters, seeing how likely the data is under those parameters, then trying to find the parameters that give highest likelihood. This is called <strong>Maximum Likelihood Estimation</strong> (more on this in the next section).</p></li>
+<li><p>The probability of the data, given the parameters of the distribution: <span class="math notranslate nohighlight">\(P(x | \theta)\)</span>. This is called the <strong>likelihood</strong>. Models are often fitted by assuming some starting values for the parameters, seeing how likely the data is under those parameters, then trying to find the parameters that give highest likelihood. This is called <strong>Maximum Likelihood Estimation</strong> (more on this in <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a>.</p></li>
 <li><p>The probability of the parameters, given the data: <span class="math notranslate nohighlight">\(P(\theta | x)\)</span>. Modelling boils down to inferring the parameter values that are most consistent for a given set of data. <span class="math notranslate nohighlight">\(P(\theta | x)\)</span> is often called the <em>posterior</em>.</p></li>
 </ul>
 </div>
@@ -678,13 +678,13 @@
 <p>So, we can specify the entire distribution by changing one value, <span class="math notranslate nohighlight">\(P(x)\)</span>. This is an example of a <em>parameterised distribution</em>. Parameters govern probability distributions. A parameter is a mathematical value that, if altered, changes the expected behaviour of a process.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition-p-x-and-p-x admonition">
+<p class="admonition-title"><span class="math notranslate nohighlight">\(P(x)\)</span> and <span class="math notranslate nohighlight">\(P(x)\)</span></p>
 <p>The bernoulli distribution is something of a special case, where <span class="math notranslate nohighlight">\(P(x)\)</span> can have multiple meanings. It is the probability of <span class="math notranslate nohighlight">\(x\)</span> happening, the mean of the output distribution, <em>and</em> the single parameter of the distribution.</p>
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(P(x)\)</span> is the key parameter in the <strong>Bernoulli</strong> distribution, which is the distribution of a <strong>random variable</strong> that can only take two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, with the <span class="math notranslate nohighlight">\(1\)</span> signifying the presence of <span class="math notranslate nohighlight">\(x\)</span>. We can <strong>sample</strong> individual observations from this distribution to give us a set of data.</p>
-<p>In our example Chocoloate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
+<p>In our example chocoloate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
@@ -708,7 +708,6 @@
 <p>With a big enough sample the amount of people choosing chocolate will always rest at our chosen parameter.</p>
 <p>For different values of <span class="math notranslate nohighlight">\(P(chocolate)\)</span>, the below plot shows some simulations of the proportion of customers choosing chocolate as the number of customers increase.</p>
 <p>With the bernoulli distribution that proportion can be directly computed by calculating the mean.</p>
-<p>Since it is <em>probabilistic</em>, these simulations will vary each time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
@@ -742,9 +741,12 @@
 </div>
 <div class="section" id="sampling-bias-and-the-central-limit-theorem">
 <h2>Sampling bias and the Central Limit Theorem<a class="headerlink" href="#sampling-bias-and-the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
-<p>You might notice in the above plots that low sample numbers the sample mean varies more widely. This is <strong>sampling bias</strong>. Any parameter you calculate from data will vary from sample to sample. The sample-to-sample variability of a parameter is its <strong>sampling distribution</strong>.</p>
-<p>Though notice that even at larger samples the sample mean varies around the true probability (which is never known in practice).</p>
-<p>In fact, as statisticians we know the nature of this variation. There is a rather remarkable statistical property of sampling called the <strong>Central Limit Theorem</strong>, which states when sample sizes are large enough the <em>sampling distribution of the mean</em> will be normally distributed (a bell curve). Crucially this holds even if the data is not normally distributed (as in our case).</p>
+<p>Notice two things in the above plots:</p>
+<ul class="simple">
+<li><p>At lower sample numbers the sample mean varies more widely. This is <strong>sampling bias</strong>. Any parameter you calculate from data will vary from sample to sample. The sample-to-sample variability of a parameter is its <strong>sampling distribution</strong>.</p></li>
+<li><p>Even at larger samples the sample mean varies around the true probability (which is never known in practice).</p></li>
+</ul>
+<p>As statisticians we know the nature of this variation. There is a rather remarkable statistical property of sampling called the <strong>Central Limit Theorem</strong>, which states when sample sizes are large enough the <em>sampling distribution of the mean</em> will be normally distributed (a bell curve). Crucially this holds even if the data is not normally distributed (as in our case).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mf">.5</span>
@@ -758,17 +760,54 @@
     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_7_0.png" src="../../_images/4.1_What_and_Why_7_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2209</span><span class="o">/</span><span class="mf">1223811446.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_2209/1223811446.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py</span> in <span class="ni">rvs</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3115</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3116</span><span class="s2">         kwargs[&#39;discrete&#39;] = True</span>
+<span class="ne">-&gt; </span><span class="mi">3117</span><span class="s2">         return super().rvs(*args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3118</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3119</span><span class="s2">     def pmf(self, k, *args, **kwds):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py</span> in <span class="ni">rvs</span><span class="nt">(self, *args, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1063</span><span class="s2">         rndm = kwds.pop(&#39;random_state&#39;, None)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1064</span><span class="s2">         args, loc, scale, size = self._parse_args_rvs(*args, **kwds)</span>
+<span class="ne">-&gt; </span><span class="mi">1065</span><span class="s2">         cond = logical_and(self._argcheck(*args), (scale &gt;= 0))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1066</span><span class="s2">         if not np.all(cond):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span><span class="s2">             raise ValueError(&quot;Domain error in arguments.&quot;)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_discrete_distns.py</span> in <span class="ni">_argcheck</span><span class="nt">(self, p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="s2">     def _argcheck(self, p):</span>
+<span class="ne">--&gt; </span><span class="mi">131</span><span class="s2">         return (p &gt;= 0) &amp; (p &lt;= 1)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span><span class="s2">     def _get_support(self, p):</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+<img alt="../../_images/4.1_What_and_Why_7_1.png" src="../../_images/4.1_What_and_Why_7_1.png" />
 </div>
 </div>
 <p>The intuition behind the Central Limit Theorem is two fold:</p>
@@ -777,12 +816,10 @@
 <li><p>There are more ways of making the average than any other number.</p></li>
 </ul>
 <p>For example, take the leftmost plot. Here we have flipped a coin five times. There are 10 ways of getting 60% heads, and 10 ways of getting 40% heads, but only 1 way of getting all heads.</p>
-<p>The numbers of ways something can happen is mathematically encapsulated in probability:</p>
+<p>The numbers of ways something can happen is mathematically captured in probability:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># within margin with the above.</span>
-
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span> <span class="k">as</span> <span class="n">bcoeff</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span> <span class="k">as</span> <span class="n">bcoeff</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="mf">.5</span>
@@ -817,7 +854,7 @@
 <p>A generative model describes how a dataset is generated, in terms of probability distributions. By sampling from this model, we are able to generate new data. Parameters are the control dials on a generative model.</p>
 </div>
 <p>In most real situations, <strong>neither the generative model nor the parameters are known</strong>, and we will need to estimate them using the data we have collected. Statistical modeling works from the data upwards to figure out a model that might plausibly explain the data.</p>
-<p>Once we have learned a suitable model for our data, we can make inferences about the underlying phenomena using our knowledge of statistical sampling, and predictions about new data.</p>
+<p>Once we have learned a suitable model for our data, we can make inferences about the underlying phenomena using our knowledge of statistical sampling. We can also make predictions about new data.</p>
 <p>Collecting new data will allow us to test our predictions and revise our model, and the scientific cycle continues.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -840,72 +877,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>             <span class="k">assert</span> <span class="nb">iter</span><span class="p">(</span><span class="n">input_lines</span><span class="p">)</span> <span class="ow">is</span> <span class="n">input_lines</span>
-<span class="ne">---&gt; </span><span class="mi">83</span>             <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/backend/execute.py</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">def</span> <span class="nf">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/subprocess.py</span> in <span class="ni">__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask)</span>
-<span class="g g-Whitespace">    </span><span class="mi">950</span> 
-<span class="ne">--&gt; </span><span class="mi">951</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_execute_child</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">executable</span><span class="p">,</span> <span class="n">preexec_fn</span><span class="p">,</span> <span class="n">close_fds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">952</span>                                 <span class="n">pass_fds</span><span class="p">,</span> <span class="n">cwd</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/subprocess.py</span> in <span class="ni">_execute_child</span><span class="nt">(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1820</span>                         <span class="n">err_msg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno_num</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1821</span>                     <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">errno_num</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">err_filename</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1822</span>                 <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: PosixPath(&#39;dot&#39;)
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ExecutableNotFound</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/jupyter_integration.py</span> in <span class="ni">_repr_svg_</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">def</span> <span class="nf">_repr_svg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/piping.py</span> in <span class="ni">pipe</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">if</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span> <span class="ow">is</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="c1"># common case: both stdin and stdout need the same encoding</span>
-<span class="ne">--&gt; </span><span class="mi">113</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines_string</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span>             <span class="n">raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">input_encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>             <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/backend/piping.py</span> in <span class="ni">pipe_lines_string</span><span class="nt">(engine, format, input_lines, encoding, renderer, formatter, quiet)</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input_lines&#39;</span><span class="p">:</span> <span class="n">input_lines</span><span class="p">,</span> <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="n">encoding</span><span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> 
-<span class="ne">--&gt; </span><span class="mi">197</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>     <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/graphviz/backend/execute.py</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">88</span>             <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">raise</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> 
-
-<span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7faa9fe73700&gt;
-</pre></div>
-</div>
-</div>
+<img alt="../../_images/4.1_What_and_Why_11_0.svg" src="../../_images/4.1_What_and_Why_11_0.svg" /></div>
 </div>
 <p>In this section we have learned the theoretical building blocks of modelling. In the next section we will peek inside a model and learn how a model represents data.</p>
 <div class="section" id="references-and-further-reading">

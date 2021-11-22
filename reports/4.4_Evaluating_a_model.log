@@ -17,16 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-datafolder = 'data/UKDA-7724-csv/'
-df11 = pd.read_csv(datafolder + 'csv/eqls_2011.csv')
+datafolder = '../../../data/UKDA-7724-csv/' # should match the path you unzipped the data to
+df = pd.read_csv(datafolder + 'csv/eqls_2011.csv')
 df_map = pd.read_csv(datafolder + 'mrdoc/excel/eqls_api_map.csv', encoding='latin1')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2359/2986366322.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mdatafolder[0m [0;34m=[0m [0;34m'data/UKDA-7724-csv/'[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mdf11[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdatafolder[0m [0;34m+[0m [0;34m'csv/eqls_2011.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/tmp/ipykernel_2291/1131236024.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mdatafolder[0m [0;34m=[0m [0;34m'../../../data/UKDA-7724-csv/'[0m [0;31m# should match the path you unzipped the data to[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdatafolder[0m [0;34m+[0m [0;34m'csv/eqls_2011.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mdf_map[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mdatafolder[0m [0;34m+[0m [0;34m'mrdoc/excel/eqls_api_map.csv'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m'latin1'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
@@ -85,6 +85,6 @@ df_map = pd.read_csv(datafolder + 'mrdoc/excel/eqls_api_map.csv', encoding='lati
 [0m[1;32m    703[0m                 [0mhandle[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 [1;32m    704[0m                 [0mioargs[0m[0;34m.[0m[0mmode[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/UKDA-7724-csv/csv/eqls_2011.csv'
-FileNotFoundError: [Errno 2] No such file or directory: 'data/UKDA-7724-csv/csv/eqls_2011.csv'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/UKDA-7724-csv/csv/eqls_2011.csv'
+FileNotFoundError: [Errno 2] No such file or directory: '../../../data/UKDA-7724-csv/csv/eqls_2011.csv'
 

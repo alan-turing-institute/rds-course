@@ -443,6 +443,18 @@
       What is a story
      </strong>
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#audience">
+       Audience
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tell-one-story">
+       Tell one story
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#titles-and-annotations">
@@ -455,8 +467,30 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ink-ratio">
+     Data-ink ratio
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#emotion-and-context-in-story-telling">
      Emotion and context in story telling
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#emotion">
+       Emotion
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#context">
+       Context
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extra-resources">
+     Extra resources
     </a>
    </li>
   </ul>
@@ -483,20 +517,17 @@
 <h2><strong>What is a story</strong><a class="headerlink" href="#what-is-a-story" title="Permalink to this headline">¶</a></h2>
 <p>A story is a connected series of events presented in a specific order such that they create an emotional reaction for a given audience.</p>
 <p>In our case, a story is told through visuals of statistical information. Ideally, these create a compelling narrative that convinces the audience of the importance of your data insight.</p>
-<p><strong>Audience</strong></p>
+<div class="section" id="audience">
+<h3>Audience<a class="headerlink" href="#audience" title="Permalink to this headline">¶</a></h3>
 <p>Telling a story starts with the audience. The starting point of your visualisation’s story is the audience’s domain-relevant knowledge. The audience’s context should frame your story.</p>
-<p>However, even experts in a field take time to process complex visualisations. Assume that the reader needs as much help as possible from you to understand the key trends and relationships shown. Keep your figures simple, avoid irrelevant or tangential information, and augment your visuals with narrative text that will help the readers infer the intended conclusions about your data.</p>
-<p><strong>Tell one story</strong></p>
-<p>Although it is possible (and far too easy with modern visualisation packages!) to tell many stories using a single chart, it is easy to overload your audience with information. Every addition to a figure increases the required mental effort of your audience. Too much information is discombobulating - the reader does not know what to focus on and your figure is diminished. Aim for <em>ink parsimony</em>, be careful to include only the visual elements that increase understanding, and embrace white space. Remember you are competing for the viewer’s time and attention!</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Best practices used in data visualisation, story-telling and information design are highly influcenced by the renowed statistical graphics expert Edward Tufte. An excellent visualization, according to Tufte, expresses “complex ideas communicated with clarity, precision and efficiency.” In 1980s, Tufte proposed a metric for measuring the amount of superfluous information included in a chart. He called it the data-ink ratio,  saying “the larger the share of a graphic’s ink devoted to data, the better.”</p>
+<p>However, even experts in a field take time to process complex visualisations. Assume that the reader needs as much help as possible from you to understand the key trends and relationships shown. <strong>Keep your figures simple, avoid irrelevant or tangential information</strong>, and augment your visuals with narrative text that will help the readers infer the intended conclusions about your data.</p>
 </div>
-</div>
+<div class="section" id="tell-one-story">
+<h3>Tell one story<a class="headerlink" href="#tell-one-story" title="Permalink to this headline">¶</a></h3>
+<p>Although it is possible (and far too easy with modern visualisation packages!) to tell many stories using a single chart, <strong>it is easy to overload your audience with information</strong>. Every addition to a figure increases the required mental effort of your audience. Too much information is discombobulating - the reader does not know what to focus on and your figure is diminished. Aim for <em>ink parsimony</em>, be careful to <strong>include only the visual elements that increase understanding</strong>, and embrace white space. Remember you are competing for the viewer’s time and attention!</p>
 <p>Having said all this, sometimes a single static visualization is not enough to tell an entire story. You may want to design a sequence of simple figures that jointly create a convincing story arc. When connecting a story over multiple figures consider using different types of visualization for each distinct analysis to help the reader’s focus. Furthermore, keep semantic indicators (such as colour scheme) consistent across figures. If you have many similar types of analysis an alternative is to use interactive figures and animations that enable the audience to navigate through the story.</p>
 <p>A great example of data journalism following the above principles comes from the Financial Times <a class="reference external" href="https://ig.ft.com/coronavirus-global-data/">Covid-19: The global crisis — in data</a>.</p>
+</div>
 </div>
 <div class="section" id="titles-and-annotations">
 <h2>Titles and annotations<a class="headerlink" href="#titles-and-annotations" title="Permalink to this headline">¶</a></h2>
@@ -512,37 +543,66 @@
 <div class="section" id="hierarchy-of-the-information">
 <h2>Hierarchy of the information<a class="headerlink" href="#hierarchy-of-the-information" title="Permalink to this headline">¶</a></h2>
 <p>Consider how your audience will scan and read the visualisation.</p>
-<p>Without any visual cues, when we’re confronted with a block of text
-our only option is to read it</p>
+<p>Without any visual cues, when we’re confronted with a block of text our only option is to read it.</p>
 <p>We can employ preattentive attributes to create a visual hierarchy in our communications. These attributes can be colour, contrast, font, size, etc.</p>
-<p>For example, look at the figure from the [European Environment Agency] shown below. If many data are displayed, we can  make use of white space to separate and group the information. Text formatting can allow us to give the desired hierarchy to the content and colours help us to highlight the focus of the data visualisation.</p>
+<p>For example, look at the figure from the <a class="reference external" href="https://www.eea.europa.eu/">European Environment Agency</a> shown below. If many data are displayed, we can  make use of white space to separate and group the information. Text formatting can allow us to give the desired hierarchy to the content and colours help us to highlight the focus of the data visualisation.</p>
 <p><img alt="" src="https://i.imgur.com/aCd1T2W.png" /></p>
+</div>
+<div class="section" id="data-ink-ratio">
+<h2>Data-ink ratio<a class="headerlink" href="#data-ink-ratio" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">data-ink</span></code> ratio is a concept introduced by Edward Tufte, an expert on designing effective data visualisations.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Tufte</p>
+<p>Best practices used in data visualisation, story-telling and information design are highly influcenced by the renowed statistical graphics expert Edward Tufte. An excellent visualization, according to Tufte, expresses “complex ideas communicated with clarity, precision and efficiency.” In 1980s, Tufte proposed a metric for measuring the amount of superfluous information included in a chart. He called it the data-ink ratio,  saying “the larger the share of a graphic’s ink devoted to data, the better.”</p>
+</div>
+</div>
+<p>The term, ‘data-ink’, is defined as the total ink on a graph that represents data.
+And the <a class="reference external" href="https://infovis-wiki.net/w/images/5/55/DIR.jpg">data-ink ratio</a> is the proportion of a graphic’s ink devoted to the non-redundant display of data-information.</p>
+<p>Tufte claims that good graphical representations are designed with ta data-ink ratio as close as possible to 1.0 as possible, without eliminating something that is necessary for effective communication.</p>
+<p>Tufte puts forward the following 5 principles related to data ink when designing a data visualisation:</p>
+<ul class="simple">
+<li><p>Above all else show data.</p></li>
+<li><p>Maximize the data-ink ratio.</p></li>
+<li><p>Erase non-data-ink.</p></li>
+<li><p>Erase redundant data-ink.</p></li>
+<li><p>Revise and edit.</p></li>
+</ul>
 </div>
 <div class="section" id="emotion-and-context-in-story-telling">
 <h2>Emotion and context in story telling<a class="headerlink" href="#emotion-and-context-in-story-telling" title="Permalink to this headline">¶</a></h2>
-<p><strong>Emotion</strong></p>
-<p>Discussing data-ink ratios (see tip above) and information can feel cold and calculating, contradictory to the idea that a good story takes the reader through an emotional journey. The emotional component of the story is what grabs your attention and makes the story memorable.</p>
+<div class="section" id="emotion">
+<h3>Emotion<a class="headerlink" href="#emotion" title="Permalink to this headline">¶</a></h3>
+<p>Discussing data-ink ratios (see section above) and information can feel cold and calculating, contradictory to the idea that a good story takes the reader through an emotional journey. The emotional component of the story is what grabs your attention and makes the story memorable.</p>
 <p>So how can you invoke emotion and minimize the data-ink ratio? In this course we do not aim to provide a clear answer for this, but we want to use an example to get you to think about it.</p>
-<p>This comparison comes from the <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/3">Data Feminism book</a>. They compare two different ways of visualising the same problem: gun violence in the US. One figure is a typical bar chart from the Washington Post (figure X) showing a bar chart with the number of active shooter incidents annually. The other figure comes from Periscope (Figure XX ), a design firm with the tagline “Do good with data”, that took a different approach. Quoting the Data Feminism book (D’Ignazio and Klein, 2020):</p>
+<p>This comparison comes from the <a class="reference external" href="https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/3">Data Feminism book</a>. They compare two different ways of visualising the same problem: gun violence in the US. The first figure is a typical bar chart from the Washington Post showing a bar chart with the number of active shooter incidents annually. The second figure comes from Periscope, a design firm with the tagline “Do good with data”, that took a different approach. Quoting the Data Feminism book (D’Ignazio and Klein, 2020):</p>
 <blockquote>
 <div><p>“… what makes Periscopic’s visualization so very different from a more conventional bar chart of similar information, such as “The Era of ‘Active Shooters’” from the Washington Post? The projects share the proposition that gun deaths present a serious threat. But unlike the Washington Post bar chart, Periscopic’s work is framed around an emotion: loss. People are dying; their remaining time on earth has been stolen from them. These people have names and ages. They have parents and partners and children who suffer from that loss as well.”</p>
 </div></blockquote>
 <p><img alt="" src="https://i.imgur.com/XcdZGKf.png" />
-A bar chart with the number of “active shooters incidents” from the United State between 2000 and 2015.**</p>
-<p>vs</p>
+A bar chart with the number of “active shooters incidents” from the United States between 2000 and 2015.</p>
 <p><img alt="" src="https://i.imgur.com/KbnOEry.png" />
 Visualisation of the “stolen years” of people killed by guns in the United States in 2013. Figure by <a class="reference external" href="https://guns.periscopic.com/">Periscope</a>.</p>
-<p><strong>Context</strong></p>
-<p>In the previous sections we have given emphasis on how to use data storytelling to convey a message through emotion. It is clear that tailoring a story in this way can never be neutral or objective. However, this is not only limited to a story or message. Data is never neutral or objective and there is no such thing as “raw data”.</p>
-<p>Instead of taking data at face value and looking toward future insights, data scientists must work with domain experts to first interrogate the context, limitations, and validity of the data being used. Furthermore, this should not limit itself to the stages of data acquisition or data analysis, context also comes into play in the framing and communication of results.</p>
-<p>The following example from the Data Feminism book shows data resulting from a research study called “Disparities in Mental Health Referral and Diagnosis in the New York City Jail Mental Health Service.” .
-This study looked at the medical records of tens of thousands of first-time incarcerated people and finds that some groups (white people) are more likely
-to receive treatment, while others (Black and latinos) are more likely to receive punishment such as solitary confinement.</p>
-<p>The figures below shows two examples of how the variation in the title and framing of the chart can highlight the context in which data was taken. The figure in the left
-seems neutral and free of bias however does not succeeds in communicating the research findings, by itself it provides an incomplete message. The
-figure in the right attempts to fix that by changing the annotations of the figure adding context of the research findings.</p>
-<p><img alt="" src="https://i.imgur.com/ThduUju.png" />
-Two portrayals of the same data analysis. The data are from a study of people incarcerated for the first time in jails between 2011 and 2013. Data from Fatos Kaba et al. “Disparities in Mental Health Referral and Diagnosis in the New York City Jail Mental Health Service”. Graphics by Catherine D’Ignazio, extracted from Data Feminism (D’Ignazio and Klein, 2020).</p>
+</div>
+<div class="section" id="context">
+<h3>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h3>
+<p>In the previous sections we have emphasised how to use data storytelling to convey a message through emotion. It is clear that tailoring a story in this way can never be neutral or objective. However, this is not only limited to a story or message. <strong>Data is never neutral or objective and there is no such thing as “raw data”</strong> (discussed in <em>Section 1.1</em>)</p>
+<p>Instead of taking data at face value and looking toward future insights, data scientists must work with domain experts to first <strong>interrogate the context, limitations, and validity of the data being used</strong>. Furthermore, this should not limit itself to the stages of data acquisition or data analysis, context also comes into play in the framing and communication of results.</p>
+<p>The following example from the Data Feminism book shows data resulting from a research study called “Disparities in Mental Health Referral and Diagnosis in the New York City Jail Mental Health Service.” This study looked at the medical records of tens of thousands of first-time incarcerated people and finds that some groups (white people) are more likely to receive treatment, while others (Black and latinos) are more likely to receive punishment such as solitary confinement.</p>
+<p>The figures below shows two examples of how varying the titles can frame the figure in a different context. The figure in the left seems neutral and free of bias however does not succeed in communicating the research findings. The figure in the right attempts to fix that by changing the annotations of the figure to add necessary context.</p>
+<p><img alt="" src="https://i.imgur.com/ThduUju.png" /><br />
+Two portrayals of the same data analysis. Data from Fatos Kaba et al. “Disparities in Mental Health Referral and Diagnosis in the New York City Jail Mental Health Service”. Graphics by Catherine D’Ignazio, extracted from Data Feminism (D’Ignazio and Klein, 2020).</p>
+</div>
+</div>
+<div class="section" id="extra-resources">
+<h2>Extra resources<a class="headerlink" href="#extra-resources" title="Permalink to this headline">¶</a></h2>
+<p>Check out the page of <a class="reference external" href="https://alan-turing-institute.github.io/TuringDataStories-fastpages/">Turing Data Stories</a>. A Turing project that experiments with different ways of doing story-telling in a pedagogical, ethical and reproducible fashion.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Exercise</p>
+<p><strong>Group Discussion</strong>
+We have said that data is never completely objective. Is this true? How would be visualise data that is potentially emotive but you want to keep as objective as possible?</p>
+</div>
 </div>
 </div>
 <div class="section" id="references">
@@ -550,10 +610,9 @@ Two portrayals of the same data analysis. The data are from a study of people in
 <p><a class="reference external" href="https://clauswilke.com/dataviz/">Fundamentals of data visualisation by Claus O’ Wilke</a></p>
 <p><a class="reference external" href="http://www.bdbanalytics.ir/media/1123/storytelling-with-data-cole-nussbaumer-knaflic.pdf">Storytelling with data</a></p>
 <p><a class="reference external" href="https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts/#message">chart-dos-and-donts</a></p>
+<p><a class="reference external" href="https://jtr13.github.io/cc19/tuftes-principles-of-data-ink.html">Chapter about data-ink ratio</a></p>
 <p><a class="reference external" href="https://data-feminism.mitpress.mit.edu/">Data Feminism</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<!-- #endregion -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>

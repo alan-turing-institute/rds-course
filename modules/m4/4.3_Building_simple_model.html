@@ -498,11 +498,11 @@
               <div>
                 
   <div class="section" id="building-a-simple-model">
-<h1>4.3 Building a simple model<a class="headerlink" href="#building-a-simple-model" title="Permalink to this headline">¶</a></h1>
-<p>The previous sections of this module have intended to give general and high-level concepts about modeling that could be useful in different scenarios. However, we believe that we learn best by doing so we will make this and the next section more practical with a simple modeling exercise using the EQLS dataset.</p>
+<span id="section4-3"></span><h1>4.3 Building a simple model<a class="headerlink" href="#building-a-simple-model" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will use what we’ve learned in <a class="reference internal" href="4.1_What_and_Why.html#section4-1"><span class="std std-ref"><em>Section 4.1</em></span></a> and <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> to begin modelling the EQLS dataset.</p>
 <div class="section" id="recap">
 <h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
-<p>In <em>Section 3.5</em> we determined the variables of interest and we had a look at some of the dependencies - in particular, the dependencies in our <em>material</em> variables (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>,<code class="docutils literal notranslate"><span class="pre">RuralUrban</span></code>,<code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code>,<code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code>,<code class="docutils literal notranslate"><span class="pre">Children</span></code>). We also visualised the distribution of the Deprivation Index (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>) for different categories of the self-reported Health (<code class="docutils literal notranslate"><span class="pre">SRH</span></code>) and found that there was a obvious relationship between these variables. Furthermore, following previous research done on the topic and for simplicity, we decided to binarise our variable of interest <code class="docutils literal notranslate"><span class="pre">SRH</span></code> in two categories of <code class="docutils literal notranslate"><span class="pre">Fair</span></code> and <code class="docutils literal notranslate"><span class="pre">Poor</span></code> health.</p>
+<p>In <span class="xref myst"><em>Section 3.5</em></span> we selected some interesting variables and looked at some of the relationships - in particular, in our <em>material</em> variables <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code>. We also visualised the distribution of the Deprivation Index (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>) for different categories of the self-reported Health (<code class="docutils literal notranslate"><span class="pre">SRH</span></code>) and found that there was an obvious relationship between these variables. Furthermore, following previous research done on the topic (and also for simplicity), we decided to binarise our variable of interest <code class="docutils literal notranslate"><span class="pre">SRH</span></code> in two categories of <code class="docutils literal notranslate"><span class="pre">Fair</span></code> and <code class="docutils literal notranslate"><span class="pre">Poor</span></code> health.</p>
 </div>
 <div class="section" id="data-processing">
 <h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
@@ -521,11 +521,13 @@
 </div>
 </div>
 </div>
-<p>First let’s load the data in the same way as we did in <em>Section 3.5</em>. We can access the data by downloading the <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">csv</a> option from here. Create a folder data in the same root as this notebook. Copy the folder <code class="docutils literal notranslate"><span class="pre">UKDA-7724-csv</span></code> and its contents there.</p>
+<p>First  let’s load the data in the same way as we did in <span class="xref myst"><em>Section 3.5</em></span>. We can access the data by downloading the <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">csv</a> option from here.</p>
+<p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> (where <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course).
+This should give you <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code> directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;data/UKDA-7724-csv/&#39;</span>
-<span class="n">df11</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;../../../data/UKDA-7724-csv/&#39;</span> <span class="c1"># should match the path you unzipped the data to</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
 <span class="n">df_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;mrdoc/excel/eqls_api_map.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -533,9 +535,9 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2336</span><span class="o">/</span><span class="mf">2986366322.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;data/UKDA-7724-csv/&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df11</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2269</span><span class="o">/</span><span class="mf">1131236024.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;../../../data/UKDA-7724-csv/&#39;</span> <span class="c1"># should match the path you unzipped the data to</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;mrdoc/excel/eqls_api_map.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
@@ -594,7 +596,7 @@
 <span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">                 handle,</span>
 <span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                 ioargs.mode,</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/UKDA-7724-csv/csv/eqls_2011.csv&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/UKDA-7724-csv/csv/eqls_2011.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -602,7 +604,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we are only interested in the UK for this example.</span>
-<span class="n">df11</span> <span class="o">=</span> <span class="n">df11</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Y11_Country == 27&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Y11_Country == 27&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -612,14 +614,12 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Y11_Q42&quot;</span><span class="p">:</span> <span class="s2">&quot;SRH&quot;</span><span class="p">,</span>
            <span class="s1">&#39;Y11_Deprindex&#39;</span><span class="p">:</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span>
-           <span class="s2">&quot;Y11_RuralUrban&quot;</span><span class="p">:</span> <span class="s2">&quot;RuralUrban&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_Accommproblems&quot;</span><span class="p">:</span> <span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Incomequartiles_percapita&quot;</span> <span class="p">:</span> <span class="s2">&quot;IncomeQuartiles&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_HHsize&quot;</span><span class="p">:</span> <span class="s2">&quot;HouseholdSize&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_Q32&quot;</span><span class="p">:</span> <span class="s2">&quot;Children&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Y11_Incomequartiles_percapita&quot;</span> <span class="p">:</span> <span class="s2">&quot;IncomeQuartiles&quot;</span><span class="p">,</span>
            <span class="s2">&quot;DV_Q7&quot;</span><span class="p">:</span><span class="s2">&quot;WorkingHours&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_ISCEDsimple&quot;</span><span class="p">:</span><span class="s2">&quot;ISCED&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Y11_Education&quot;</span><span class="p">:</span> <span class="s2">&quot;Education&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_SocExIndex&quot;</span><span class="p">:</span><span class="s2">&quot;SocialExclusionIndex&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_MWIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;MentalWellbeingIndex&quot;</span><span class="p">,</span>
            <span class="s2">&quot;Y11_Agecategory&quot;</span><span class="p">:</span><span class="s2">&quot;AgeCategory&quot;</span><span class="p">,</span>
@@ -628,16 +628,16 @@
            <span class="s2">&quot;Y11_Country&quot;</span><span class="p">:</span><span class="s2">&quot;Country&quot;</span>
 <span class="p">}</span>
 
-<span class="n">df11</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">var_map</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df11_set</span> <span class="o">=</span> <span class="n">df11</span><span class="p">[</span><span class="n">var_map</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">var_map</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_set</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var_map</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In <em>Section 3.5</em> we realised that variables like <code class="docutils literal notranslate"><span class="pre">WorkingHours</span></code>, <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> have a lot of missing data, so we decided to not use them in the modeling. Furthermore, drop remaining rows with missing data (<strong>warning</strong>: this shouldn’t be done lightly without having explored the missingness of the data, here we are doing for simplicity and to focus on the modelling).</p>
+<p>In <em>Section 3.5</em> we realised that variables like <code class="docutils literal notranslate"><span class="pre">WorkingHours</span></code>, <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> have a lot of missing data, so we decided to not use them in the modeling. Furthermore, we dropped the remaining rows with missing data (<strong>warning</strong>: this shouldn’t be done lightly without having explored the missingness of the data, here we are doing for simplicity and to focus on the modelling).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df11_model</span> <span class="o">=</span> <span class="n">df11_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WorkingHours&#39;</span><span class="p">,</span><span class="s1">&#39;IncomeQuartiles&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1">#we defer imputation to a later date. For now we remove na.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_model</span> <span class="o">=</span> <span class="n">df_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WorkingHours&#39;</span><span class="p">,</span><span class="s1">&#39;IncomeQuartiles&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1">#we defer imputation to a later date. For now we remove na.</span>
 </pre></div>
 </div>
 </div>
@@ -645,8 +645,8 @@
 <p>Finally, we must dichotomise our <code class="docutils literal notranslate"><span class="pre">SRH</span></code> variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dichotomoise SRH</span>
-<span class="n">df11_model</span><span class="p">[</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df11_model</span><span class="o">.</span><span class="n">SRH</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dichotomise SRH</span>
+<span class="n">df_model</span><span class="p">[</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -654,6 +654,7 @@
 </div>
 <div class="section" id="logistic-regression">
 <h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>We want to predict the probability of SRH being 1 (i.e good health). In <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> we saw that we do this by predicting the log-odds of <span class="math notranslate nohighlight">\(p(x)\)</span>. Why?</p>
 <p>The odds of something are the probability of it happening divided by the probability of it not happening:</p>
 <div class="math notranslate nohighlight">
 \[ odds(x) = \frac{p(x)}{1 - p(x)} \]</div>
@@ -682,7 +683,7 @@
 <img alt="../../_images/4.3_Building_simple_model_12_0.png" src="../../_images/4.3_Building_simple_model_12_0.png" />
 </div>
 </div>
-<p>In regression we want equal probability to be placed to either side of the odds function. Taking the <span class="math notranslate nohighlight">\(log(odds)\)</span> transforms the exponential odds into a normally distributed function.
+<p>In regression we want equal probability to be placed to either side of the odds function. Taking the log-odds transforms the exponential odds into a symmetrical and continuous function.
 As shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -699,17 +700,21 @@ As shown below.</p>
 <img alt="../../_images/4.3_Building_simple_model_14_0.png" src="../../_images/4.3_Building_simple_model_14_0.png" />
 </div>
 </div>
-<p>Using log(odds) gives us the logistic regression formula from section 4.2:</p>
+<p>Using log-odds gives us the logistic regression formula from <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a>:</p>
 <div class="math notranslate nohighlight">
 \[
-\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{p - 1} x_{p - 1}
+\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{n} x_{n}
 \]</div>
-<p><strong>Classifying log(odds)</strong></p>
+<p><strong>Classifying log-odds</strong></p>
 <p>The log-odds of <span class="math notranslate nohighlight">\(x\)</span> are also referred to by the function <span class="math notranslate nohighlight">\(logit(x)\)</span>. We have shown that from <span class="math notranslate nohighlight">\(p(x)\)</span> we can get <span class="math notranslate nohighlight">\(logit(x)\)</span>. To convert <span class="math notranslate nohighlight">\(logit(x)\)</span> into a categorical variable <span class="math notranslate nohighlight">\(y={0,1}\)</span> we need a probability, let’s call it <span class="math notranslate nohighlight">\(\hat{p}\)</span>, so that we can state that if <span class="math notranslate nohighlight">\(\hat{p}\geq0.5\)</span> then <span class="math notranslate nohighlight">\(y=1\)</span>.</p>
 <p>The <strong>sigmoid</strong> function is the inverse of the logit function. If we say that the output of <span class="math notranslate nohighlight">\(logit(x)\)</span> is <span class="math notranslate nohighlight">\(\hat{x}\)</span>, then:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{1}{1 + e^{-\hat{x}}} \]</div>
-<p>The intuition is as follows.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Sigmoid intuition</p>
+<p>The intuition for the sigmoind function is as follows.</p>
 <ul class="simple">
 <li><p>A fraction with <span class="math notranslate nohighlight">\(1\)</span> as the numerator always has a maximum of <span class="math notranslate nohighlight">\(1/1 = 1\)</span>. As the denominator grows, the value gets closer to <span class="math notranslate nohighlight">\(0\)</span>, but never below it.</p></li>
 <li><p><span class="math notranslate nohighlight">\(x^{-y}  = \frac{1}{x^y}\)</span>, so <span class="math notranslate nohighlight">\(e^{-\hat{x}} = \frac{1}{e^{\hat{x}}}\)</span></p></li>
@@ -717,27 +722,6 @@ As shown below.</p>
 <li><p>So, the sigmoid function is actually <span class="math notranslate nohighlight">\(\frac{1}{1+\frac{1}{odds}}\)</span>. In other words, when the odds are high the sigmoid function is close to 1, as they decrease the sigmoid function goes towards zero, bounded by zero and 1.</p></li>
 <li><p>This latter function cancels out to <span class="math notranslate nohighlight">\(p(x)\)</span>.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">sigm</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-<span class="n">sigmoid</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">odds</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;p(x)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;1/(1+1/odds)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">),</span> <span class="n">sigmoid</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;log(odds)&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;1/(1+1/odds)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;log(odds)&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;p(x)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">),</span> <span class="n">sigm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">)))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;log(odds)&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;sigmoid(log(odds))&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_16_0.png" src="../../_images/4.3_Building_simple_model_16_0.png" />
 </div>
 </div>
 <p>Now, let’s return to modelling our data.</p>
@@ -749,29 +733,29 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 <p>We now remind ourselves of our data and the behaviour of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> for our two <code class="docutils literal notranslate"><span class="pre">SRH</span></code> categories</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df11_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;SRH_binary&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">binrange</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;SRH_binary&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Deprivation Index&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_19_0.png" src="../../_images/4.3_Building_simple_model_19_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_18_0.png" src="../../_images/4.3_Building_simple_model_18_0.png" />
 </div>
 </div>
-<p>Notice that the mode is zero in both cases, but there is a much higher proportion of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scores in [3-6] when SRH = 0 compared to when SRH = 1. From this we can explore some of our expected modelling outcomes before we even fit a model. Note that the logodds are predicted by an intercept <em>added</em> to a scaled predictor. The logistic function that we saw above is monotonic, in that it is <em>always increasing</em> so can only model a change in one direction. So, we already know that as <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> decreases we may expect that the odds of SRH_binary=1 will <em>increase</em>.</p>
+<p>Notice that the mode is zero in both cases, but there is a much higher proportion of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scores in [3-6] when SRH = 0 compared to when SRH = 1. From this we already know that as <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> decreases we may expect that the odds of SRH_binary=1 will <em>increase</em>.</p>
 <p>Let’s now fit our model to the data using <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">df11_model</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]</span>
 
 <span class="c1"># Intercept is not added by default in Statsmodels, we need to add a constant (and array of 1s) for intercept</span>
 <span class="n">X_atr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> 
 <span class="c1">#Create model instance</span>
-<span class="n">logit_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df11_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_atr</span><span class="p">)</span> 
+<span class="n">logit_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_atr</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
 
 <span class="c1"># extract coefficient and intercept.</span>
@@ -782,25 +766,23 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
-         Current function value: 0.325695
+         Current function value: 0.325395
          Iterations 6
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/envs/rds-course/lib/python3.9/site-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
-  import pandas.util.testing as tm
-/anaconda3/envs/rds-course/lib/python3.9/site-packages/statsmodels/tsa/tsatools.py:117: FutureWarning: In a future version of pandas all arguments of concat except for the argument &#39;objs&#39; will be keyword-only
-  x = pd.concat(x[::order], 1)
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now we have fitted our model let us explore it so we understand what the model thinks is going on in the data.</p>
 <p>Interpreting the model is the first step in model evaluation. In <em>Section 4.3</em> we will assess model performance in more detail.</p>
+<div class="important admonition">
+<p class="admonition-title">Ignorant Models</p>
 <p>First, remember that models are ignorant. They only know about the information we have given them. In our case this means that the model does not know that <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> is an ordinal value, rather it thinks it is continuous. This means that <em>according to the model’s universe</em> values less than zero are allowed in <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>, as well as values greater than 6. Whether this is an issue or not depends on context and the conclusions one is drawing.</p>
-<p>After the fit we have our intercept and coef, so we can predict the log-odds, and p(x) using what we’ve learned above.</p>
+</div>
+<p>After the fit we have our intercept and coef, so we can predict the log-odds and p(x) using what we’ve learned above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df11_model</span><span class="o">.</span><span class="n">DeprIndex</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df_model</span><span class="o">.</span><span class="n">DeprIndex</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">sigm</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -821,15 +803,15 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_23_0.png" src="../../_images/4.3_Building_simple_model_23_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_22_0.png" src="../../_images/4.3_Building_simple_model_22_0.png" />
 </div>
 </div>
-<p>We can see from the odds that even with <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> is 6 (highest deprivation) the variable SRH is around 2 times more likely to be 1 (good health) rather than 0. So, our model current predicts <code class="docutils literal notranslate"><span class="pre">SRH_binary</span> <span class="pre">==</span> <span class="pre">1</span></code> for <em>every single</em> output of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> in our dataset.</p>
+<p>We can see from the odds that even with <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> is 6 (highest deprivation) the variable SRH is around 2 times more likely to be 1 (good health) rather than 0. So, our model currently predicts <code class="docutils literal notranslate"><span class="pre">SRH_binary</span> <span class="pre">==</span> <span class="pre">1</span></code> for <em>every single</em> output of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> in our dataset.</p>
 <p>This seems like strange behaviour. We know there are zeroes in our dataset, so does predicting 100% good health mean that our model is bad?</p>
 <p>Let’s compare this with the outputs calculated from our data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df11_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;SRH_binary&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;SRH&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -839,14 +821,14 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_26_0.png" src="../../_images/4.3_Building_simple_model_26_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_25_0.png" src="../../_images/4.3_Building_simple_model_25_0.png" />
 </div>
 </div>
 <p>From these figures we can basically estimate <span class="math notranslate nohighlight">\(p(x)\)</span> directly from the data for each category. If you have a set of {0,1}, the the proportion of ones is simply the mean. From this proportion we calculate the odds and log odds.</p>
 <p>In the next set of plots we will superpose this real data on top of the model regression lines and examine how well the model is representing our data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_lo</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df11_model</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_lo</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df_model</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">px</span><span class="o">=</span><span class="n">df_lo</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span>
 
@@ -877,14 +859,11 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_28_0.png" src="../../_images/4.3_Building_simple_model_28_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_27_0.png" src="../../_images/4.3_Building_simple_model_27_0.png" />
 </div>
 </div>
 <p>We can see above that logistic model has learned the data pretty well, even though when we binarise the output it is clearly not predicting any poor health.</p>
 <p>This is because the predicted binarisation is sort of a hack to get a single predicted classification. What the logistic regression really learns about pretty well is the ratio of responses. If we look at the proportions of good health to poor health in the panel plot below we can see that <em>even at the highest deprivation index</em> we have approximately double the amount of ‘good health’ to ‘poor health’. This is what the model has learned.</p>
-<p>This feels like magic. How does is the model learning this?</p>
-<p>Basically, we are fitting a linear model on our middle figure above, the relationship between <code class="docutils literal notranslate"><span class="pre">SHR</span></code> and the log(odds). Then for each data point it translates the log(odds) back to probabilities via the logistic function.
-The parameters of the model can be estimated by maximizing a likelihood function that predicts the mean of a Bernoulli distribution for each data point.</p>
 <p>Let’s now examine the summary of our fit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -895,18 +874,18 @@ The parameters of the model can be estimated by maximizing a likelihood function
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                           Logit Regression Results                           
 ==============================================================================
-Dep. Variable:                      y   No. Observations:                 1994
-Model:                          Logit   Df Residuals:                     1992
+Dep. Variable:                      y   No. Observations:                 2004
+Model:                          Logit   Df Residuals:                     2002
 Method:                           MLE   Df Model:                            1
-Date:                Wed, 06 Oct 2021   Pseudo R-squ.:                 0.06477
-Time:                        10:16:42   Log-Likelihood:                -649.44
-converged:                       True   LL-Null:                       -694.42
-Covariance Type:            nonrobust   LLR p-value:                 2.433e-21
+Date:                Sun, 21 Nov 2021   Pseudo R-squ.:                 0.06533
+Time:                        18:14:45   Log-Likelihood:                -652.09
+converged:                       True   LL-Null:                       -697.67
+Covariance Type:            nonrobust   LLR p-value:                 1.324e-21
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          2.6184      0.102     25.760      0.000       2.419       2.818
-DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
+const          2.6232      0.102     25.808      0.000       2.424       2.822
+DeprIndex     -0.3520      0.036     -9.815      0.000      -0.422      -0.282
 ==============================================================================
 </pre></div>
 </div>
@@ -914,8 +893,8 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 </div>
 <div class="admonition-interpreting-the-fit-output admonition">
 <p class="admonition-title">Interpreting the Fit Output</p>
-<p>The fitted coeffient reflects the change of log odds of each increment on our independent variable (assuming the it has a linear impact and is a continous variable. If the coefficient is negative, they have an inverse relationship and is equivalent to calculate the slope of our logodds vs <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> above. We can also get the value from the fitted intercept from our middle figure above, as the log(odds) value for when our <code class="docutils literal notranslate"><span class="pre">SRH</span></code> dependent variable is zero.</p>
-<p>These coefficients come with a Standard Error (std err) which is an estimate of the standard deviation of the coefficient representing the amount of variation in the coefficient throughout its data points. A low std error compared the value of the coefficient signifies a high significance for your coefficient. The significance is also reflected by the <code class="docutils literal notranslate"><span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">p-value</span></code> (P&gt;|z|) and means how likely the coefficient is measured through our model by chance. Finally, the [0.025 and 0.975] measurements of values of the coefficients within within two standard deviations.</p>
+<p>The fitted coeffient <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> reflects the change of log odds of each increment on our independent variable (since the model thinks our predictor is a continous variable). This corresponds to the slope in the middle figure above (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> vs <code class="docutils literal notranslate"><span class="pre">log(odds</span></code>). We can also get the value from the fitted intercept from the same figure - this is the log(odds) value for when our <code class="docutils literal notranslate"><span class="pre">SRH</span></code> dependent variable is zero.</p>
+<p>These coefficients come with a Standard Error (<code class="docutils literal notranslate"><span class="pre">std</span> <span class="pre">err</span></code>), which is an estimate of the standard deviation of the coefficient, representing the amount of sampling variation is expected in the coefficient. A low std error compared the value of the coefficient signifies a high significance for your coefficient (i.e. taking into account the variability in the coefficient the magnitude is likely to be non-zero). The significance is also reflected by the <code class="docutils literal notranslate"><span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">p-value</span></code> (P&gt;|z|) and means how likely the coefficient is measured through our model by chance. Finally, the [0.025 and 0.975] measurements of values of the coefficients within within two standard deviations.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">p-value</span></code> is a useful indication of whether or not your measurement might be a product of chance. However, it does not tell you whether the differences between the null model and your model are large enough to have practical real-life implications. Or indeed, whether your null model was ever a realistic comparison in the first place. Tests of statistical difference are not a replacement for understanding your model’s universe, but they can be useful additional evidence if understood well.</p>
 </div>
 <p>Note that p(x) vs  <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> on the right of our figures above looks nothing like our nice sigmoid curve. What’s happening here?</p>
@@ -943,24 +922,27 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 
 
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Decision Boundary is at: </span><span class="si">{</span><span class="p">(</span><span class="o">-</span><span class="n">intercept</span><span class="p">)</span> <span class="o">/</span><span class="n">coef1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Decision Boundary is at: </span><span class="si">{</span><span class="o">-</span><span class="n">intercept</span> <span class="o">/</span><span class="n">coef1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_34_0.png" src="../../_images/4.3_Building_simple_model_34_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Decision Boundary is at: 7.47159598984882
+<img alt="../../_images/4.3_Building_simple_model_32_0.png" src="../../_images/4.3_Building_simple_model_32_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Decision Boundary is at: 7.451527883036597
 </pre></div>
 </div>
 </div>
 </div>
-<p>When two binary outcomes are equally likely, <span class="math notranslate nohighlight">\(odds=1, log(odds)=0, \text{and } p(x)=.5\)</span>. We can use this knowledge to calculate the decision boundary, meaning the point along the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scale where the regression model changes its prediction of which outcome is more likely:</p>
-<p>\begin{align}
-0 &amp;= intercept + \beta_1*deprindex \
-\
-\frac{-intercept}{\beta_1} &amp;= deprindex \
-\end{align}</p>
-<p>In the current model this is 7.48.</p>
+<p>When two binary outcomes are equally likely, <span class="math notranslate nohighlight">\(odds=1, log(odds)=0, \text{and } p(x)=0.5\)</span>. We can use this knowledge to calculate the decision boundary, meaning the point along the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scale where the regression model changes its prediction of which outcome is more likely:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+0 &amp;= intercept + \beta_1*deprindex \\
+\\
+\frac{-intercept}{\beta_1} &amp;= deprindex \\ 
+\end{aligned}
+\end{split}\]</div>
+<p>In the current model this is around 7.5.</p>
 </div>
 </div>
 <div class="section" id="simple-model-2-modelling-srh-as-a-function-of-deprivation-and-age">
@@ -970,7 +952,7 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df11_model</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df_model</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fraction of responses of Good health for Deprivation and Age categories&#39;</span><span class="p">)</span>
 
@@ -979,17 +961,17 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_37_0.png" src="../../_images/4.3_Building_simple_model_37_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_35_0.png" src="../../_images/4.3_Building_simple_model_35_0.png" />
 </div>
 </div>
-<p>In the figure above we observe some interesting variability across both variables when leaving the other one fixed. E.g, older respondents in the least deprived areas are much less likely to report poor health the respondents of the same age group in highly deprived areas.</p>
-<p>Our research question is interested on the socio-economical factors that can affect the self-reported health. Age is clearly not a socio economical factor, however, seeing the variability that it can have with both the deprivation and the self-reported health, it would be unwise to not take into account the age in our model.</p>
-<p>In here, age is basically is a confounding variable, which is a factor other than the one being studied (socio-economical) that is associated both with the self-reported health (dependent variable) and with the factor being studied (deprivation as a social economical ) A confounding variable may distort or mask the effects of the deprivation variable on the self-reported health.</p>
-<p>Including the age in our model is essentially “controlling” for it. Which in principle means that we compare different deprivation groups for on fixed slices of age groups.</p>
-<p>To make sure that are assumptions are right and that age is an appropriate control variable, we look at the correlations between age, deprivation and our binarised self-reported health.</p>
+<p>In the figure above we observe some interesting variability across both variables. For example, older respondents in that are the least deprived are much less likely to report poor health than respondents of the same age group in highly deprived areas.</p>
+<p>Our research question is interested on the socio-economical factors that can affect <code class="docutils literal notranslate"><span class="pre">SRH</span></code>. <code class="docutils literal notranslate"><span class="pre">Age</span></code> is not a socio economical factor, however, seeing the variability that it can have with both deprivation and self-reported health, it would be unwise to not take into account the age in our model.</p>
+<p>In here, <code class="docutils literal notranslate"><span class="pre">Age</span></code> is basically is a confounding variable, which is a factor other than the one being studied that is associated both with the dependent variable (<code class="docutils literal notranslate"><span class="pre">SRH</span></code>) and with the factor being studied (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>). A confounding variable may distort or mask the effects of the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> on <code class="docutils literal notranslate"><span class="pre">SRH</span></code>.</p>
+<p>Including <code class="docutils literal notranslate"><span class="pre">Age</span></code> in our model is essentially “controlling” for it. Remember that coefficients indicate the influece of a predictor on the dependent variable <em>assuming the other inputs are known</em>. Which in principle means that we compare different deprivation groups on fixed slices of age groups.</p>
+<p>To make sure that are assumptions are right and that <code class="docutils literal notranslate"><span class="pre">Age</span></code> is an appropriate control variable, we look at the correlations between <code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and our binarised <code class="docutils literal notranslate"><span class="pre">SRH</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">,</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1021,33 +1003,33 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
     <tr>
       <th>DeprIndex</th>
       <td>1.000000</td>
-      <td>-0.213219</td>
-      <td>-0.175416</td>
+      <td>-0.214105</td>
+      <td>-0.177473</td>
     </tr>
     <tr>
       <th>SRH_binary</th>
-      <td>-0.213219</td>
+      <td>-0.214105</td>
       <td>1.000000</td>
-      <td>-0.106560</td>
+      <td>-0.107239</td>
     </tr>
     <tr>
       <th>AgeCategory</th>
-      <td>-0.175416</td>
-      <td>-0.106560</td>
+      <td>-0.177473</td>
+      <td>-0.107239</td>
       <td>1.000000</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>As we already know, deprivation index has inverse relationship with the self-reported health. This relationship is slightly stronger than the relationship with of SHR and age.</p>
-<p>When we control for variables that have a positive correlation with both the independent and the dependent variable, the original relationship will be pushed down, and become more negative. The same is true if we control for a variable that has a negative correlation with both independent and dependent. It is thus likely that the relationship between deprivation and self-reported health will become stronger under control for the age.</p>
+<p>As we already know, <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> has inverse relationship with the self-reported health. This relationship is slightly stronger than the relationship with of <code class="docutils literal notranslate"><span class="pre">SRH</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code>.</p>
+<p>When we control for variables that have a positive correlation with both the independent and the dependent variable, the original relationship will be pushed down, and become more negative. The same is true if we control for a variable that has a negative correlation with both independent and dependent. It is thus likely that the relationship between <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">SRH</span></code> will become stronger under control for <code class="docutils literal notranslate"><span class="pre">Age</span></code>.</p>
 <p>Let’s fit the model and see,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]]</span>
 <span class="n">X_Age_Dep</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1">#add constant for intercept</span>
-<span class="n">logit_model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df11_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_Age_Dep</span><span class="p">)</span> <span class="c1">#Create model instance</span>
+<span class="n">logit_model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_Age_Dep</span><span class="p">)</span> <span class="c1">#Create model instance</span>
 <span class="n">result2</span> <span class="o">=</span> <span class="n">logit_model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
 
 <span class="n">px</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_Age_Dep</span><span class="p">)</span>
@@ -1058,52 +1040,58 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
-         Current function value: 0.315267
+         Current function value: 0.314769
          Iterations 7
                            Logit Regression Results                           
 ==============================================================================
-Dep. Variable:                      y   No. Observations:                 1994
-Model:                          Logit   Df Residuals:                     1991
+Dep. Variable:                      y   No. Observations:                 2004
+Model:                          Logit   Df Residuals:                     2001
 Method:                           MLE   Df Model:                            2
-Date:                Wed, 06 Oct 2021   Pseudo R-squ.:                 0.09472
-Time:                        10:16:42   Log-Likelihood:                -628.64
-converged:                       True   LL-Null:                       -694.42
-Covariance Type:            nonrobust   LLR p-value:                 2.725e-29
+Date:                Sun, 21 Nov 2021   Pseudo R-squ.:                 0.09585
+Time:                        18:14:46   Log-Likelihood:                -630.80
+converged:                       True   LL-Null:                       -697.67
+Covariance Type:            nonrobust   LLR p-value:                 9.048e-30
 ===============================================================================
                   coef    std err          z      P&gt;|z|      [0.025      0.975]
 -------------------------------------------------------------------------------
-const           4.2527      0.300     14.159      0.000       3.664       4.841
-AgeCategory    -0.4249      0.069     -6.129      0.000      -0.561      -0.289
-DeprIndex      -0.3926      0.037    -10.568      0.000      -0.465      -0.320
+const           4.2763      0.301     14.230      0.000       3.687       4.865
+AgeCategory    -0.4296      0.069     -6.198      0.000      -0.565      -0.294
+DeprIndex      -0.3952      0.037    -10.646      0.000      -0.468      -0.322
 ===============================================================================
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/envs/rds-course/lib/python3.9/site-packages/statsmodels/tsa/tsatools.py:117: FutureWarning: In a future version of pandas all arguments of concat except for the argument &#39;objs&#39; will be keyword-only
-  x = pd.concat(x[::order], 1)
-</pre></div>
 </div>
 </div>
-</div>
-<p>Indeed, the coefficient for <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> is now more negative now that we have disengaged the effects from the age on the self-reported health.</p>
-<p>Now, let’s replicate the steps we showed before and try to see how well the model is representing our data, the next figure shows the expected probability of reported good health for the different deprivation and age categories.</p>
+<p>Indeed, the coefficient for <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> is more negative now that we have isolated its effects from those of <code class="docutils literal notranslate"><span class="pre">Age</span></code> on <code class="docutils literal notranslate"><span class="pre">SRH</span></code>.</p>
+<p>Now, let’s replicate the steps we showed before to see how well the model is representing our data. The next figure shows the expected probability of reporting good health for the different deprivation and age categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
-<span class="n">dfm2</span> <span class="o">=</span> <span class="n">df11_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dfm2</span> <span class="o">=</span> <span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">dfm2</span><span class="p">[</span><span class="s1">&#39;px&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">px</span>
 <span class="n">dfm2</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">dfm2</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;px&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">dfm2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Probability of reporting Good health for Deprivation and Age categories&#39;</span><span class="p">)</span>
+
+<span class="c1"># Decision boundary</span>
+<span class="c1"># Tips here: https://scipython.com/blog/plotting-the-decision-boundary-of-a-logistic-regression-model/</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">intc</span><span class="p">,</span> <span class="n">b_age</span><span class="p">,</span> <span class="n">b_depr</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">params</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">intc</span><span class="o">/</span><span class="n">b_depr</span>
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">b_age</span><span class="o">/</span><span class="n">b_depr</span>
+<span class="n">depr_boundary</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">ages</span> <span class="o">+</span> <span class="n">c</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">depr_boundary</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_44_0.png" src="../../_images/4.3_Building_simple_model_44_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_42_0.png" src="../../_images/4.3_Building_simple_model_42_0.png" />
 </div>
 </div>
-<p>The figure above shows a roughly similar pattern to the one from the data a couple of cells above, showing that the model is learning the pattern from the ratio of responses as we go higher on deprivation and age.</p>
-<p>Again, we should remember that the model thinks <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">AgeCategory</span></code> are a continuous variable. If we predict  𝑃(𝑥)  along a much wider scale than our dataset we get a better idea of the two-dimensional probability curve.</p>
+<p>The figure above shows a roughly similar pattern to the one from the data a couple of cells above, showing that the model is learning the pattern from the ratio of responses as both  <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code> increases. The decision boundary is plotted as a red dashed line.</p>
+<p>Again, we should remember that the model thinks <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">AgeCategory</span></code> are continuous variables. If we predict  <span class="math notranslate nohighlight">\(𝑃(𝑥)\)</span>  along a much wider scale than our dataset we get a better idea of the two-dimensional probability curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Rectangle</span>
@@ -1123,32 +1111,38 @@ DeprIndex      -0.3926      0.037    -10.568      0.000      -0.465      -0.320
 <span class="n">dfsyn</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">temp_df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;px&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="c1">#print(dfsyn)</span>
 
-
+<span class="c1"># rectangle for original data</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">dfsyn</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">))</span>
-<span class="c1"># TODO - Rectangle.</span>
-<span class="c1"># TODO - Decision boundary.</span>
+
+<span class="c1"># Decision boundary</span>
+<span class="c1"># Tips here: https://scipython.com/blog/plotting-the-decision-boundary-of-a-logistic-regression-model/</span>
+<span class="n">intc</span><span class="p">,</span> <span class="n">b_age</span><span class="p">,</span> <span class="n">b_depr</span> <span class="o">=</span> <span class="n">result2</span><span class="o">.</span><span class="n">params</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">intc</span><span class="o">/</span><span class="n">b_depr</span>
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">b_age</span><span class="o">/</span><span class="n">b_depr</span>
+<span class="n">depr_boundary</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">ages</span> <span class="o">+</span> <span class="n">c</span>
+<span class="c1"># not sure why but heatmap coordinate system starts with 0,0, adjust so (0,0) on our scale is (10,10)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ages</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="n">depr_boundary</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_46_0.png" src="../../_images/4.3_Building_simple_model_46_0.png" />
+<img alt="../../_images/4.3_Building_simple_model_44_0.png" src="../../_images/4.3_Building_simple_model_44_0.png" />
 </div>
 </div>
-<p>Where our data lives in the sub-space inside the white rectangle.</p>
-<p>If we extract the probability from the diagonal of our matrix we recover our nice sigmoid function.</p>
+<p>Our data space lives in the sub-space inside the white rectangle.</p>
+<p>The red dashed line is the decision boundary at <span class="math notranslate nohighlight">\(p(x)=0.5\)</span>.</p>
+<p>Imagine that the change in colour represents a change in ground height, with blue being high and cream beind low. If we extract the probability from the diagonal of our matrix we recover our nice sigmoid function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dfsyn</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;p(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4.3_Building_simple_model_48_0.png" src="../../_images/4.3_Building_simple_model_48_0.png" />
 </div>
 </div>
 </div>

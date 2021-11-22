@@ -454,74 +454,74 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.2 Rules of the data visualisation game
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapping-data-onto-aesthetics">
+   Mapping data onto Aesthetics
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mapping-data-onto-aesthetics">
-     Mapping data onto Aesthetics
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coordinate-systems-and-axes">
+   Coordinate Systems and Axes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scales-and-transformations">
+   Scales and Transformations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colour-scales">
+   Colour Scales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-colour">
+     Categorical colour
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#coordinate-systems-and-axes">
-     Coordinate Systems and Axes
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuous-colour">
+     Continuous Colour
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scales-and-transformations">
-     Scales and Transformations
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#size">
+     Size
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colour-scales">
-     Colour Scales
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#categorical-colour">
-       Categorical colour
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#continuous-colour">
-       Continuous Colour
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#colour-schemes">
-       Colour schemes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#colour-to-highlight">
-       Colour to highlight
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#annotations-labels-legends-titles">
-       Annotations: labels, legends, titles
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#further-examples">
-     Further Examples
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colour-schemes">
+     Colour schemes
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#central-role-for-colour">
-     Central role for Colour
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colour-to-highlight">
+     Colour to highlight
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotations-labels-legends-titles">
+     Annotations: labels, legends, titles
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aggregation">
-   Aggregation
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-examples">
+   Further Examples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#central-role-for-colour">
+     Central role for Colour
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregation">
+     Aggregation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -617,7 +617,6 @@
 </div>
 <div class="section" id="coordinate-systems-and-axes">
 <h2>Coordinate Systems and Axes<a class="headerlink" href="#coordinate-systems-and-axes" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://clauswilke.com/dataviz/coordinate-systems-axes.html">Section reference</a></p>
 <p>In addition to those properties outlined above, every aesthetic element also has a <strong>position</strong>. The position is given relative to a set of position scales which have a particular geometric arrangement. This is called a <strong>coordinate system</strong>.</p>
 <p>Let’s load the data.</p>
 <div class="cell docutils container">
@@ -799,8 +798,8 @@
 <p>We can see that each country row is for a specific date for a given country. To illustrate the importance of coordinate systems let us assess how wealth inequalities affects the spread of covid. To do this we will use the <em>cumulative number of cases</em> variable. However, if a country has more people it clearly may have more cases. So we will visualise the <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span></code>, which is normalised against population, against a measure of economic output per citizen, <code class="docutils literal notranslate"><span class="pre">gdp_per_capita</span></code>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Normalisation</p>
 <p><strong>Normalisation</strong> is a key consideration in data visualisation. Normalisation is the process of ensuring that variables are measured on the same scale. In this example, <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">cases</span></code> has been divided by population (in millions), so that the variable is comparable across countries with different populations.</p>
 </div>
 </div>
@@ -834,10 +833,10 @@
 <img alt="../../_images/3.2-RulesOfTheGame_9_0.png" src="../../_images/3.2-RulesOfTheGame_9_0.png" />
 </div>
 </div>
-<p>Adding axes improves matters a little (we at least know the direction of the axes), but clearly the current coordinate system is a poor choice for seeing patterns in the data since all the data is bunch at low y-axis values of <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span></code>.</p>
+<p>Adding axes improves matters a little (we at least know the direction of the axes), but clearly the current coordinate system is a poor choice for seeing patterns in the data since all the data is bunched at low y-axis values of <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span></code>.</p>
 <p>You can improve the figure by modifying the  <strong>axes limits</strong>. By default, most plotting libraries match these limits to your data, but if you have outliers this may be inappropriate.</p>
 <p>Setting <strong>limits</strong> keeps the same units along your axes but excludes data that falls outside your limits.</p>
-<!--Note about limits and cutting data, open-ended limits --><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -862,51 +861,15 @@
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition-stretching-and-compressing admonition">
+<div class="dropdown tip admonition">
 <p class="admonition-title">Stretching and Compressing</p>
 <p>For most of these figures we are specifying the figure size for readability to avoid the x or y axis becoming overly long or short.</p>
 <p>However, you can also deliberately alter how long each axes is compared to one another, called the <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">ratio</span></code> of a figure, if doing so would help your message. If the units are different you generally stretch along the axes where the variation is the most important, in order to better see change in the variable.</p>
 <p>Note that if the units are the same, stretching is misleading and a square figure is preferred.</p>
-<p>Expand the below output to see examples of how stretching the axes changes the figure impression.</p>
+<p>See the blow examples of how stretching the axes changes the figure impression.</p>
 </div>
 </div>
-<div class="cell tag_margin tag_hide-input tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="c1"># set limit for total cases</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_totals</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;total_cases_per_million&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Stretch x axis&quot;</span><span class="p">)</span>
-<span class="c1">#remove_axes(ax)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_totals</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;total_cases_per_million&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Stretch y axis&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_totals</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;total_cases_per_million&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Square&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_margin tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <img alt="../../_images/3.2-RulesOfTheGame_13_0.png" src="../../_images/3.2-RulesOfTheGame_13_0.png" />
 <img alt="../../_images/3.2-RulesOfTheGame_13_1.png" src="../../_images/3.2-RulesOfTheGame_13_1.png" />
@@ -918,10 +881,10 @@
 <h2>Scales and Transformations<a class="headerlink" href="#scales-and-transformations" title="Permalink to this headline">¶</a></h2>
 <p>The above are all <strong>Linear scales</strong>. Meaning that within the axes limits each unit increase in the original data is represented as one unit increase in the figure, regardless of value position along the axes.</p>
 <p>It is also common to use <strong>non-linear</strong> scales when the pattern of the data is not well captured by linear scales.</p>
-<p>The most recognisable non-linear scale is the <strong>logarithmic scale</strong>.</p>
+<p>One of the most recognisable non-linear scale is the <strong>logarithmic scale</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition-the-logarithmic-scale admonition">
+<div class="dropdown tip admonition">
 <p class="admonition-title">The logarithmic scale</p>
 <p>The below figure shows how the logarithmic function exaggerates differences at the lower end of a linear scale and squashes data higher up. When applying a log scale you are transforming each data point, <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(log(x)\)</span>. The numpy function <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> uses the <em>natural</em> logarithmic function, which returns the power that you would need to raise the natural number <span class="math notranslate nohighlight">\(e\)</span> by to get <span class="math notranslate nohighlight">\(x\)</span>.
 That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <span class="math notranslate nohighlight">\(log(x) = y\)</span>. Powers are simply sequential multiplication, e.g. <span class="math notranslate nohighlight">\(e^3 = e \times e \times e\)</span>, meaning that numbers being multiplied get large quickly. At large powers, therefore, you do not need to multiply the number by very much at all to result in big absolute differences, which is why the <span class="math notranslate nohighlight">\(log(x)\)</span> function flattens out at as <span class="math notranslate nohighlight">\(x\)</span> becomes large.</p>
@@ -930,21 +893,12 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <p>The left figure shows the <em>total cases</em> on the log scale. The natural interpretation is that the difference between 5 and 10 cases is conceptually huge (i.e. it doubles) compared to the difference between 1005 and 1010 cases. The benefits here are that we do not need to exclude data.</p>
 <p>Note that <em>gdp_per_capita</em> remains clustered at low values. Possibly the graph may be clearer if we plotted <em>gdp per capita</em> on the log scale. This makes some sense given the classic phrase <em>the rich get richer</em>, meaning that the richer a country is the more resources and investment they have to drive further economic growth.</p>
 <p>The right figure plots our data in log-log coordinates. This seems to be the clearest coordinate system for us, and we can see that the total cases increases with GDP per capita.</p>
-<!-- Note to mention truncated axes, custom functions, and when to plot at non-zero --> <div class="cell tag_margin tag_hide-input tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># understanding the log transform. </span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log(x)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;The Log transform&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<div class="cell tag_margin tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/3.2-RulesOfTheGame_15_0.png" src="../../_images/3.2-RulesOfTheGame_15_0.png" />
 </div>
 </div>
-</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -969,9 +923,6 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="c1"># log transform in margin with note.</span>
 </pre></div>
 </div>
 </div>
@@ -981,27 +932,27 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition-scaling-is-transforming admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Scaling is Transforming</p>
-<p>When we scale data using a plotting api in can be tempting to think that this is somehow different to transforming the underlying data then plotting without scaling. Both approaches are identical. Scaling is simply applying a function to the data values: <span class="math notranslate nohighlight">\(x_s = f(x)\)</span>, where <span class="math notranslate nohighlight">\(x_s\)</span> is the scaled/transformed value. When calling <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yscale.html#matplotlib.axes.Axes.set_yscale">set_yscale()</a> there are some default scales which are well-known functions (e.g. linear is simply <span class="math notranslate nohighlight">\(x_s = x\)</span>), but you can also apply any custom function.</p>
+<p>When we scale data using a plotting api it can be tempting to think that this is somehow different to transforming the underlying data then plotting without scaling. Both approaches are identical. Scaling is simply applying a function to the data values: <span class="math notranslate nohighlight">\(x_s = f(x)\)</span>, where <span class="math notranslate nohighlight">\(x_s\)</span> is the scaled/transformed value. When calling <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_yscale.html#matplotlib.axes.Axes.set_yscale">set_yscale()</a> there are some default scales which are well-known functions (e.g. linear is simply <span class="math notranslate nohighlight">\(x_s = x\)</span>), but you can also apply any custom function.</p>
 </div>
 </div>
 </div>
 <div class="section" id="colour-scales">
 <h2>Colour Scales<a class="headerlink" href="#colour-scales" title="Permalink to this headline">¶</a></h2>
-<p>Though our log-log plot shows that there is a slight trend for increased cases for wealthier countries, there is much more information we could convey.</p>
+<p>Though our log-log plot shows that there is a trend for increased cases for wealthier countries, there is much more information we could convey.</p>
 <p>Coordinate systems tend to display two variables at a maximum, otherwise the figure can get cluttered.</p>
 <p>If you want to convey more variables you can use additional scales to add dimensions.</p>
 <p>Colour is the most common choice. You can use colour to represent both categorical and continuous data.</p>
-<div class="admonition-colourblindness admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Colourblindness</p>
-<p>When used well colour can be an excellent way of adding information into your figure. However, do not rely solely on colour in your plots. Colourblindness affects about 8% of the population (1 in 12 men; 1 in 200 women: <a class="reference external" href="https://www.nhs.uk/conditions/colour-vision-deficiency/">NHS site</a>). This is a high proportion of your readers that may find your plot inaccessible (see this nice <a class="reference external" href="https://venngage.com/blog/color-blind-friendly-palette/#4">blog</a> by Rachel Cravit at Venngage). There are different types of colour blindness, but the most common is “red-green” colourblindness, where individuals are less sensitive to the red and green shades in colours. Fortunately, there has been good research into coloursafe palettes, for example <a class="reference external" href="https://jfly.uni-koeln.de/color/">Okabe and Ito, 2008</a>, and there are many available coloursafe palettes (e.g. those from <a class="reference external" href="https://colorbrewer2.org">colorbrewer</a>.</p>
+<p>When used well colour can be an excellent way of adding information into your figure. However, do not rely solely on colour in your plots. Colourblindness affects about 8% of the population (1 in 12 men; 1 in 200 women: <a class="reference external" href="https://www.nhs.uk/conditions/colour-vision-deficiency/">NHS site</a>). This is a high proportion of your readers that may find your plot inaccessible (see this nice <a class="reference external" href="https://venngage.com/blog/color-blind-friendly-palette/#4">blog</a> by Rachel Cravit at Venngage). There are different types of colour blindness, but the most common is “red-green” colourblindness, where individuals are less sensitive to the red and green shades in colours. Fortunately, there has been good research into coloursafe palettes, for example <a class="reference external" href="https://jfly.uni-koeln.de/color/">Okabe and Ito, 2008</a>, and there are many available coloursafe palettes (e.g. those from <a class="reference external" href="https://colorbrewer2.org">colorbrewer</a>).</p>
 </div>
 <div class="section" id="categorical-colour">
 <h3>Categorical colour<a class="headerlink" href="#categorical-colour" title="Permalink to this headline">¶</a></h3>
-<p>For example, we may want to indicate the spread of countries across the continents, given in the bottom left Figure below.</p>
+<p>For example, we may want to indicate the spread of countries across the continents, given in the bottom left figure below.</p>
 <p>Colour is much more expressive than shape, as shown by the lack of clarity in the middle example. One could use both (right-most figure), but redundant coding is to be avoided because it forces the reader to do unnecessary work.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
@@ -1036,21 +987,21 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition-legend-customisation admonition">
+<div class="dropdown tip admonition">
 <p class="admonition-title">Legend Customisation</p>
-<p>By default seaborn maps data labels into the legend and places the legend in a position on the figure where it least interferes with the data. In a lot of cases these defaults are not good enough (for example our continent legend confusingly overlaps a dot representing an Asian country). Fortunately, legends are very customisable, and you will see some minor examples of customising legends throughout the code in this course. For more detailed examples see the matplotlib <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend">legend docs</a> and <a class="reference external" href="https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html">legend guide</a>. There are also many blogs available such as <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.06-customizing-legends.html">this one</a>.</p>
+<p>By default seaborn maps data labels into the legend and places the legend in a position on the figure where it least interferes with the data. In a lot of cases these defaults are not good enough (for example our <code class="docutils literal notranslate"><span class="pre">continent</span></code> legend confusingly overlaps a dot representing an Asian country). Fortunately, legends are very customisable, and you will see some minor examples of customising legends throughout the code in this course. For more detailed examples see the matplotlib <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend">legend docs</a> and <a class="reference external" href="https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html">legend guide</a>. There are also many blogs available such as <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.06-customizing-legends.html">this one</a>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="continuous-colour">
 <h3>Continuous Colour<a class="headerlink" href="#continuous-colour" title="Permalink to this headline">¶</a></h3>
 <p>We might also want to map data values to a continuous colour scale. However, as with any scale the distribution of your data is important.</p>
-<p>The plots below assesses whether the size of a country influences the total number of cases.</p>
+<p>The plots below assess whether the size of a country influences the total number of cases.</p>
 <p>The first plot applies a linear scale from Colour values to population. This is not very informative because China and India are so much more populous than the other countries.</p>
 <p>Since we have mapped data values to colour (i.e. applied a <strong>scale</strong>) in much the same way as we have mapped data values to position (in the cartesian coordinate system), we can apply limits or transform the scale.</p>
 <p>The middle plot passes a log transform to the colour scale. This is an improvement, but there remains many similar colours in the middle of the colour scale that are hard to distinguish. We want to use more of the extreme ends of the colour scale.</p>
 <p>The right plot clips the colour scale at the 10th and 90th percentiles. This reduces the influence of outliers on the scale and helps the readability of the plot by allowing us to pick out the small and large countries.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: make setting the labels into a convenience function </span>
 
@@ -1108,31 +1059,34 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <img alt="../../_images/3.2-RulesOfTheGame_22_0.png" src="../../_images/3.2-RulesOfTheGame_22_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="size">
+<h3>Size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
 <p>It is also common to use <strong>size</strong> as an additional dimension.</p>
-<p>Since size always has direction if you use size for categorical variables you risk implying a false order. You should therefore only use size for a continuous scale.</p>
+<p>Since size always has direction you risk implying a false order if you use it for for categorical variables. You should therefore only use size for a continuous scale.</p>
 <p>In the figure entitled <code class="docutils literal notranslate"><span class="pre">Cases</span> <span class="pre">vs</span> <span class="pre">GDP</span></code> we use size to indicate total deaths. By doing this we can begin assessing countries that did comparatively well in managing high case numbers (countries that are high up the y-axis but have a small size).</p>
 <p>Let’s pause a moment. There is quite a lot to consider in this plot. We are asking quite a lot of the reader. Reflect on what we want to investigate - do richer countries deal better with cases, and how is this spread across the world?</p>
 <p>Sometimes it is worth reconsidering your axes to bring clarity to your message. In order of information importance it should be:</p>
-<ul class="simple">
+<ol class="simple">
 <li><p>Position</p></li>
 <li><p>Colour</p></li>
 <li><p>Size</p></li>
-</ul>
+</ol>
 <p>The figure entitled <code class="docutils literal notranslate"><span class="pre">Cases</span> <span class="pre">vs</span> <span class="pre">Deaths</span></code> presents the same data but with Cases and Deaths along the axes (i.e. position scales) and size representing the GDP. How has this changed the interpretation of the data?</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="caution dropdown admonition">
+<p class="admonition-title">Overplotting</p>
 <p><strong>Overplotting</strong>. Do not underestimate the difficulty of intepreting visualisations. Here we use multiple scales for demonstration purposes, but in practice these figures are a little cluttered and unintuitive. One would think of ways of reducing the complexity of the figure. In this example, an ordered bar or dot chart (see <em>Section 3.3</em>) plotting the ratio of <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span> <span class="pre">/</span> <span class="pre">total_deaths_per_million</span></code> would be a cleaner graph.</p>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_totals</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;total_cases_per_million&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;total_deaths_per_million&#39;</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">400</span><span class="p">),</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s1">&#39;brief&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.7</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log (Total Cases)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log (Cases per million)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log (GDP Per Capita)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cases vs GDP&#39;</span><span class="p">)</span>
 
@@ -1171,16 +1125,23 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <img alt="../../_images/3.2-RulesOfTheGame_24_1.png" src="../../_images/3.2-RulesOfTheGame_24_1.png" />
 </div>
 </div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Exercise</p>
+<p>This plot is far from perfect. Four dimensions on a plot is cluttered, and a scatter plot may not be the best method.</p>
+<p>How would you improve the plot?</p>
+<p>Think about what you find confusing in this plot, and how one might change it to improve the message.</p>
+<p>We will send a hackmd link to interactively collate thoughts.</p>
+</div>
 </div>
 <div class="section" id="colour-schemes">
 <h3>Colour schemes<a class="headerlink" href="#colour-schemes" title="Permalink to this headline">¶</a></h3>
-<p>There are many available colour palettes to use in figures. A good overview of the key considerations when picking a colour is giving in the seaborn tutorial of <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">choosing a colour palette</a>.</p>
-<p>If you are wanting palettes it is good to go for a well-researched palettes. For example <a class="reference external" href="https://colorbrewer2.org/">Color Brewer</a> have useful palettes that are distinct in black and white and also some that are colour blindsafe. These are already included within a wide variety of other colourmaps in <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a> (see also Stefan van de Walt’s and Nathanial Smith’s Scipy2015 <a class="reference external" href="https://bids.github.io/colormap/">talk</a>, and therefore also <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">seaborn</a>. When choosing a colour map think of whether your data is:</p>
+<p>There are many well-researched palettes to choose from. For example <a class="reference external" href="https://colorbrewer2.org/">Color Brewer</a> have useful palettes that are distinct in black and white and also some that are colour blindsafe. These are already included within a wide variety of other colourmaps in <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a> (see also Stefan van de Walt’s and Nathanial Smith’s Scipy2015 <a class="reference external" href="https://bids.github.io/colormap/">talk</a>), and therefore also <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">seaborn</a>. When choosing a colour map think of whether your data is:</p>
 <ul class="simple">
 <li><p>Sequential (<a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#perceptually-uniform-palettes">perceptually uniform palettes</a> are often best here to avoid different parts of the scale popping out)</p></li>
 <li><p>Diverging</p></li>
 <li><p>Qualitative/Categorical</p></li>
 </ul>
+<p>A good overview of the key considerations when picking a colour is giving in the seaborn tutorial of <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">choosing a colour palette</a>.</p>
 <p>If you want to select your own colours that complement one another, useful resources are the <a class="reference external" href="https://xkcd.com/color/rgb/">xkcd colour survey</a>, and the <a class="reference external" href="https://www.sessions.edu/color-calculator/">colour Calculator</a>.</p>
 <p>There is also this fantastic blog by <a class="reference external" href="https://blog.datawrapper.de/beautifulcolors/">Lisa from Datawrapper</a>, which contains a lot of useful design tips and resources.</p>
 </div>
@@ -1191,10 +1152,10 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note: Another way of using colour to highlight is with the use of  <strong>accent colour scales</strong>, which contain both a set of subdued colours and a matching set of stronger, darker, and/or more saturated colours.</p>
+<p>Another way of using colour to highlight is with the use of  <strong>accent colour scales</strong>, which contain both a set of subdued colours and a matching set of stronger, darker, and/or more saturated colours.</p>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United Kingdom&#39;</span><span class="p">,</span><span class="s1">&#39;Ireland&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="s1">&#39;Belgium&#39;</span><span class="p">,</span><span class="s1">&#39;Netherlands&#39;</span><span class="p">]</span>
 <span class="n">other</span> <span class="o">=</span> <span class="s1">&#39;Rest of World&#39;</span>
@@ -1204,7 +1165,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <span class="c1"># pick a list of colours</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df_totals</span><span class="o">.</span><span class="n">highlight</span><span class="o">.</span><span class="n">values</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># plot grey first so that the highlighted values are on top</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_totals</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;highlight == @other&quot;</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;total_cases_per_million&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
@@ -1220,7 +1181,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.2-RulesOfTheGame_27_0.png" src="../../_images/3.2-RulesOfTheGame_27_0.png" />
+<img alt="../../_images/3.2-RulesOfTheGame_28_0.png" src="../../_images/3.2-RulesOfTheGame_28_0.png" />
 </div>
 </div>
 </div>
@@ -1234,9 +1195,8 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <div class="section" id="further-examples">
 <h2>Further Examples<a class="headerlink" href="#further-examples" title="Permalink to this headline">¶</a></h2>
 <p>These further examples combine our previously covered knowledge of position scales and colour with appropriate annotations to bring clarity to the story.</p>
-</div>
 <div class="section" id="central-role-for-colour">
-<h2>Central role for Colour<a class="headerlink" href="#central-role-for-colour" title="Permalink to this headline">¶</a></h2>
+<h3>Central role for Colour<a class="headerlink" href="#central-role-for-colour" title="Permalink to this headline">¶</a></h3>
 <p>Since the 2020 presidential elections in the United States and the roll-out of the Covid-19 vaccination campaigns, there have been a number of data journalism articles exploring how vaccination rates vary between states with respect to their political leanings (for example, take a look at this <a class="reference external" href="https://www.nytimes.com/interactive/2021/04/17/us/vaccine-hesitancy-politics.html">npr article</a> or <a class="reference external" href="https://www.nytimes.com/interactive/2021/04/17/us/vaccine-hesitancy-politics.html">this one</a> from The New York Times). We think this is an interesting dataset, full of nuance, so we will use this example throughout the module to demonstrate some concepts of data visualisation, in this case the use of colour as information. We present this data without political comment, and invite you to explore the dataset and make your own conclusions.</p>
 <p>The first plot below creates a categorical illustration of these states, using a qualitative colour scale.</p>
 <div class="margin sidebar">
@@ -1247,7 +1207,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 </div>
 <p>That plot shows a striking, binary view of a complex issue. The following plot shows a more nuanced picture by mapping political affiliation to a diverging colour scale.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
 <span class="c1"># read the data from here https://ourworldindata.org/us-states-vaccinations</span>
@@ -1320,19 +1280,19 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.2-RulesOfTheGame_31_0.png" src="../../_images/3.2-RulesOfTheGame_31_0.png" />
-<img alt="../../_images/3.2-RulesOfTheGame_31_1.png" src="../../_images/3.2-RulesOfTheGame_31_1.png" />
-</div>
+<img alt="../../_images/3.2-RulesOfTheGame_32_0.png" src="../../_images/3.2-RulesOfTheGame_32_0.png" />
+<img alt="../../_images/3.2-RulesOfTheGame_32_1.png" src="../../_images/3.2-RulesOfTheGame_32_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="aggregation">
-<h1>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h1>
+<h3>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h3>
 <p>Beware of overplotting! There is only so much information that is useful in a plot. Often the variability in raw data obscures the message.</p>
 <p>A powerful tool is aggregation. Aggregation involves applying calculations on your data set in order to collapse your data to a representative variable (for example, an average).</p>
 <p>One should always take care when aggregating. There is a balance between reducing data information too far and miscommunication trends on one hand, and not reducing data enough and overloading the reader on the other.</p>
-<p>Here we show two forms of aggregation. The first, case numbers in England, we have already seen - the moving average. Here the balance between reduction and complexity is given in the window in which you average over.</p>
-<div class="cell docutils container">
+<p>A common form of aggregation is <strong>histograms</strong>, which we cover in the <span class="xref myst">next section</span>.</p>
+<p>Below we show case numbers in the England. The moving average can provide a balance between reduction and complexity, dependent on the window in which you average over.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windows</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
 
@@ -1365,30 +1325,9 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.2-RulesOfTheGame_33_0.png" src="../../_images/3.2-RulesOfTheGame_33_0.png" />
+<img alt="../../_images/3.2-RulesOfTheGame_34_0.png" src="../../_images/3.2-RulesOfTheGame_34_0.png" />
 </div>
 </div>
-<p>The second form of aggregation and one that is commonly used is <strong>histograms</strong>, shown in the figure below for the variable of Life Expectancy of our OWID Covid-19 dataset, which is a way of using aggregation in the form of <em>binning</em>. The balance here is in the size of the bins.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_life_exp</span> <span class="o">=</span> <span class="n">df_countries</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s2">&quot;loc|life *&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">bin_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bin_years</span><span class="p">):</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_life_exp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;life_expectancy&#39;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bin Size: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy (yrs)&#39;</span><span class="p">)</span>
-                    
-    
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/3.2-RulesOfTheGame_35_0.png" src="../../_images/3.2-RulesOfTheGame_35_0.png" />
 </div>
 </div>
 </div>
