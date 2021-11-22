@@ -24,7 +24,7 @@ df.info()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2087/3757882994.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2162/3757882994.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m# ANSWER - example functions to explore and answer questions below[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;34m[0m[0m
 [0;32m----> 3[0;31m [0mdf[0m[0;34m.[0m[0minfo[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

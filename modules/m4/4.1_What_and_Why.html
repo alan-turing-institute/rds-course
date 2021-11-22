@@ -628,7 +628,7 @@
 <span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f14f8cffd30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7fa084ddab50&gt;
 </pre></div>
 </div>
 </div>
@@ -769,40 +769,35 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2209</span><span class="o">/</span><span class="mf">1223811446.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2279</span><span class="o">/</span><span class="mf">1223811446.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_2209/1223811446.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="nn">/tmp/ipykernel_2279/1223811446.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py</span> in <span class="ni">rvs</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3115</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3116</span><span class="s2">         kwargs[&#39;discrete&#39;] = True</span>
-<span class="ne">-&gt; </span><span class="mi">3117</span><span class="s2">         return super().rvs(*args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3118</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3119</span><span class="s2">     def pmf(self, k, *args, **kwds):</span>
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">mean</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py</span> in <span class="ni">rvs</span><span class="nt">(self, *args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1063</span><span class="s2">         rndm = kwds.pop(&#39;random_state&#39;, None)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span><span class="s2">         args, loc, scale, size = self._parse_args_rvs(*args, **kwds)</span>
-<span class="ne">-&gt; </span><span class="mi">1065</span><span class="s2">         cond = logical_and(self._argcheck(*args), (scale &gt;= 0))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1066</span><span class="s2">         if not np.all(cond):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1067</span><span class="s2">             raise ValueError(&quot;Domain error in arguments.&quot;)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3438</span>             <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3439</span> 
+<span class="ne">-&gt; </span><span class="mi">3440</span>     <span class="k">return</span> <span class="n">_methods</span><span class="o">.</span><span class="n">_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3441</span>                           <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3442</span> 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/scipy/stats/_discrete_distns.py</span> in <span class="ni">_argcheck</span><span class="nt">(self, p)</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="s2">     def _argcheck(self, p):</span>
-<span class="ne">--&gt; </span><span class="mi">131</span><span class="s2">         return (p &gt;= 0) &amp; (p &lt;= 1)</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span><span class="s2">     def _get_support(self, p):</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/numpy/core/_methods.py</span> in <span class="ni">_mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span>             <span class="n">is_float16_result</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span> 
+<span class="ne">--&gt; </span><span class="mi">179</span>     <span class="n">ret</span> <span class="o">=</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">mu</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>         <span class="n">ret</span> <span class="o">=</span> <span class="n">um</span><span class="o">.</span><span class="n">true_divide</span><span class="p">(</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
