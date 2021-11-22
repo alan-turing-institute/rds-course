@@ -17,7 +17,7 @@ Students are encouraged to use code developed in the hands-on session for module
 1. **Use data visualisation to further explore relationship between variables**: In [_Section 3.5_](section3.5) began exploring the relationships between some of the variables, focusing particularly on deprivation index and accommodation and self-reported health. Our research questions requires examining variables beyond these two, and in Module 4 we will be using more variables. It is important to further understand the relationships between our chosen variables.
    with the self-reported health and each other. For example:    
    - Other material variables (e.g. `Household Size`, or `Children`)
-   - Education variables (`ISCED` or `Education`)
+   - Education variables (`ISCED` or `Y11_Education`)
    - Mental well-being variables (`MentalWellbeingIndex`)
    - Any other psychosocial you find interesting.
      
