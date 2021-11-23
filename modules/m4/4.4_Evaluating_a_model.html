@@ -1186,7 +1186,8 @@ Model 2: 0.7051886792452831
 <div class="section" id="model-3-model-2-mental-wellbeing">
 <h2>Model 3: Model 2 + Mental Wellbeing<a class="headerlink" href="#model-3-model-2-mental-wellbeing" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s complicate the model even further, adding a variable related to mental wellbeing.</p>
-<p>The mental wellbeing index correspond to the the World Health Organisation Well-Being Index and is a short self-reported 6 point scale measure referring to how the respondent felt over the previous two week. The questionnaire use only positively phrased questions and in the scale higher values mean better self reported mental health.</p>
+<p>The mental wellbeing index is based on a set of five questions where the respondents state degree of agreement in how they felt over the previous two weeks, measured on a six-point scale. The mental well-being scale converts these to a value between 0 - 100.
+The questionnaire use only positively phrased questions and in the scale higher values mean better self reported mental health.</p>
 <p>We decided to add this variable because they should be mostly orthogonal to the existing ones of <strong>Model 2</strong>, and a new dimension to the model that should improve its performance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1234,6 +1235,8 @@ AccomProblems           -0.1901      0.108     -1.764      0.078      -0.401    
 <p>Let’s repeat the exercise we did in the previous section and compare the fit results between <strong>Model 2</strong> and <strong>Model 3</strong>. We observe the following:</p>
 <ul class="simple">
 <li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> again has become significantly less negative. This could mean that the mental wellbeing variables is sharing the weight that the deprivation index carried (it is not a surprise to think that people living in deprivation are also likely to have poor mental health).</p></li>
+<li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">MentalWellbeingIndex</span></code> is one order of magnitude smaller than the other coefficients. This is expected
+given that the variable is one order of magnitude larger.</p></li>
 <li><p>Now, if we look at the parameters of <em>goodness-of-fit</em> we can observe that the fit has improved significantly, with a less negative log-likelihood (~60 units of log likelihood of <strong>Model 3</strong> vs <strong>Model 2</strong>) and larger pseudo R-squ (~0.25 vs ~0.13). In this case the improvement is comparable to the increase of log-likelihood of adding new variables in <strong>Model 2</strong> with respect to the values of a null model (~60 units of log likelihood of <strong>Model 3</strong> vs <strong>Model 2</strong> against 63 units for <strong>Model 2</strong> vs <strong>Null model</strong>).</p></li>
 </ul>
 <p>Take this into consideration, we could suspect that including <code class="docutils literal notranslate"><span class="pre">MentalWellbeingIndex</span></code> will increase the discrimination power of our model. Let’s see if this is the case by evaluating it on the test set.</p>
