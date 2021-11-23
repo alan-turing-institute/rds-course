@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        apt install graphviz
+        sudo apt-get install graphviz
         pip install .
     # Build the book
     - name: Build the book
