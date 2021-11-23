@@ -9,7 +9,12 @@ logo: "./figures/logo.png"
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
-
+  exclude_patterns:
+  - '3.5-*'
+  - '4.3-*'
+  - '4.4-*'
+  - '2-hands-on*'
+ 
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
