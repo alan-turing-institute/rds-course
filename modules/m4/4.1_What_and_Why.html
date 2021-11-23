@@ -543,7 +543,8 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">()</span>
 
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;6,5&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">graph_attr</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;6,5&#39;</span>
 <span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;doublecircle&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Phenomenon&#39;</span><span class="p">)</span>
 
@@ -755,7 +756,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">()</span>
 
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;6,5&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">graph_attr</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;6,5&#39;</span>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;star&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Generative Model&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Inference&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
