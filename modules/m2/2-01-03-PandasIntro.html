@@ -584,53 +584,53 @@ dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>0.943442</td>
-      <td>-1.094238</td>
+      <td>-1.030472</td>
+      <td>0.367998</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.023688</td>
-      <td>0.632387</td>
+      <td>-2.430584</td>
+      <td>-1.779183</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-2.116217</td>
-      <td>-1.019844</td>
+      <td>-0.249128</td>
+      <td>-1.048093</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.252337</td>
-      <td>2.412612</td>
+      <td>-1.208354</td>
+      <td>0.392921</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>-0.771046</td>
-      <td>1.072665</td>
+      <td>0.245948</td>
+      <td>-0.149531</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.441406</td>
-      <td>-1.513990</td>
+      <td>-0.419366</td>
+      <td>-1.392156</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-1.384236</td>
-      <td>-0.661219</td>
+      <td>2.284043</td>
+      <td>-2.008057</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.260941</td>
-      <td>0.456476</td>
+      <td>1.288243</td>
+      <td>-0.620354</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>-0.394958</td>
-      <td>-0.772882</td>
+      <td>0.787448</td>
+      <td>0.380551</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-1.457797</td>
-      <td>0.083448</td>
+      <td>0.832881</td>
+      <td>-1.132535</td>
     </tr>
   </tbody>
 </table>
@@ -652,20 +652,21 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
-1    0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    1
 2    0
-3    0
-4    0
-5    0
-6    0
+3    1
+4    1
+5    1
+6    1
 7    0
-8    0
-9    0
+8    1
+9    1
 dtype: int64
 
 value counts:
-0    10
+1    8
+0    2
 dtype: int64
 </pre></div>
 </div>
@@ -709,16 +710,16 @@ However, Pandas also provides the (often preferred) <code class="docutils litera
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single column from DataFrame, gives us a Series:
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.943442
-4    -0.023688
-5    -2.116217
-6     0.252337
-7    -0.771046
-8    -0.441406
-9    -1.384236
-10   -0.260941
-11   -0.394958
-12   -1.457797
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    -1.030472
+4    -2.430584
+5    -0.249128
+6    -1.208354
+7     0.245948
+8    -0.419366
+9     2.284043
+10    1.288243
+11    0.787448
+12    0.832881
 Name: random_A, dtype: float64
 </pre></div>
 </div>
@@ -750,53 +751,53 @@ Name: random_A, dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>0.943442</td>
-      <td>-1.094238</td>
+      <td>-1.030472</td>
+      <td>0.367998</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.023688</td>
-      <td>0.632387</td>
+      <td>-2.430584</td>
+      <td>-1.779183</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-2.116217</td>
-      <td>-1.019844</td>
+      <td>-0.249128</td>
+      <td>-1.048093</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.252337</td>
-      <td>2.412612</td>
+      <td>-1.208354</td>
+      <td>0.392921</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>-0.771046</td>
-      <td>1.072665</td>
+      <td>0.245948</td>
+      <td>-0.149531</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.441406</td>
-      <td>-1.513990</td>
+      <td>-0.419366</td>
+      <td>-1.392156</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-1.384236</td>
-      <td>-0.661219</td>
+      <td>2.284043</td>
+      <td>-2.008057</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.260941</td>
-      <td>0.456476</td>
+      <td>1.288243</td>
+      <td>-0.620354</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>-0.394958</td>
-      <td>-0.772882</td>
+      <td>0.787448</td>
+      <td>0.380551</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-1.457797</td>
-      <td>0.083448</td>
+      <td>0.832881</td>
+      <td>-1.132535</td>
     </tr>
   </tbody>
 </table>
@@ -810,7 +811,7 @@ Name: random_A, dtype: float64
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    0
-4    0
+4    1
 dtype: int64
 </pre></div>
 </div>
@@ -844,7 +845,7 @@ dtype: int64
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2634</span><span class="o">/</span><span class="mf">528749764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2230</span><span class="o">/</span><span class="mf">528749764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
@@ -880,16 +881,16 @@ However, we can’t do this when the label is not a valid identifier. We can’t
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.943442
-4    -0.023688
-5    -2.116217
-6     0.252337
-7    -0.771046
-8    -0.441406
-9    -1.384236
-10   -0.260941
-11   -0.394958
-12   -1.457797
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    -1.030472
+4    -2.430584
+5    -0.249128
+6    -1.208354
+7     0.245948
+8    -0.419366
+9     2.284043
+10    1.288243
+11    0.787448
+12    0.832881
 Name: random_A, dtype: float64
 </pre></div>
 </div>
@@ -903,7 +904,7 @@ Name: random_A, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2634/1489195916.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2230/1489195916.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="mf">.2</span><span class="p">)</span>
              <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -927,8 +928,8 @@ However, here we’ll just show single item access.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -2.116217
-random_B   -1.019844
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.249128
+random_B   -1.048093
 Name: 5, dtype: float64
 </pre></div>
 </div>
@@ -952,8 +953,8 @@ Name: 5, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.441406
-random_B   -1.513990
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.419366
+random_B   -1.392156
 Name: 8, dtype: float64
 </pre></div>
 </div>
