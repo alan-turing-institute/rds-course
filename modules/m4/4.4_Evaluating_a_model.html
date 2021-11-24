@@ -844,7 +844,7 @@ Recall: 0.9868913857677902
 <img alt="../../_images/4.4_Evaluating_a_model_24_1.png" src="../../_images/4.4_Evaluating_a_model_24_1.png" />
 </div>
 </div>
-<p>Ideally, in this density plot we would observe seperate robability scores between two classes, with the score of the cases where <code class="docutils literal notranslate"><span class="pre">SRH==0</span></code> on the low probability values and the score of cases with <code class="docutils literal notranslate"><span class="pre">SRH==1</span></code> on the the high values. However, in the current case both distributions are skewed to the high probability values. The reason for this is because our dataset is highly imbalanced and only consists of 10 percent of cases where <code class="docutils literal notranslate"><span class="pre">SRH</span> <span class="pre">==0</span></code>. Thus the predicted probabilities get pulled towards higher values because of the majority of the data being positive cases.</p>
+<p>Ideally, in this density plot we would observe separate probability scores between two classes, with the score of the cases where <code class="docutils literal notranslate"><span class="pre">SRH==0</span></code> on the low probability values and the score of cases with <code class="docutils literal notranslate"><span class="pre">SRH==1</span></code> on the the high values. However, in the current case both distributions are skewed to the high probability values. The reason for this is because our dataset is highly imbalanced and only consists of 10 percent of cases where <code class="docutils literal notranslate"><span class="pre">SRH</span> <span class="pre">==0</span></code>. Thus the predicted probabilities get pulled towards higher values because of the majority of the data being positive cases.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Mean value for SRH ==1,&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
@@ -1157,9 +1157,9 @@ Specificity: 0.7794117647058824
 </div>
 <p>Comparing to <strong>Model 1</strong>:</p>
 <ul class="simple">
-<li><p>Our general accuracy improved (from 0.57 to 0.76!).</p></li>
-<li><p>The specificity decreased (from 0.89 to 0.68).</p></li>
-<li><p>Recall for our majority label increased.</p></li>
+<li><p>Our general accuracy improved slightly (from 0.55 to 0.58!).</p></li>
+<li><p>The Recall decreased (from 0.52 to 0.55).</p></li>
+<li><p>Specificity decreased slightly.</p></li>
 </ul>
 <p>It can be difficult to track the changes of all of these metrics but with such an imbalanced dataset <strong>Accuracy</strong> is not a good indicator. Particularly, in this case we might want to minimize False Negatives. For these cases, we can use the <strong>F1-score</strong>, which is is the harmonic mean of Precision and Recall and gives a better measure of the incorrectly classified cases than the <strong>Accuracy</strong> metric.</p>
 <p><span class="math notranslate nohighlight">\(F1  = 2*\frac{Precision*Recall}{Precision+ Recall}\)</span></p>
@@ -1176,10 +1176,6 @@ Model 2: 0.7051886792452831
 </pre></div>
 </div>
 </div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Even if we didn’t obseve much improvement in the separation of the predicted probability distribution or in the AUC values, the performance of our classification improves by the fact of using more predictors in our model that can allow for more complex descriptions of the data (i.e. our model has more degrees of freedom to fit a datapoint)!</p>
 </div>
 </div>
 </div>
@@ -1263,7 +1259,7 @@ given that the variable is one order of magnitude larger.</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x141f4a760&gt;
 </pre></div>
 </div>
-<img alt="../../_images/4.4_Evaluating_a_model_57_1.png" src="../../_images/4.4_Evaluating_a_model_57_1.png" />
+<img alt="../../_images/4.4_Evaluating_a_model_56_1.png" src="../../_images/4.4_Evaluating_a_model_56_1.png" />
 </div>
 </div>
 <p>The shape of for our class <code class="docutils literal notranslate"><span class="pre">SHR=0</span></code> has indeed changed, with now even larger tails to low probability values whilst the shape of our positive class has stayed more or less the same. This points in the same direction of our assumption that <strong>Model 3</strong> has now more discrimination power.</p>
@@ -1279,7 +1275,7 @@ given that the variable is one order of magnitude larger.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.4_Evaluating_a_model_59_0.png" src="../../_images/4.4_Evaluating_a_model_59_0.png" />
+<img alt="../../_images/4.4_Evaluating_a_model_58_0.png" src="../../_images/4.4_Evaluating_a_model_58_0.png" />
 </div>
 </div>
 <p>Indeed, <strong>Model 3</strong> appears to be the one with better discrimination power between all models from this section. Now, finally let’s look at our classification performance</p>
@@ -1326,7 +1322,7 @@ Specificity: 0.7058823529411765
 F-score Model 3: 0.8446298227320125
 </pre></div>
 </div>
-<img alt="../../_images/4.4_Evaluating_a_model_61_1.png" src="../../_images/4.4_Evaluating_a_model_61_1.png" />
+<img alt="../../_images/4.4_Evaluating_a_model_60_1.png" src="../../_images/4.4_Evaluating_a_model_60_1.png" />
 </div>
 </div>
 <p>All of our metrics have improved with respect to <strong>Model 2</strong>!</p>
@@ -1435,7 +1431,7 @@ MentalWellbeingIndex     0.0475      0.005     10.117      0.000       0.038    
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.4_Evaluating_a_model_72_0.png" src="../../_images/4.4_Evaluating_a_model_72_0.png" />
+<img alt="../../_images/4.4_Evaluating_a_model_71_0.png" src="../../_images/4.4_Evaluating_a_model_71_0.png" />
 </div>
 </div>
 <p>Our <strong>ROC</strong> curves are equivalent!</p>
