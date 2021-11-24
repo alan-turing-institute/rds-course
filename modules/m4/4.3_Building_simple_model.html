@@ -887,11 +887,14 @@ DeprIndex     -0.3504      0.036     -9.756      0.000      -0.421      -0.280
 </div>
 </div>
 <p>When two binary outcomes are equally likely, <span class="math notranslate nohighlight">\(odds=1, log(odds)=0, \text{and } p(x)=.5\)</span>. We can use this knowledge to calculate the decision boundary, meaning the point along the <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scale where the regression model changes its prediction of which outcome is more likely:</p>
-<p>\begin{align}
-0 &amp;= intercept + \beta_1*deprindex \
-\
-\frac{-intercept}{\beta_1} &amp;= deprindex \
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+0 &amp;= intercept + \beta_1*deprindex \\
+\\
+\frac{-intercept}{\beta_1} &amp;= deprindex \\ 
+\end{align}
+\end{split}\]</div>
 <p>In the current model this is 7.48.</p>
 </div>
 </div>
