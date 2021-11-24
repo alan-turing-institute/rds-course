@@ -538,36 +538,8 @@
 <p>Measurement, or observation, provides a set of data. Data are <em>related</em> to the underlying phenomenon, but have been contorted by sampling bias (intrinsic variability will mean that each sample will be different) and measurement uncertainty.</p>
 <p>Together, the phenomenon and method of observation make up the <strong>data generating process</strong>.</p>
 <p>Mapping out the data generating process over the space of all possible events gives rise to what we call a <strong>distribution</strong> (more on this later). Understanding how a data generating process is distributed across members of the population of interest is a key goal of statistical modeling.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">()</span>
-
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">graph_attr</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;6,5&#39;</span>
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;doublecircle&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Phenomenon&#39;</span><span class="p">)</span>
-
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Measurement&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Sampling Process&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Data Generating Process&#39;</span><span class="p">)</span>
-
-
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Phenomenon&#39;</span><span class="p">,</span><span class="s1">&#39;Data Generating Process&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Measurement&#39;</span><span class="p">,</span><span class="s1">&#39;Data Generating Process&#39;</span><span class="p">)</span>
-
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Data Generating Process&#39;</span><span class="p">,</span><span class="s1">&#39;Sampling Process&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Sampling Process&#39;</span><span class="p">,</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
-
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;star&#39;</span><span class="p">)</span>
-
-<span class="n">g</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_1_0.svg" src="../../_images/4.1_What_and_Why_1_0.svg" /></div>
+<div class="figure align-default" id="modelprocess">
+<a class="reference internal image-reference" href="../../_images/4.1_1.svg"><img alt="../../_images/4.1_1.svg" src="../../_images/4.1_1.svg" width="800px" /></a>
 </div>
 </div>
 <div class="section" id="what-is-probability">
@@ -671,7 +643,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_5_0.png" src="../../_images/4.1_What_and_Why_5_0.png" />
+<img alt="../../_images/4.1_What_and_Why_6_0.png" src="../../_images/4.1_What_and_Why_6_0.png" />
 </div>
 </div>
 </div>
@@ -703,7 +675,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_7_0.png" src="../../_images/4.1_What_and_Why_7_0.png" />
+<img alt="../../_images/4.1_What_and_Why_8_0.png" src="../../_images/4.1_What_and_Why_8_0.png" />
 </div>
 </div>
 <p>The intuition behind the Central Limit Theorem is two fold:</p>
@@ -738,7 +710,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_9_0.png" src="../../_images/4.1_What_and_Why_9_0.png" />
+<img alt="../../_images/4.1_What_and_Why_10_0.png" src="../../_images/4.1_What_and_Why_10_0.png" />
 </div>
 </div>
 </div>
@@ -752,29 +724,8 @@
 <p>In most real situations, <strong>neither the generative model nor the parameters are known</strong>, and we will need to estimate them using the data we have collected. Statistical modeling works from the data upwards to figure out a model that might plausibly explain the data.</p>
 <p>Once we have learned a suitable model for our data, we can make inferences about the underlying phenomena using our knowledge of statistical sampling. We can also make predictions about new data.</p>
 <p>Collecting new data will allow us to test our predictions and revise our model, and the scientific cycle continues.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">()</span>
-
-<span class="n">g</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;LR&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">graph_attr</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;6,5&#39;</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;star&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Generative Model&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Inference&#39;</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;Prediction&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;oval&#39;</span><span class="p">)</span>
-
-
-
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span><span class="s1">&#39;Generative Model&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Generative Model&#39;</span><span class="p">,</span><span class="s1">&#39;Inference&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;Generative Model&#39;</span><span class="p">,</span><span class="s1">&#39;Prediction&#39;</span><span class="p">)</span>
-
-<span class="n">g</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_11_0.svg" src="../../_images/4.1_What_and_Why_11_0.svg" /></div>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/4.1_2.svg"><img alt="../../_images/4.1_2.svg" src="../../_images/4.1_2.svg" width="600px" /></a>
 </div>
 <p>In this section we have learned the theoretical building blocks of modelling. In the next section we will peek inside a model and learn how a model represents data.</p>
 <div class="section" id="references-and-further-reading">
