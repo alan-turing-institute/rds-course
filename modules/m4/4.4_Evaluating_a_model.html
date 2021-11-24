@@ -547,7 +547,7 @@
               <div>
                 
   <div class="section" id="evaluating-models">
-<span id="section4-4"></span><h1>4.4 Evaluating models<a class="headerlink" href="#evaluating-models" title="Permalink to this headline">¶</a></h1>
+<h1>4.4 Evaluating models<a class="headerlink" href="#evaluating-models" title="Permalink to this headline">¶</a></h1>
 <p>In the last section we created a very simple model linking the binarised self reported health with the deprivation index, controlled by age, for the UK. We emphasised understanding the model and developed intuition of what the model learns, but a modelling task is not complete without evaluation. Evaluation examines how well the model has learned the data and is able generalise it to unseen data.</p>
 <p>One of the evaluation tools available to us are <strong>goodness-of-fit</strong> metrics. These metrics summarise the discrepancy between observed values from the data used for fitting and the values expected under the estimated parameters of the model.</p>
 <div class="margin sidebar">
@@ -637,7 +637,7 @@ This should give you <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/fc/ys01gk017lg3ylcvv2knwnkc0000gq/T/ipykernel_86753/2217895522.py:2: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/fc/ys01gk017lg3ylcvv2knwnkc0000gq/T/ipykernel_43307/2217895522.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -702,8 +702,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 Dep. Variable:                      y   No. Observations:                 1402
 Model:                          Logit   Df Residuals:                     1399
 Method:                           MLE   Df Model:                            2
-Date:                Tue, 23 Nov 2021   Pseudo R-squ.:                  0.1086
-Time:                        15:32:01   Log-Likelihood:                -432.65
+Date:                Sat, 20 Nov 2021   Pseudo R-squ.:                  0.1086
+Time:                        13:00:17   Log-Likelihood:                -432.65
 converged:                       True   LL-Null:                       -485.35
 Covariance Type:            nonrobust   LLR p-value:                 1.296e-23
 ===============================================================================
@@ -838,7 +838,7 @@ Recall: 0.9868913857677902
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x141f9e850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x140a4f1f0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/4.4_Evaluating_a_model_24_1.png" src="../../_images/4.4_Evaluating_a_model_24_1.png" />
@@ -1024,8 +1024,8 @@ Specificity: 0.7941176470588235
 Dep. Variable:                      y   No. Observations:                 1402
 Model:                          Logit   Df Residuals:                     1396
 Method:                           MLE   Df Model:                            5
-Date:                Tue, 23 Nov 2021   Pseudo R-squ.:                  0.1269
-Time:                        15:32:02   Log-Likelihood:                -423.77
+Date:                Sat, 20 Nov 2021   Pseudo R-squ.:                  0.1269
+Time:                        13:00:18   Log-Likelihood:                -423.77
 converged:                       True   LL-Null:                       -485.35
 Covariance Type:            nonrobust   LLR p-value:                 6.698e-25
 =================================================================================
@@ -1067,7 +1067,7 @@ AccomProblems    -0.1758      0.097     -1.819      0.069      -0.365       0.01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x141c64a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1408ffdf0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/4.4_Evaluating_a_model_42_1.png" src="../../_images/4.4_Evaluating_a_model_42_1.png" />
@@ -1213,8 +1213,8 @@ The questionnaire use only positively phrased questions and in the scale higher 
 Dep. Variable:                      y   No. Observations:                 1402
 Model:                          Logit   Df Residuals:                     1395
 Method:                           MLE   Df Model:                            6
-Date:                Tue, 23 Nov 2021   Pseudo R-squ.:                  0.2507
-Time:                        15:32:02   Log-Likelihood:                -363.67
+Date:                Sat, 20 Nov 2021   Pseudo R-squ.:                  0.2507
+Time:                        13:00:18   Log-Likelihood:                -363.67
 converged:                       True   LL-Null:                       -485.35
 Covariance Type:            nonrobust   LLR p-value:                 1.069e-49
 ========================================================================================
@@ -1260,7 +1260,7 @@ given that the variable is one order of magnitude larger.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x141f4a760&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x140b79fa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/4.4_Evaluating_a_model_57_1.png" src="../../_images/4.4_Evaluating_a_model_57_1.png" />
@@ -1407,8 +1407,8 @@ F-score Model 3: 0.8446298227320125
 Dep. Variable:                      y   No. Observations:                 1402
 Model:                          Logit   Df Residuals:                     1397
 Method:                           MLE   Df Model:                            4
-Date:                Tue, 23 Nov 2021   Pseudo R-squ.:                  0.2436
-Time:                        15:32:03   Log-Likelihood:                -367.10
+Date:                Sat, 20 Nov 2021   Pseudo R-squ.:                  0.2436
+Time:                        13:00:19   Log-Likelihood:                -367.10
 converged:                       True   LL-Null:                       -485.35
 Covariance Type:            nonrobust   LLR p-value:                 5.247e-50
 ========================================================================================
