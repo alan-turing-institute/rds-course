@@ -494,24 +494,16 @@ They can use data from the UK or choose another country. This is your chance to 
 </li>
 <li><p><strong>Imputation</strong>: In module 3 we explored missingness in the data, and touched on different ways of dealing with this. Here we could explore the effect of different methods of imputation. For any method of imputation, the critical thing is to compare model output on the imputed data with the model output on the uninmputated data to assess how it changes the conclusions. Some suggestions of increasing complexity:</p></li>
 </ol>
-<ul>
-<li><ol class="simple">
-<li><p>Replacing missing rows with the average of the missing variables.</p></li>
-</ol>
-</li>
-<li><ol class="simple">
-<li><p>Sample from a variable’s distribution to fill out the missing rows. You could:</p></li>
-</ol>
 <ul class="simple">
+<li><p>Replacing missing rows with the average of the missing variables.</p></li>
+<li><p>Sample from a variable’s distribution to fill out the missing rows. You could:</p>
+<ul>
 <li><p>sample with replacement from the empirical values</p></li>
 <li><p>create a probability estimate of the distribution (e.g. kde) and sample from that.</p></li>
 <li><p>something else…</p></li>
 </ul>
 </li>
-<li><ol class="simple">
 <li><p>Model the missing variable as dependent on present variables. You could apply our generalised regression framework: pick potential predictors, select your distribution for the residuals, see if you want a link function other than the identity function.</p></li>
-</ol>
-</li>
 </ul>
 <ol class="simple">
 <li><p><strong>Comparative analysis with another country</strong>: Up to now we have only looked at the UK, but what happens in other countries?
