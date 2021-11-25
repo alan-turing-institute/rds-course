@@ -29,8 +29,17 @@ They can use data from the UK or choose another country. This is your chance to 
         - Can you visualise how p(x) changes when you change specific variables while keeping the others constant? 
 
     - In the above point we have assumed a single point estimate of p(x). But there is uncertainty in our coefficients, and therefore uncertainty in our p(x). What if we sample from this uncertainty when generating p(x)? 
+
+3. **Comparative analysis with another country**: Up to now we have only looked at the UK, but what happens in other countries?
+How good is the performance if you use a model trained with UK data in another country? How different is the model (coefficients, performance, etc) trained with data from
+   another country (e.g Poland vs the model of the UK shown in _Section 4.4_). Can you conclude that the same factors have different
+   impact between the countries? Feel free to compare between any country you'd like.
+   
     
-3. **Imputation**: In module 3 we explored missingness in the data, and touched on different ways of dealing with this. Here we could explore the effect of different methods of imputation. For any method of imputation, the critical thing is to compare model output on the imputed data with the model output on the uninmputated data to assess how it changes the conclusions. Some suggestions of increasing complexity:
+We expect you to compare and discuss in detail what you have learned from these new models and think what would be the answer
+to the research question. 
+   
+4. **Imputation**: In module 3 we explored missingness in the data, and touched on different ways of dealing with this. Here we could explore the effect of different methods of imputation. For any method of imputation, the critical thing is to compare model output on the imputed data with the model output on the uninmputated data to assess how it changes the conclusions. Some suggestions of increasing complexity:
 
  -  Replacing missing rows with the average of the missing variables. 
 
@@ -41,14 +50,6 @@ They can use data from the UK or choose another country. This is your chance to 
 
 - Model the missing variable as dependent on present variables. You could apply our generalised regression framework: pick potential predictors, select your distribution for the residuals, see if you want a link function other than the identity function.
     
-4. **Comparative analysis with another country**: Up to now we have only looked at the UK, but what happens in other countries?
-How good is the performance if you use a model trained with UK data in another country? How different is the model (coefficients, performance, etc) trained with data from
-   another country (e.g Poland vs the model of the UK shown in _Section 4.4_). Can you conclude that the same factors have different
-   impact between the countries? Feel free to compare between any country you'd like.
-   
-    
-We expect you to compare and discuss in detail what you have learned from these new models and think what would be the answer
-to the research question. 
 
 ## Final discussion session
 
