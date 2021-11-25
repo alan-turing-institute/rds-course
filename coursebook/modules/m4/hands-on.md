@@ -2,32 +2,44 @@
 # Module 4 hands-on session
 
 ## Description
-In this hands-on session participants are divided in groups of 4 o 5 participants and paired with a helper. Each group should choose one of the proposed tasks (or propose a new one if keen!) and work together on it. At the end of the session the students will present their work to the class.
+In this hands-on session participants are divided in groups of 4 or 5 participants and paired with a helper. Each group should choose one of the proposed tasks (or propose a new one if keen!) and work together on it. At the end of the session the students will present their work to the class.
 
 The timeline for this session is the following:
 
 - Phase 1: Presentation of tasks and goals of the hands-on session (15 minutes)
 - Phase 2: Groups are formed and students choose task to develop (15 minutes)
 - Phase 3: Work on the tasks (2.5 hours + with two 15 m break)
-- Phase 4: Students presenting their findings (30 minutes)
-- Phase 5: Final discussion (30 minutes)
+- Phase 4: Group discussion of findings (30 minutes)
+- Phase 5: Course wrap-up (30 minutes)
 
 Students are encouraged to use code developed in the hands-on session for module 3 and/or the data exploration notebook in Sections 4.3 and 4.4. 
-They can use data from the UK or choose another country. Presentations should last around 5 minutes.
+They can use data from the UK or choose another country. This is your chance to draw mathematical conclusions from the dataset.
 
 ## Proposed tasks
 
-1. **Improving the models**: We invited you to try to improve/modify the models discussed in _Section 4.4_, in one of the following ways
-
-    - In the hand-on session of Module 3 we proposed to investigate imputation methods to deal with missing data. Build and compare
-    models using the imputed dataset. 
+1. **Improving the models**: We invite you to try to improve/modify the models discussed in _Section 4.4_. Some suggestions: 
         
-    - Adding new variables and/or [interactions variables](https://en.wikipedia.org/wiki/Interaction_(statistics))  to the model. 
+    - Adding new variables and/or [interactions variables](https://en.wikipedia.org/wiki/Interaction_(statistics))  to the model. Does this new model improve your knowledge?
     
-    - Dealing with the imbalance in the dataset (for some ideas see [here](https://towardsdatascience.com/how-to-deal-with-imbalanced-data-34ab7db9b100)).  
+    - The dataset is very imbalanced (the majority is 'good health'). We have addressed this in sections 4.3/4.4 by changing the threshold of our p(x) classifier. But there are other ways of dealing with an imbalanced dataset (for some ideas see [here](https://towardsdatascience.com/how-to-deal-with-imbalanced-data-34ab7db9b100)). Investigate how some of these change your modelled conclusions.
     
-    - Any other model modification you might want to try.
+2. **Prediction & Simulation**.
 
+    - Logistic regression predicts the mean of a bernouilli distribution. Essentially, you get a generative model for each combination of predictor variable values. Have a play with simulating data from this bernouilli distribution to generate a new dataset of N people (we do this a bit in 4.1 and 4.3). Does our simulated dataset look anything like our real dataset? 
+        - Can you visualise how p(x) changes when you change specific variables while keeping the others constant? 
+
+    - In the above point we have assumed a single point estimate of p(x). But there is uncertainty in our coefficients, and therefore uncertainty in our p(x). What if we sample from this uncertainty when generating p(x)? 
+    
+3. **Imputation**: In module 3 we explored missingness in the data, and touched on different ways of dealing with this. Here we could explore the effect of different methods of imputation. For any method of imputation, the critical thing is to compare model output on the imputed data with the model output on the uninmputated data to assess how it changes the conclusions. Some suggestions of increasing complexity:
+
+ - 1) Replacing missing rows with the average of the missing variables. 
+
+ - 2) Sample from a variable's distribution to fill out the missing rows. You could:
+    - sample with replacement from the empirical values
+    - create a probability estimate of the distribution (e.g. kde) and sample from that.
+    - something else...
+
+- 3) Model the missing variable as dependent on present variables. You could apply our generalised regression framework: pick potential predictors, select your distribution for the residuals, see if you want a link function other than the identity function.
     
 2. **Comparative analysis with another country**: Up to now we have only looked at the UK, but what happens in other countries?
 How good is the performance if you use a model trained with UK data in another country? How different is the model (coefficients, performance, etc) trained with data from
