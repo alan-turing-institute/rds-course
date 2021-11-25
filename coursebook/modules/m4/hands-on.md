@@ -32,16 +32,16 @@ They can use data from the UK or choose another country. This is your chance to 
     
 3. **Imputation**: In module 3 we explored missingness in the data, and touched on different ways of dealing with this. Here we could explore the effect of different methods of imputation. For any method of imputation, the critical thing is to compare model output on the imputed data with the model output on the uninmputated data to assess how it changes the conclusions. Some suggestions of increasing complexity:
 
- - 1) Replacing missing rows with the average of the missing variables. 
+ -  Replacing missing rows with the average of the missing variables. 
 
- - 2) Sample from a variable's distribution to fill out the missing rows. You could:
+ -  Sample from a variable's distribution to fill out the missing rows. You could:
     - sample with replacement from the empirical values
     - create a probability estimate of the distribution (e.g. kde) and sample from that.
     - something else...
 
-- 3) Model the missing variable as dependent on present variables. You could apply our generalised regression framework: pick potential predictors, select your distribution for the residuals, see if you want a link function other than the identity function.
+- Model the missing variable as dependent on present variables. You could apply our generalised regression framework: pick potential predictors, select your distribution for the residuals, see if you want a link function other than the identity function.
     
-2. **Comparative analysis with another country**: Up to now we have only looked at the UK, but what happens in other countries?
+4. **Comparative analysis with another country**: Up to now we have only looked at the UK, but what happens in other countries?
 How good is the performance if you use a model trained with UK data in another country? How different is the model (coefficients, performance, etc) trained with data from
    another country (e.g Poland vs the model of the UK shown in _Section 4.4_). Can you conclude that the same factors have different
    impact between the countries? Feel free to compare between any country you'd like.
