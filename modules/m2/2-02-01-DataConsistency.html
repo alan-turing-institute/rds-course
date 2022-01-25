@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -391,7 +391,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -445,7 +445,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -507,7 +507,72 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2.2.1 Data Consistency</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domain-knowledge">
+   Domain Knowledge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#having-a-first-look-at-the-data">
+   Having a First Look at the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-values">
+   Null Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unexpected-column-types">
+   Unexpected Column Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sanity-checking-values">
+   Sanity Checking Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeric-columns">
+     Numeric Columns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-and-categorical-columns">
+     Text and Categorical Columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#duplicate-data">
+   Duplicate Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-data-frames-with-style">
+   Displaying Data Frames with Style 😎
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="data-consistency">
@@ -845,24 +910,26 @@ Name: PetalWidthCm, Length: 157, dtype: bool
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx:2315,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
 
 <span class="ne">ValueError</span>: Unable to parse string &quot;3,1&quot;
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2280</span><span class="o">/</span><span class="mf">1842675192.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SepalWidthCm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SepalWidthCm&quot;</span><span class="p">])</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/pandas/core/tools/numeric.py</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast)</span>
-<span class="nn">    181         coerce_numeric = errors not</span> in <span class="nt">(&quot;ignore&quot;, &quot;raise&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">183</span>             <span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span>                 <span class="n">values</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>             <span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/pandas/core/tools/numeric.py:184,</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast)</span>
+<span class="nn">    182 coerce_numeric = errors not</span> in <span class="nt">(&quot;ignore&quot;, &quot;raise&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">184</span>     <span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>         <span class="n">values</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx:2357,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
 
 <span class="ne">ValueError</span>: Unable to parse string &quot;3,1&quot; at position 51
 </pre></div>
@@ -1462,108 +1529,108 @@ Length after removing duplicates: 156 rows
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_2545d_">
+<table id="T_d521e">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th class="col_heading level0 col0" >Id</th>
-      <th class="col_heading level0 col1" >SepalLengthCm</th>
-      <th class="col_heading level0 col2" >SepalWidthCm</th>
-      <th class="col_heading level0 col3" >PetalLengthCm</th>
-      <th class="col_heading level0 col4" >PetalWidthCm</th>
-      <th class="col_heading level0 col5" >Species</th>
+      <th id="T_d521e_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_d521e_level0_col1" class="col_heading level0 col1" >SepalLengthCm</th>
+      <th id="T_d521e_level0_col2" class="col_heading level0 col2" >SepalWidthCm</th>
+      <th id="T_d521e_level0_col3" class="col_heading level0 col3" >PetalLengthCm</th>
+      <th id="T_d521e_level0_col4" class="col_heading level0 col4" >PetalWidthCm</th>
+      <th id="T_d521e_level0_col5" class="col_heading level0 col5" >Species</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_2545d_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_2545d_row0_col0" class="data row0 col0" >25</td>
-      <td id="T_2545d_row0_col1" class="data row0 col1" >5</td>
-      <td id="T_2545d_row0_col2" class="data row0 col2" >3</td>
-      <td id="T_2545d_row0_col3" class="data row0 col3" >2</td>
-      <td id="T_2545d_row0_col4" class="data row0 col4" >0</td>
-      <td id="T_2545d_row0_col5" class="data row0 col5" >Iris-setosa</td>
+      <th id="T_d521e_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_d521e_row0_col0" class="data row0 col0" >25</td>
+      <td id="T_d521e_row0_col1" class="data row0 col1" >5</td>
+      <td id="T_d521e_row0_col2" class="data row0 col2" >3</td>
+      <td id="T_d521e_row0_col3" class="data row0 col3" >2</td>
+      <td id="T_d521e_row0_col4" class="data row0 col4" >0</td>
+      <td id="T_d521e_row0_col5" class="data row0 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_2545d_row1_col0" class="data row1 col0" >24</td>
-      <td id="T_2545d_row1_col1" class="data row1 col1" >5</td>
-      <td id="T_2545d_row1_col2" class="data row1 col2" >3</td>
-      <td id="T_2545d_row1_col3" class="data row1 col3" >2</td>
-      <td id="T_2545d_row1_col4" class="data row1 col4" >0</td>
-      <td id="T_2545d_row1_col5" class="data row1 col5" >Iris-setosa</td>
+      <th id="T_d521e_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_d521e_row1_col0" class="data row1 col0" >24</td>
+      <td id="T_d521e_row1_col1" class="data row1 col1" >5</td>
+      <td id="T_d521e_row1_col2" class="data row1 col2" >3</td>
+      <td id="T_d521e_row1_col3" class="data row1 col3" >2</td>
+      <td id="T_d521e_row1_col4" class="data row1 col4" >0</td>
+      <td id="T_d521e_row1_col5" class="data row1 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_2545d_row2_col0" class="data row2 col0" >139</td>
-      <td id="T_2545d_row2_col1" class="data row2 col1" >6</td>
-      <td id="T_2545d_row2_col2" class="data row2 col2" >3</td>
-      <td id="T_2545d_row2_col3" class="data row2 col3" >5</td>
-      <td id="T_2545d_row2_col4" class="data row2 col4" >2</td>
-      <td id="T_2545d_row2_col5" class="data row2 col5" >Iris-virginica</td>
+      <th id="T_d521e_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_d521e_row2_col0" class="data row2 col0" >139</td>
+      <td id="T_d521e_row2_col1" class="data row2 col1" >6</td>
+      <td id="T_d521e_row2_col2" class="data row2 col2" >3</td>
+      <td id="T_d521e_row2_col3" class="data row2 col3" >5</td>
+      <td id="T_d521e_row2_col4" class="data row2 col4" >2</td>
+      <td id="T_d521e_row2_col5" class="data row2 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_2545d_row3_col0" class="data row3 col0" >88</td>
-      <td id="T_2545d_row3_col1" class="data row3 col1" >6</td>
-      <td id="T_2545d_row3_col2" class="data row3 col2" >2</td>
-      <td id="T_2545d_row3_col3" class="data row3 col3" >4</td>
-      <td id="T_2545d_row3_col4" class="data row3 col4" >1</td>
-      <td id="T_2545d_row3_col5" class="data row3 col5" >Iris-versicolor</td>
+      <th id="T_d521e_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_d521e_row3_col0" class="data row3 col0" >88</td>
+      <td id="T_d521e_row3_col1" class="data row3 col1" >6</td>
+      <td id="T_d521e_row3_col2" class="data row3 col2" >2</td>
+      <td id="T_d521e_row3_col3" class="data row3 col3" >4</td>
+      <td id="T_d521e_row3_col4" class="data row3 col4" >1</td>
+      <td id="T_d521e_row3_col5" class="data row3 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_2545d_row4_col0" class="data row4 col0" >135</td>
-      <td id="T_2545d_row4_col1" class="data row4 col1" >6</td>
-      <td id="T_2545d_row4_col2" class="data row4 col2" >3</td>
-      <td id="T_2545d_row4_col3" class="data row4 col3" >6</td>
-      <td id="T_2545d_row4_col4" class="data row4 col4" >1</td>
-      <td id="T_2545d_row4_col5" class="data row4 col5" >Iris-virginica</td>
+      <th id="T_d521e_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_d521e_row4_col0" class="data row4 col0" >135</td>
+      <td id="T_d521e_row4_col1" class="data row4 col1" >6</td>
+      <td id="T_d521e_row4_col2" class="data row4 col2" >3</td>
+      <td id="T_d521e_row4_col3" class="data row4 col3" >6</td>
+      <td id="T_d521e_row4_col4" class="data row4 col4" >1</td>
+      <td id="T_d521e_row4_col5" class="data row4 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_2545d_row5_col0" class="data row5 col0" >87</td>
-      <td id="T_2545d_row5_col1" class="data row5 col1" >7</td>
-      <td id="T_2545d_row5_col2" class="data row5 col2" >3</td>
-      <td id="T_2545d_row5_col3" class="data row5 col3" >5</td>
-      <td id="T_2545d_row5_col4" class="data row5 col4" >2</td>
-      <td id="T_2545d_row5_col5" class="data row5 col5" >Iris-versicolor</td>
+      <th id="T_d521e_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_d521e_row5_col0" class="data row5 col0" >87</td>
+      <td id="T_d521e_row5_col1" class="data row5 col1" >7</td>
+      <td id="T_d521e_row5_col2" class="data row5 col2" >3</td>
+      <td id="T_d521e_row5_col3" class="data row5 col3" >5</td>
+      <td id="T_d521e_row5_col4" class="data row5 col4" >2</td>
+      <td id="T_d521e_row5_col5" class="data row5 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_2545d_row6_col0" class="data row6 col0" >89</td>
-      <td id="T_2545d_row6_col1" class="data row6 col1" >6</td>
-      <td id="T_2545d_row6_col2" class="data row6 col2" >3</td>
-      <td id="T_2545d_row6_col3" class="data row6 col3" >4</td>
-      <td id="T_2545d_row6_col4" class="data row6 col4" >1</td>
-      <td id="T_2545d_row6_col5" class="data row6 col5" >Iris-versicolor</td>
+      <th id="T_d521e_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_d521e_row6_col0" class="data row6 col0" >89</td>
+      <td id="T_d521e_row6_col1" class="data row6 col1" >6</td>
+      <td id="T_d521e_row6_col2" class="data row6 col2" >3</td>
+      <td id="T_d521e_row6_col3" class="data row6 col3" >4</td>
+      <td id="T_d521e_row6_col4" class="data row6 col4" >1</td>
+      <td id="T_d521e_row6_col5" class="data row6 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_2545d_row7_col0" class="data row7 col0" >143</td>
-      <td id="T_2545d_row7_col1" class="data row7 col1" >6</td>
-      <td id="T_2545d_row7_col2" class="data row7 col2" >3</td>
-      <td id="T_2545d_row7_col3" class="data row7 col3" >5</td>
-      <td id="T_2545d_row7_col4" class="data row7 col4" >2</td>
-      <td id="T_2545d_row7_col5" class="data row7 col5" >Iris-virginica</td>
+      <th id="T_d521e_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_d521e_row7_col0" class="data row7 col0" >143</td>
+      <td id="T_d521e_row7_col1" class="data row7 col1" >6</td>
+      <td id="T_d521e_row7_col2" class="data row7 col2" >3</td>
+      <td id="T_d521e_row7_col3" class="data row7 col3" >5</td>
+      <td id="T_d521e_row7_col4" class="data row7 col4" >2</td>
+      <td id="T_d521e_row7_col5" class="data row7 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_2545d_row8_col0" class="data row8 col0" >117</td>
-      <td id="T_2545d_row8_col1" class="data row8 col1" >6</td>
-      <td id="T_2545d_row8_col2" class="data row8 col2" >3</td>
-      <td id="T_2545d_row8_col3" class="data row8 col3" >6</td>
-      <td id="T_2545d_row8_col4" class="data row8 col4" >2</td>
-      <td id="T_2545d_row8_col5" class="data row8 col5" >Iris-virginica</td>
+      <th id="T_d521e_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_d521e_row8_col0" class="data row8 col0" >117</td>
+      <td id="T_d521e_row8_col1" class="data row8 col1" >6</td>
+      <td id="T_d521e_row8_col2" class="data row8 col2" >3</td>
+      <td id="T_d521e_row8_col3" class="data row8 col3" >6</td>
+      <td id="T_d521e_row8_col4" class="data row8 col4" >2</td>
+      <td id="T_d521e_row8_col5" class="data row8 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_2545d_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_2545d_row9_col0" class="data row9 col0" >109</td>
-      <td id="T_2545d_row9_col1" class="data row9 col1" >7</td>
-      <td id="T_2545d_row9_col2" class="data row9 col2" >2</td>
-      <td id="T_2545d_row9_col3" class="data row9 col3" >6</td>
-      <td id="T_2545d_row9_col4" class="data row9 col4" >2</td>
-      <td id="T_2545d_row9_col5" class="data row9 col5" >Iris-virginica</td>
+      <th id="T_d521e_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_d521e_row9_col0" class="data row9 col0" >109</td>
+      <td id="T_d521e_row9_col1" class="data row9 col1" >7</td>
+      <td id="T_d521e_row9_col2" class="data row9 col2" >2</td>
+      <td id="T_d521e_row9_col3" class="data row9 col3" >6</td>
+      <td id="T_d521e_row9_col4" class="data row9 col4" >2</td>
+      <td id="T_d521e_row9_col5" class="data row9 col5" >Iris-virginica</td>
     </tr>
   </tbody>
 </table>
@@ -1578,253 +1645,253 @@ Length after removing duplicates: 156 rows
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_d0d93_row0_col0 {
+#T_6a0e8_row0_col0 {
   background-color: #fef6fa;
   color: #000000;
 }
-#T_d0d93_row0_col1, #T_d0d93_row0_col4, #T_d0d93_row1_col0, #T_d0d93_row1_col3, #T_d0d93_row3_col2 {
+#T_6a0e8_row0_col1, #T_6a0e8_row0_col4, #T_6a0e8_row1_col0, #T_6a0e8_row1_col3, #T_6a0e8_row3_col2 {
   background-color: #fff7fb;
   color: #000000;
 }
-#T_d0d93_row0_col2, #T_d0d93_row5_col1, #T_d0d93_row7_col0, #T_d0d93_row7_col4, #T_d0d93_row9_col1, #T_d0d93_row9_col3 {
+#T_6a0e8_row0_col2, #T_6a0e8_row5_col1, #T_6a0e8_row7_col0, #T_6a0e8_row7_col4, #T_6a0e8_row9_col1, #T_6a0e8_row9_col3 {
   background-color: #023858;
   color: #f1f1f1;
 }
-#T_d0d93_row0_col3 {
+#T_6a0e8_row0_col3 {
   background-color: #f8f1f8;
   color: #000000;
 }
-#T_d0d93_row1_col1 {
+#T_6a0e8_row1_col1 {
   background-color: #e5e1ef;
   color: #000000;
 }
-#T_d0d93_row1_col2 {
+#T_6a0e8_row1_col2 {
   background-color: #03517e;
   color: #f1f1f1;
 }
-#T_d0d93_row1_col4 {
+#T_6a0e8_row1_col4 {
   background-color: #e0deed;
   color: #000000;
 }
-#T_d0d93_row2_col0 {
+#T_6a0e8_row2_col0 {
   background-color: #034165;
   color: #f1f1f1;
 }
-#T_d0d93_row2_col1 {
+#T_6a0e8_row2_col1 {
   background-color: #348ebf;
   color: #f1f1f1;
 }
-#T_d0d93_row2_col2, #T_d0d93_row6_col2, #T_d0d93_row8_col2 {
+#T_6a0e8_row2_col2, #T_6a0e8_row6_col2, #T_6a0e8_row8_col2 {
   background-color: #328dbf;
   color: #f1f1f1;
 }
-#T_d0d93_row2_col3 {
+#T_6a0e8_row2_col3 {
   background-color: #056fae;
   color: #f1f1f1;
 }
-#T_d0d93_row2_col4, #T_d0d93_row8_col4, #T_d0d93_row9_col4 {
+#T_6a0e8_row2_col4, #T_6a0e8_row8_col4, #T_6a0e8_row9_col4 {
   background-color: #034871;
   color: #f1f1f1;
 }
-#T_d0d93_row3_col0 {
+#T_6a0e8_row3_col0 {
   background-color: #62a2cb;
   color: #f1f1f1;
 }
-#T_d0d93_row3_col1 {
+#T_6a0e8_row3_col1 {
   background-color: #0569a4;
   color: #f1f1f1;
 }
-#T_d0d93_row3_col3 {
+#T_6a0e8_row3_col3 {
   background-color: #2987bc;
   color: #f1f1f1;
 }
-#T_d0d93_row3_col4, #T_d0d93_row6_col4 {
+#T_6a0e8_row3_col4, #T_6a0e8_row6_col4 {
   background-color: #2d8abd;
   color: #f1f1f1;
 }
-#T_d0d93_row4_col0 {
+#T_6a0e8_row4_col0 {
   background-color: #034a74;
   color: #f1f1f1;
 }
-#T_d0d93_row4_col1 {
+#T_6a0e8_row4_col1 {
   background-color: #1e80b8;
   color: #f1f1f1;
 }
-#T_d0d93_row4_col2 {
+#T_6a0e8_row4_col2 {
   background-color: #c9cee4;
   color: #000000;
 }
-#T_d0d93_row4_col3 {
+#T_6a0e8_row4_col3 {
   background-color: #03456c;
   color: #f1f1f1;
 }
-#T_d0d93_row4_col4 {
+#T_6a0e8_row4_col4 {
   background-color: #167bb6;
   color: #f1f1f1;
 }
-#T_d0d93_row5_col0 {
+#T_6a0e8_row5_col0 {
   background-color: #65a3cb;
   color: #f1f1f1;
 }
-#T_d0d93_row5_col2 {
+#T_6a0e8_row5_col2 {
   background-color: #0d75b3;
   color: #f1f1f1;
 }
-#T_d0d93_row5_col3 {
+#T_6a0e8_row5_col3 {
   background-color: #0c74b2;
   color: #f1f1f1;
 }
-#T_d0d93_row5_col4 {
+#T_6a0e8_row5_col4 {
   background-color: #056dac;
   color: #f1f1f1;
 }
-#T_d0d93_row6_col0 {
+#T_6a0e8_row6_col0 {
   background-color: #5ea0ca;
   color: #f1f1f1;
 }
-#T_d0d93_row6_col1 {
+#T_6a0e8_row6_col1 {
   background-color: #94b6d7;
   color: #000000;
 }
-#T_d0d93_row6_col3 {
+#T_6a0e8_row6_col3 {
   background-color: #4a98c5;
   color: #f1f1f1;
 }
-#T_d0d93_row7_col1 {
+#T_6a0e8_row7_col1 {
   background-color: #67a4cc;
   color: #f1f1f1;
 }
-#T_d0d93_row7_col2 {
+#T_6a0e8_row7_col2 {
   background-color: #a9bfdc;
   color: #000000;
 }
-#T_d0d93_row7_col3 {
+#T_6a0e8_row7_col3 {
   background-color: #046299;
   color: #f1f1f1;
 }
-#T_d0d93_row8_col0 {
+#T_6a0e8_row8_col0 {
   background-color: #056aa6;
   color: #f1f1f1;
 }
-#T_d0d93_row8_col1 {
+#T_6a0e8_row8_col1 {
   background-color: #045483;
   color: #f1f1f1;
 }
-#T_d0d93_row8_col3 {
+#T_6a0e8_row8_col3 {
   background-color: #034b76;
   color: #f1f1f1;
 }
-#T_d0d93_row9_col0 {
+#T_6a0e8_row9_col0 {
   background-color: #1379b5;
   color: #f1f1f1;
 }
-#T_d0d93_row9_col2 {
+#T_6a0e8_row9_col2 {
   background-color: #e0dded;
   color: #000000;
 }
 </style>
-<table id="T_d0d93_">
+<table id="T_6a0e8">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th class="col_heading level0 col0" >Id</th>
-      <th class="col_heading level0 col1" >SepalLengthCm</th>
-      <th class="col_heading level0 col2" >SepalWidthCm</th>
-      <th class="col_heading level0 col3" >PetalLengthCm</th>
-      <th class="col_heading level0 col4" >PetalWidthCm</th>
-      <th class="col_heading level0 col5" >Species</th>
+      <th id="T_6a0e8_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_6a0e8_level0_col1" class="col_heading level0 col1" >SepalLengthCm</th>
+      <th id="T_6a0e8_level0_col2" class="col_heading level0 col2" >SepalWidthCm</th>
+      <th id="T_6a0e8_level0_col3" class="col_heading level0 col3" >PetalLengthCm</th>
+      <th id="T_6a0e8_level0_col4" class="col_heading level0 col4" >PetalWidthCm</th>
+      <th id="T_6a0e8_level0_col5" class="col_heading level0 col5" >Species</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_d0d93_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_d0d93_row0_col0" class="data row0 col0" >25</td>
-      <td id="T_d0d93_row0_col1" class="data row0 col1" >4.800000</td>
-      <td id="T_d0d93_row0_col2" class="data row0 col2" >3.400000</td>
-      <td id="T_d0d93_row0_col3" class="data row0 col3" >1.900000</td>
-      <td id="T_d0d93_row0_col4" class="data row0 col4" >0.200000</td>
-      <td id="T_d0d93_row0_col5" class="data row0 col5" >Iris-setosa</td>
+      <th id="T_6a0e8_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_6a0e8_row0_col0" class="data row0 col0" >25</td>
+      <td id="T_6a0e8_row0_col1" class="data row0 col1" >4.800000</td>
+      <td id="T_6a0e8_row0_col2" class="data row0 col2" >3.400000</td>
+      <td id="T_6a0e8_row0_col3" class="data row0 col3" >1.900000</td>
+      <td id="T_6a0e8_row0_col4" class="data row0 col4" >0.200000</td>
+      <td id="T_6a0e8_row0_col5" class="data row0 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_d0d93_row1_col0" class="data row1 col0" >24</td>
-      <td id="T_d0d93_row1_col1" class="data row1 col1" >5.100000</td>
-      <td id="T_d0d93_row1_col2" class="data row1 col2" >3.300000</td>
-      <td id="T_d0d93_row1_col3" class="data row1 col3" >1.700000</td>
-      <td id="T_d0d93_row1_col4" class="data row1 col4" >0.500000</td>
-      <td id="T_d0d93_row1_col5" class="data row1 col5" >Iris-setosa</td>
+      <th id="T_6a0e8_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_6a0e8_row1_col0" class="data row1 col0" >24</td>
+      <td id="T_6a0e8_row1_col1" class="data row1 col1" >5.100000</td>
+      <td id="T_6a0e8_row1_col2" class="data row1 col2" >3.300000</td>
+      <td id="T_6a0e8_row1_col3" class="data row1 col3" >1.700000</td>
+      <td id="T_6a0e8_row1_col4" class="data row1 col4" >0.500000</td>
+      <td id="T_6a0e8_row1_col5" class="data row1 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_d0d93_row2_col0" class="data row2 col0" >139</td>
-      <td id="T_d0d93_row2_col1" class="data row2 col1" >6.000000</td>
-      <td id="T_d0d93_row2_col2" class="data row2 col2" >3.000000</td>
-      <td id="T_d0d93_row2_col3" class="data row2 col3" >4.800000</td>
-      <td id="T_d0d93_row2_col4" class="data row2 col4" >1.800000</td>
-      <td id="T_d0d93_row2_col5" class="data row2 col5" >Iris-virginica</td>
+      <th id="T_6a0e8_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_6a0e8_row2_col0" class="data row2 col0" >139</td>
+      <td id="T_6a0e8_row2_col1" class="data row2 col1" >6.000000</td>
+      <td id="T_6a0e8_row2_col2" class="data row2 col2" >3.000000</td>
+      <td id="T_6a0e8_row2_col3" class="data row2 col3" >4.800000</td>
+      <td id="T_6a0e8_row2_col4" class="data row2 col4" >1.800000</td>
+      <td id="T_6a0e8_row2_col5" class="data row2 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_d0d93_row3_col0" class="data row3 col0" >88</td>
-      <td id="T_d0d93_row3_col1" class="data row3 col1" >6.300000</td>
-      <td id="T_d0d93_row3_col2" class="data row3 col2" >2.300000</td>
-      <td id="T_d0d93_row3_col3" class="data row3 col3" >4.400000</td>
-      <td id="T_d0d93_row3_col4" class="data row3 col4" >1.300000</td>
-      <td id="T_d0d93_row3_col5" class="data row3 col5" >Iris-versicolor</td>
+      <th id="T_6a0e8_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_6a0e8_row3_col0" class="data row3 col0" >88</td>
+      <td id="T_6a0e8_row3_col1" class="data row3 col1" >6.300000</td>
+      <td id="T_6a0e8_row3_col2" class="data row3 col2" >2.300000</td>
+      <td id="T_6a0e8_row3_col3" class="data row3 col3" >4.400000</td>
+      <td id="T_6a0e8_row3_col4" class="data row3 col4" >1.300000</td>
+      <td id="T_6a0e8_row3_col5" class="data row3 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_d0d93_row4_col0" class="data row4 col0" >135</td>
-      <td id="T_d0d93_row4_col1" class="data row4 col1" >6.100000</td>
-      <td id="T_d0d93_row4_col2" class="data row4 col2" >2.600000</td>
-      <td id="T_d0d93_row4_col3" class="data row4 col3" >5.600000</td>
-      <td id="T_d0d93_row4_col4" class="data row4 col4" >1.400000</td>
-      <td id="T_d0d93_row4_col5" class="data row4 col5" >Iris-virginica</td>
+      <th id="T_6a0e8_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_6a0e8_row4_col0" class="data row4 col0" >135</td>
+      <td id="T_6a0e8_row4_col1" class="data row4 col1" >6.100000</td>
+      <td id="T_6a0e8_row4_col2" class="data row4 col2" >2.600000</td>
+      <td id="T_6a0e8_row4_col3" class="data row4 col3" >5.600000</td>
+      <td id="T_6a0e8_row4_col4" class="data row4 col4" >1.400000</td>
+      <td id="T_6a0e8_row4_col5" class="data row4 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_d0d93_row5_col0" class="data row5 col0" >87</td>
-      <td id="T_d0d93_row5_col1" class="data row5 col1" >6.700000</td>
-      <td id="T_d0d93_row5_col2" class="data row5 col2" >3.100000</td>
-      <td id="T_d0d93_row5_col3" class="data row5 col3" >4.700000</td>
-      <td id="T_d0d93_row5_col4" class="data row5 col4" >1.500000</td>
-      <td id="T_d0d93_row5_col5" class="data row5 col5" >Iris-versicolor</td>
+      <th id="T_6a0e8_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_6a0e8_row5_col0" class="data row5 col0" >87</td>
+      <td id="T_6a0e8_row5_col1" class="data row5 col1" >6.700000</td>
+      <td id="T_6a0e8_row5_col2" class="data row5 col2" >3.100000</td>
+      <td id="T_6a0e8_row5_col3" class="data row5 col3" >4.700000</td>
+      <td id="T_6a0e8_row5_col4" class="data row5 col4" >1.500000</td>
+      <td id="T_6a0e8_row5_col5" class="data row5 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_d0d93_row6_col0" class="data row6 col0" >89</td>
-      <td id="T_d0d93_row6_col1" class="data row6 col1" >5.600000</td>
-      <td id="T_d0d93_row6_col2" class="data row6 col2" >3.000000</td>
-      <td id="T_d0d93_row6_col3" class="data row6 col3" >4.100000</td>
-      <td id="T_d0d93_row6_col4" class="data row6 col4" >1.300000</td>
-      <td id="T_d0d93_row6_col5" class="data row6 col5" >Iris-versicolor</td>
+      <th id="T_6a0e8_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_6a0e8_row6_col0" class="data row6 col0" >89</td>
+      <td id="T_6a0e8_row6_col1" class="data row6 col1" >5.600000</td>
+      <td id="T_6a0e8_row6_col2" class="data row6 col2" >3.000000</td>
+      <td id="T_6a0e8_row6_col3" class="data row6 col3" >4.100000</td>
+      <td id="T_6a0e8_row6_col4" class="data row6 col4" >1.300000</td>
+      <td id="T_6a0e8_row6_col5" class="data row6 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_d0d93_row7_col0" class="data row7 col0" >143</td>
-      <td id="T_d0d93_row7_col1" class="data row7 col1" >5.800000</td>
-      <td id="T_d0d93_row7_col2" class="data row7 col2" >2.700000</td>
-      <td id="T_d0d93_row7_col3" class="data row7 col3" >5.100000</td>
-      <td id="T_d0d93_row7_col4" class="data row7 col4" >1.900000</td>
-      <td id="T_d0d93_row7_col5" class="data row7 col5" >Iris-virginica</td>
+      <th id="T_6a0e8_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_6a0e8_row7_col0" class="data row7 col0" >143</td>
+      <td id="T_6a0e8_row7_col1" class="data row7 col1" >5.800000</td>
+      <td id="T_6a0e8_row7_col2" class="data row7 col2" >2.700000</td>
+      <td id="T_6a0e8_row7_col3" class="data row7 col3" >5.100000</td>
+      <td id="T_6a0e8_row7_col4" class="data row7 col4" >1.900000</td>
+      <td id="T_6a0e8_row7_col5" class="data row7 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_d0d93_row8_col0" class="data row8 col0" >117</td>
-      <td id="T_d0d93_row8_col1" class="data row8 col1" >6.500000</td>
-      <td id="T_d0d93_row8_col2" class="data row8 col2" >3.000000</td>
-      <td id="T_d0d93_row8_col3" class="data row8 col3" >5.500000</td>
-      <td id="T_d0d93_row8_col4" class="data row8 col4" >1.800000</td>
-      <td id="T_d0d93_row8_col5" class="data row8 col5" >Iris-virginica</td>
+      <th id="T_6a0e8_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_6a0e8_row8_col0" class="data row8 col0" >117</td>
+      <td id="T_6a0e8_row8_col1" class="data row8 col1" >6.500000</td>
+      <td id="T_6a0e8_row8_col2" class="data row8 col2" >3.000000</td>
+      <td id="T_6a0e8_row8_col3" class="data row8 col3" >5.500000</td>
+      <td id="T_6a0e8_row8_col4" class="data row8 col4" >1.800000</td>
+      <td id="T_6a0e8_row8_col5" class="data row8 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_d0d93_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_d0d93_row9_col0" class="data row9 col0" >109</td>
-      <td id="T_d0d93_row9_col1" class="data row9 col1" >6.700000</td>
-      <td id="T_d0d93_row9_col2" class="data row9 col2" >2.500000</td>
-      <td id="T_d0d93_row9_col3" class="data row9 col3" >5.800000</td>
-      <td id="T_d0d93_row9_col4" class="data row9 col4" >1.800000</td>
-      <td id="T_d0d93_row9_col5" class="data row9 col5" >Iris-virginica</td>
+      <th id="T_6a0e8_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_6a0e8_row9_col0" class="data row9 col0" >109</td>
+      <td id="T_6a0e8_row9_col1" class="data row9 col1" >6.700000</td>
+      <td id="T_6a0e8_row9_col2" class="data row9 col2" >2.500000</td>
+      <td id="T_6a0e8_row9_col3" class="data row9 col3" >5.800000</td>
+      <td id="T_6a0e8_row9_col4" class="data row9 col4" >1.800000</td>
+      <td id="T_6a0e8_row9_col5" class="data row9 col5" >Iris-virginica</td>
     </tr>
   </tbody>
 </table>
@@ -1839,112 +1906,112 @@ Length after removing duplicates: 156 rows
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_4c95f_row0_col1, #T_4c95f_row0_col4, #T_4c95f_row0_col5, #T_4c95f_row1_col0, #T_4c95f_row1_col3, #T_4c95f_row1_col5, #T_4c95f_row3_col2 {
+#T_abf05_row0_col1, #T_abf05_row0_col4, #T_abf05_row0_col5, #T_abf05_row1_col0, #T_abf05_row1_col3, #T_abf05_row1_col5, #T_abf05_row3_col2 {
   background-color: yellow;
 }
 </style>
-<table id="T_4c95f_">
+<table id="T_abf05">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th class="col_heading level0 col0" >Id</th>
-      <th class="col_heading level0 col1" >SepalLengthCm</th>
-      <th class="col_heading level0 col2" >SepalWidthCm</th>
-      <th class="col_heading level0 col3" >PetalLengthCm</th>
-      <th class="col_heading level0 col4" >PetalWidthCm</th>
-      <th class="col_heading level0 col5" >Species</th>
+      <th id="T_abf05_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_abf05_level0_col1" class="col_heading level0 col1" >SepalLengthCm</th>
+      <th id="T_abf05_level0_col2" class="col_heading level0 col2" >SepalWidthCm</th>
+      <th id="T_abf05_level0_col3" class="col_heading level0 col3" >PetalLengthCm</th>
+      <th id="T_abf05_level0_col4" class="col_heading level0 col4" >PetalWidthCm</th>
+      <th id="T_abf05_level0_col5" class="col_heading level0 col5" >Species</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_4c95f_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_4c95f_row0_col0" class="data row0 col0" >25</td>
-      <td id="T_4c95f_row0_col1" class="data row0 col1" >4.800000</td>
-      <td id="T_4c95f_row0_col2" class="data row0 col2" >3.400000</td>
-      <td id="T_4c95f_row0_col3" class="data row0 col3" >1.900000</td>
-      <td id="T_4c95f_row0_col4" class="data row0 col4" >0.200000</td>
-      <td id="T_4c95f_row0_col5" class="data row0 col5" >Iris-setosa</td>
+      <th id="T_abf05_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_abf05_row0_col0" class="data row0 col0" >25</td>
+      <td id="T_abf05_row0_col1" class="data row0 col1" >4.800000</td>
+      <td id="T_abf05_row0_col2" class="data row0 col2" >3.400000</td>
+      <td id="T_abf05_row0_col3" class="data row0 col3" >1.900000</td>
+      <td id="T_abf05_row0_col4" class="data row0 col4" >0.200000</td>
+      <td id="T_abf05_row0_col5" class="data row0 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_4c95f_row1_col0" class="data row1 col0" >24</td>
-      <td id="T_4c95f_row1_col1" class="data row1 col1" >5.100000</td>
-      <td id="T_4c95f_row1_col2" class="data row1 col2" >3.300000</td>
-      <td id="T_4c95f_row1_col3" class="data row1 col3" >1.700000</td>
-      <td id="T_4c95f_row1_col4" class="data row1 col4" >0.500000</td>
-      <td id="T_4c95f_row1_col5" class="data row1 col5" >Iris-setosa</td>
+      <th id="T_abf05_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_abf05_row1_col0" class="data row1 col0" >24</td>
+      <td id="T_abf05_row1_col1" class="data row1 col1" >5.100000</td>
+      <td id="T_abf05_row1_col2" class="data row1 col2" >3.300000</td>
+      <td id="T_abf05_row1_col3" class="data row1 col3" >1.700000</td>
+      <td id="T_abf05_row1_col4" class="data row1 col4" >0.500000</td>
+      <td id="T_abf05_row1_col5" class="data row1 col5" >Iris-setosa</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_4c95f_row2_col0" class="data row2 col0" >139</td>
-      <td id="T_4c95f_row2_col1" class="data row2 col1" >6.000000</td>
-      <td id="T_4c95f_row2_col2" class="data row2 col2" >3.000000</td>
-      <td id="T_4c95f_row2_col3" class="data row2 col3" >4.800000</td>
-      <td id="T_4c95f_row2_col4" class="data row2 col4" >1.800000</td>
-      <td id="T_4c95f_row2_col5" class="data row2 col5" >Iris-virginica</td>
+      <th id="T_abf05_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_abf05_row2_col0" class="data row2 col0" >139</td>
+      <td id="T_abf05_row2_col1" class="data row2 col1" >6.000000</td>
+      <td id="T_abf05_row2_col2" class="data row2 col2" >3.000000</td>
+      <td id="T_abf05_row2_col3" class="data row2 col3" >4.800000</td>
+      <td id="T_abf05_row2_col4" class="data row2 col4" >1.800000</td>
+      <td id="T_abf05_row2_col5" class="data row2 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_4c95f_row3_col0" class="data row3 col0" >88</td>
-      <td id="T_4c95f_row3_col1" class="data row3 col1" >6.300000</td>
-      <td id="T_4c95f_row3_col2" class="data row3 col2" >2.300000</td>
-      <td id="T_4c95f_row3_col3" class="data row3 col3" >4.400000</td>
-      <td id="T_4c95f_row3_col4" class="data row3 col4" >1.300000</td>
-      <td id="T_4c95f_row3_col5" class="data row3 col5" >Iris-versicolor</td>
+      <th id="T_abf05_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_abf05_row3_col0" class="data row3 col0" >88</td>
+      <td id="T_abf05_row3_col1" class="data row3 col1" >6.300000</td>
+      <td id="T_abf05_row3_col2" class="data row3 col2" >2.300000</td>
+      <td id="T_abf05_row3_col3" class="data row3 col3" >4.400000</td>
+      <td id="T_abf05_row3_col4" class="data row3 col4" >1.300000</td>
+      <td id="T_abf05_row3_col5" class="data row3 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_4c95f_row4_col0" class="data row4 col0" >135</td>
-      <td id="T_4c95f_row4_col1" class="data row4 col1" >6.100000</td>
-      <td id="T_4c95f_row4_col2" class="data row4 col2" >2.600000</td>
-      <td id="T_4c95f_row4_col3" class="data row4 col3" >5.600000</td>
-      <td id="T_4c95f_row4_col4" class="data row4 col4" >1.400000</td>
-      <td id="T_4c95f_row4_col5" class="data row4 col5" >Iris-virginica</td>
+      <th id="T_abf05_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_abf05_row4_col0" class="data row4 col0" >135</td>
+      <td id="T_abf05_row4_col1" class="data row4 col1" >6.100000</td>
+      <td id="T_abf05_row4_col2" class="data row4 col2" >2.600000</td>
+      <td id="T_abf05_row4_col3" class="data row4 col3" >5.600000</td>
+      <td id="T_abf05_row4_col4" class="data row4 col4" >1.400000</td>
+      <td id="T_abf05_row4_col5" class="data row4 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_4c95f_row5_col0" class="data row5 col0" >87</td>
-      <td id="T_4c95f_row5_col1" class="data row5 col1" >6.700000</td>
-      <td id="T_4c95f_row5_col2" class="data row5 col2" >3.100000</td>
-      <td id="T_4c95f_row5_col3" class="data row5 col3" >4.700000</td>
-      <td id="T_4c95f_row5_col4" class="data row5 col4" >1.500000</td>
-      <td id="T_4c95f_row5_col5" class="data row5 col5" >Iris-versicolor</td>
+      <th id="T_abf05_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_abf05_row5_col0" class="data row5 col0" >87</td>
+      <td id="T_abf05_row5_col1" class="data row5 col1" >6.700000</td>
+      <td id="T_abf05_row5_col2" class="data row5 col2" >3.100000</td>
+      <td id="T_abf05_row5_col3" class="data row5 col3" >4.700000</td>
+      <td id="T_abf05_row5_col4" class="data row5 col4" >1.500000</td>
+      <td id="T_abf05_row5_col5" class="data row5 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_4c95f_row6_col0" class="data row6 col0" >89</td>
-      <td id="T_4c95f_row6_col1" class="data row6 col1" >5.600000</td>
-      <td id="T_4c95f_row6_col2" class="data row6 col2" >3.000000</td>
-      <td id="T_4c95f_row6_col3" class="data row6 col3" >4.100000</td>
-      <td id="T_4c95f_row6_col4" class="data row6 col4" >1.300000</td>
-      <td id="T_4c95f_row6_col5" class="data row6 col5" >Iris-versicolor</td>
+      <th id="T_abf05_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_abf05_row6_col0" class="data row6 col0" >89</td>
+      <td id="T_abf05_row6_col1" class="data row6 col1" >5.600000</td>
+      <td id="T_abf05_row6_col2" class="data row6 col2" >3.000000</td>
+      <td id="T_abf05_row6_col3" class="data row6 col3" >4.100000</td>
+      <td id="T_abf05_row6_col4" class="data row6 col4" >1.300000</td>
+      <td id="T_abf05_row6_col5" class="data row6 col5" >Iris-versicolor</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_4c95f_row7_col0" class="data row7 col0" >143</td>
-      <td id="T_4c95f_row7_col1" class="data row7 col1" >5.800000</td>
-      <td id="T_4c95f_row7_col2" class="data row7 col2" >2.700000</td>
-      <td id="T_4c95f_row7_col3" class="data row7 col3" >5.100000</td>
-      <td id="T_4c95f_row7_col4" class="data row7 col4" >1.900000</td>
-      <td id="T_4c95f_row7_col5" class="data row7 col5" >Iris-virginica</td>
+      <th id="T_abf05_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_abf05_row7_col0" class="data row7 col0" >143</td>
+      <td id="T_abf05_row7_col1" class="data row7 col1" >5.800000</td>
+      <td id="T_abf05_row7_col2" class="data row7 col2" >2.700000</td>
+      <td id="T_abf05_row7_col3" class="data row7 col3" >5.100000</td>
+      <td id="T_abf05_row7_col4" class="data row7 col4" >1.900000</td>
+      <td id="T_abf05_row7_col5" class="data row7 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_4c95f_row8_col0" class="data row8 col0" >117</td>
-      <td id="T_4c95f_row8_col1" class="data row8 col1" >6.500000</td>
-      <td id="T_4c95f_row8_col2" class="data row8 col2" >3.000000</td>
-      <td id="T_4c95f_row8_col3" class="data row8 col3" >5.500000</td>
-      <td id="T_4c95f_row8_col4" class="data row8 col4" >1.800000</td>
-      <td id="T_4c95f_row8_col5" class="data row8 col5" >Iris-virginica</td>
+      <th id="T_abf05_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_abf05_row8_col0" class="data row8 col0" >117</td>
+      <td id="T_abf05_row8_col1" class="data row8 col1" >6.500000</td>
+      <td id="T_abf05_row8_col2" class="data row8 col2" >3.000000</td>
+      <td id="T_abf05_row8_col3" class="data row8 col3" >5.500000</td>
+      <td id="T_abf05_row8_col4" class="data row8 col4" >1.800000</td>
+      <td id="T_abf05_row8_col5" class="data row8 col5" >Iris-virginica</td>
     </tr>
     <tr>
-      <th id="T_4c95f_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_4c95f_row9_col0" class="data row9 col0" >109</td>
-      <td id="T_4c95f_row9_col1" class="data row9 col1" >6.700000</td>
-      <td id="T_4c95f_row9_col2" class="data row9 col2" >2.500000</td>
-      <td id="T_4c95f_row9_col3" class="data row9 col3" >5.800000</td>
-      <td id="T_4c95f_row9_col4" class="data row9 col4" >1.800000</td>
-      <td id="T_4c95f_row9_col5" class="data row9 col5" >Iris-virginica</td>
+      <th id="T_abf05_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_abf05_row9_col0" class="data row9 col0" >109</td>
+      <td id="T_abf05_row9_col1" class="data row9 col1" >6.700000</td>
+      <td id="T_abf05_row9_col2" class="data row9 col2" >2.500000</td>
+      <td id="T_abf05_row9_col3" class="data row9 col3" >5.800000</td>
+      <td id="T_abf05_row9_col4" class="data row9 col4" >1.800000</td>
+      <td id="T_abf05_row9_col5" class="data row9 col5" >Iris-virginica</td>
     </tr>
   </tbody>
 </table>
@@ -1975,8 +2042,8 @@ Length after removing duplicates: 156 rows
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2-02-ExploringWrangling.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1993,19 +2060,17 @@ Length after removing duplicates: 156 rows
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Research Engineering Group, The Alan Turing Institute<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Research Engineering Group, The Alan Turing Institute<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
