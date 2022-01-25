@@ -83,3 +83,7 @@ Participants are expected to:
 - Be comfortable with basic Python, either through working on a project or through attending a training course. Indicatively, they should be comfortable with the concepts covered in the “Introduction to Python” module from the Turing’s Research Software Engineering with Python course. The Programming with Python Software Carpentry also covers some of these concepts. Familiarity with Matplotlib, NumPy and Pandas is beneficial but not required.
 - Have some basic knowledge of Git (setting up repositories, commits) through using it in projects or by attending training, e.g. the Software Carpentry’s Version Control with Git (Sections 1 to 4 and 7 to 9).
 - Have read the first two sections of the Turing Way’s Guide for Collaboration (“Getting Started in GitHub” and “Maintainers and Reviewers in GitHub”).
+
+
+### Acknowledgement
+This work was supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/W006022/1 & The Alan Turing Institute.
