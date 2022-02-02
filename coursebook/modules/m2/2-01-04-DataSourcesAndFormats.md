@@ -107,12 +107,12 @@ df = pd.read_csv(
 
 ```{admonition} Exercise
 :class: tip
-Later on we'll be using the "Iris" dataset, which we have saved at the path `data/Iris.csv`. Load this dataset into a pandas data frame. What type of data do you think it contains? What are the types of the columns and do they match what you'd expect?
+Later on we'll be using the "Palmer Penguins" dataset, which we have saved at the path `data/penguins.csv`. Load this dataset into a pandas data frame. What type of data do you think it contains? What are the types of the columns and do they match what you'd expect?
 ```
 
 ```{admonition} Solution
 :class: dropdown tip
-`df = pd.read_csv("data/Iris.csv")` to load the data into pandas. We'll discuss the answer to the other questions later, but you may have noticed that some of the columns have the generic `object` type even though it looks like they contain numeric data.
+`df = pd.read_csv("data/penguins.csv")` to load the data into pandas. We'll discuss the answer to the other questions later, but you may have noticed that some of the columns have the generic `object` type even though it looks like they contain numeric data.
 ```
 
 

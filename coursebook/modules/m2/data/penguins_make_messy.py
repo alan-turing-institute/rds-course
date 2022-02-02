@@ -1,5 +1,5 @@
 """
-Loads the Iris data and adds some rows to represent issues that can
+Loads the Palmer penguins data and adds some rows to represent issues that can
 arise with data consistency.
 """
 import pandas as pd
