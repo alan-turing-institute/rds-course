@@ -6,16 +6,15 @@
    - Paquette, S., Parham, J.L. et al., 2012
    - Public Domain
 
--  `Iris_original.csv`, `Iris.csv`
-   - https://archive.ics.uci.edu/ml/datasets/iris
-   - Orignial source: R.A. Fisher, "The use of multiple measurements in taxonomic problems", Annual Eugenics, 7, Part II, 179-188 (1936)
-   - Data from Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.  
-   - `Iris.csv` file modified to include a few messy rows using the `Iris_make_messy.py` script.
+- `penguins_original.csv`, `penguins.csv`
+   - Data are available by[CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/) license in accordance with the [Palmer Station LTER Data Policy](http://pal.lternet.edu/data/policies) and the [LTER Data Access Policy for Type I data](https://lternet.edu/data-access-policy/). 
+   - https://allisonhorst.github.io/palmerpenguins/
+   - Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0.https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
+   - `penguins.csv` file modified here to include a few messy rows using the `penguins_make_messy.py` script, so is only appropriate for teaching purposes.
 
-- `Iris.jpg`
-   - [Ryan Hodnett, "Northern Blue Flag (Iris versicolor) at Cape St. Mary's Ecological Reserve in Newfoundlandand labrador, Canada". 10 August 2019](https://commons.wikimedia.org/wiki/File:Northern_Blue_Flag_(Iris_versicolor)_-_Cape_St._Mary%27s_Ecological_Reserve,_Newfoundland_2019-08-10_(01).jpg)
-   - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
-   - Modified to add petal and sepal labels.
+- `lter_penguins.png`
+  - Artwork by [@allison_horst](https://twitter.com/allison_horst)
+  - https://github.com/allisonhorst/palmerpenguins
 
 - `pcs_2017.csv`
    - https://data.ny.gov/Human-Services/Patient-Characteristics-Survey-PCS-2017/8itk-gcdy
