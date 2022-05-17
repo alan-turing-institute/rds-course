@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -33,21 +33,23 @@
     
   <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -97,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Module 1: Introduction to Data Science
  </span>
@@ -134,7 +136,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Module 2: Handling data
  </span>
@@ -267,7 +269,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Module 3: Data Visualisation &amp; Exploration
  </span>
@@ -309,7 +311,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Module 4: Introduction to Modelling
  </span>
@@ -526,7 +528,7 @@
             
               <div>
                 
-  <div class="section" id="time-and-date-data">
+  <div class="tex2jax_ignore mathjax_ignore section" id="time-and-date-data">
 <h1>2.2.4.1 Time and Date Data<a class="headerlink" href="#time-and-date-data" title="Permalink to this headline">¶</a></h1>
 <p>Dealing with time and date data can be tricky. String-formatted data is hard to compare and represent for modelling.</p>
 <div class="cell docutils container">
@@ -557,7 +559,7 @@ This allows us to represent dates and times as structured objects.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-01-25 11:42:01.556468
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-17 18:56:48.662511
 </pre></div>
 </div>
 </div>
@@ -590,7 +592,7 @@ This allows us to represent dates and times as structured objects.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d gt now: False
-now - d: 399 days, 11:42:01.556468. Type: &lt;class &#39;datetime.timedelta&#39;&gt;
+now - d: 511 days, 18:56:48.662511. Type: &lt;class &#39;datetime.timedelta&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -604,7 +606,7 @@ now - d: 399 days, 11:42:01.556468. Type: &lt;class &#39;datetime.timedelta&#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>now timestamp: 1643110921.556468
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>now timestamp: 1652813808.662511
 past timestamp: 1608595200.0
 </pre></div>
 </div>
@@ -637,7 +639,7 @@ past timestamp: 1608595200.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25/01/22 11:42. Type: &lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17/05/22 18:56. Type: &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
