@@ -1,0 +1,11 @@
+digraph {
+	graph [size="6,5"]
+	rankdir=LR
+	Data [shape=star]
+	"Generative Model" [shape=oval]
+	Inference [shape=oval]
+	Prediction [shape=oval]
+	Data -> "Generative Model"
+	"Generative Model" -> Inference
+	"Generative Model" -> Prediction
+}
