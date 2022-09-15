@@ -1,3 +1,4 @@
 coursebook/_build/*
 *checkpoints
 data/*
+.DS_Store
