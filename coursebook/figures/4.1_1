@@ -1,0 +1,15 @@
+digraph {
+	graph [size="6,5"]
+	rankdir=LR
+	node [shape=doublecircle]
+	Phenomenon
+	node [shape=oval]
+	Measurement
+	"Sampling Process"
+	"Data Generating Process"
+	Phenomenon -> "Data Generating Process"
+	Measurement -> "Data Generating Process"
+	"Data Generating Process" -> "Sampling Process"
+	"Sampling Process" -> Data
+	Data [shape=star]
+}
