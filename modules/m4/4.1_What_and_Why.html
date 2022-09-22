@@ -565,9 +565,9 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="the-what-and-why-of-statistical-modelling">
 <span id="section4-1"></span><h1>4.1 The What and Why of Statistical Modelling<a class="headerlink" href="#the-what-and-why-of-statistical-modelling" title="Permalink to this headline">¶</a></h1>
-<p>Models are used in all walks of life to facilitate learning. A product designer may build a mock-up of the intended product to learn how the real-life counterpart may work. Similarly, architects use blueprints to learn and communicate something about a building.</p>
+<p>Models are found in all walks of life to facilitate learning. A product designer may build a mock-up of the intended product to learn how the real-life counterpart may work. Similarly, architects use blueprints to learn and communicate something about a building.</p>
 <p>These models are abstractions of the real world that capture key characteristics of the thing they imitate.</p>
-<p>No model is perfect because the real world is endlessly complex. Rather, models are approximations of some phenonemon. Models are useful when they allow us to learn something about the subject.</p>
+<p>No model is perfect because the real world is endlessly complex. Rather, models are approximations of some phenomenon. Models are useful when they allow us to learn something about the subject.</p>
 <p><em>Statistical</em> modelling is conceptually similar. Simply put, a statistical model is a mathematical abstraction.</p>
 <p>In theory, models are infinitely flexible. However, there are many trade-offs, for example between complexity and interpretability, that we will cover in this module. The flexibility of models means that it is important to ask <em>why</em> you are modelling before embarking on a modelling problem. Broadly, modelling efforts are of two types (see below box).</p>
 <div class="important admonition">
@@ -581,7 +581,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To understand these models first we need to think about data for a moment.</p>
 <div class="section" id="what-is-data">
 <h2>What is data?<a class="headerlink" href="#what-is-data" title="Permalink to this headline">¶</a></h2>
-<p>Data is a messy peek into an underlying phenomenon. What we really want to learn about is a <strong>phenomenon</strong>, for example what contributes to good health. However, the real-world is complicated and phenomena are never known precisely. Many natural phenomena have intrinsic variability, or <em>randomness</em>. For example, human bodies are massively variable between individuals, so it is reasonable to expect that their health, and also the myriad factors that contribute to it, will be different.</p>
+<p>Data is a messy peek into an underlying phenomenon. What we really want to learn
+about is a <strong>phenomenon</strong>, for example what contributes to good health. However,
+the real-world is complicated and phenomena are never precisely known. Many natural
+phenomena have intrinsic variability, or <em>randomness</em>. For example, human bodies
+are massively variable between individuals, so it is reasonable to expect that
+their health, and also the myriad factors that contribute to it, will be
+different.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="note dropdown admonition">
@@ -622,9 +628,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="conditional-probability">
 <h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h3>
 <p>In most cases when we think about probability of some events happening we assume that other events that have <em>already happened</em>. In our ice cream example we do not concern ourselves with the probability that there is a shop selling ice cream, or the probability that a customer would walk in to it. We assume that these have already happened and then make sure the <em>event space</em> we are interested in sums to one so that we can reason about the uncertainty.</p>
-<p>This is called <strong>Conditional Probability</strong>. <span class="math notranslate nohighlight">\(P(x)\)</span> is the probability of <span class="math notranslate nohighlight">\(x\)</span> happening within a bounded event space, conditioned on some stuff that is assumed to have happened. Let <span class="math notranslate nohighlight">\(y\)</span> be the probability that a customer walks into an ice cream shop, and <span class="math notranslate nohighlight">\(x\)</span> be the probability that someone chooses chocolate. The conditional probability formula is given by:</p>
-<div class="math notranslate nohighlight">
-\[P(x|y) = \frac{P(x \cap y)}{P(y)}\]</div>
+<p>This is called <strong>Conditional Probability</strong>. <span class="math notranslate nohighlight">\(P(x)\)</span> is the probability of <span class="math notranslate nohighlight">\(x\)</span> happening within a bounded event space, conditioned on some stuff that is assumed to have happened. Let <span class="math notranslate nohighlight">\(y\)</span> be the probability that a customer walks into an ice cream shop, and <span class="math notranslate nohighlight">\(x\)</span> be the probability that someone chooses chocolate. The conditional probability formula is given by</p>
+<p>$<span class="math notranslate nohighlight">\(P(x|y) = \frac{P(x \cap y)}{P(y)}\)</span>$.</p>
 <p>The left hand side, <span class="math notranslate nohighlight">\(P(x|y)\)</span>, is often read “Probability of <span class="math notranslate nohighlight">\(x\)</span> given <span class="math notranslate nohighlight">\(y\)</span>”. The right hand side consists of the <em>intersection</em> of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(P(x \cap y)\)</span>, which is all events of <em>both</em> <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. This is also called the <em>joint probability</em>.</p>
 <p>Conditional probability essentially normalises the event space within the mini universe under consideration, as visualised in <a class="reference external" href="https://setosa.io/conditional/">this beautiful animation by Victor Powell</a>.</p>
 <div class="admonition-conditional-probability admonition">
@@ -651,7 +656,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(P(x)\)</span> is the key parameter in the <strong>Bernoulli</strong> distribution, which is the distribution of a <strong>random variable</strong> that can only take two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, with the <span class="math notranslate nohighlight">\(1\)</span> signifying the presence of <span class="math notranslate nohighlight">\(x\)</span>. We can <strong>sample</strong> individual observations from this distribution to give us a set of data.</p>
-<p>In our example chocoloate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
+<p>In our example chocolate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
@@ -674,7 +679,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>With a big enough sample the amount of people choosing chocolate will always rest at our chosen parameter.</p>
 <p>For different values of <span class="math notranslate nohighlight">\(P(chocolate)\)</span>, the below plot shows some simulations of the proportion of customers choosing chocolate as the number of customers increase.</p>
-<p>With the bernoulli distribution that proportion can be directly computed by calculating the mean.</p>
+<p>With the Bernoulli distribution that proportion can be directly computed by calculating the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
@@ -713,7 +718,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>At lower sample numbers the sample mean varies more widely. This is <strong>sampling bias</strong>. Any parameter you calculate from data will vary from sample to sample. The sample-to-sample variability of a parameter is its <strong>sampling distribution</strong>.</p></li>
 <li><p>Even at larger samples the sample mean varies around the true probability (which is never known in practice).</p></li>
 </ul>
-<p>As statisticians we know the nature of this variation. There is a rather remarkable statistical property of sampling called the <strong>Central Limit Theorem</strong>, which states when sample sizes are large enough the <em>sampling distribution of the mean</em> will be normally distributed (a bell curve). Crucially this holds even if the data is not normally distributed (as in our case).</p>
+<p>As statisticians, we know the nature of this variation. There is a rather remarkable statistical property of sampling called the <strong>Central Limit Theorem</strong>, which states when sample sizes are large enough the <em>sampling distribution of the mean</em> will be normally distributed (a bell curve). Crucially this holds even if the data is not normally distributed (as in our case).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mf">.5</span>
@@ -737,7 +742,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/4.1_What_and_Why_8_0.png" src="../../_images/4.1_What_and_Why_8_0.png" />
 </div>
 </div>
-<p>The intuition behind the Central Limit Theorem is two fold:</p>
+<p>The intuition behind the Central Limit Theorem is twofold:</p>
 <ul class="simple">
 <li><p>The more ways a thing can happen, the more likely it is to happen.</p></li>
 <li><p>There are more ways of making the average than any other number.</p></li>
@@ -780,7 +785,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Generative Models</p>
 <p>A generative model describes how a dataset is generated, in terms of probability distributions. By sampling from this model, we are able to generate new data. Parameters are the control dials on a generative model.</p>
 </div>
-<p>In most real situations, <strong>neither the generative model nor the parameters are known</strong>, and we will need to estimate them using the data we have collected. Statistical modeling works from the data upwards to figure out a model that might plausibly explain the data.</p>
+<p>In most real situations, <strong>neither the generative model nor the parameters are known</strong>, and we will need to estimate them using the data we have collected. Statistical modelling works from the data upwards to figure out a model that might plausibly explain the data.</p>
 <p>Once we have learned a suitable model for our data, we can make inferences about the underlying phenomena using our knowledge of statistical sampling. We can also make predictions about new data.</p>
 <p>Collecting new data will allow us to test our predictions and revise our model, and the scientific cycle continues.</p>
 <div class="figure align-default" id="modelprocess">

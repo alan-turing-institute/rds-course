@@ -549,7 +549,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="the-mean-as-a-model">
 <h2>The mean as a model<a class="headerlink" href="#the-mean-as-a-model" title="Permalink to this headline">¶</a></h2>
 <p>Let us have a dataset consisting of one random variable, <span class="math notranslate nohighlight">\(Y\)</span>. We wish to represent this dataset as best we can with a single parameter on the same arithmetic scale as the data: <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>We first define a cost function. Since <span class="math notranslate nohighlight">\(\mu\)</span> is meant to be a single quantity that represents the data we want values that a further away to <span class="math notranslate nohighlight">\(\mu\)</span> to have a higher cost. Since we don’t want negative values we could square the error, this will also have the added benefit of penalising higher errors more harshly that lower errors. We can sum all the <strong>squared errors</strong> of each data point from <span class="math notranslate nohighlight">\(\mu\)</span> to get a single value that we could minimise.</p>
+<p>We first define a cost function. Since <span class="math notranslate nohighlight">\(\mu\)</span> is meant to be a single quantity that represents the data we want values that a further away to <span class="math notranslate nohighlight">\(\mu\)</span> to have a higher cost. As we don’t want negative values we could square the error, this will also have the added benefit of penalising higher errors more harshly than lower errors. We can sum all the <strong>squared errors</strong> of each data point from <span class="math notranslate nohighlight">\(\mu\)</span> to get a single value that we could minimise.</p>
 <div class="math notranslate nohighlight">
 \[\sum (Y-\mu)^2\]</div>
 <p>However, this value is in squared error units, which is unintuitive. To keep the cost function in the units of the data we can take the average then take the square root. This gives us a common cost function, <strong>root-mean-squared-error</strong> (RMSE):</p>
@@ -610,20 +610,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/4.2_Fitting_Models_1_0.png" src="../../_images/4.2_Fitting_Models_1_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.010743437311352, Mu: 5.02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 4.984724022487376, Mu: 4.98
 </pre></div>
 </div>
 </div>
 </div>
 <p>The mean is a poor model when you want to capture the data distribution since it predicts the same value each time.</p>
-<p>One of the most common probablistic approaches is to model the data points as coming from a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. A normal (or gaussian) distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
-<p>We fit a normal distribution to our data in a similar way to our previous example: we find the parameter values that are demonstrably best with respect to some cost function.</p>
-<p>A common cost function for fitting probability distributions is the <strong>likelihood</strong>. Simply put, a likelihood of a single data point is the probability of that data point occuring given a probability distribution with certain parameters. The combined likelihood of a dataset is each individual likelihood multiplied together. A common fitting technique is to find the <strong>maximum likelihood</strong> of a dataset.</p>
+<p>One of the most common probablistic approaches is to model the data points as coming from a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. A normal (or Gaussian) distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
+<p>We fit a normal distribution to our data similarly to our previous example: we find the parameter values that are demonstrably best with respect to some cost function.</p>
+<p>A common cost function for fitting probability distributions is the <strong>likelihood</strong>. Simply put, a likelihood of a single data point is the probability of that data point occurring given a probability distribution with certain parameters. The combined likelihood of a dataset is each individual likelihood multiplied together. A common fitting technique is to find the <strong>maximum likelihood</strong> of a dataset.</p>
 <div class="important admonition">
 <p class="admonition-title">The log-likelihood</p>
-<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), therefore the <strong>log-likelihood</strong> is taken so that we can sum across the datapoints. Further, taking the <em>negative</em> log-likihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> the authors are normally talking about <em>minimising the negative log-likelihood</em>.</p>
+<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), therefore the <strong>log-likelihood</strong> is taken so that we can sum across the data points. Further, taking the <em>negative</em> log-likelihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> the authors are normally talking about <em>minimising the negative log-likelihood</em>.</p>
 </div>
-<p>The <strong>log-likelihood</strong> is illustrated below with our previous fake dataset. To make the illustration simpler we have fixed the guassian standard deviation parameter.</p>
+<p>The <strong>log-likelihood</strong> is illustrated below with our previous fake dataset. To make the illustration simpler we have fixed the Gaussian standard deviation parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
@@ -673,26 +673,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="modelling-relationships-regression">
 <h2>Modelling relationships: Regression.<a class="headerlink" href="#modelling-relationships-regression" title="Permalink to this headline">¶</a></h2>
-<p>So far we have been modelling observations of a single variable, <span class="math notranslate nohighlight">\(Y\)</span> as coming from a normal distribution with a mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and a standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
+<p>So far we have been modelling observations of a single variable, <span class="math notranslate nohighlight">\(Y\)</span> as coming from a normal distribution with a mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and a standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span></p>
 <div class="math notranslate nohighlight">
-\[ Y \sim Normal(\mu,\sigma)\]</div>
-<p>Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters <em>dependent</em> on other variables.</p>
-<p>We call our other variable <span class="math notranslate nohighlight">\(X\)</span>. Since we already are under the assumption that <span class="math notranslate nohighlight">\(Y\)</span> varies around a mean, it stands to reason that we would model the <em>mean</em> as changing with <span class="math notranslate nohighlight">\(X\)</span>, accepting that <span class="math notranslate nohighlight">\(Y\)</span> would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of <span class="math notranslate nohighlight">\(Y\)</span> varies <em>linearly</em> with <span class="math notranslate nohighlight">\(X\)</span>. Meaning that one capture the relationship by a line with an intercept and a slope.</p>
-<div class="math notranslate nohighlight">
-\[ \mu = \beta_0 + \beta_1X \]</div>
+\[ \begin{align}\begin{aligned} Y \sim Normal(\mu,\sigma)$$.\\Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters _dependent_ on other variables.\\We call our other variable $X$. Since we already are under the assumption that $Y$ varies around a mean, it stands to reason that we would model the _mean_ as changing with $X$, accepting that $Y$ would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of $Y$ varies _linearly_ with $X$. Meaning that one capture the relationship by a line with an intercept and a slope.\\$$ \mu = \beta_0 + \beta_1X \end{aligned}\end{align} \]</div>
 <p>Here, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, meaning the value that <span class="math notranslate nohighlight">\(Y\)</span> would take when <span class="math notranslate nohighlight">\(X=0\)</span>, and <span class="math notranslate nohighlight">\(\beta_1\)</span> is a parameter that scales how much a change in <span class="math notranslate nohighlight">\(X\)</span> corresponds to the change in <span class="math notranslate nohighlight">\(Y\)</span>. An alternative common way of writing this is:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-notation admonition">
 <p class="admonition-title">Notation</p>
-<p>It is convention in Regression models to have your input variables as a matrix <span class="math notranslate nohighlight">\(X_{ni}\)</span> and your predicted values as <span class="math notranslate nohighlight">\(Y_i\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> refers to the variable index and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation index. The parameters are often stored as a vector <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>It is convention in Regression models to have your input variables as a matrix <span class="math notranslate nohighlight">\(X_{ni}\)</span> and your predicted values as <span class="math notranslate nohighlight">\(Y_i\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> refers to the variable index and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation index. The parameters are often stored as a vector <span class="math notranslate nohighlight">\(\beta\)</span></p>
 </div>
 </div>
 <div class="math notranslate nohighlight">
-\[ Y_i = \beta_0 + \beta_1X_i + \epsilon \]</div>
-<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> refers to <strong>residual error</strong> that is normally distributed around zero: <span class="math notranslate nohighlight">\(\epsilon \sim Normal(0,\sigma)\)</span>, and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation. You can also write this as:</p>
-<div class="math notranslate nohighlight">
-\[ Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \]</div>
+\[ \begin{align}\begin{aligned} Y_i = \beta_0 + \beta_1X_i + \epsilon $$,\\where $\epsilon$ refers to **residual error** that is normally distributed around zero: $\epsilon \sim Normal(0,\sigma)$, and $i$ refers to the observation. You can also write this as:\\$$ Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \end{aligned}\end{align} \]</div>
 <p>Modelling in this way is called <strong>Linear Regression</strong>. Parameters that scale the relationship between an input variable to an output variable are called <strong>Coefficients</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -789,8 +782,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.8706032971712117
-Slope: 0.314014014014014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 2.100840138603494
+Slope: 0.2883883883883884
 </pre></div>
 </div>
 <img alt="../../_images/4.2_Fitting_Models_6_1.png" src="../../_images/4.2_Fitting_Models_6_1.png" />
