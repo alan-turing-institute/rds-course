@@ -1,0 +1,1 @@
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThere can be an increased risk of identification of a person/entity when two datasets are linked.\\E$"}
