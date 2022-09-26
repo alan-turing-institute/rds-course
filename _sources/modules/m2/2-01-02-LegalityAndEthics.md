@@ -56,10 +56,9 @@ More information on data licences can be found in [The Turing Way](https://the-t
 >
 > - used fairly, lawfully and transparently
 > - used for specified, explicit purposes
-> - used in a way that is adequate, relevant and limited to only what is necessary
-> - accurate and, where necessary, kept up to date
+> - used in a way that is adequate, relevant, and limited to only what is necessarily accurate and, where necessary, kept up to date
 > - kept for no longer than is necessary
-> - handled in a way that ensures appropriate security, including protection against unlawful or unauthorised processing, access, loss, destruction or damage
+> - handled in a way that ensures appropriate security, including protection against unlawful or unauthorised processing, access, loss, destruction, or damage
 >
 > There is stronger legal protection for more sensitive information, such as:
 >
@@ -70,7 +69,8 @@ More information on data licences can be found in [The Turing Way](https://the-t
 > - trade union membership
 > - genetics
 > - biometrics (where used for identification)
-> - health
+> - physical or mental health
+> - philosophical beliefs
 > - sex life or orientation
 >
 > There are separate safeguards for personal data relating to criminal convictions and offences.
@@ -81,7 +81,7 @@ Note: The DPA 2018 sits alongside and supplements [UK GDPR](https://www.legislat
 
 #### What's personal data?
 
-Personal data is information about a particular living individual. It doesn't need to be "private" information.
+Personal data is information about a particular living individual. It doesn't need to be “private” information.
 
 Truly anonymous information isn't covered - but if you could use the data to identify someone (e.g., by combining it with another source) it still counts as personal data.
 
@@ -97,7 +97,7 @@ See more at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide
 
 However, there are a few exemptions to GDPR and some things that are simply outside its scope.
 
-Personal or household activities are considered outside of the scope of the UK's GDPR. Data **only** for personal use won't make  you subject to GDPR.
+Personal or household activities are considered outside the scope of the UK's GDPR. Data **only** for personal use won't make  you subject to GDPR.
 
 Crucially, for academia and research, there are some exemptions. The details of these can be complicated and are certainly beyond the scope of this course. Each organisation will have their own stance on GDPR, and you should consult internally to determine how to proceed.
 
@@ -123,7 +123,7 @@ For example:
 **Ethics are a shared responsibility, however, it's another area that we should all feel comfortable seeking expert advice. At Turing, we have an Ethics Advisory Board that we can look to for guidance.**
 
 
-Although there will be a lot of crossover between legality and ethics, we should be aware that there may be additional ethical considerations over use of a dataset, even when its use is deemed legal.
+Although there will be a lot of crossovers between legality and ethics, we should be aware that there may be additional ethical considerations over use of a dataset, even when its use is deemed legal.
 
 
 For example:
@@ -131,7 +131,7 @@ For example:
 *The UK data service lists the European Quality of Life Time Series, 2007 and 2011: Open Access dataset available for download and use under a CC BY 4.0 licence.
 As the data do not contain direct personal identifiers, and it is unlikely that anyone will be able to identify individuals, we are confident that, from a data protection angle, we can proceed.
 
-*However, we may wish to consider the consent under which this data was originally gathered. Did the respondees to this survey explicitly consent to its secondary use in research (or teaching, in this case)? If not, can we assume implied consent? Do we need consent at all, in this case?*
+*However, we may wish to consider the consent under which this data was originally gathered. Did the respondents to this survey explicitly consent to its secondary use in research (or teaching, in this case)? If not, can we assume implied consent? Do we need consent at all, in this case?*
 
 > We believe that despite the lack of an explicit consent field in the questionnaire, these materials and all the supporting material in the website give plenty of information and signposting to participants to assure that they know the content and purpose of the survey, the anonymisation process, the way data will become available and also to know where to ask questions if they have concerns.
 > It is reasonable to conclude that participants that were contacted, accepted the invitation, read this material, were briefed by the field worker and went ahead with the interview did consent to their data being collected and used.
@@ -200,14 +200,14 @@ We can try to identify proxy variables by looking at data correlations and askin
 
 ### Algorithmic Fairness: A Trade-off
 
-Many works exist in the area of algorithmic fairness, and it is a topic worthy of greater discussion outside of the boundary of this course.
+Many works exist in the area of algorithmic fairness, and it is a topic worthy of greater discussion outside the boundary of this course.
 Here, we want to briefly highlight a tension between fairness and traditional measures of performance.
 
 Above, we have discussed excluding variables from the data.
 When we have a modelling task, we may find that our reported accuracy is lower without our excluded variables. This represents a trade-off.
 We should attempt to discern the implications of the change in accuracy and potentially consider these against measures of fairness.
 
-But what is "fairness"? Any answer is certainly beyond the scope of this course! However, a useful collection of (loose) definitions for various "fairness types" can be found in [Google's What-If Tool documentation](https://pair-code.github.io/what-if-tool/ai-fairness.html).
+But what is “fairness”? Any answer is certainly beyond the scope of this course! However, a useful collection of (loose) definitions for various “fairness types” can be found in [Google's What-If Tool documentation](https://pair-code.github.io/what-if-tool/ai-fairness.html).
 
 This trade-off is also discussed in depth, with illustrative examples, in Mayson (2018). 
 
