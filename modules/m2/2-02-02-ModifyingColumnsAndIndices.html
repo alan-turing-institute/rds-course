@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-02-02-ModifyingColumnsAndIndices.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-02-ModifyingColumnsAndIndices.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-02-ModifyingColumnsAndIndices.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-02-ModifyingColumnsAndIndices.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-02-ModifyingColumnsAndIndices.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -521,28 +518,26 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="dropping-named-columns-and-indices">
 <h2>Dropping Named Columns and Indices<a class="headerlink" href="#dropping-named-columns-and-indices" title="Permalink to this headline">¶</a></h2>
 <p>We may wish to drop columns or indices entirely from a Pandas DataFrame.</p>
-<p>This may be where we’ve already done some analysis and know the labels of the column(s) to drop.
-We use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html"><code class="docutils literal notranslate"><span class="pre">DataFrame.drop</span></code></a> method:</p>
+<p>This may be where we’ve already done some analysis and know the labels
+of the column(s) to drop. We use the
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html"><code class="docutils literal notranslate"><span class="pre">DataFrame.drop</span></code></a>
+method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># construct df with null values</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
-    <span class="s2">&quot;col_a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s2">&quot;col_b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">,</span> <span class="s2">&quot;ddd&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;col_c&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AAA&quot;</span><span class="p">,</span> <span class="s2">&quot;BBB&quot;</span><span class="p">,</span> <span class="s2">&quot;CCC&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-    <span class="s2">&quot;col_d&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
-<span class="p">})</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span> <span class="s2">&quot;col_a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;col_b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">,</span> <span class="s2">&quot;ddd&quot;</span><span class="p">],</span> <span class="s2">&quot;col_c&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AAA&quot;</span><span class="p">,</span> <span class="s2">&quot;BBB&quot;</span><span class="p">,</span> <span class="s2">&quot;CCC&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span><span class="s2">&quot;col_d&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">})</span>
 
 <span class="c1"># show the dataframe</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original dataframe:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original dataframe:&quot;</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;drop &#39;col_b&#39;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;drop ‘col_b’:&quot;</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_b&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
@@ -606,7 +601,7 @@ We use the <a class="reference external" href="https://pandas.pydata.org/pandas-
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drop &#39;col_b&#39;:
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drop ‘col_b’:
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -720,11 +715,13 @@ We use the <a class="reference external" href="https://pandas.pydata.org/pandas-
 </div>
 <div class="section" id="dropping-columns-and-indices-with-nulls">
 <h2>Dropping Columns and Indices with Nulls<a class="headerlink" href="#dropping-columns-and-indices-with-nulls" title="Permalink to this headline">¶</a></h2>
-<p>It may be that we wish to drop columns according to whether they have missing data.
-Here, we use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html"><code class="docutils literal notranslate"><span class="pre">DataFrame.dropna</span></code></a> method:</p>
+<p>It may be that we wish to drop columns according to whether they have
+missing data. Here, we use the
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html"><code class="docutils literal notranslate"><span class="pre">DataFrame.dropna</span></code></a>
+method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show the dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#show the dataframe </span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original dataframe recap:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
@@ -732,7 +729,7 @@ Here, we use the <a class="reference external" href="https://pandas.pydata.org/p
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;drop columns where *any* values are NA:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;note that None is treated like NaN.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;note that None is treated like NaN.&quot;</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -957,9 +954,9 @@ note that None is treated like NaN.
 <p>Pandas provides an easy way to rename columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;long_column_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;short&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original df:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;long_column_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;short&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original df:&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;long_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;renamed df:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>

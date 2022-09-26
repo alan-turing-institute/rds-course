@@ -388,9 +388,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m4/overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/overview.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -449,19 +449,49 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The key goal of research data science is to learn from data. One of the most powerful methods of learning from data is <strong>statistical modelling</strong>.</p>
-<p>In modelling you build mathematical descriptions of the processes that generate your data. By doing so, researchers can see beyond the data and peek into the phenomeon that gave rise to your data.</p>
-<p>This module provides a high-level introduction to statistical modelling. We aim to demystify the key concepts involved, providing a foundational approach to modelling that one could apply to any modelling problem. In doing so we will also cover the main pitfalls that any modeller needs to contend with.</p>
-<p>Abstract concepts are better understood through application. Here we use simple models (linear and logistic regression) to bring modelling concepts to life, but the intended take-homes are not specific to any particular modelling technique.</p>
+<p>The key goal of research data science is to learn from data. One of the
+most powerful methods of learning from data is <strong>statistical
+modelling</strong>.</p>
+<p>In modelling you build mathematical descriptions of the processes that
+generate your data. By doing so, researchers can see beyond the data and
+peek into the phenomeon that gave rise to your data.</p>
+<p>This module provides a high-level introduction to statistical modelling.
+We aim to demystify the key concepts involved, providing a foundational
+approach to modelling that one could apply to any modelling problem. In
+doing so we will also cover the main pitfalls that any modeller needs to
+contend with.</p>
+<p>Abstract concepts are better understood through application. Here we use
+simple models (linear and logistic regression) to bring modelling
+concepts to life, but the intended take-homes are not specific to any
+particular modelling technique.</p>
 <p>The module is structured as follows:</p>
 <ul class="simple">
-<li><p><strong>The what and why of statistical modelling</strong>. We begin by defining what modelling is and motivating the power of modelling.</p></li>
-<li><p><strong>Fitting models</strong>. Here we go through the components of a model, including describing how to fit one to data.</p></li>
-<li><p><strong>Building a simple model</strong>. We then carefully build a model based on the understanding of our data, taking care to understand the model.</p></li>
-<li><p><strong>Evaluation a a model</strong>. It is not enough to have a model that is fitted to your data. The model has to be useful. The final section will cover how to evaluate your model and iteratively improve upon your model.</p></li>
+<li><p><strong>The what and why of statistical modelling</strong>. We begin by defining
+what modelling is and motivating the power of modelling.</p></li>
+<li><p><strong>Fitting models</strong>. Here we go through the components of a model,
+including describing how to fit one to data.</p></li>
+<li><p><strong>Building a simple model</strong>. We then carefully build a model based
+on the understanding of our data, taking care to understand the
+model.</p></li>
+<li><p><strong>Evaluation a a model</strong>. It is not enough to have a model that is
+fitted to your data. The model has to be useful. The final section
+will cover how to evaluate your model and iteratively improve upon
+your model.</p></li>
 </ul>
 <p><strong>References:</strong></p>
-<p>We will include more specific references as we move through the module. But useful accessible introductions to modelling that has inspired much of this module’s content are Poldrack’s <a class="reference external" href="https://web.stanford.edu/group/poldracklab/statsthinking21/index.html">Statistical Thinking for the 21st Century</a>, Holmes and Huber’s <a class="reference external" href="https://web.stanford.edu/class/bios221/book/Chap-Models.html">Modern Statistics for Modern Biology</a>, as well as the introductory sections of Richard McElreath’s wonderfully readable <a class="reference external" href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a> and Bishop’s classic <a class="reference external" href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Machine Learning for Pattern Recognition</a> textbook.</p>
+<p>We will include more specific references as we move through the module.
+But useful accessible introductions to modelling that has inspired much
+of this module’s content are Poldrack’s <a class="reference external" href="https://web.stanford.edu/group/poldracklab/statsthinking21/index.html">Statistical Thinking for the
+21st
+Century</a>,
+Holmes and Huber’s <a class="reference external" href="https://web.stanford.edu/class/bios221/book/Chap-Models.html">Modern Statistics for Modern
+Biology</a>,
+as well as the introductory sections of Richard McElreath’s wonderfully
+readable <a class="reference external" href="https://xcelab.net/rm/statistical-rethinking/">Statistical
+Rethinking</a> and Bishop’s
+classic <a class="reference external" href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Machine Learning for Pattern
+Recognition</a>
+textbook.</p>
 </div>
 
     <script type="text/x-thebe-config">

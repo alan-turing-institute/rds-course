@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-02-04-04-ImageData.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-04-04-ImageData.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-04-04-ImageData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-04-04-ImageData.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-04-04-ImageData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -461,6 +458,13 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#resizing-and-resampling">
    Resizing (and Resampling)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opencv-interpolation">
+     OpenCV Interpolation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standardisation">
@@ -491,6 +495,13 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#resizing-and-resampling">
    Resizing (and Resampling)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opencv-interpolation">
+     OpenCV Interpolation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standardisation">
@@ -508,55 +519,46 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="image-data">
 <h1>2.2.4.4 Image Data<a class="headerlink" href="#image-data" title="Permalink to this headline">¶</a></h1>
-<p>Earlier in this module, we introduced image data as a 2d or 3d tensor representing pixel values.</p>
-<p>Commonly, we may wish to resize, reshape, normalise or standardise image data.</p>
-<div class="admonition-normalisation-vs-standardisation admonition">
-<p class="admonition-title">Normalisation vs Standardisation</p>
-<p><em>Normalisation</em> will typically rescale the values into a range of [0,1]. <em>Standardisation</em> will typically rescale data to have a mean of 0 and a standard deviation of 1 (unit variance).</p>
-</div>
+<p>Earlier in this module, we introduced image data as a 2d or 3d tensor
+representing pixel values.</p>
+<p>Commonly, we may wish to resize, reshape, normalise or standardise image
+data.</p>
+<p>Normalisation vs Standardisation <em>Normalisation</em> will typically rescale the values into a range of [0,1]. <em>Standardisation</em> will typically rescale data to have a mean of 0 and a standard deviation of 1 (unit variance).`</p>
 <div class="section" id="resizing-and-resampling">
 <h2>Resizing (and Resampling)<a class="headerlink" href="#resizing-and-resampling" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-resizing-vs-resampling admonition">
-<p class="admonition-title">Resizing vs Resampling</p>
-<p>The term <em>resize</em> can be used to refer to changing the physical size of an image without changing the number of pixels.
-In these contexts, <em>resampling</em> is used to refer to the operation that changes the total number of pixels.</p>
-<p>However, many popular Python image libraries use the term <em>resize</em> to refer to changing the total number of pixels.
-We will follow this convention.</p>
-</div>
+<p>Resizing vs Resampling The term <em>resize</em> can be used
+to refer to changing the physical size of an image without changing the
+number of pixels. In these contexts, <em>resampling</em> is used to refer to
+the operation that changes the total number of pixels.</p>
+<p>However, many popular Python image libraries use the term <em>resize</em> to
+refer to changing the total number of pixels. We will follow this
+convention.</p>
 <p>When resizing, interpolation methods determine pixel values when upsampling or downsampling an image. In the case of
 upsampling, the method determines the value for “new” pixels.</p>
-<div class="margin sidebar">
-<p class="sidebar-title">OpenCV Interpolation</p>
+<div class="section" id="opencv-interpolation">
+<h3>OpenCV Interpolation<a class="headerlink" href="#opencv-interpolation" title="Permalink to this headline">¶</a></h3>
 <p>The OpenCV docs provide some info on <a class="reference external" href="https://docs.opencv.org/2.4.13.7/modules/imgproc/doc/geometric_transformations.html#resize">resizing</a>, with brief mention of interpolation methods.
 A friendly explanation of the interpolation methods available is given in <a class="reference external" href="https://www.pyimagesearch.com/2021/01/20/opencv-resize-image-cv2-resize/">this article</a> under the “Comparing OpenCV interpolation methods” heading.</p>
-</div>
 <p>For example, using the OpenCV library:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span> 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;./data/smiley_16.png&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loaded data of shape: </span><span class="si">{</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;./data/smiley_16.png&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loaded data of shape:</span><span class="si">{</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># resize using NEAREST interpolation method</span>
+
 <span class="n">im_64_nearest</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_NEAREST</span><span class="p">)</span>
 
 <span class="c1"># resize using CUBIC interpolation method</span>
+
 <span class="n">im_64_cubic</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loaded data of shape: (16, 16, 3)
-</pre></div>
-</div>
-</div>
-</div>
-<p>(code to display hidden below)</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display with matplotlib</span>
+
+
+
+<span class="c1"># display with matplotlib</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;16x16 original&quot;</span><span class="p">)</span>
@@ -575,48 +577,43 @@ A friendly explanation of the interpolation methods available is given in <a cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2-02-04-04-ImageData_3_0.png" src="../../_images/2-02-04-04-ImageData_3_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loaded data of shape:(16, 16, 3)
+</pre></div>
+</div>
+<img alt="../../_images/2-02-04-04-ImageData_1_1.png" src="../../_images/2-02-04-04-ImageData_1_1.png" />
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="standardisation">
 <h2>Standardisation<a class="headerlink" href="#standardisation" title="Permalink to this headline">¶</a></h2>
 <p>Image processing will often expect the data to be standardised.</p>
-<p>As we’ve seen that our image data is represented in a numeric 2d or 3d tensor, we can standardise by converting the image
-to have zero mean, and unit variance.</p>
+<p>As we’ve seen that our image data is represented in a numeric 2d or 3d
+tensor, we can standardise by converting the image to have zero mean,
+and unit variance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span> 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;data/flower.png&quot;</span><span class="p">)</span>
-<span class="c1"># convert colour as we&#39;re loading in BGR rather than RGB</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;data/flower.png&quot;</span><span class="p">)</span> <span class="c1"># convert colour as we’re loading in BGR rather than RGB </span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 
-<span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">stds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="n">stds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">im</span><span class="p">,</span>
+<span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;means: </span><span class="si">{</span><span class="n">means</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stds: </span><span class="si">{</span><span class="n">stds</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stds: </span><span class="si">{</span><span class="n">stds</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">()</span>
 
 <span class="c1"># subtract means and divide by stds</span>
+
 <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span> <span class="o">-</span> <span class="n">means</span><span class="p">)</span> <span class="o">/</span> <span class="n">stds</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>means: [[[ 43.88558043  72.84690265 187.30281104]]]
-stds: [[[34.91541538 48.4553325  52.90432839]]]
-</pre></div>
-</div>
-</div>
-</div>
-<p>(code to display hidden below)</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># continue from last</span>
+
+
+<span class="c1"># continue from last</span>
 <span class="c1"># display with matplotlib</span>
 <span class="c1"># scale range to [0,255] for display </span>
 <span class="n">for_vis</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">NORM_MINMAX</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CV_8U</span><span class="p">)</span> 
@@ -635,24 +632,30 @@ stds: [[[34.91541538 48.4553325  52.90432839]]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2-02-04-04-ImageData_7_0.png" src="../../_images/2-02-04-04-ImageData_7_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>means: [[[ 43.88558043  72.84690265 187.30281104]]]
+stds: [[[34.91541538 48.4553325  52.90432839]]]
+</pre></div>
+</div>
+<img alt="../../_images/2-02-04-04-ImageData_3_1.png" src="../../_images/2-02-04-04-ImageData_3_1.png" />
 </div>
 </div>
 <p>Some sanity checks (code and output) for standardisation hidden below.</p>
-<div class="cell tag_hide-cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### sanity checks</span>
+
 <span class="c1"># check new means and stds</span>
+
 <span class="n">means</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">meanStdDev</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 <span class="c1"># check our new means are 0 (within given tolerance)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-07</span><span class="p">)</span>
-<span class="c1"># check our new stds are 1 (within given tolerance)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-07</span><span class="p">)</span> <span class="c1"># check our new stds are 1 (within given tolerance) </span>
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">stds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-
 <span class="c1"># show top left &quot;pixel&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;original top left: </span><span class="si">{</span><span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;original top left: </span><span class="si">{</span><span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;standardised top left: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 </pre></div>
@@ -684,29 +687,25 @@ rather than calculate these for each image. For example, using the ImageNet valu
 <span class="c1"># subtract means and divide by stds</span>
 <span class="n">imagenet_result</span> <span class="o">=</span> <span class="p">(</span><span class="n">scaled</span> <span class="o">-</span> <span class="n">imagenet_means</span><span class="p">)</span> <span class="o">/</span> <span class="n">imagenet_stds</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">imagenet_result</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.78217308  0.1876752   2.53542511]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># continue from last</span>
-<span class="c1"># display with matplotlib</span>
-<span class="c1"># scale range to [0,255] for display </span>
-<span class="n">imagenet_for_vis</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">imagenet_result</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">NORM_MINMAX</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CV_8U</span><span class="p">)</span> 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+
+<span class="c1"># continue from last</span>
+
+<span class="c1"># display with matplotlib</span>
+
+<span class="c1"># scale range to \[0,255\] for display</span>
+
+<span class="n">imagenet_for_vis</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">imagenet_result</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span>
+<span class="n">norm_type</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">NORM_MINMAX</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CV_8U</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+<span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;original&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;original&quot;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imagenet_for_vis</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ImageNet standarised (for display only)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imagenet_for_vis</span><span class="p">)</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ImageNet standarised(for display only)&quot;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -714,12 +713,18 @@ rather than calculate these for each image. For example, using the ImageNet valu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2-02-04-04-ImageData_12_0.png" src="../../_images/2-02-04-04-ImageData_12_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.78217308  0.1876752   2.53542511]
+</pre></div>
+</div>
+<img alt="../../_images/2-02-04-04-ImageData_7_1.png" src="../../_images/2-02-04-04-ImageData_7_1.png" />
 </div>
 </div>
-<p>We see that the image doesn’t appear to have been altered to the same extent as before.
-This is due to the ImageNet values being less skewed towards the blue channel.</p>
-<p>note: many packages like <a class="reference external" href="https://pytorch.org/vision/stable/">torchvision</a> will have convenience methods to do standardisation/normalisation for you.</p>
+<p>We see that the image doesn’t appear to have been altered to the same
+extent as before. This is due to the ImageNet values being less skewed
+towards the blue channel.</p>
+<p>note: many packages like
+<a class="reference external" href="https://pytorch.org/vision/stable/">torchvision</a> will have convenience
+methods to do standardisation/normalisation for you.</p>
 </div>
 </div>
 

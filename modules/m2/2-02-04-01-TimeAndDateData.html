@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-02-04-01-TimeAndDateData.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-04-01-TimeAndDateData.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-04-01-TimeAndDateData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-04-01-TimeAndDateData.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-04-01-TimeAndDateData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -457,25 +454,37 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#datetime">
-   datetime
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2.2.4.1 Time and Date Data
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime">
+     datetime
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-from-to-string">
+     Converting From/To String
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-datetime-accessor-series-dt">
+     Pandas Datetime Accessor (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series.dt
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#converting-from-to-string">
-   Converting From/To String
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas-datetime-accessor-series-dt">
-   Pandas Datetime Accessor (
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Series.dt
-    </span>
-   </code>
-   )
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#access-seconds-property-of-values-in-series">
+   access seconds property of values in series
   </a>
  </li>
 </ul>
@@ -498,25 +507,37 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#datetime">
-   datetime
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2.2.4.1 Time and Date Data
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime">
+     datetime
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-from-to-string">
+     Converting From/To String
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-datetime-accessor-series-dt">
+     Pandas Datetime Accessor (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Series.dt
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#converting-from-to-string">
-   Converting From/To String
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas-datetime-accessor-series-dt">
-   Pandas Datetime Accessor (
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Series.dt
-    </span>
-   </code>
-   )
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#access-seconds-property-of-values-in-series">
+   access seconds property of values in series
   </a>
  </li>
 </ul>
@@ -530,7 +551,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="time-and-date-data">
 <h1>2.2.4.1 Time and Date Data<a class="headerlink" href="#time-and-date-data" title="Permalink to this headline">¶</a></h1>
-<p>Dealing with time and date data can be tricky. String-formatted data is hard to compare and represent for modelling.</p>
+<p>Dealing with time and date data can be tricky. String-formatted data is
+hard to compare and represent for modelling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;02/03/1900&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;01/01/2020&quot;</span><span class="p">)</span>
@@ -543,28 +565,32 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>We use the <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object in examples below. However, you can also use <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> as appropriate.</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object in examples below. However, you
+can also use <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> as appropriate.</p>
 <div class="section" id="datetime">
 <h2>datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h2>
-<p>We need to represent date data in a format that will allow us to compare items and perform operations such as addition and subtraction.</p>
-<p>Python’s standard library includes the <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module.
+<p>We need to represent date data in a format that will allow us to compare
+items and perform operations such as addition and subtraction.</p>
+<p>Python’s standard library includes the
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module.
 This allows us to represent dates and times as structured objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="c1"># create a datetime object with value set to now</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> 
+<span class="c1"># create a datetime object with value set to now </span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-26 08:23:13.665953
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-26 16:34:53.948658
 </pre></div>
 </div>
 </div>
 </div>
-<p>This object has structure. We can, for example, extract the year property from this object.</p>
+<p>This object has structure. We can, for example, extract the year
+property from this object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
@@ -577,22 +603,23 @@ This allows us to represent dates and times as structured objects.</p>
 </div>
 </div>
 </div>
-<p>We can also compare this datetime to others, as well as perform date arithmetic.</p>
+<p>We can also compare this datetime to others, as well as perform date
+arithmetic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">past</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;2020-12-22&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">past</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;2020-12-22&quot;</span><span class="p">)</span> 
 <span class="n">is_gt_now</span> <span class="o">=</span> <span class="n">past</span> <span class="o">&gt;</span> <span class="n">now</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;d gt now: </span><span class="si">{</span><span class="n">is_gt_now</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># subtract past from now</span>
-<span class="n">difference</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">past</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">past</span> 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;now - d: </span><span class="si">{</span><span class="n">difference</span><span class="si">}</span><span class="s2">. Type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d gt now: False
-now - d: 643 days, 8:23:13.665953. Type: &lt;class &#39;datetime.timedelta&#39;&gt;
+now - d: 643 days, 16:34:53.948658. Type: &lt;class &#39;datetime.timedelta&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -606,17 +633,21 @@ now - d: 643 days, 8:23:13.665953. Type: &lt;class &#39;datetime.timedelta&#39;&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>now timestamp: 1664180593.665953
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>now timestamp: 1664210093.948658
 past timestamp: 1608595200.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>Note some UTC vs local time complications detailed <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp">here</a>.</p>
+<p>Note some UTC vs local time complications detailed
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp">here</a>.</p>
 </div>
 <div class="section" id="converting-from-to-string">
 <h2>Converting From/To String<a class="headerlink" href="#converting-from-to-string" title="Permalink to this headline">¶</a></h2>
-<p>For converting <em>from</em> a string, we can use the <code class="docutils literal notranslate"><span class="pre">datetime.datetime.strptime(date_string,</span> <span class="pre">format)</span></code> function. Format codes are detailed <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">here</a>.</p>
+<p>For converting <em>from</em> a string, we can use the
+<code class="docutils literal notranslate"><span class="pre">datetime.datetime.strptime(date_string,</span> <span class="pre">format)</span></code> function. Format codes
+are detailed
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;30/03/99 16:30&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%y %H:%M&quot;</span><span class="p">)</span>
@@ -630,16 +661,17 @@ past timestamp: 1608595200.0
 </div>
 </div>
 </div>
-<p>And to convert a date <em>to</em> string we can use <code class="docutils literal notranslate"><span class="pre">datetime.datetime.strftime(format)</span></code>.</p>
+<p>And to convert a date <em>to</em> string we can use
+<code class="docutils literal notranslate"><span class="pre">datetime.datetime.strftime(format)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%y %H:%M&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%y %H:%M&quot;</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">. Type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26/09/22 08:23. Type: &lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26/09/22 16:34. Type: &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -647,36 +679,18 @@ past timestamp: 1608595200.0
 </div>
 <div class="section" id="pandas-datetime-accessor-series-dt">
 <h2>Pandas Datetime Accessor (<code class="docutils literal notranslate"><span class="pre">Series.dt</span></code>)<a class="headerlink" href="#pandas-datetime-accessor-series-dt" title="Permalink to this headline">¶</a></h2>
-<p>Pandas provides an accessor object for datetime-like properties of Series values. See <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html">here</a>.</p>
-<p>E.g. (taken almost directly from Pandas docs, linked above)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">seconds_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2000-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">seconds_series</span><span class="p">)</span>
-
-<span class="c1"># access seconds property of values in series</span>
-<span class="n">display</span><span class="p">(</span><span class="n">seconds_series</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
-</pre></div>
+<p>Pandas provides an accessor object for datetime-like properties of
+Series values. See
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html">here</a>.</p>
+<p>E.g. (taken almost directly from Pandas docs, linked above)
+```{code-cell} ipython3 import pandas as pd</p>
+<p>seconds_series = pd.Series(pd.date_range(“2000-01-01”, periods=3,
+freq=”s”)) display(seconds_series)</p>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   2000-01-01 00:00:00
-1   2000-01-01 00:00:01
-2   2000-01-01 00:00:02
-dtype: datetime64[ns]
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
-1    1
-2    2
-dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="access-seconds-property-of-values-in-series">
+<h1>access seconds property of values in series<a class="headerlink" href="#access-seconds-property-of-values-in-series" title="Permalink to this headline">¶</a></h1>
+<p>display(seconds_series.dt.second) ```</p>
 </div>
 
     <script type="text/x-thebe-config">

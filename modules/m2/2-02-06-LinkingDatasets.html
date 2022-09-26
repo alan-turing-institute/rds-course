@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-02-06-LinkingDatasets.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-06-LinkingDatasets.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-06-LinkingDatasets.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-06-LinkingDatasets.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-06-LinkingDatasets.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -532,32 +529,38 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="linking-datasets">
 <h1>2.2.6 Linking Datasets<a class="headerlink" href="#linking-datasets" title="Permalink to this headline">¶</a></h1>
-<p>Data linking is the process of joining datasets together.
-Datasets can be useful on their own but bringing them together can unlock new insights.</p>
-<div class="admonition-discussion admonition">
-<p class="admonition-title">Discussion</p>
-<p>When might this be helpful? Can you think of any examples where joining datasets might help us unlock additional insights?</p>
-</div>
+<p>Data linking is the process of joining datasets together. Datasets can
+be useful on their own but bringing them together can unlock new
+insights.</p>
+<p>Discussion When might this be helpful? Can you think of any examples where joining datasets might help us unlock additional insights?</p>
 <div class="section" id="impact-on-privacy">
 <h2>Impact on Privacy<a class="headerlink" href="#impact-on-privacy" title="Permalink to this headline">¶</a></h2>
-<p>Before we link datasets together, we should consider the impact on privacy of doing so.
-There can be an increased risk of identification of a person/entity when two datasets are linked.</p>
+<p>Before we link datasets together, we should consider the impact on
+privacy of doing so. There can be an increased risk of identification of
+a person/entity when two datasets are linked.</p>
 </div>
 <div class="section" id="how-to-link">
 <h2>How to Link<a class="headerlink" href="#how-to-link" title="Permalink to this headline">¶</a></h2>
-<p>The most straightforward way to link datasets is by a deterministic, rules-based linkage, where records are linked if a specific <strong>set of identifiers</strong> match.
-When working with tabular datasets we will often see this accomplished with a <em>join</em> operation.</p>
+<p>The most straightforward way to link datasets is by a deterministic,
+rules-based linkage, where records are linked if a specific <strong>set of
+identifiers</strong> match. When working with tabular datasets we will often
+see this accomplished with a <em>join</em> operation.</p>
 <div class="section" id="joining-in-pandas">
 <h3>Joining in Pandas<a class="headerlink" href="#joining-in-pandas" title="Permalink to this headline">¶</a></h3>
-<p>Pandas allows for database-style joins. If you have experience of SQL, you’ll be familiar with the terminology of left/right/inner/outer etc. joins.
-Pandas makes these join types (or similar) available in the Pandas API via <code class="docutils literal notranslate"><span class="pre">pd.merge</span></code> and provides a comprehensive summary of joins <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging">in the docs</a>.
-Here, for demonstration, we will give an example using a simple left join, similar to a <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">OUTER</span></code> join in SQL.</p>
+<p>Pandas allows for database-style joins. If you have experience of SQL,
+you’ll be familiar with the terminology of left/right/inner/outer etc.
+joins. Pandas makes these join types (or similar) available in the
+Pandas API via <code class="docutils literal notranslate"><span class="pre">pd.merge</span></code> and provides a comprehensive summary of joins
+<a class="reference external" href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging">in the
+docs</a>.
+Here, for demonstration, we will give an example using a simple left
+join, similar to a <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">OUTER</span></code> join in SQL.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;some_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;zop&#39;</span><span class="p">],</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]})</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;some_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;some_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;df1&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
@@ -712,17 +715,22 @@ The other two keys (<code class="docutils literal notranslate"><span class="pre"
 </table>
 </div></div></div>
 </div>
-<p>the data for <code class="docutils literal notranslate"><span class="pre">'baz'</span></code> has been dropped after this join as it only appeared on the ‘right’ side.
-The <code class="docutils literal notranslate"><span class="pre">how='left'</span></code> join only uses keys from the left frame.
-Meanwhile, the entry for column <code class="docutils literal notranslate"><span class="pre">'b'</span></code> is null for key <code class="docutils literal notranslate"><span class="pre">'zop'</span></code>.</p>
-<p>Different scenarios will require different join types, read the docs carefully!</p>
+<p>the data for <code class="docutils literal notranslate"><span class="pre">'baz'</span></code> has been dropped after this join as it only
+appeared on the ‘right’ side. The <code class="docutils literal notranslate"><span class="pre">how='left'</span></code> join only uses keys from
+the left frame. Meanwhile, the entry for column <code class="docutils literal notranslate"><span class="pre">'b'</span></code> is null for key
+<code class="docutils literal notranslate"><span class="pre">'zop'</span></code>.</p>
+<p>Different scenarios will require different join types, read the docs
+carefully!</p>
 </div>
 <div class="section" id="probabilistic-matching">
 <h3>Probabilistic Matching<a class="headerlink" href="#probabilistic-matching" title="Permalink to this headline">¶</a></h3>
-<p>If we don’t have a set of common identifiers, we may wish to use probabilistic matching.</p>
+<p>If we don’t have a set of common identifiers, we may wish to use
+probabilistic matching.</p>
 <p>Probabilistic matching calculates a matching score between two records.
-Typically, this is done by comparing several field values and assigning a weight to each depending on how closely they match.</p>
-<p>Details of probabilistic matching approaches are, unfortunately, beyond the scope of this course.</p>
+Typically, this is done by comparing several field values and assigning
+a weight to each depending on how closely they match.</p>
+<p>Details of probabilistic matching approaches are, unfortunately, beyond
+the scope of this course.</p>
 </div>
 </div>
 </div>

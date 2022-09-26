@@ -388,9 +388,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-01-05-ControllingAccess.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-01-05-ControllingAccess.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -424,6 +424,26 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-01-05-ControllingAccess.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -449,9 +469,14 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="controlling-access">
 <h1>2.1.5 Controlling access<a class="headerlink" href="#controlling-access" title="Permalink to this headline">¶</a></h1>
-<p>Once you’ve created a dataset, or taken data from a third party, it becomes your responsibility to ensure that access to this data copy is controlled appropriately.</p>
-<p>Your responsibilities will vary according to licensing conditions and any commercial agreements in place.</p>
-<p>In cases of particular data-sensitivity you may wish to consider use of a secure research environment, for example, a <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/data-safe-havens-cloud">data safe haven</a>.</p>
+<p>Once you’ve created a dataset, or taken data from a third party, it
+becomes your responsibility to ensure that access to this data copy is
+controlled appropriately.</p>
+<p>Your responsibilities will vary according to licensing conditions and
+any commercial agreements in place.</p>
+<p>In cases of particular data-sensitivity you may wish to consider use of
+a secure research environment, for example, a <a class="reference external" href="https://www.turing.ac.uk/research/research-projects/data-safe-havens-cloud">data safe
+haven</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">

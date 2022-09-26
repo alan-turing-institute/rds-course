@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-02-07-MissingData.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-07-MissingData.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-02-07-MissingData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-07-MissingData.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-02-07-MissingData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -610,42 +607,46 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="missing-data">
 <h1>2.2.7 Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h1>
-<p>Missing data often refers to missing values in data, where no data value is stored for a variable or observation.
-However, we may also regard missing datasets or data with insufficient disaggregation as a form of missing data.</p>
+<p>Missing data often refers to missing values in data, where no data value
+is stored for a variable or observation. However, we may also regard
+missing datasets or data with insufficient disaggregation as a form of
+missing data.</p>
 <div class="section" id="missing-datasets-and-insufficient-disaggregation">
 <h2>Missing Datasets and Insufficient Disaggregation<a class="headerlink" href="#missing-datasets-and-insufficient-disaggregation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>“Missing data sets” are my term for the blank spots that exist in spaces that are otherwise data-saturated.</p>
+<div><p>“Missing data sets” are my term for the blank spots that exist in
+spaces that are otherwise data-saturated.</p>
 </div></blockquote>
 <p>— Mimi Onuoha (2021)</p>
-<p>Datasets may not exist, where we might expect them to, for a variety of reasons; these may be political or cultural
-and can be expressive of biases, systematic failures, and/or oppression.</p>
-<p>We may also find that, where datasets <em>do</em> exist, that the data may not be sufficiently disaggregated to allow for
-analysis that can make issues of inequality apparent. Data may not be broken down by categories such as gender, age, or race,
-preventing the exploration of the impact of these factors on other variables.</p>
-<div class="admonition-discussion admonition">
-<p class="admonition-title">Discussion</p>
-<p>What considerations would we want to make around publishing disaggregated data for gender, age, and race?
-How does this disaggregation fit with <a class="reference external" href="./2-02-LegalityAndEthics.html#should-a-variable-be-used">previous discussion</a> around use of variables such as race in data analysis?</p>
-</div>
+<p>Datasets may not exist, where we might expect them to, for a variety of
+reasons; these may be political or cultural and can be expressive of
+biases, systematic failures, and/or oppression.</p>
+<p>We may also find that, where datasets <em>do</em> exist, that the data may not
+be sufficiently disaggregated to allow for analysis that can make issues
+of inequality apparent. Data may not be broken down by categories such
+as gender, age, or race, preventing the exploration of the impact of
+these factors on other variables.</p>
+<p>Discussion What considerations would we want to make around publishing disaggregated data for gender, age, and race? How does this disaggregation fit with <a class="reference external" href="./2-02-LegalityAndEthics.html#should-a-variable-be-used">previous discussion</a> around use of variables such as race in data analysis?</p>
 </div>
 <div class="section" id="missing-data-values">
 <h2>Missing Data Values<a class="headerlink" href="#missing-data-values" title="Permalink to this headline">¶</a></h2>
-<p>Real world data often has missing values. These may represent gaps in data collection, be expected responses to questions, or be the result of failures or data corruption.</p>
-<p>Consider the following question in a survey:
-“How many days has it been since your flu jab?”</p>
-<p>What answer would you expect from a participant who had not had a flu jab?</p>
+<p>Real world data often has missing values. These may represent gaps in
+data collection, be expected responses to questions, or be the result of
+failures or data corruption.</p>
+<p>Consider the following question in a survey: “How many days has it been
+since your flu jab?”</p>
+<p>What answer would you expect from a participant who had not had a flu
+jab?</p>
 <div class="section" id="representing-missing-values">
 <h3>Representing Missing Values<a class="headerlink" href="#representing-missing-values" title="Permalink to this headline">¶</a></h3>
-<p>Pandas uses <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number) internally to denote missing data, for reasons of computational speed and convenience (beyond our scope!).
-However, Python’s <code class="docutils literal notranslate"><span class="pre">None</span></code> is also considered a “missing” value and we can check for this with <code class="docutils literal notranslate"><span class="pre">isna()</span></code> or <code class="docutils literal notranslate"><span class="pre">notna()</span></code> methods.</p>
-<div class="margin sidebar">
-<p class="sidebar-title">.isnull() vs .isna()</p>
-<p>These do the same thing!</p>
-</div>
+<p>Pandas uses <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number) internally to denote missing data, for
+reasons of computational speed and convenience (beyond our scope!).
+However, Python’s <code class="docutils literal notranslate"><span class="pre">None</span></code> is also considered a “missing” value and we can
+check for this with <code class="docutils literal notranslate"><span class="pre">isna()</span></code> or <code class="docutils literal notranslate"><span class="pre">notna()</span></code> methods.</p>
+<p>.isnull() vs .isna() These do the same thing!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="s2">&quot;bar&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -659,53 +660,80 @@ dtype: bool
 </div>
 </div>
 </div>
-<p>Pandas has some other ways of denoting missing values, but we won’t detail them here. A more complete guide to missing data in Pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">docs</a>.</p>
+<p>Pandas has some other ways of denoting missing values, but we won’t
+detail them here. A more complete guide to missing data in Pandas can be
+found in the
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">docs</a>.</p>
 </div>
 <div class="section" id="dealing-with-missing-values">
 <h3>Dealing with Missing Values<a class="headerlink" href="#dealing-with-missing-values" title="Permalink to this headline">¶</a></h3>
-<p>How do we deal with missing values? There are many approaches, we outline two simple and popular varieties below:</p>
+<p>How do we deal with missing values? There are many approaches, we
+outline two simple and popular varieties below:</p>
 <div class="section" id="listwise-deletion">
 <h4>Listwise Deletion<a class="headerlink" href="#listwise-deletion" title="Permalink to this headline">¶</a></h4>
-<p>Simply drop any rows that contain missing values. This is the simplest method of dealing with missing data!</p>
-<p>However, this can introduce bias. We should consider <em>why</em> the data is missing.
-Listwise deletion will introduce bias when the remaining data can no longer be reflective of the original data.</p>
+<p>Simply drop any rows that contain missing values. This is the simplest
+method of dealing with missing data!</p>
+<p>However, this can introduce bias. We should consider <em>why</em> the data is
+missing. Listwise deletion will introduce bias when the remaining data
+can no longer be reflective of the original data.</p>
 </div>
 <div class="section" id="single-imputation">
 <h4>Single Imputation<a class="headerlink" href="#single-imputation" title="Permalink to this headline">¶</a></h4>
-<p>Apply a rule to replace a missing value. For example, replace with the mean or the value of the last observation (last observation carried forward - LOCF).</p>
-<p>Again, single imputation methods can easily introduce bias. Use with caution.</p>
+<p>Apply a rule to replace a missing value. For example, replace with the
+mean or the value of the last observation (last observation carried
+forward - LOCF).</p>
+<p>Again, single imputation methods can easily introduce bias. Use with
+caution.</p>
 </div>
 </div>
 <div class="section" id="missingness-terminology">
 <h3>Missingness Terminology<a class="headerlink" href="#missingness-terminology" title="Permalink to this headline">¶</a></h3>
-<p>Here, we introduce some terminology to help us with the scenarios in which values are missing.</p>
-<p><a class="reference external" href="https://www.bmj.com/content/338/bmj.b2393/">Sterne et al. (2009)</a> provide similar definitions with biomedical examples and discussion of the use of multiple imputation.</p>
+<p>Here, we introduce some terminology to help us with the scenarios in
+which values are missing.</p>
+<p><a class="reference external" href="https://www.bmj.com/content/338/bmj.b2393/">Sterne et al. (2009)</a>
+provide similar definitions with biomedical examples and discussion of
+the use of multiple imputation.</p>
 <div class="section" id="missing-completely-at-random-mcar">
 <h4>Missing Completely At Random (MCAR)<a class="headerlink" href="#missing-completely-at-random-mcar" title="Permalink to this headline">¶</a></h4>
-<p>The missingness is unrelated to both missing and observed values, e.g., a study participant’s weekly questionnaire is lost in the post.</p>
-<p>If we were to drop rows with MCAR data, we would reduce our population size but would not introduce any bias.</p>
+<p>The missingness is unrelated to both missing and observed values, e.g.,
+a study participant’s weekly questionnaire is lost in the post.</p>
+<p>If we were to drop rows with MCAR data, we would reduce our population
+size but would not introduce any bias.</p>
 <p>Unfortunately, missing values are rarely MCAR.</p>
-<p>Note that, whilst we can falsify the hypothesis that data are MCAR, we cannot confirm it.</p>
+<p>Note that, whilst we can falsify the hypothesis that data are MCAR, we
+cannot confirm it.</p>
 </div>
 <div class="section" id="missing-at-random-mar">
 <h4>Missing At Random (MAR)<a class="headerlink" href="#missing-at-random-mar" title="Permalink to this headline">¶</a></h4>
-<p>Slightly confusingly named, in MAR data missingness is related to observed data but not the missing values themselves,
-e.g., a person does not attend an academic exam because they are too unwell to travel <strong>and</strong> we also have their health records.</p>
-<p>MAR data allows the prediction of missing values based on complete rows. However, as ever, imputation should be approached with caution!</p>
-<p>Classification of missing data as MAR should be done with care and will rely on domain knowledge.</p>
+<p>Slightly confusingly named, in MAR data missingness is related to
+observed data but not the missing values themselves, e.g., a person does
+not attend an academic exam because they are too unwell to travel
+<strong>and</strong> we also have their health records.</p>
+<p>MAR data allows the prediction of missing values based on complete rows.
+However, as ever, imputation should be approached with caution!</p>
+<p>Classification of missing data as MAR should be done with care and will
+rely on domain knowledge.</p>
 </div>
 <div class="section" id="missing-not-at-random-mnar">
 <h4>Missing Not At Random (MNAR)<a class="headerlink" href="#missing-not-at-random-mnar" title="Permalink to this headline">¶</a></h4>
-<p>The missingness is related to what is missing, e.g., a person does not attend a health assessment because they are too unwell to travel.</p>
-<p>When data is MNAR no methods exist to handle this missingness appropriately (Sterne et al. 2009).</p>
-<p><strong>We cannot test whether data is MAR vs MNAR as the data required is missing</strong>.</p>
+<p>The missingness is related to what is missing, e.g., a person does not
+attend a health assessment because they are too unwell to travel.</p>
+<p>When data is MNAR no methods exist to handle this missingness
+appropriately (Sterne et al. 2009).</p>
+<p><strong>We cannot test whether data is MAR vs MNAR as the data required is
+missing</strong>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>Mimi Onuoha. (2021). On Missing Data Sets. <a class="reference external" href="https://github.com/MimiOnuoha/missing-datasets">https://github.com/MimiOnuoha/missing-datasets</a> (Original work published 2016)</p>
-<p>Sterne, J. A., White, I. R., Carlin, J. B., Spratt, M., Royston, P., Kenward, M. G., … &amp; Carpenter, J. R. (2009). Multiple imputation for missing data in epidemiological and clinical research: potential and pitfalls. Bmj, 338.</p>
+<p>Mimi Onuoha. (2021). On Missing Data Sets.
+<a class="reference external" href="https://github.com/MimiOnuoha/missing-datasets">https://github.com/MimiOnuoha/missing-datasets</a> (Original work published
+2016)</p>
+<p>Sterne, J. A., White, I. R., Carlin, J. B., Spratt, M., Royston, P.,
+Kenward, M. G., … &amp; Carpenter, J. R. (2009). Multiple imputation for
+missing data in epidemiological and clinical research: potential and
+pitfalls. Bmj, 338.</p>
 </div>
 </div>
 

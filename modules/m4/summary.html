@@ -386,9 +386,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m4/summary.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/summary.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -449,11 +449,19 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>Here we list key modelling principles we have learned:</p>
 <ul class="simple">
-<li><p>Data is  variable and the latent process (phenomena) unknown. Probability allows us to mathematically reason about processes and build models as mathematical descriptions.</p></li>
-<li><p>In general, models are fit to data by finding the most likely set of parameters for that dataset.</p></li>
-<li><p>Given that we want to learn about the phenomena, not simply the data, we need to be wary of overfitting to the variability in our dataset and reducing our ability to learn something general.</p></li>
-<li><p>Understand the model you are fitting, and take time to learn about the model’s universe after fitting. Mistakes in inference come from poorly understood models.</p></li>
-<li><p>Most models learn parameters of probability distributions (even classification models).</p></li>
+<li><p>Data is variable and the latent process (phenomena) unknown.
+Probability allows us to mathematically reason about processes and
+build models as mathematical descriptions.</p></li>
+<li><p>In general, models are fit to data by finding the most likely set of
+parameters for that dataset.</p></li>
+<li><p>Given that we want to learn about the phenomena, not simply the
+data, we need to be wary of overfitting to the variability in our
+dataset and reducing our ability to learn something general.</p></li>
+<li><p>Understand the model you are fitting, and take time to learn about
+the model’s universe after fitting. Mistakes in inference come from
+poorly understood models.</p></li>
+<li><p>Most models learn parameters of probability distributions (even
+classification models).</p></li>
 <li><p>Add your own for any we have missed:</p></li>
 </ul>
 </div>

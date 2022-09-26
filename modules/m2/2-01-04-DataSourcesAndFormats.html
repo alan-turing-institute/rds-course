@@ -386,14 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/modules/m2/2-01-04-DataSourcesAndFormats.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-01-04-DataSourcesAndFormats.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2-01-04-DataSourcesAndFormats.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -432,7 +429,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-01-04-DataSourcesAndFormats.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2-01-04-DataSourcesAndFormats.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -470,6 +467,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#customising-pandas-read-csv">
      Customising pandas.read_csv
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -514,6 +516,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#datamuse-api">
      Datamuse API
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise
     </a>
    </li>
   </ul>
@@ -591,6 +598,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#excel-spreadsheets">
      Excel Spreadsheets
     </a>
@@ -632,6 +644,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#datamuse-api">
      Datamuse API
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise
     </a>
    </li>
   </ul>
@@ -684,36 +701,45 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="data-sources-and-formats">
 <h1>2.1.4 Data Sources and Formats<a class="headerlink" href="#data-sources-and-formats" title="Permalink to this headline">¶</a></h1>
-<p>Once you’ve found a dataset for your research question there are many different formats it could be in - tabular data, databases, documents, images or many more. In this section we give an overview of common data types and how they can be loaded into Python.</p>
-<p>Several of the file/data formats here are also covered in our <a class="reference external" href="https://alan-turing-institute.github.io/rsd-engineeringcourse/">Research Software Engineering course</a>. Here we show how to load data with Pandas, and also introduce some new data types.</p>
+<p>Once you’ve found a dataset for your research question there are many formats it could be in - tabular data, databases, documents,
+images or many more. In this section we give an overview of common data
+types and how they can be loaded into Python.</p>
+<p>Several of the file/data formats here are also covered in our <a class="reference external" href="https://alan-turing-institute.github.io/rsd-engineeringcourse/">Research
+Software Engineering
+course</a>.
+Here we show how to load data with Pandas, and also introduce some new
+data types.</p>
 <div class="section" id="tabular-data-files">
 <h2>Tabular Data Files<a class="headerlink" href="#tabular-data-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="comma-separated-values-files-csvs">
 <h3>Comma-separated values files (CSVs)<a class="headerlink" href="#comma-separated-values-files-csvs" title="Permalink to this headline">¶</a></h3>
-<p>Tabular data files, and particularly comma-separated values (CSV) files, are likely to be the data format you encounter most often. These specify a single table of rows and columns in the following format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Subject&quot;</span><span class="p">,</span><span class="s2">&quot;Teacher&quot;</span><span class="p">,</span><span class="s2">&quot;Day of Week&quot;</span><span class="p">,</span><span class="s2">&quot;Time Start&quot;</span><span class="p">,</span><span class="s2">&quot;Time End&quot;</span>
-<span class="s2">&quot;Maths&quot;</span><span class="p">,</span><span class="s2">&quot;Mr F&quot;</span><span class="p">,</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1200</span>
-<span class="s2">&quot;English&quot;</span><span class="p">,</span><span class="s2">&quot;Ms P&quot;</span><span class="p">,</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span><span class="mi">1100</span><span class="p">,</span><span class="mi">1300</span>
-<span class="s2">&quot;Physics&quot;</span><span class="p">,</span><span class="s2">&quot;Mrs A&quot;</span><span class="p">,</span><span class="s2">&quot;Thursday&quot;</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">1600</span>
-<span class="s2">&quot;French&quot;</span><span class="p">,</span><span class="s2">&quot;Mr F&quot;</span><span class="p">,</span><span class="s2">&quot;Friday&quot;</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1300</span>
+<p>Tabular data files, and particularly comma-separated values (CSV) files,
+are likely to be the data format you encounter most often. These specify
+a single table of rows and columns in the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Subject&quot;,&quot;Teacher&quot;,&quot;Day of Week&quot;,&quot;Time Start&quot;,&quot;Time End&quot;
+&quot;Maths&quot;,&quot;Mr F&quot;,&quot;Monday&quot;,1000,1200
+&quot;English&quot;,&quot;Ms P&quot;,&quot;Tuesday&quot;,1100,1300
+&quot;Physics&quot;,&quot;Mrs A&quot;,&quot;Thursday&quot;,1400,1600
+&quot;French&quot;,&quot;Mr F&quot;,&quot;Friday&quot;,1000,1300
 </pre></div>
 </div>
-<p>The first line (usually) specifies the table column names, with each name separated by a comma. The subsequent lines specify the values of those columns for each row in our data, with each column  value separated by a comma.</p>
-<p>As an example, we will use a dataset downloaded from The World Bank, giving the percentage of people living in urban environments by country worldwide since 1960. You can find the original source data <a class="reference external" href="https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?view=chart">here</a>.</p>
-<p>To load a CSV file to a Pandas data frame you can use the Pandas <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code class="docutils literal notranslate"><span class="pre">read_csv</span></code></a> function:</p>
+<p>The first line (usually) specifies the table column names, with each
+name separated by a comma. The subsequent lines specify the values of
+those columns for each row in our data, with each column value separated
+by a comma.</p>
+<p>As an example, we will use a dataset downloaded from The World Bank,
+giving the percentage of people living in urban environments by country
+worldwide since 1960. You can find the original source data
+<a class="reference external" href="https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS?view=chart">here</a>.</p>
+<p>To load a CSV file to a Pandas data frame you can use the Pandas
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code class="docutils literal notranslate"><span class="pre">read_csv</span></code></a>
+function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/urban_population.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s look at the first 5 rows of the data:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -812,8 +838,11 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-<p>Each row in the data corresponds to a country, with columns for the country’s name, the urban population in 1960, 1980, 2000 and 2020, and some other metadata.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">.info()</span></code> method of a DataFrame gives us a useful summary of the columns it contains:</p>
+<p>Each row in the data corresponds to a country, with columns for the
+country’s name, the urban population in 1960, 1980, 2000 and 2020, and
+some other metadata.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.info()</span></code> method of a DataFrame gives us a useful summary of the
+columns it contains:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -841,12 +870,22 @@ memory usage: 18.8+ KB
 </div>
 </div>
 </div>
-<p>Each column in a Pandas DataFrame has a single type. The urban population percentages in columns 1960, 1980, 2000 and 2020 all contain floating point numbers (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), for example. When columns contain a mixture of data types or strings, Pandas will give the whole column the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type. Sometimes quirks in the data may cause Pandas to infer a different type to what you expect - we will revisit this in <a class="reference internal" href="2-02-01-DataConsistency.html"><span class="doc std std-doc">Section 2.2.1</span></a>.</p>
-<p>We can also see that some columns have missing values (the data has 266 rows, but some columns  have fewer than 266 “<code class="docutils literal notranslate"><span class="pre">non-null</span></code>” values), and have a strange additional column <code class="docutils literal notranslate"><span class="pre">Unnamed:</span> <span class="pre">8</span></code> that has <em>only</em> missing (null) values. This is another topic we’ll revisit later.</p>
+<p>Each column in a Pandas DataFrame has a single type. The urban
+population percentages in columns 1960, 1980, 2000 and 2020 all contain
+floating point numbers (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), for example. When columns contain a
+mixture of data types or strings, Pandas will give the whole column the
+generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type. Sometimes quirks in the data may cause Pandas to
+infer a different type to what you expect - we will revisit this in
+<a class="reference internal" href="2-02-01-DataConsistency.html"><span class="doc std std-doc">Section 2.2.1</span></a>.</p>
+<p>We can also see that some columns have missing values (the data has 266
+rows, but some columns have fewer than 266 “<code class="docutils literal notranslate"><span class="pre">non-null</span></code>” values), and
+have a strange additional column <code class="docutils literal notranslate"><span class="pre">Unnamed:</span> <span class="pre">8</span></code> that has <em>only</em> missing
+(null) values. This is another topic we’ll revisit later.</p>
 </div>
 <div class="section" id="customising-pandas-read-csv">
 <h3>Customising pandas.read_csv<a class="headerlink" href="#customising-pandas-read-csv" title="Permalink to this headline">¶</a></h3>
-<p>The original file from the World Bank contains a few lines of metadata at the top:</p>
+<p>The original file from the World Bank contains a few lines of metadata
+at the top:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/urban_population_header.csv
@@ -868,79 +907,42 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 </div>
 </div>
 </div>
-<p>The column names start on line 4 of the file, and the previous lines give metadata on where the file came from and when it was updated.</p>
+<p>The column names start on line 4 of the file, and the previous lines
+give metadata on where the file came from and when it was updated.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> on this file (with default arguments) gives an error:</p>
-<div class="cell tag_raises-exception docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/urban_population_header.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib2to3.pgen2.parse</span> <span class="kn">import</span> <span class="n">ParseError</span>
+<span class="kn">import</span> <span class="nn">traceback</span> <span class="c1"># library used to print error without breaking python</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/urban_population_header.csv&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> 
+    <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ParserError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/urban_population_header.csv&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/util/_decorators.py:211,</span> in <span class="ni">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
-<span class="ne">--&gt; </span><span class="mi">211</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/util/_decorators.py:317,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()),</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">317</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:950,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">950</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="k">return</span> <span class="n">parser</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="k">with</span> <span class="n">parser</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">611</span>     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1772,</span> in <span class="ni">TextFileReader.read</span><span class="nt">(self, nrows)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1765</span> <span class="n">nrows</span> <span class="o">=</span> <span class="n">validate_integer</span><span class="p">(</span><span class="s2">&quot;nrows&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1766</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1767</span>     <span class="c1"># error: &quot;ParserBase&quot; has no attribute &quot;read&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1768</span>     <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1769</span>         <span class="n">index</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1770</span>         <span class="n">columns</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1771</span>         <span class="n">col_dict</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1772</span>     <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>  <span class="c1"># type: ignore[attr-defined]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1773</span>         <span class="n">nrows</span>
-<span class="g g-Whitespace">   </span><span class="mi">1774</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1775</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1776</span>     <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py:243,</span> in <span class="ni">CParserWrapper.read</span><span class="nt">(self, nrows)</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">low_memory</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">243</span>         <span class="n">chunks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">read_low_memory</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>         <span class="c1"># destructive to chunks</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">_concatenate_chunks</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/_libs/parsers.pyx:808,</span> in <span class="ni">pandas._libs.parsers.TextReader.read_low_memory</span><span class="nt">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/_libs/parsers.pyx:866,</span> in <span class="ni">pandas._libs.parsers.TextReader._read_rows</span><span class="nt">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/_libs/parsers.pyx:852,</span> in <span class="ni">pandas._libs.parsers.TextReader._tokenize_rows</span><span class="nt">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pandas/_libs/parsers.pyx:1973,</span> in <span class="ni">pandas._libs.parsers.raise_parser_error</span><span class="nt">()</span>
-
-<span class="ne">ParserError</span>: Error tokenizing data. C error: Expected 3 fields in line 4, saw 9
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/tmp/ipykernel_2492/1010206246.py&quot;, line 5, in &lt;module&gt;
+    df = pd.read_csv(&quot;data/urban_population_header.csv&quot;)
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 211, in wrapper
+    return func(*args, **kwargs)
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 317, in wrapper
+    return func(*args, **kwargs)
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 950, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 611, in _read
+    return parser.read(nrows)
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 1772, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py&quot;, line 243, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File &quot;pandas/_libs/parsers.pyx&quot;, line 808, in pandas._libs.parsers.TextReader.read_low_memory
+  File &quot;pandas/_libs/parsers.pyx&quot;, line 866, in pandas._libs.parsers.TextReader._read_rows
+  File &quot;pandas/_libs/parsers.pyx&quot;, line 852, in pandas._libs.parsers.TextReader._tokenize_rows
+  File &quot;pandas/_libs/parsers.pyx&quot;, line 1973, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 3 fields in line 4, saw 9
 </pre></div>
 </div>
 </div>
@@ -1048,13 +1050,18 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 </table>
 </div></div></div>
 </div>
-<p>There’s not a single CSV data “standard” that everyone follows, so it’s common to need to tweak things to load properly. Other examples include:</p>
+<p>There’s not a single CSV data “standard” that everyone follows, so it’s
+common to need to tweak things to load properly. Other examples include:</p>
 <ul class="simple">
-<li><p>Different “delimeters”, e.g., Tab-separated values files (TSVs) with tabs separating column values instead of commas.</p></li>
-<li><p>Footers: Lines with metadata/other information not part of the table at the end of the file.</p></li>
-<li><p>Comments: Annotations anywhere in the file that shouldn’t be included in the table.</p></li>
+<li><p>Different “delimeters”, e.g., Tab-separated values files (TSVs) with
+tabs separating column values instead of commas.</p></li>
+<li><p>Footers: Lines with metadata/other information not part of the table
+at the end of the file.</p></li>
+<li><p>Comments: Annotations anywhere in the file that shouldn’t be
+included in the table.</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> can be customised to deal with all of these and more, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> can be customised to deal with all of these and more, for
+example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
    <span class="s2">&quot;myfile.csv&quot;</span><span class="p">,</span>
    <span class="n">delimeter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># columns separated by tabs</span>
@@ -1063,32 +1070,40 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Exercise</p>
+</div>
+<div class="section" id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
 <p>Later on we’ll be using the “Palmer Penguins” dataset, which we have saved at the path <code class="docutils literal notranslate"><span class="pre">data/penguins.csv</span></code>. Load this dataset into a pandas data frame. What type of data do you think it contains? What are the types of the columns and do they match what you’d expect?</p>
-</div>
-<div class="dropdown tip admonition">
-<p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv(&quot;data/penguins.csv&quot;)</span></code> to load the data into pandas. We’ll discuss the answer to the other questions later, but you may have noticed that some of the columns have the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type even though it looks like they contain numeric data.</p>
-</div>
+<p>Solution
+<code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv(&quot;data/penguins.csv&quot;)</span></code> to load the data into pandas. We’ll discuss the answer to the other questions later, but you may have noticed that some of the columns have the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type even though it looks like they contain numeric data.</p>
 </div>
 <div class="section" id="excel-spreadsheets">
 <h3>Excel Spreadsheets<a class="headerlink" href="#excel-spreadsheets" title="Permalink to this headline">¶</a></h3>
-<p>As CSV files are a plaintext (human readable) format and don’t need proprietry software to use and create they are always preferable to Excel spreadsheets for raw data, if available. However, it is still common to find data in Excel <code class="docutils literal notranslate"><span class="pre">.xls</span></code> or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> files.</p>
-<p>If needed, Pandas also has a function <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">pandas.read_excel</span></code></a> to load data from Excel spreadsheets. The format is very similar to <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
+<p>As CSV files are a plaintext (human readable) format and don’t need
+proprietry software to use and create they are always preferable to
+Excel spreadsheets for raw data, if available. However, it is still
+common to find data in Excel <code class="docutils literal notranslate"><span class="pre">.xls</span></code> or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> files.</p>
+<p>If needed, Pandas also has a function
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">pandas.read_excel</span></code></a>
+to load data from Excel spreadsheets. The format is very similar to
+<code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
    <span class="s2">&quot;my_spreadsheet.xlsx&quot;</span><span class="p">,</span>
    <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Sheet1&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Note you must specify which worksheet you want to load as a data frame. If you want to load tables from multiple worksheets you would need to load them into multiple data frames.</p>
+<p>Note you must specify which worksheet you want to load as a data frame.
+If you want to load tables from multiple worksheets you would need to
+load them into multiple data frames.</p>
 </div>
 </div>
 <div class="section" id="databases">
 <h2>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
-<p>We can think of databases as containers for data. Typically, databases allow for easy storage, retrieval, update, and analysis of data.</p>
-<p>In the case of tabular data, a database may have many tables. A database can be flat, or it can be relational.</p>
+<p>We can think of databases as containers for data. Typically, databases
+allow for easy storage, retrieval, update, and analysis of data.</p>
+<p>In the case of tabular data, a database may have many tables. A database
+can be flat, or it can be relational.</p>
 <p>Example:</p>
 <p><strong>Flat Database with single table:</strong></p>
 <table class="colwidths-auto table">
@@ -1196,11 +1211,18 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 </tr>
 </tbody>
 </table>
-<p>Flat databases can be simple but also inefficient. Relational databases, with data stored in a series of interconnected tables, can be more complicated but more computationally efficient.</p>
+<p>Flat databases can be simple but also inefficient. Relational databases,
+with data stored in a series of interconnected tables, can be more
+complicated but more computationally efficient.</p>
 <div class="section" id="sql-databases-rdbms">
 <h3>SQL Databases &amp; RDBMS<a class="headerlink" href="#sql-databases-rdbms" title="Permalink to this headline">¶</a></h3>
-<p>Structured Query Lanage (SQL) is a standard language for storing, manipulating and retrieving data in databases.</p>
-<p>An RDBMS (Relational Database Management System) is the basis for SQL and relies on the <a class="reference external" href="https://en.wikipedia.org/wiki/Relational_model">relational data model</a>. Many modern and popular databases implement the ideas of an RDBMS. Some common implementations are:</p>
+<p>Structured Query Lanage (SQL) is a standard language for storing,
+manipulating and retrieving data in databases.</p>
+<p>An RDBMS (Relational Database Management System) is the basis for SQL
+and relies on the <a class="reference external" href="https://en.wikipedia.org/wiki/Relational_model">relational data
+model</a>. Many modern and
+popular databases implement the ideas of an RDBMS. Some common
+implementations are:</p>
 <ul class="simple">
 <li><p>PostgreSQL</p></li>
 <li><p>SQLite</p></li>
@@ -1208,12 +1230,17 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 <li><p>Oracle</p></li>
 <li><p>MS Access</p></li>
 </ul>
-<p>We use SQL to interact with these databases. You can find some basic, interactive, tutorials at <a class="reference external" href="https://www.w3schools.com/sql/">W3Schools</a>.</p>
+<p>We use SQL to interact with these databases. You can find some basic,
+interactive, tutorials at <a class="reference external" href="https://www.w3schools.com/sql/">W3Schools</a>.</p>
 </div>
 <div class="section" id="nosql-databases">
 <h3>NoSQL Databases<a class="headerlink" href="#nosql-databases" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>NoSQL databases (aka “not only SQL”) are non tabular, and store data differently than relational tables. NoSQL databases come in a variety of types based on their data model. The main types are document, key-value, wide-column, and graph. They provide flexible schemas and scale easily with large amounts of data and high user loads.
+<div><p>NoSQL databases (aka “not only SQL”) are non tabular, and store data
+differently than relational tables. NoSQL databases come in a variety
+of types based on their data model. The main types are document,
+key-value, wide-column, and graph. They provide flexible schemas and
+scale easily with large amounts of data and high user loads.
 <em><a class="reference external" href="https://www.mongodb.com/nosql-explained">https://www.mongodb.com/nosql-explained</a></em></p>
 </div></blockquote>
 <p>Some common NoSQL Databases include:</p>
@@ -1233,21 +1260,27 @@ Albania,ALB,Urban population (% of total population),SP.URB.TOTL.IN.ZS,30.705,33
 </pre></div>
 </div>
 <p><strong>Key-Value example:</strong></p>
-<p><img alt="key-value example" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG" /></p>
-<p><strong>Graph example:</strong>
-<img alt="graph example" src="../../_images/graph_data.png" /></p>
-<p>Unfortunately, different types of databases will often have their own, unique, query languages, beyond SQL - more to learn!</p>
+<p><img alt="key-valueexample" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG" /></p>
+<p><strong>Graph example:</strong> <img alt="graphexample" src="../../_images/graph_data.png" /></p>
+<p>Unfortunately, different types of databases will often have their own,
+unique, query languages, beyond SQL - more to learn!</p>
 </div>
 <div class="section" id="where-is-the-data">
 <h3>Where Is the Data?<a class="headerlink" href="#where-is-the-data" title="Permalink to this headline">¶</a></h3>
-<p>Databases can exist on your local machine or can be hosted elsewhere. Typically, we’ll want to host a database somewhere that everyone who needs access can reach.</p>
-<p>Many cloud providers offer database solutions with easy-to-use interfaces, allowing us (for a cost!) to worry less about exactly how the DBMS is working and focus, instead, on the data itself.</p>
+<p>Databases can exist on your local machine or can be hosted elsewhere.
+Typically, we’ll want to host a database somewhere that everyone who
+needs access can reach.</p>
+<p>Many cloud providers offer database solutions with easy-to-use
+interfaces, allowing us (for a cost!) to worry less about exactly how
+the DBMS is working and focus, instead, on the data itself.</p>
 </div>
 <div class="section" id="which-database-to-use">
 <h3>Which Database to Use<a class="headerlink" href="#which-database-to-use" title="Permalink to this headline">¶</a></h3>
-<p>Which type of database you choose should be driven by your data and how you plan to use it.
-You may find that your data can be expressed in more than one of the forms above or as a table.
-You then need to weigh up different factors to decide which form and which database, if any, to use.</p>
+<p>Which type of database you choose should be driven by your data and how
+you plan to use it. You may find that your data can be expressed in more
+than one of the forms above or as a table. You then need to weigh up
+different factors to decide which form and which database, if any, to
+use.</p>
 <p>Some factors you may consider (unordered!):</p>
 <ul class="simple">
 <li><p>Ease of use</p></li>
@@ -1256,37 +1289,75 @@ You then need to weigh up different factors to decide which form and which datab
 <li><p>Footprint in memory</p></li>
 <li><p>Retrieval/update speed</p></li>
 </ul>
-<p>Many blogs and articles have been written on the choice of database, for example <a class="reference external" href="https://www.xplenty.com/blog/which-database/">this xplenty article</a>.</p>
+<p>Many blogs and articles have been written on the choice of database, for
+example <a class="reference external" href="https://www.xplenty.com/blog/which-database/">this xplenty
+article</a>.</p>
 </div>
 </div>
 <div class="section" id="application-programming-interfaces-apis">
 <h2>Application Programming Interfaces (APIs)<a class="headerlink" href="#application-programming-interfaces-apis" title="Permalink to this headline">¶</a></h2>
-<p>Application programming interfaces (APIs) are services that allow you to programmatically request information, including datasets, from a remote server. Large, digitally mature organisations commonly have APIs available to access their data, including <a class="reference external" href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api">GitHub</a>, <a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api">Twitter</a> and the <a class="reference external" href="https://developer.ons.gov.uk/">Office for National Statistics</a>, for example. Advantages of APIs include:</p>
+<p>Application programming interfaces (APIs) are services that allow you to
+programmatically request information, including datasets, from a remote
+server. Large, digitally mature organisations commonly have APIs
+available to access their data, including
+<a class="reference external" href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api">GitHub</a>,
+<a class="reference external" href="https://developer.twitter.com/en/docs/twitter-api">Twitter</a> and the
+<a class="reference external" href="https://developer.ons.gov.uk/">Office for National Statistics</a>, for
+example. Advantages of APIs include:</p>
 <ul class="simple">
-<li><p>It’s possible to make queries to request a tailored subset of a dataset, so you only get what you’re interested in.</p></li>
-<li><p>It’s  straightforward to automate making many similar queries (i.e., to request many different datasets) with different parameters.</p></li>
-<li><p>If a dataset is updating regularly (maybe you want to know the current weather at a location, for example) they provide a robust way to get the latest status of what you’re interested in.</p></li>
-<li><p>They usually should provide a reproducible way for others to download the same data you’re using.</p></li>
+<li><p>It’s possible to make queries to request a tailored subset of a
+dataset, so you only get what you’re interested in.</p></li>
+<li><p>It’s straightforward to automate making many similar queries (i.e.,
+to request many different datasets) with different parameters.</p></li>
+<li><p>If a dataset is updating regularly (maybe you want to know the
+current weather at a location, for example) they provide a robust
+way to get the latest status of what you’re interested in.</p></li>
+<li><p>They usually should provide a reproducible way for others to
+download the same data you’re using.</p></li>
 </ul>
-<p>Most APIs follow the REST style, which we briefly  introduce here, but you may also come across GraphQL APIs. <a class="reference external" href="https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/">This blog</a> has an overview of both types.</p>
+<p>Most APIs follow the REST style, which we briefly introduce here, but
+you may also come across GraphQL APIs. <a class="reference external" href="https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/">This
+blog</a>
+has an overview of both types.</p>
 <div class="section" id="datamuse-api">
 <h3>Datamuse API<a class="headerlink" href="#datamuse-api" title="Permalink to this headline">¶</a></h3>
-<p>As an example, we’ll try the Datamuse API, which can be used to find relationships between words and terms (similar words, words that rhyme and so on). You can find documentation for it here: <a class="reference external" href="https://www.datamuse.com/api/">https://www.datamuse.com/api/</a></p>
-<p>An API query has four main components: a base URL, an endpoint, parameters, and headers:</p>
-<p><strong>Base URL:</strong> The address of the server hosting the data we want to access - all our API queries will start with this. For the Datamuse API it’s: <code class="docutils literal notranslate"><span class="pre">https://api.datamuse.com</span></code></p>
-<p><strong>Endpoint:</strong> Each API might have multiple types of data we can query, known as different “endpoints”. The path to the endpoint is added to the base URL. The Datamuse API has two endpoints:<code class="docutils literal notranslate"><span class="pre">/words</span></code> for searching for relationships (of different types) between words, and <code class="docutils literal notranslate"><span class="pre">/sug</span></code>, which can be used for auto-completion/spelling correction.</p>
-<p><strong>Parameters:</strong> Define what data subset we’re interested in and are provided in the format <code class="docutils literal notranslate"><span class="pre">name=value</span></code>. These are added to the query after a <code class="docutils literal notranslate"><span class="pre">?</span></code> following the endpoint. To specify multiple parameters, separate each parameter name and value pair with an <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. The available parameters should be listed in the API’s documentation (<a class="reference external" href="https://www.datamuse.com/api/">here</a> for Datamuse).</p>
-<p>The parameter string <code class="docutils literal notranslate"><span class="pre">?rel_jjb=dog&amp;max=5</span></code> defines two parameters and values:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rel_jjb=dog</span></code>: Find adjectives commonly used to describe the noun “dog”.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">max=5</span></code>: Return 5 results.</p></li>
-</ul>
-<p><strong>Headers:</strong> Provide additional context/metadata about your request, the most common being authentication information. Authentication may be used to only give you access to resources you have permission to see, limit the number of requests you can make within a certain amount of time, or for billing purposes (if the API isn’t free).</p>
-<p>The Datamuse API doesn’t require authentication, so we don’t need to add any headers here. If the API you’re using requires it they should provide documentation that describes what you need to do - <a class="reference external" href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api#authentication">here is an example from GitHub</a>, and <a class="reference external" href="https://docs.python-requests.org/en/master/user/quickstart/#custom-headers">here is how to add headers in the Python requests library</a>.</p>
-<p><strong>Full query:</strong> Adding together all the components  we have the full API query:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://api.datamuse.com/words?rel_jjb=dog&amp;max=5">https://api.datamuse.com/words?rel_jjb=dog&amp;max=5</a></p></li>
-</ul>
+<p>As an example, we’ll try the Datamuse API, which can be used to find
+relationships between words and terms (similar words, words that rhyme
+and so on). You can find documentation for it here:
+<a class="reference external" href="https://www.datamuse.com/api/">https://www.datamuse.com/api/</a></p>
+<p>An API query has four main components: a base URL, an endpoint,
+parameters, and headers:</p>
+<p><strong>Base URL:</strong> The address of the server hosting the data we want to
+access - all our API queries will start with this. For the Datamuse API
+it’s: <code class="docutils literal notranslate"><span class="pre">https://api.datamuse.com</span></code></p>
+<p><strong>Endpoint:</strong> Each API might have multiple types of data we can query,
+known as different “endpoints”. The path to the endpoint is added to the
+base URL. The Datamuse API has two endpoints:<code class="docutils literal notranslate"><span class="pre">/words</span></code> for searching for
+relationships (of different types) between words, and <code class="docutils literal notranslate"><span class="pre">/sug</span></code>, which can
+be used for auto-completion/spelling correction.</p>
+<p><strong>Parameters:</strong> Define what data subset we’re interested in and are
+provided in the format <code class="docutils literal notranslate"><span class="pre">name=value</span></code>. These are added to the query after
+a <code class="docutils literal notranslate"><span class="pre">?</span></code> following the endpoint. To specify multiple parameters, separate
+each parameter name and value pair with an <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. The available parameters
+should be listed in the API’s documentation
+(<a class="reference external" href="https://www.datamuse.com/api/">here</a> for Datamuse).</p>
+<p>The parameter string <code class="docutils literal notranslate"><span class="pre">?rel_jjb=dog&amp;max=5</span></code> defines two parameters and
+values: - <code class="docutils literal notranslate"><span class="pre">rel_jjb=dog</span></code>: Find adjectives commonly used to describe the
+noun “dog”. - <code class="docutils literal notranslate"><span class="pre">max=5</span></code>: Return 5 results.</p>
+<p><strong>Headers:</strong> Provide additional context/metadata about your request, the
+most common being authentication information. Authentication may be used
+to only give you access to resources you have permission to see, limit
+the number of requests you can make within a certain amount of time, or
+for billing purposes (if the API isn’t free).</p>
+<p>The Datamuse API doesn’t require authentication, so we don’t need to add
+any headers here. If the API you’re using requires it they should
+provide documentation that describes what you need to do - <a class="reference external" href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api#authentication">here is an
+example from
+GitHub</a>,
+and <a class="reference external" href="https://docs.python-requests.org/en/master/user/quickstart/#custom-headers">here is how to add headers in the Python requests
+library</a>.</p>
+<p><strong>Full query:</strong> Adding together all the components we have the full API
+query: - <a class="reference external" href="https://api.datamuse.com/words?rel_jjb=dog&amp;max=5">https://api.datamuse.com/words?rel_jjb=dog&amp;max=5</a></p>
 <p>You can open this in a web browser and should see something like this:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;little&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">},</span><span class="w"></span>
@@ -1297,16 +1368,25 @@ You then need to weigh up different factors to decide which form and which datab
 <span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
-<p>We get the top 5 words describing “dog” and a score that indicates how strong the association is.</p>
-<p>The most common format for data returned by an API is JSON (JavaScript Object Notation) from the JavaScript language, which is commonly used in web development. JSONs have a similar structure to Python dictionaries or lists of Python dictionaries. Python has a built-in library <code class="docutils literal notranslate"><span class="pre">json</span></code> for converting data to and from the JSON format (see <a class="reference external" href="https://docs.python.org/3/library/json.html">here</a>), and Pandas also has a function for creating a DataFrame from a JSON file (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html">pandas.read_json</a>).</p>
+<p>We get the top 5 words describing “dog” and a score that indicates how
+strong the association is.</p>
+<p>The most common format for data returned by an API is JSON (JavaScript
+Object Notation) from the JavaScript language, which is commonly used in
+web development. JSONs have a similar structure to Python dictionaries
+or lists of Python dictionaries. Python has a built-in library <code class="docutils literal notranslate"><span class="pre">json</span></code>
+for converting data to and from the JSON format (see
+<a class="reference external" href="https://docs.python.org/3/library/json.html">here</a>), and Pandas also
+has a function for creating a DataFrame from a JSON file
+(<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html">pandas.read_json</a>).</p>
 <p>We can make the same API query in Python using the
-<a class="reference external" href="https://docs.python-requests.org/en/master/user/quickstart/">requests</a> library, as follows:</p>
+<a class="reference external" href="https://docs.python-requests.org/en/master/user/quickstart/">requests</a>
+library, as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.datamuse.com/words&quot;</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rel_jjb&quot;</span><span class="p">:</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.datamuse.com/words&quot;</span> 
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rel_jjb&quot;</span><span class="p">:</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span><span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span> 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1325,11 +1405,14 @@ You then need to weigh up different factors to decide which form and which datab
 </div>
 </div>
 </div>
-<p>Codes in the 200s usually indicate a successful query, for the meanings of other codes see <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>, or <code class="docutils literal notranslate"><span class="pre">print(r.content)</span></code> may give you more information about what happened.</p>
+<p>Codes in the 200s usually indicate a successful query, for the meanings
+of other codes see
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>, or
+<code class="docutils literal notranslate"><span class="pre">print(r.content)</span></code> may give you more information about what happened.</p>
 <p>We can convert the result into a list of dictionaries as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_list</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_list</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1358,7 +1441,7 @@ You then need to weigh up different factors to decide which form and which datab
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;https://api.datamuse.com/words?rel_jjb=dog&amp;max=5&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;https://api.datamuse.com/words?rel_jjb=dog&amp;max=5&quot;</span><span class="p">)</span> 
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -1416,68 +1499,124 @@ You then need to weigh up different factors to decide which form and which datab
 </table>
 </div></div></div>
 </div>
-<p>But this may not work well if your query returns a more complex data structure - in that case it’s best to start with the requests library.</p>
-<p>Bear in mind it’s likely the service you’re using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as “pagination” (see <a class="reference external" href="https://nordicapis.com/everything-you-need-to-know-about-api-pagination/">this blog post</a> for example). If you’re making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the <a class="reference external" href="https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep">time.sleep</a> function in Python.</p>
-<p>This “public-apis” repository on GitHub maintains a list of open APIs that should be good for learning purposes: <a class="reference external" href="https://github.com/public-apis/public-apis">https://github.com/public-apis/public-apis</a>. The UK government also maintains a list of APIs providing data on many different areas of government &amp; life in the UK: <a class="reference external" href="https://www.api.gov.uk/">https://www.api.gov.uk/</a></p>
-<div class="tip admonition">
-<p class="admonition-title">Exercise</p>
-<p>Use the Datamuse API to find 3 words that rhyme with “cat” and load them into a Pandas data frame. You’ll need to use the Datamuse documnetation to find which parameter will search for rhyming words.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>But this may not work well if your query returns a more complex data structure - in that case it&#39;s best to start with the requests library.
+
+Bear in mind it&#39;s likely the service you&#39;re using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as &quot;pagination&quot; (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you&#39;re making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
+
+This &quot;public-apis&quot; repository on GitHub maintains a list of open APIs that should be good for learning purposes: https://github.com/public-apis/public-apis. The UK government also maintains a list of APIs providing data on many different areas of government &amp; life in the UK: https://www.api.gov.uk/
+</pre></div>
 </div>
-<div class="dropdown tip admonition">
-<p class="admonition-title">Solution</p>
-<p>The relevant parameter is <code class="docutils literal notranslate"><span class="pre">rel_rhy</span></code>, and the query and pandas function needed is <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;https://api.datamuse.com/words?rel_rhy=cat&amp;max=3&quot;)</span></code></p>
 </div>
+<div class="section" id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Use the Datamuse API to find 3 words that rhyme with &quot;cat&quot; and load them into a Pandas data frame. You&#39;ll need to use the Datamuse documnetation to find which parameter will search for rhyming words.
+</pre></div>
+</div>
+<p>Solution: The relevant parameter is <code class="docutils literal notranslate"><span class="pre">rel_rhy</span></code>, and the query and pandas function needed is <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;https://api.datamuse.com/words?rel_rhy=cat&amp;max=3&quot;)</span></code></p>
 </div>
 </div>
 <div class="section" id="image-data">
 <h2>Image Data<a class="headerlink" href="#image-data" title="Permalink to this headline">¶</a></h2>
-<p>Images are commonly represented as a n-dimensional tensor of pixel values.</p>
+<p>Images are commonly represented as a n-dimensional tensor of pixel
+values.</p>
 <div class="section" id="black-and-white">
 <h3>Black and White<a class="headerlink" href="#black-and-white" title="Permalink to this headline">¶</a></h3>
-<p>A simple form of this can be shown with a black and white image. The 13x13 pixel smiley can be represented by a 2D tensor (width,height) of 0s and 1s. Black and white images can be thought of as a binary off/on for each pixel.</p>
+<p>A simple form of this can be shown with a black and white image. The
+13x13 pixel smiley can be represented by a 2D tensor (width,height) of
+0s and 1s. Black and white images can be thought of as a binary off/on
+for each pixel.</p>
 <p><img alt="black_and_white_smiley" src="../../_images/black_and_white_smiley.png" /></p>
 </div>
 <div class="section" id="grayscale">
 <h3>Grayscale<a class="headerlink" href="#grayscale" title="Permalink to this headline">¶</a></h3>
-<p>If we want to move to grayscale - allowing shades of gray between black and white - we can do this with intermediate values between black and white. Here we change black and white to 0 and 255 (8-bit representation), shades of gray are everything in between.</p>
+<p>If we want to move to grayscale - allowing shades of gray between black
+and white - we can do this with intermediate values between black and
+white. Here we change black and white to 0 and 255 (8-bit
+representation), shades of gray are everything in between.</p>
 <p><img alt="grayscale_smiley" src="../../_images/grayscale_smiley.png" /></p>
 </div>
 <div class="section" id="rgb">
 <h3>RGB<a class="headerlink" href="#rgb" title="Permalink to this headline">¶</a></h3>
-<p>We can introduce colour using an RGB (Red Green Blue) representation. Here, we store the red, green, and blue values separately - these individual representations are known as channels. We now use a 3D tensor to represent this image (width,height,channels).</p>
+<p>We can introduce colour using an RGB (Red Green Blue) representation.
+Here, we store the red, green, and blue values separately - these
+individual representations are known as channels. We now use a 3D tensor
+to represent this image (width,height,channels).</p>
 <p><img alt="rgb_smiley" src="https://i.imgur.com/Z0Z52Ph.gif" /></p>
 </div>
 <div class="section" id="libraries">
 <h3>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h3>
-<p>Some popular libraries for processing and analysing image data in Python include:</p>
+<p>Some popular libraries for processing and analysing image data in Python
+include:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pypi.org/project/opencv-python/">opencv-python</a>: <a class="reference external" href="https://opencv.org/">OpenCV</a> (Open-source Computer Vision) packages for Python. Contains hundreds of computer vision algorithms.</p></li>
-<li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/">Pillow</a>: PIL (Python Imaging Library) fork. “This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities”.</p></li>
-<li><p><a class="reference external" href="https://pytorch.org/vision/stable/index.html">torchvision</a>: Part of the wider <a class="reference external" href="http://pytorch.org/">PyTorch</a> project. “The torchvision package consists of popular datasets, model architectures, and common image transformations for computer vision”.</p></li>
-<li><p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/images#load_using_tfkeraspreprocessing">tf.keras.preprocessing</a>: Part of the wider tensorflow/keras ecosystem, the preprocessing module provides preprocessing utilities for image data.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/opencv-python/">opencv-python</a>:
+<a class="reference external" href="https://opencv.org/">OpenCV</a> (Open-source Computer Vision) packages
+for Python. Contains hundreds of computer vision algorithms.</p></li>
+<li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/">Pillow</a>: PIL (Python
+Imaging Library) fork. “This library provides extensive file format
+support, an efficient internal representation, and fairly powerful
+image processing capabilities”.</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/vision/stable/index.html">torchvision</a>: Part of
+the wider <a class="reference external" href="http://pytorch.org/">PyTorch</a> project. “The torchvision
+package consists of popular datasets, model architectures, and
+common image transformations for computer vision”.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/images#load_using_tfkeraspreprocessing">tf.keras.preprocessing</a>:
+Part of the wider tensorflow/keras ecosystem, the preprocessing
+module provides preprocessing utilities for image data.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="text-data">
 <h2>Text Data<a class="headerlink" href="#text-data" title="Permalink to this headline">¶</a></h2>
-<p>Text data is common in data science applications, anything from analysing Tweets and social media to documents and novels. We’ll cover some general techniques for handling text data in this module, but we won’t delve into the details of the wider field of “Natural Language Processing” (NLP). Some popular libraries and resources for processing and analysing text data in Python include:</p>
+<p>Text data is common in data science applications, anything from
+analysing Tweets and social media to documents and novels. We’ll cover
+some general techniques for handling text data in this module, but we
+won’t delve into the details of the wider field of “Natural Language
+Processing” (NLP). Some popular libraries and resources for processing
+and analysing text data in Python include:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.nltk.org/">NLTK</a>: Well-established natural language processing toolkit for Python, offering a wide range of text processing techniques in many different languages.</p></li>
-<li><p><a class="reference external" href="https://spacy.io/">Spacy</a>: A more modern alternative to NLTK, offering higher performance, state of the art algorithms, and better integration with modelling frameworks in some cases.</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">Scikit-Learn</a>: Has common NLP preprocessing functions which can be integrated with modelling pipelines using many different machine learning algorithms.</p></li>
-<li><p><a class="reference external" href="https://huggingface.co/">Hugging Face</a>: For implementations of state-of-the-art deep learning models from research.</p></li>
-<li><p><a class="reference external" href="https://textract.readthedocs.io/en/stable/">Textract</a>: Text data may appear in many file formats other than plaintext files (<code class="docutils literal notranslate"><span class="pre">.txt</span></code> or similar), such as in PDFs, word documents, or even within images. Textract provides a single interface for extracting text data from many different formats.</p></li>
+<li><p><a class="reference external" href="https://www.nltk.org/">NLTK</a>: Well-established natural language
+processing toolkit for Python, offering a wide range of text
+processing techniques in many different languages.</p></li>
+<li><p><a class="reference external" href="https://spacy.io/">Spacy</a>: A more modern alternative to NLTK,
+offering higher performance, state of the art algorithms, and better
+integration with modelling frameworks in some cases.</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">Scikit-Learn</a>:
+Has common NLP preprocessing functions which can be integrated with
+modelling pipelines using many different machine learning
+algorithms.</p></li>
+<li><p><a class="reference external" href="https://huggingface.co/">Hugging Face</a>: For implementations of
+state-of-the-art deep learning models from research.</p></li>
+<li><p><a class="reference external" href="https://textract.readthedocs.io/en/stable/">Textract</a>: Text data
+may appear in many file formats other than plaintext files (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>
+or similar), such as in PDFs, word documents, or even within images.
+Textract provides a single interface for extracting text data from
+many different formats.</p></li>
 </ul>
 </div>
 <div class="section" id="other">
 <h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Audio: commonly stored as <code class="docutils literal notranslate"><span class="pre">.wav</span></code> or <code class="docutils literal notranslate"><span class="pre">.mp3</span></code> and displayed as a <a class="reference external" href="https://en.wikipedia.org/wiki/Waveform">waveform</a> - digitised audio can be used for things like training speech recognition models. Lots of crossover with signal processing! <a class="reference external" href="https://librosa.org/doc/latest/index.html">Librosa</a> is a popular python package for working with audio.</p></li>
+<li><p>Audio: commonly stored as <code class="docutils literal notranslate"><span class="pre">.wav</span></code> or <code class="docutils literal notranslate"><span class="pre">.mp3</span></code> and displayed as a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Waveform">waveform</a> - digitised audio
+can be used for things like training speech recognition models. Lots
+of crossover with signal processing!
+<a class="reference external" href="https://librosa.org/doc/latest/index.html">Librosa</a> is a popular
+python package for working with audio.</p></li>
 <li><p>Video: can be thought of as many images + audio!</p></li>
-<li><p>Geospatial: data relating to any location on the Earth’s surface. The <a class="reference external" href="https://geopandas.org/">geopandas</a> library combines the capabilities of <a class="reference external" href="https://shapely.readthedocs.io/">shapely</a> and Pandas to make working with this datatype easier.</p></li>
-<li><p>Time Series: Data that can be expressed as observations over time, e.g., stock price data. Honourable mention to <a class="reference external" href="https://github.com/alan-turing-institute/sktime">sktime</a> for analysis.</p></li>
-<li><p>XML (Extensible Markup Language): We recommend using a library such as <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> to help parse this heavily structured format.</p></li>
-<li><p>Web scraping: extracting structured data from web sites. <a class="reference external" href="https://scrapy.org/">Scrapy</a> is a popular library here.</p></li>
+<li><p>Geospatial: data relating to any location on the Earth’s surface.
+The <a class="reference external" href="https://geopandas.org/">geopandas</a> library combines the
+capabilities of <a class="reference external" href="https://shapely.readthedocs.io/">shapely</a> and
+Pandas to make working with this datatype easier.</p></li>
+<li><p>Time Series: Data that can be expressed as observations over time,
+e.g., stock price data. Honourable mention to
+<a class="reference external" href="https://github.com/alan-turing-institute/sktime">sktime</a> for
+analysis.</p></li>
+<li><p>XML (Extensible Markup Language): We recommend using a library such
+as
+<a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a>
+to help parse this heavily structured format.</p></li>
+<li><p>Web scraping: extracting structured data from web sites.
+<a class="reference external" href="https://scrapy.org/">Scrapy</a> is a popular library here.</p></li>
 </ul>
 </div>
 </div>
