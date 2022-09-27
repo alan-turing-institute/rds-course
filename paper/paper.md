@@ -50,3 +50,6 @@ bibliography: paper.bib
 ## Instructional design 
 ## Experience of use in teaching
 i.e. where and when is this run?
+
+# Acknowledgements
+ This work was supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/W006022/1 & The Alan Turing Institute.
