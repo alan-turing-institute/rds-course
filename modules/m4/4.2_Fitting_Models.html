@@ -610,7 +610,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/4.2_Fitting_Models_1_0.png" src="../../_images/4.2_Fitting_Models_1_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.029233914775195, Mu: 5.03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.038628445193593, Mu: 5.04
 </pre></div>
 </div>
 </div>
@@ -674,8 +674,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="modelling-relationships-regression">
 <h2>Modelling relationships: Regression.<a class="headerlink" href="#modelling-relationships-regression" title="Permalink to this headline">¶</a></h2>
 <p>So far we have been modelling observations of a single variable, <span class="math notranslate nohighlight">\(Y\)</span> as coming from a normal distribution with a mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and a standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span></p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} Y \sim Normal(\mu,\sigma)$$.\\Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters _dependent_ on other variables.\\We call our other variable $X$. Since we already are under the assumption that $Y$ varies around a mean, it stands to reason that we would model the _mean_ as changing with $X$, accepting that $Y$ would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of $Y$ varies _linearly_ with $X$. Meaning that one capture the relationship by a line with an intercept and a slope.\\$$ \mu = \beta_0 + \beta_1X \end{aligned}\end{align} \]</div>
+<p><span class="math notranslate nohighlight">\( Y \sim Normal(\mu,\sigma) \)</span>.</p>
+<p>Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters <em>dependent</em> on other variables.</p>
+<p>We call our other variable <span class="math notranslate nohighlight">\(X\)</span>. Since we already are under the assumption that <span class="math notranslate nohighlight">\(Y\)</span> varies around a mean, it stands to reason that we would model the <em>mean</em> as changing with <span class="math notranslate nohighlight">\(X\)</span>, accepting that <span class="math notranslate nohighlight">\(Y\)</span> would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of <span class="math notranslate nohighlight">\(Y\)</span> varies <em>linearly</em> with <span class="math notranslate nohighlight">\(X\)</span>. Meaning that one capture the relationship by a line with an intercept and a slope.</p>
+<p><span class="math notranslate nohighlight">\( \mu = \beta_0 + \beta_1X \)</span></p>
 <p>Here, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, meaning the value that <span class="math notranslate nohighlight">\(Y\)</span> would take when <span class="math notranslate nohighlight">\(X=0\)</span>, and <span class="math notranslate nohighlight">\(\beta_1\)</span> is a parameter that scales how much a change in <span class="math notranslate nohighlight">\(X\)</span> corresponds to the change in <span class="math notranslate nohighlight">\(Y\)</span>. An alternative common way of writing this is:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -684,8 +686,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>It is convention in Regression models to have your input variables as a matrix <span class="math notranslate nohighlight">\(X_{ni}\)</span> and your predicted values as <span class="math notranslate nohighlight">\(Y_i\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> refers to the variable index and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation index. The parameters are often stored as a vector <span class="math notranslate nohighlight">\(\beta\)</span></p>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} Y_i = \beta_0 + \beta_1X_i + \epsilon $$,\\where $\epsilon$ refers to **residual error** that is normally distributed around zero: $\epsilon \sim Normal(0,\sigma)$, and $i$ refers to the observation. You can also write this as:\\$$ Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \end{aligned}\end{align} \]</div>
+<p><span class="math notranslate nohighlight">\( Y_i = \beta_0 + \beta_1X_i + \epsilon \)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> refers to <strong>residual error</strong> that is normally distributed around zero: <span class="math notranslate nohighlight">\(\epsilon \sim Normal(0,\sigma)\)</span>, and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation. You can also write this as:</p>
+<p><span class="math notranslate nohighlight">\( Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \)</span></p>
 <p>Modelling in this way is called <strong>Linear Regression</strong>. Parameters that scale the relationship between an input variable to an output variable are called <strong>Coefficients</strong>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -782,8 +785,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 2.2334381189793993
-Slope: 0.2795795795795796
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.9385283450934943
+Slope: 0.31001001001001
 </pre></div>
 </div>
 <img alt="../../_images/4.2_Fitting_Models_6_1.png" src="../../_images/4.2_Fitting_Models_6_1.png" />

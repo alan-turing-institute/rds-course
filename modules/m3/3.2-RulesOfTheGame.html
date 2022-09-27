@@ -646,7 +646,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2836/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2910/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&#39;seaborn&#39;)
 </pre></div>
 </div>
@@ -654,7 +654,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="mapping-data-onto-aesthetics">
 <h2>Mapping data onto Aesthetics<a class="headerlink" href="#mapping-data-onto-aesthetics" title="Permalink to this headline">¶</a></h2>
-<p>Figure creation is the process of mapping data to graphical features. We will call these features <strong>aesthetics</strong>.</p>
+<p>Figure creation is the process of mapping data to graphical features. We will call these features’ <strong>aesthetics</strong>.</p>
 <p><strong>Aesthetics</strong> may have some or all of the following components:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -891,13 +891,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 <p>We can see that each country row is for a specific date for a given country. To illustrate the importance of coordinate systems let us assess how wealth inequalities affects the spread of covid. To do this we will use the <em>cumulative number of cases</em> variable. However, if a country has more people it clearly may have more cases. So we will visualise the <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span></code>, which is normalised against population, against a measure of economic output per citizen, <code class="docutils literal notranslate"><span class="pre">gdp_per_capita</span></code>.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="dropdown admonition">
-<p class="admonition-title">Normalisation</p>
 <p><strong>Normalisation</strong> is a key consideration in data visualisation. Normalisation is the process of ensuring that variables are measured on the same scale. In this example, <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">cases</span></code> has been divided by population (in millions), so that the variable is comparable across countries with different populations.</p>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_countries</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
@@ -1385,7 +1379,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <p>Beware of overplotting! There is only so much information that is useful in a plot. Often the variability in raw data obscures the message.</p>
 <p>A powerful tool is aggregation. Aggregation involves applying calculations on your data set in order to collapse your data to a representative variable (for example, an average).</p>
 <p>One should always take care when aggregating. There is a balance between reducing data information too far and miscommunication trends on one hand, and not reducing data enough and overloading the reader on the other.</p>
-<p>A common form of aggregation is <strong>histograms</strong>, which we cover in the <span class="xref myst">next section</span>.</p>
+<p>A common form of aggregation is <strong>histograms</strong>, which we cover in the <a class="reference internal" href="3.3-Atlas0fVisualisations.html"><span class="doc std std-doc">next section</span></a>.</p>
 <p>Below we show case numbers in the England. The moving average can provide a balance between reduction and complexity, dependent on the window in which you average over.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
