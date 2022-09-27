@@ -24,17 +24,17 @@ authors:
         affiliation: 1
     - name: Aoife Hughes
         affiliation: 1
-- name: Edward Chalstrey
+    - name: Edward Chalstrey
         affiliation: 1
-- name: Christina Last
+    - name: Christina Last
         affiliation: 1
-- name: Radka Jersakova
+    - name: Radka Jersakova
         affiliation: 1
-- name: Oliver Strickson
+    - name: Oliver Strickson
         affiliation: 1
-- name: Lydia France
+    - name: Lydia France
         affiliation: 1
-- name: Helen Duncan 
+    - name: Helen Duncan 
         affiliation: 1
 
 
