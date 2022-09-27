@@ -15,6 +15,8 @@ execute:
   - '4.4_*'
   - '2-hands-on*'
  
+exclude:
+  - modules/m2/data/README.md
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
