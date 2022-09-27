@@ -6,7 +6,7 @@ developed by [The Alan Turing Institute's](https://www.turing.ac.uk/)
 
 The course consists of four modules, each involving a half-day taught session and a half-day hands-on session. The material can be used for synchronous online attendance or asynchronous study.
 
-### Summary
+## Summary
 
 Data science methods and tools have become commonplace in research projects across academia, government and industry. Researchers increasingly need to collaborate with multi-disciplinary teams of data scientists, software engineers and other stakeholders.
 
@@ -18,7 +18,7 @@ The course consists of:
 
 This course complements the Turing’s Research Software Engineering with Python course (found [here](https://alan-turing-institute.github.io/rsd-engineeringcourse/)).
 
-### Key objectives and learning outcomes
+## Key objectives and learning outcomes
 The main objectives of the course are the following:
 - Teach attendees how to use research data science (RDS) methods in an interdisciplinary research environment.
 - Move beyond core principles and methdology, towards a hands-on, practical understanding, focused on collaboration, reproducibility and openness.
@@ -30,7 +30,7 @@ The learning outcomes are the following:
 - Attendees will be familiar with the stages of a collaborative RDS project, from scoping and data exploration to visualisation and modeling and will become aware of the challenges of tackling real-world problems.
 - Attendees will be able to recognise power imbalances, bias and diversity issues in their technical work and in their ways of working with others and challenge them.
 
-### Syllabus
+## Syllabus
 
 **Module 1: Intro to Data Science**
 
@@ -78,12 +78,12 @@ Hands-on session:
 - Build your own model based on the knowledge acquired so far about the dataset and the techniques taught in this module. Improve upon baseline, interpret results to answer research questions and discuss limitations and alternative approaches.
 
 
-### Prerequisites
+## Prerequisites
 Participants are expected to:
 - Be comfortable with basic Python, either through working on a project or through attending a training course. Indicatively, they should be comfortable with the concepts covered in the “Introduction to Python” module from the Turing’s Research Software Engineering with Python course. The Programming with Python Software Carpentry also covers some of these concepts. Familiarity with Matplotlib, NumPy and Pandas is beneficial but not required.
 - Have some basic knowledge of Git (setting up repositories, commits) through using it in projects or by attending training, e.g. the Software Carpentry’s Version Control with Git (Sections 1 to 4 and 7 to 9).
 - Have read the first two sections of the Turing Way’s Guide for Collaboration (“Getting Started in GitHub” and “Maintainers and Reviewers in GitHub”).
 
 
-### Acknowledgement
+## Acknowledgement
 This work was supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/W006022/1 & The Alan Turing Institute.
