@@ -15,8 +15,13 @@ execute:
   - '4.4_*'
   - '2-hands-on*'
  
-exclude:
-  - modules/m2/data/README.md
+exclude_patterns: [
+  '*README.md'
+]
+
+only_build_toc_files: true
+
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
