@@ -1,6 +1,6 @@
 # Introduction to Research Data Science
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## For Students
@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/jack89roberts"><img src="https://avatars.githubusercontent.com/u/16308271?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jack Roberts</b></sub></a><br /><a href="https://github.com/alan-turing-institute/rds-course/commits?author=jack89roberts" title="Code">💻</a> <a href="#content-jack89roberts" title="Content">🖋</a> <a href="#ideas-jack89roberts" title="Ideas, Planning, & Feedback">🤔</a> <a href="#question-jack89roberts" title="Answering Questions">💬</a> <a href="#talk-jack89roberts" title="Talks">📢</a></td>
+      <td align="center"><a href="https://aoifehughes.github.io"><img src="https://avatars.githubusercontent.com/u/10923695?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aoife Hughes</b></sub></a><br /><a href="https://github.com/alan-turing-institute/rds-course/commits?author=AoifeHughes" title="Code">💻</a> <a href="#content-AoifeHughes" title="Content">🖋</a> <a href="#ideas-AoifeHughes" title="Ideas, Planning, & Feedback">🤔</a> <a href="#question-AoifeHughes" title="Answering Questions">💬</a> <a href="https://github.com/alan-turing-institute/rds-course/issues?q=author%3AAoifeHughes" title="Bug reports">🐛</a> <a href="https://github.com/alan-turing-institute/rds-course/pulls?q=is%3Apr+reviewed-by%3AAoifeHughes" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
