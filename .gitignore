@@ -2,3 +2,6 @@ coursebook/_build/*
 *checkpoints
 data/*
 .DS_Store
+node_modules/
+package-lock.json
+package.json
