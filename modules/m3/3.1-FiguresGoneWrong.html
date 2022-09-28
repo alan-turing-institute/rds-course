@@ -585,16 +585,20 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="figures-gone-wrong">
 <h1>3.1 Figures gone wrong<a class="headerlink" href="#figures-gone-wrong" title="Permalink to this headline">¶</a></h1>
-<p>Every data scientist will create hundreds of figures in their
-professional lifetime. Creating plots is easy, complicated figures can
-be achieved in a single line of code.</p>
-<p>Creating <strong>good</strong> plots is hard.</p>
+<p>The most common way for data scientists to convey and present their findings and
+ideas is through graphs and figures. Modern software libraries have made figure
+generation as easy as it has ever been. However, this has made it all together
+too easy for data scientists to:</p>
+<ol class="simple">
+<li><p>Make misleading figures</p></li>
+<li><p>Choose a wrong presentation format</p></li>
+<li><p>Use overly complex, but attractive, designs which muddle the message</p></li>
+</ol>
+<p>and so, creating <strong>good</strong> plots is hard.</p>
 <p>Here we’ve collated examples of figures that do a poor job of
 communicating the data. As we go through these examples we will have a
-brief discussion about each figure (we will use a hackmd to
-collaborate). Once you’ve had a chance to look at an example you can
-expand our notes below each example (you can find many more examples at
-&#64;GraphCrimes on twitter).</p>
+brief discussion about each figure (you can find many more examples at
+&#64;GraphCrimes on Twitter).</p>
 <div class="section" id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="https://i.imgur.com/u16vTqy.png" />
@@ -624,13 +628,13 @@ a number of issues with this plot:</p>
 <ul class="simple">
 <li><p>We only have two data points for each trend, and it is practically
 impossible that the trend would be a perfect straight line. Rather,
-any trend would fluctuate year on year, this proposed difference
-between 2008 and 2013 may be within the bounds of an noisy signal.</p></li>
+any trend would fluctuate year-on-year, this proposed difference
+between 2008 and 2013 may be within the bounds of a noisy signal.</p></li>
 <li><p>If you look at the numbers there are clearly two axes at play, or at
 least no attempt has been made to represent the magnitude of the
 change realistically.</p></li>
 <li><p>Plotting these two data sources together here suggests there is a
-relationship between them (i.e. that the company <em>Planned
+relationship between them (i.e., that the company <em>Planned
 Parenthood</em> has redistributed resources from cancer screening to
 abortions). It is an ethical responsibility for any figure creator
 to ensure that your figure is not implying a conclusion that isn’t
@@ -673,14 +677,13 @@ vary across the map.
 </div>
 <div class="section" id="example-5">
 <h2>Example 5<a class="headerlink" href="#example-5" title="Permalink to this headline">¶</a></h2>
-<p><img alt="" src="https://i.imgur.com/Scf4Qlw.png" /> [ADD SOURCE - I think from
-factfulness]</p>
+<p><img alt="" src="https://i.imgur.com/Scf4Qlw.png" /></p>
 <details>
 <summary>
 Example 5 notes
 </summary>
-<p>Both these plots are examples of where using only averages means that
-the figure does not communicate all of the information, such as the
+<p>Both these plots are examples from Factfulness by Hans Rosling, they show that using only averages means that
+the figure does not communicate all the information, such as the
 spread of the distribution. The kernel density estimates (more on those
 in Section 3.3) below show a slice of one particular year, offering
 complementary information that allows us to interpret the averages in
@@ -756,15 +759,6 @@ communicating the data. The y axis could be represented on a scale of
 millions (i.e. from 0 to \$500), and there is no need to note all the
 data points. If one wants to write out the data, use a table!
 </details>
-<div class="admonition-exercise-class-dropdown-tip admonition">
-<p class="admonition-title">Exercise :class: dropdown, tip</p>
-<p>The hackmd link we were using to share comments will stay live for the
-duration of the course. If you have came across any figures that you
-think could be instructive to the group (good or bad), please share!
-(include a source if possible).</p>
-<p>Feel free to also share your own figures. Figure creation is iterative
-and improved by critique from others. ```</p>
-</div>
 </div>
 </div>
 

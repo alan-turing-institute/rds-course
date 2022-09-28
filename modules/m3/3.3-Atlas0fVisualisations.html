@@ -855,7 +855,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="visualising-amounts">
 <h2>Visualising amounts<a class="headerlink" href="#visualising-amounts" title="Permalink to this headline">¶</a></h2>
-<p>When visualising amounts we are interested in the magnitude of a group of numbers, e.g. we have a set of categories and a quantitative value for each category.</p>
+<p>When visualising amounts we are interested in the magnitude of a group of numbers, e.g., we have a set of categories and a quantitative value for each category.</p>
 <div class="section" id="bar-plots">
 <h3>Bar plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">¶</a></h3>
 <p>Bars plots are a good option when the dataset we want to visualise contains <strong>numerical values for a set of categories</strong>.</p>
@@ -998,8 +998,8 @@ dot plots can be useful when you want to visualise <strong>numerical values for 
 <img alt="../../_images/3.3-Atlas0fVisualisations_9_0.png" src="../../_images/3.3-Atlas0fVisualisations_9_0.png" />
 </div>
 </div>
-<p>In the <em>left</em> figure we use a rainbow color scale, which is common but can be misleading. An issue is that people sometimes perceive the brightest color as a peak (highest value). Also, the abrupt changes between different colours (green to yellow or blue to green) can make the values seem distant, while their real magnitudes may be similar.</p>
-<p>In the <em>right</em> figure we are using a diverging scale that shows color progression in two directions, from blue to red. This scale has less hues and intensities than the rainbow color scale and is also colour-blind people friendly. For more tips about colours and heatmaps, look at this <a class="reference external" href="https://blog.bioturing.com/2018/09/24/heatmap-color-scale/">blog post</a>.</p>
+<p>In the <em>left</em> figure we use a rainbow colour scale, which is common but can be misleading. An issue is that people sometimes perceive the brightest color as a peak (the highest value). Also, the abrupt changes between different colours (green to yellow or blue to green) can make the values seem distant, while their real magnitudes may be similar.</p>
+<p>In the <em>right</em> figure we are using a diverging scale that shows colour progression in two directions, from blue to red. This scale has less hues and intensities than the rainbow color scale and is also colour-blind people friendly. For more tips about colours and heatmaps, look at this <a class="reference external" href="https://blog.bioturing.com/2018/09/24/heatmap-color-scale/">blog post</a>.</p>
 </div>
 </div>
 </div>
@@ -1068,7 +1068,7 @@ dot plots can be useful when you want to visualise <strong>numerical values for 
 <p>Let’s use the same life expectancy variable from our dataset to create a density curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">band_width</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 
@@ -1241,7 +1241,7 @@ that the violin plot is providing.</p>
 </div>
 <div class="section" id="proportions">
 <h2>Proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">¶</a></h2>
-<p>Figures that show how some group, entity or amount breaks down into individual pieces that each represent a proportion of a whole.</p>
+<p>Figures that show how some group, entity, or amount breaks down into individual pieces that each represent a proportion of a whole.</p>
 <div class="section" id="grouped-bars">
 <h3>Grouped bars<a class="headerlink" href="#grouped-bars" title="Permalink to this headline">¶</a></h3>
 <p>We can use grouped bar charts when our dataset has <strong>numerical values for a set of categories for different groups</strong>. When using grouped bars beware that they can contain a lot of information at once and be confusing, so there might be a better way of visualising the message you want to transmit.</p>
@@ -1253,8 +1253,8 @@ that the violin plot is providing.</p>
 </div>
 <div class="section" id="pie-charts">
 <h3>Pie charts<a class="headerlink" href="#pie-charts" title="Permalink to this headline">¶</a></h3>
-<p>In general, pie charts can work well when we want to highlight simple fractions between a small number of categories. They also work well when we have very small datasets.</p>
-<p>A summary of the various pros and cons of pie charts, stacked bars, and side-by-side bars in the book Fundamentals of data visualisation can be found in this <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#tab:pros-cons-pie-bar">link</a>.</p>
+<p>In general, pie charts can work well when we want to highlight simple fractions between a few categories. They also work well when we have very small datasets.
+A summary of the various pros and cons of pie charts, stacked bars, and side-by-side bars in the book Fundamentals of data visualisation can be found in this <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-proportions.html#tab:pros-cons-pie-bar">link</a>.</p>
 </div>
 </div>
 <div class="section" id="relationships-between-two-or-more-variables">
@@ -1281,7 +1281,7 @@ that the violin plot is providing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.3-Atlas0fVisualisations_26_0.png" src="../../_images/3.3-Atlas0fVisualisations_26_0.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_22_0.png" src="../../_images/3.3-Atlas0fVisualisations_22_0.png" />
 </div>
 </div>
 </div>
@@ -1291,7 +1291,7 @@ that the violin plot is providing.</p>
 <p>When we want to explore the associations among several quantitative variables, using only scatter plots can become unmanageable. In this case, it is more useful to visualise the correlation between pairs of variables rather than the raw data. This is where correlograms come to use, they are the visualizations of correlation coefficients of a number of variables.</p>
 <div class="section" id="id7">
 <h4>Example<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
-<p>Lets explore the relationship between some of the variables available in the Covid-19 dataset from Our World in Data. For example the relationships between a given country population density, gdp per capita, extreme poverty, life expectancy, etc .</p>
+<p>Lets explore the relationship between some variables available in the Covid-19 dataset from Our World in Data. For example the relationships between a given country population density, GDP per capita, extreme poverty, life expectancy, etc .</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_correlations</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;population_density&#39;</span><span class="p">,</span>
@@ -1305,7 +1305,7 @@ that the violin plot is providing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.3-Atlas0fVisualisations_28_0.png" src="../../_images/3.3-Atlas0fVisualisations_28_0.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_24_0.png" src="../../_images/3.3-Atlas0fVisualisations_24_0.png" />
 </div>
 </div>
 <p>As stated above, when we have many variables scatter plots can be overwhelming. We could use the correlogram to summarise the information relevant to the strength of the relationships between the variables.</p>
@@ -1325,10 +1325,10 @@ that the violin plot is providing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.3-Atlas0fVisualisations_30_0.png" src="../../_images/3.3-Atlas0fVisualisations_30_0.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_26_0.png" src="../../_images/3.3-Atlas0fVisualisations_26_0.png" />
 </div>
 </div>
-<p>Note that this kind of figure has the disadvantages of heatmaps, e.g. it can be hard to map the color scale to numbers and vice versa.
+<p>Note that this kind of figure has the disadvantages of heatmaps, e.g., it can be hard to map the colour scale to numbers and vice versa.
 Also, finding the highest negative and positive correlations requires finding the strongest red and blue by carefully scanning the entire grid.
 There are some ways of improving these plots. You can find some examples <a class="reference external" href="https://towardsdatascience.com/better-heatmaps-and-correlation-matrix-plots-in-python-41445d0f2bec">here</a>.</p>
 </div>
@@ -1345,7 +1345,7 @@ There are some ways of improving these plots. You can find some examples <a clas
 </div>
 <div class="section" id="id8">
 <h4>Examples<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
-<p>Lets use again the US vaccination data we were using in the first examples. Lets visualise and compare how the states with lowest vaccination rates have been progressing in the last month, a slopegraph is an ideal tool for this goal.</p>
+<p>Let’s use again the US vaccination data we were using in the first examples. Let’s visualise and compare how the states with the lowest vaccination rates have been progressing in the last month, a slopegraph is an ideal tool for this goal.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets select only the ones with the lowest vaccination rate.</span>
@@ -1370,13 +1370,13 @@ There are some ways of improving these plots. You can find some examples <a clas
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2941/245355965.py:2: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2916/245355965.py:2: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
   df_vaccination_low10 = df_vaccination[df_vaccination[&#39;Entity&#39;].isin(df_vaccination_sorted.Entity[45:])]
-/tmp/ipykernel_2941/245355965.py:3: UserWarning: Parsing dates in DD/MM/YYYY format when dayfirst=False (the default) was specified. This may lead to inconsistently parsed dates! Specify a format to ensure consistent parsing.
+/tmp/ipykernel_2916/245355965.py:3: UserWarning: Parsing dates in DD/MM/YYYY format when dayfirst=False (the default) was specified. This may lead to inconsistently parsed dates! Specify a format to ensure consistent parsing.
   df_slope = df_vaccination_low10[(df_vaccination_low10[&#39;Day&#39;]==&#39;28-07-2021&#39;) | (df_vaccination_low10[&#39;Day&#39;]==&#39;2021-06-28&#39;)]
 </pre></div>
 </div>
-<img alt="../../_images/3.3-Atlas0fVisualisations_34_1.png" src="../../_images/3.3-Atlas0fVisualisations_34_1.png" />
+<img alt="../../_images/3.3-Atlas0fVisualisations_28_1.png" src="../../_images/3.3-Atlas0fVisualisations_28_1.png" />
 </div>
 </div>
 </div>
@@ -1384,7 +1384,7 @@ There are some ways of improving these plots. You can find some examples <a clas
 </div>
 <div class="section" id="uncertainty">
 <h2>Uncertainty<a class="headerlink" href="#uncertainty" title="Permalink to this headline">¶</a></h2>
-<p>In Data Science we aim to transform data and domain knowledge into insight. <strong>Any insight always has an uncertainty associated with it</strong>. Communicating insight without uncertainty is a job half done. Howevever, uncertainty information like errors, confidence intervals, and likelihoods are not always present in data visualisation, which leads to judgements based on simplified summaries expressed as means, medians, or extremes. Furthermore, including unceratinty in a graph can make it look busy and difficult to comprehend. Uncertainty is a complex topic and visualising it can be a very challenging but important task.</p>
+<p>In Data Science we aim to transform data and domain knowledge into insight. <strong>Any insight always has an uncertainty associated with it</strong>. Communicating insight without uncertainty is a job half done. However, uncertainty information like errors, confidence intervals, and likelihoods are not always present in data visualisation, which leads to judgements based on simplified summaries expressed as means, medians, or extremes. Furthermore, including uncertainty in a graph can make it look busy and difficult to comprehend. Uncertainty is a complex topic and visualising it can be a very challenging but important task.</p>
 <p>A good example of a field that has embraced communicating risk and uncertainty is the one of weather forecasting.
 In this case failing to communicate uncertainty of weather predictions can result in the public losing faith in weather warnings and refusing to comply with evacuation or preparation orders when this is necessary.</p>
 <p>Another example is a very current one, the Covid-19 pandemic, which has been characterised for the vast traffic in official and unofficial information and claims based on data and statistical models. A lot can be said on how effective the communication of uncertainty of these models has been, but shortcomings in this area <a class="reference external" href="https://www.dailymail.co.uk/news/article-9748975/SAGE-scientist-admits-modelling-spooked-No10-delaying-Freedom-Day-wrong.html">have been exploited by media outlets</a>, possibly affecting the levels of trust from the public on the scientific advice.</p>

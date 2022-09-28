@@ -466,7 +466,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables-topics-and-groupings">
-   Variables, topics and groupings
+   Variables, topics, and groupings
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -564,7 +564,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables-topics-and-groupings">
-   Variables, topics and groupings
+   Variables, topics, and groupings
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -640,7 +640,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="walkthrough-visualisation-for-data-exploration">
-<span id="section3-5"></span><h1>3.5 Walkthrough: visualisation for data exploration<a class="headerlink" href="#walkthrough-visualisation-for-data-exploration" title="Permalink to this headline">¶</a></h1>
+<h1>3.5 Walkthrough: visualisation for data exploration<a class="headerlink" href="#walkthrough-visualisation-for-data-exploration" title="Permalink to this headline">¶</a></h1>
 <p>In this last section we are going dig back into our EQLTS survey dataset and use some of the data visualisation tools we covered in the previous sections to better understand our dataset.</p>
 <p>A reminder of our Research question:</p>
 <blockquote>
@@ -945,8 +945,8 @@ The study uses the following variables:</p>
 </div>
 </div>
 <div class="section" id="variables-topics-and-groupings">
-<h2>Variables, topics and groupings<a class="headerlink" href="#variables-topics-and-groupings" title="Permalink to this headline">¶</a></h2>
-<p>We have a large number of variables (196) with coded names. We need to use the <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to understand what each of these columns mean.</p>
+<h2>Variables, topics, and groupings<a class="headerlink" href="#variables-topics-and-groupings" title="Permalink to this headline">¶</a></h2>
+<p>We have many variables (196) with coded names. We need to use the <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to understand what each of these columns mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;mrdoc/excel/eqls_api_map.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
@@ -1090,7 +1090,7 @@ The study uses the following variables:</p>
 <div class="section" id="notes-from-the-user-guide">
 <h3>Notes from the <a class="reference external" href="http://doc.ukdataservice.ac.uk/doc/7724/mrdoc/pdf/7724_eqls_2007-2011_user_guide_v2.pdf">User Guide</a><a class="headerlink" href="#notes-from-the-user-guide" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Variables are grouped into primary and secondary topics (e.g. Education - Higher and further).</p></li>
+<li><p>Variables are grouped into primary and secondary topics (e.g., Education - Higher and further).</p></li>
 <li><p>Variables are <em>also</em> grouped into variable groupings which differ slightly from the topics.</p></li>
 <li><p>The topics are an attempt to succinctly describe the semantic domain of each variable. The variable groupings are slightly overlapping with these topics (e.g Health crops up twice), but also includes indicators such as ‘Derived Variables’, which clearly is a technical grouping rather than a topic.</p></li>
 <li><p>Derived variables “group numeric responses of other related variables or to collapse groupings of related categorical variables into fewer categories”. The derived variables are potentially useful, since they aim to:</p>
@@ -1100,9 +1100,9 @@ The study uses the following variables:</p>
 <li><p>ensure confidentiality and anonymity of personal information and all respondents</p></li>
 </ul>
 </li>
-<li><p>The derived variables are not necessarily the most important questions, they simply occur when the are many related questions that can be aggregated.</p></li>
+<li><p>The derived variables are not necessarily the most important questions, they simply occur when there are many related questions which can be aggregated.</p></li>
 </ul>
-<p>Let’s take a look a the grouping os variables and how many questions are in each group.</p>
+<p>Let’s take a look at the grouping of variables and how many questions are in each group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all Groups</span>
@@ -1164,8 +1164,8 @@ The study uses the following variables:</p>
 <img alt="../../_images/3.5-DataVisForExploration_15_1.png" src="../../_images/3.5-DataVisForExploration_15_1.png" />
 </div>
 </div>
-<p>As expected there is not a 1:1 mapping between these two categories, and we only have a subset of topics covered by our derived variables.</p>
-<p>If we revisit the table above with some consideration we can sensibly group the derived variable topics as follows.</p>
+<p>As expected there is not a 1:1 mapping between these two categories, and we only have a subset of topics covered by our derived variables.
+If we revisit the table above with some consideration we can sensibly group the derived variable topics as follows.</p>
 <ul class="simple">
 <li><p>Material</p>
 <ul>
@@ -1183,6 +1183,7 @@ The study uses the following variables:</p>
 <ul>
 <li><p>Social stratification and groupings - General</p></li>
 <li><p>Society and culture - Social attitudes and beh…</p></li>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -1190,7 +1191,7 @@ The study uses the following variables:</p>
 <div class="section" id="material-variables">
 <h4>Material Variables<a class="headerlink" href="#material-variables" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code>:  <code class="docutils literal notranslate"><span class="pre">Y11_Q59a</span></code> to <code class="docutils literal notranslate"><span class="pre">Y11_Q59f</span></code> ask the question ‘Can house afford it if you want it?’, with six examples (home heating, holiday, replacing goods, good food, new clothes, hosting friends). The responses are categorical <code class="docutils literal notranslate"><span class="pre">1</span></code> (YES) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (NO). The <code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code> is a count of the number of yes responses.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code>:  <code class="docutils literal notranslate"><span class="pre">Y11_Q59a</span></code> to <code class="docutils literal notranslate"><span class="pre">Y11_Q59f</span></code> ask ‘Can house afford it if you want it?’, with six examples (home heating, holiday, replacing goods, good food, new clothes, hosting friends). The responses are categorical <code class="docutils literal notranslate"><span class="pre">1</span></code> (YES) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (NO). The <code class="docutils literal notranslate"><span class="pre">Y11_Deprindex</span></code> is a count of the number of yes responses.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Y11_RuralUrban</span></code>: This variable simply condenses a previous question from four categories into two categories - <code class="docutils literal notranslate"><span class="pre">1</span></code> (rural) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (urban).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Y11_Accommproblems</span></code>: <code class="docutils literal notranslate"><span class="pre">Y11_Q19a</span></code> - <code class="docutils literal notranslate"><span class="pre">Y11_Q19f</span></code> asks a <code class="docutils literal notranslate"><span class="pre">1</span></code> (YES) or <code class="docutils literal notranslate"><span class="pre">2</span></code> (NO) question about accommodation problems, with six examples. This variable is a count.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Y11_HHsize</span></code>: Household size including children (overlaps with social). Ranges from 1-4 where 4 is 4 or more.</p></li>
@@ -1398,7 +1399,7 @@ The study uses the following variables:</p>
 </div>
 <div class="section" id="exploring-different-countries">
 <h2>Exploring different countries<a class="headerlink" href="#exploring-different-countries" title="Permalink to this headline">¶</a></h2>
-<p>Our data contains 35 different european countries. Let’s take a look at the differences of some of our variables of interest for the different countries in the data.</p>
+<p>Our data contains 35 different European countries. Let’s take a look at the differences of some of our variables of interest for the different countries in the data.</p>
 <p>First we need to map the country code values to their name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1473,7 +1474,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_23_0.png" src="../../_images/3.5-DataVisForExploration_23_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_21_0.png" src="../../_images/3.5-DataVisForExploration_21_0.png" />
 </div>
 </div>
 <p>In the figures above we can observe a large variability between the variables of interest for our study. Taking this into consideration, and for simplicity of the model we are going to build in Module 4 in the rest of this section we will focus only in one country, the UK.</p>
@@ -1714,7 +1715,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2880x2880 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_27_1.png" src="../../_images/3.5-DataVisForExploration_27_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_25_1.png" src="../../_images/3.5-DataVisForExploration_25_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Percentage of missing values
 SRH                     0.000444
 DeprIndex               0.062611
@@ -1766,19 +1767,19 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2880x2880 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_30_1.png" src="../../_images/3.5-DataVisForExploration_30_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_28_1.png" src="../../_images/3.5-DataVisForExploration_28_1.png" />
 </div>
 </div>
 <div class="section" id="dealing-with-missingness">
 <h3>Dealing with Missingness<a class="headerlink" href="#dealing-with-missingness" title="Permalink to this headline">¶</a></h3>
 <p>In the figure above we can see that only about 40% of respondents filled out the working hours for the first job. Given the large amount of missing data for this variable is probably best to not use it.</p>
 <p>Similarly, about 24% of people do not have an estimated <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code>. Perhaps these are also unemployed? We could impute, but even sophisticated imputation methods (such as drawing from a distribution specified by the existing values) will introduce randomness (unwanted noise) into the relationships across variables. We could calculate the covariance matrix of the existing data and use that to impute. But similarly that will artificially enhance existing relationships and mean that you are more prone to overfitting.</p>
-<p>If we decide to drop the rows with missing data we need to carefully balance any increase of noise by imputation to the loss of statistics of dropping these rows. Furthermore, a research data scientist on this project should try to work with domain experts to uncover if there were any systemic reasons why some entries were missing and therefore by dropping rows we are removing a sub-population from the dataset.</p>
+<p>If we decide to drop the rows with missing data we need to carefully balance any increase of noise by imputation to the loss of statistics of dropping these rows. Furthermore, a research data scientist on this project should try to work with domain experts to uncover if there were any systemic reasons why some entries were missing and therefore by dropping rows we are removing a subpopulation from the dataset.</p>
 <blockquote>
-<div><p>For example, is it the people that do not have jobs that don’t have incomes? Or perhaps jobless respondents are classed as the first quartile income and it is something else? This should be done before any imputation methods are considered so that we could assess the extent to which the imputation method is distorting both the distribution of the <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> predictor <em>and</em> the joint distribution of <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> and the other variables.</p>
+<div><p>For example, is it the people that do not have jobs that don’t have incomes? Or perhaps jobless respondents are classed as the first quartile income, and it is something else? This should be done before any imputation methods are considered so that we could assess the extent to which the imputation method is distorting both the distribution of the <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> predictor <em>and</em> the joint distribution of <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> and the other variables.</p>
 </div></blockquote>
 <p>In terms of the the missingness jargon mentioned above (MCAR, MAR, MNAR) the only place where is safe to either drop or blindly impute is when data is missing completely at random in a small scale. And this is almost <strong>never</strong> the case.</p>
-<p>As we are lacking some of this information for this example and a a sceptic of adding data just to make your regression work we only select the data where <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> exists if I was to assess <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> as a variable.</p>
+<p>As we are lacking some of this information for this example and a sceptic of adding data just to make your regression work we only select the data where <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> exists if I was to assess <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> as a variable.</p>
 <p>Let’s compare <code class="docutils literal notranslate"><span class="pre">IncomeQuartiles</span></code> to <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>. They both speak to finances and <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> could be used as a replacement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1808,8 +1809,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_32_0.png" src="../../_images/3.5-DataVisForExploration_32_0.png" />
-<img alt="../../_images/3.5-DataVisForExploration_32_1.png" src="../../_images/3.5-DataVisForExploration_32_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_30_0.png" src="../../_images/3.5-DataVisForExploration_30_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_30_1.png" src="../../_images/3.5-DataVisForExploration_30_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 IncomeQuartiles  DeprIndex
 IncomeQuartiles         1.000000  -0.441867
 DeprIndex              -0.441867   1.000000
@@ -1857,7 +1858,7 @@ Percentage excluded: 11.900532859680284%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_38_0.png" src="../../_images/3.5-DataVisForExploration_38_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_36_0.png" src="../../_images/3.5-DataVisForExploration_36_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               ChronicHealth       SRH
 ChronicHealth       1.000000 -0.607767
 SRH                -0.607767  1.000000
@@ -1878,16 +1879,16 @@ SRH                -0.607767  1.000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_40_0.png" src="../../_images/3.5-DataVisForExploration_40_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_38_0.png" src="../../_images/3.5-DataVisForExploration_38_0.png" />
 </div>
 </div>
-<p>As most our variables are ranks or categories, the plot matrix above might not be the best to visualise the relationships between variables. In this case is better to look at the rank correlations. Still, we take these with a pinch of salt because some of the variables are categorical rather than ordinal/numeric so the rank has little meaning (e.g. RuralUrban).</p>
+<p>As most our variables are ranks or categories, the plot matrix above might not be the best to visualise the relationships between variables. In this case is better to look at the rank correlations. Still, we take these with a pinch of salt because some variables are categorical rather than ordinal/numeric so the rank has little meaning (e.g. RuralUrban).</p>
 <p>Some initial observations on the below correlation matrix:</p>
 <ul class="simple">
 <li><p>Age correlates with a few variables. Especially SRH + Children</p></li>
 <li><p>Lots of variables correlate with SRH.</p></li>
 <li><p>DeprIndex, MentalWellbeing Index and Social Exclusion Index all correlate with one another.</p></li>
-<li><p>DeprIndex correlates with quite a few varialbes (SRH, AccomProblems, Education).</p></li>
+<li><p>DeprIndex correlates with quite a few variables (SRH, AccomProblems, Education).</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1901,7 +1902,7 @@ SRH                -0.607767  1.000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_43_0.png" src="../../_images/3.5-DataVisForExploration_43_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_41_0.png" src="../../_images/3.5-DataVisForExploration_41_0.png" />
 </div>
 </div>
 <p>Next we can go through each loose grouping of <em>material</em>, <em>occupational</em> and <em>psychosocial</em> to assess the suitability of variables to include in our model.</p>
@@ -1934,7 +1935,7 @@ HouseholdSize   0.007266    0.024762       0.144886       1.000000  0.177397
 Children        0.059037    0.004160      -0.014654       0.177397  1.000000
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_45_1.png" src="../../_images/3.5-DataVisForExploration_45_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_43_1.png" src="../../_images/3.5-DataVisForExploration_43_1.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">HouseholdSize</span></code> does not appear to monotonically increase with <code class="docutils literal notranslate"><span class="pre">Children</span></code>. Probably the mediation here is <code class="docutils literal notranslate"><span class="pre">Age</span></code>. One can live alone but have five children who each have their own households.</p>
@@ -1961,14 +1962,14 @@ DeprIndex
 6.0             30.0   15.0   6.0   3.0  2.0  NaN  NaN
 </pre></div>
 </div>
-<img alt="../../_images/3.5-DataVisForExploration_47_1.png" src="../../_images/3.5-DataVisForExploration_47_1.png" />
+<img alt="../../_images/3.5-DataVisForExploration_45_1.png" src="../../_images/3.5-DataVisForExploration_45_1.png" />
 </div>
 </div>
 <p>There is a bias for zero accommodation problems but as deprivation increases the amount of accommodation problems tends to increase.</p>
 </div>
 <div class="section" id="self-reported-health-for-the-uk">
 <h3>Self reported health for the UK<a class="headerlink" href="#self-reported-health-for-the-uk" title="Permalink to this headline">¶</a></h3>
-<p>One thing we haven’t done so far is have a look at the full SRH distribution for the UK.</p>
+<p>One thing we haven’t done so far is look at the full SRH distribution for the UK.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -1979,7 +1980,7 @@ DeprIndex
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3.5-DataVisForExploration_50_0.png" src="../../_images/3.5-DataVisForExploration_50_0.png" />
+<img alt="../../_images/3.5-DataVisForExploration_48_0.png" src="../../_images/3.5-DataVisForExploration_48_0.png" />
 </div>
 </div>
 <p>You can see that in the UK dataset, as with the global dataset, most of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> responses were zero (right graph above). In the left panel we have SRH. The responses here are:</p>

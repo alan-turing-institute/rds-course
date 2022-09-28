@@ -646,7 +646,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2910/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2872/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&#39;seaborn&#39;)
 </pre></div>
 </div>
@@ -1152,7 +1152,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <div class="section" id="size">
 <h3>Size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
 <p>It is also common to use <strong>size</strong> as an additional dimension.</p>
-<p>Since size always has direction you risk implying a false order if you use it for for categorical variables. You should therefore only use size for a continuous scale.</p>
+<p>Since size always has direction you risk implying a false order if you use it for categorical variables. You should therefore only use size for a continuous scale.</p>
 <p>In the figure entitled <code class="docutils literal notranslate"><span class="pre">Cases</span> <span class="pre">vs</span> <span class="pre">GDP</span></code> we use size to indicate total deaths. By doing this we can begin assessing countries that did comparatively well in managing high case numbers (countries that are high up the y-axis but have a small size).</p>
 <p>Let’s pause a moment. There is quite a lot to consider in this plot. We are asking quite a lot of the reader. Reflect on what we want to investigate - do richer countries deal better with cases, and how is this spread across the world?</p>
 <p>Sometimes it is worth reconsidering your axes to bring clarity to your message. In order of information importance it should be:</p>
@@ -1166,7 +1166,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <p class="sidebar-title"></p>
 <div class="caution dropdown admonition">
 <p class="admonition-title">Overplotting</p>
-<p><strong>Overplotting</strong>. Do not underestimate the difficulty of intepreting visualisations. Here we use multiple scales for demonstration purposes, but in practice these figures are a little cluttered and unintuitive. One would think of ways of reducing the complexity of the figure. In this example, an ordered bar or dot chart (see <em>Section 3.3</em>) plotting the ratio of <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span> <span class="pre">/</span> <span class="pre">total_deaths_per_million</span></code> would be a cleaner graph.</p>
+<p><strong>Overplotting</strong>. Do not underestimate the difficulty of interpreting visualisations. Here we use multiple scales for demonstration purposes, but in practice these figures are a little cluttered and unintuitive. One would think of ways of reducing the complexity of the figure. In this example, an ordered bar or dot chart (see <em>Section 3.3</em>) plotting the ratio of <code class="docutils literal notranslate"><span class="pre">total_cases_per_million</span> <span class="pre">/</span> <span class="pre">total_deaths_per_million</span></code> would be a cleaner graph.</p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1224,11 +1224,18 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 <div class="section" id="colour-schemes">
 <h3>Colour schemes<a class="headerlink" href="#colour-schemes" title="Permalink to this headline">¶</a></h3>
-<p>There are many well-researched palettes to choose from. For example <a class="reference external" href="https://colorbrewer2.org/">Color Brewer</a> have useful palettes that are distinct in black and white and also some that are colour blindsafe. These are already included within a wide variety of other colourmaps in <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a> (see also Stefan van de Walt’s and Nathanial Smith’s Scipy2015 <a class="reference external" href="https://bids.github.io/colormap/">talk</a>), and therefore also <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">seaborn</a>. When choosing a colour map think of whether your data is:</p>
+<p>There are many well-researched palettes to choose from. For example <a class="reference external" href="https://colorbrewer2.org/">ColorBrewer</a> have useful palettes that are distinct in
+black and white and also some that are colour blind safe. These are already
+included within a wide variety of other colour maps in
+<a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a> (see
+also Stefan van de Walt’s and Nathanial Smith’s Scipy2015
+<a class="reference external" href="https://bids.github.io/colormap/">talk</a>), and therefore also
+<a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">seaborn</a>. When
+choosing a colour map think of whether your data is:</p>
 <ul class="simple">
 <li><p>Sequential (<a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#perceptually-uniform-palettes">perceptually uniform palettes</a> are often best here to avoid different parts of the scale popping out)</p></li>
 <li><p>Diverging</p></li>
-<li><p>Qualitative/Categorical</p></li>
+<li><p>Qualitative/Categorical.</p></li>
 </ul>
 <p>A good overview of the key considerations when picking a colour is giving in the seaborn tutorial of <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">choosing a colour palette</a>.</p>
 <p>If you want to select your own colours that complement one another, useful resources are the <a class="reference external" href="https://xkcd.com/color/rgb/">xkcd colour survey</a>, and the <a class="reference external" href="https://www.sessions.edu/color-calculator/">colour Calculator</a>.</p>
@@ -1236,7 +1243,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 </div>
 <div class="section" id="colour-to-highlight">
 <h3>Colour to highlight<a class="headerlink" href="#colour-to-highlight" title="Permalink to this headline">¶</a></h3>
-<p>In addition to using colour as a categorical or continuous measure, you can also use colour as a tool to bring the readers attention to those areas that you are interested in. For example, if we were interested only in the UK and surrounding countries, we could grey all the other countries out (e.g. see Andy Kirk’s blog about the <a class="reference external" href="https://www.visualisingdata.com/2015/01/make-grey-best-friend/">benefits of using grey</a>).</p>
+<p>In addition to using colour as a categorical or continuous measure, you can also use colour as a tool to bring the readers’ attention to those areas that you are interested in. For example, if we were interested only in the UK and surrounding countries, we could grey all the other countries out (e.g., see Andy Kirk’s blog about the <a class="reference external" href="https://www.visualisingdata.com/2015/01/make-grey-best-friend/">benefits of using grey</a>).</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -1380,7 +1387,7 @@ That is, if <span class="math notranslate nohighlight">\(x = e^y\)</span> then <
 <p>A powerful tool is aggregation. Aggregation involves applying calculations on your data set in order to collapse your data to a representative variable (for example, an average).</p>
 <p>One should always take care when aggregating. There is a balance between reducing data information too far and miscommunication trends on one hand, and not reducing data enough and overloading the reader on the other.</p>
 <p>A common form of aggregation is <strong>histograms</strong>, which we cover in the <a class="reference internal" href="3.3-Atlas0fVisualisations.html"><span class="doc std std-doc">next section</span></a>.</p>
-<p>Below we show case numbers in the England. The moving average can provide a balance between reduction and complexity, dependent on the window in which you average over.</p>
+<p>Below we showcase numbers in the England. The moving average can provide a balance between reduction and complexity, dependent on the window in which you average over.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">windows</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
