@@ -1,8 +1,0 @@
-{
-    "editor.fontSize": 20,
-    "editor.rulers": {},
-    "editor.renderLineHighlight": "line",
-    "workbench.colorCustomizations": {
-        "editor.lineHighlightBorder": "#fff"
-    }
-}
