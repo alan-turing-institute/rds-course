@@ -1,7 +1,6 @@
 # Welcome!
 
-Welcome to an **Introduction to Research Data Science**, developed by
-developed by [The Alan Turing Institute's](https://www.turing.ac.uk/) 
+Welcome to an **Introduction to Research Data Science**, developed by [The Alan Turing Institute's](https://www.turing.ac.uk/) 
 [Research Engineering Group](https://www.turing.ac.uk/research-engineering).
 
 
