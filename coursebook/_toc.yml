@@ -35,7 +35,7 @@ parts:
       - file: modules/m2/2.1.4-DataSourcesAndFormats
       - file: modules/m2/2.1.5-ControllingAccess
     # cleaning and wrangling
-    - file: modules/m2/2.2-ExploringWrangling
+    - file: modules/m2/2.2-DataWrangling
       sections:
       - file: modules/m2/2.2.1-DataConsistency
       - file: modules/m2/2.2.2-ModifyingColumnsAndIndices
