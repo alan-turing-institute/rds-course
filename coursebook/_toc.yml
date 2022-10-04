@@ -66,8 +66,8 @@ parts:
     - file: modules/m4/overview
     - file: modules/m4/4.1-WhatAndWhy
     - file: modules/m4/4.2-ModelFitting
-    - file: modules/m4/4.3_ModelBuilding
-    - file: modules/m4/4.4_ModelEvaluation
+    - file: modules/m4/4.3-ModelBuilding
+    - file: modules/m4/4.4-ModelEvaluation
     - file: modules/m4/hands-on
   - caption: "Appendix"
     chapters:
