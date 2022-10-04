@@ -29,7 +29,7 @@ Some tips on **how to use this course**:
 
 - You will get a lot out of simply reading the online course book. However, the course is built by executable jupyter notebooks that you can run yourself, and we encourage learners to try the hands-on sections where we tackle a real research data science problem. Visit the [Setting Up](./modules/appendix/A.2-SettingUp.ipynb) page to setup your computer to follow along.
 
-- There are some benefits to reading the course chronologically. The same dataset is used on all hands-on sessions and the latter parts of Module 4. However, much of the material is self-contained and can be consumed independently. 
+- There are some benefits to reading the course chronologically. The same dataset is used throughout the modules, especially on the hands-on sessions. However, much of the material is self-contained and can be consumed independently. 
 
 
 - If you are a self-learner and have questions, see how you can contact an instructor or other students in the [Contact us](./modules/appendix/A.3-ContactUs.ipynb) page.
