@@ -1,34 +1,42 @@
-# Welcome to The Alan Turing Institute's Introduction to Research Data Science course
+# Welcome!
 
-This Research Data Science online training course was 
+Welcome to an **Introduction to Research Data Science**, developed by
 developed by [The Alan Turing Institute's](https://www.turing.ac.uk/) 
 [Research Engineering Group](https://www.turing.ac.uk/research-engineering).
 
-The course consists of four modules, each involving a half-day taught session and a half-day hands-on session. The material can be used for synchronous online attendance or asynchronous study.
 
-## Summary
+## Introduction
 
 Data science methods and tools have become commonplace in research projects across academia, government and industry. Researchers increasingly need to collaborate with multi-disciplinary teams of data scientists, software engineers and other stakeholders.
 
-This course is designed for researchers interested in understanding and using data science methods in their work. The course will help learners move beyond data science principles, to learn how to tackle real, complex and sometimes vaguely defined research data science projects. They will learn how to do this in a collaborative environment, with an emphasis on practical techniques and technologies and with an overarching awareness of ethics and diversity issues. This is an intensive, hands-on course, informed by REG’s experience with research data science projects and aiming to bring learners in touch with day-to-day research data science practices.
+The goal of this course is to introduce how you can use data science principles to tackle real, complex, and sometimes vaguely defined research data science projects. The course is not a handbook of data science methods. Rather, the focus is how to begin using these methods on collaborative research projects, with an emphasis an awareness of ethics and diversity issues.
 
-The course consists of:
-- Taught modules that will introduce learners to key concepts, methodology and ways of solving problems.
-- Hands-on modules where learners will work in teams to tackle a real research data science problem, including scoping it, discussing it from an equality, diversity and inclusion (EDI) point of view and coding collaboratively to produce a data science solution.
 
-This course complements the Turing’s Research Software Engineering with Python course (found [here](https://alan-turing-institute.github.io/rsd-engineeringcourse/)).
+## Who? 
 
-## Key objectives and learning outcomes
-The main objectives of the course are the following:
-- Teach attendees how to use research data science (RDS) methods in an interdisciplinary research environment.
-- Move beyond core principles and methdology, towards a hands-on, practical understanding, focused on collaboration, reproducibility and openness.
-- Provide exposure to a real-world RDS project and demonstrate the decision-making process used to choose the right method and tools for each setting and in each project step.
-- Embed data ethics, diversity and inclusion awareness into the learners’ approach to all stages of an RDS project, providing multiple examples.
+**We are** a group of data scientists and software engineers that work on a wide range of research problems.
 
-The learning outcomes are the following:
-- Attendees will understand fundamental RDS methods (e.g., data wrangling, visualisation, exploration, modeling) and know when/how to apply them to their research in order to draw data-driven insights or create data-driven tools.
-- Attendees will be familiar with the stages of a collaborative RDS project, from scoping and data exploration to visualisation and modeling and will become aware of the challenges of tackling real-world problems.
-- Attendees will be able to recognise power imbalances, bias and diversity issues in their technical work and in their ways of working with others and challenge them.
+**You are** someone interested in learning about, or using, data science methods in research. To completely follow along with the course some basic programming is needed, see [Pre-requisites](#prerequisites) for more information.
+
+
+
+## Course materials
+
+This free and open course is primarily the jupyter book you're reading. You can work through the material by yourself. See the [Syllabus](#syllabus).
+
+
+Some tips on **how to use this course**:
+
+- You will get a lot out of simply reading the online course book. However, the course is built by executable jupyter notebooks that you can run yourself, and we encourage learners to try the hands-on sections where we tackle a real research data science problem. Visit the [Setting Up]() page to setup your computer to follow along.
+
+- There are some benefits to reading the course chronologically. The same dataset is used on all hands-on sessions and the latter parts of Module 4. However, much of the material is self-contained and can be consumed independently. 
+
+
+- If you are a self-learner and have questions, see how you can contact an instructor or other students in the [Contact us]() page.
+
+
+- There is also a synchronous, taught, version of the course, where modules are spread over a half-day taught session and a half-day hands-on session. 
+
 
 ## Syllabus
 
@@ -79,10 +87,17 @@ Hands-on session:
 
 
 ## Prerequisites
-Participants are expected to:
-- Be comfortable with basic Python, either through working on a project or through attending a training course. Indicatively, they should be comfortable with the concepts covered in the “Introduction to Python” module from the Turing’s Research Software Engineering with Python course. The Programming with Python Software Carpentry also covers some of these concepts. Familiarity with Matplotlib, NumPy and Pandas is beneficial but not required.
-- Have some basic knowledge of Git (setting up repositories, commits) through using it in projects or by attending training, e.g. the Software Carpentry’s Version Control with Git (Sections 1 to 4 and 7 to 9).
-- Have read the first two sections of the Turing Way’s Guide for Collaboration (“Getting Started in GitHub” and “Maintainers and Reviewers in GitHub”).
+
+There is no code in Module 1. Students will get more out of Modules 2-4 if they:
+
+- Are comfortable with basic Python, as presented in:
+  - The [Introduction to Python](https://alan-turing-institute.github.io/rse-course/html/module01_introduction_to_python/index.html) module from the Turing's Research Software Engineering.
+  - Software Carpentry's [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/).
+- Have some basic knowledge of using Git for version control, for example the Software Carpentry’s [Version Control with Git](https://swcarpentry.github.io/git-novice/) (Sections 1 to 4 and 7 to 9).
+- Have basic knowledge of using Github for collaboration. See the first two sections of the Turing Way’s Guide for Collaboration ([Getting Started in GitHub](https://the-turing-way.netlify.app/collaboration/github-novice.html) and [Maintainers and Reviewers in GitHub](https://the-turing-way.netlify.app/collaboration/maintain-review.html)).
+
+
+This course complements the [Turing’s Research Software Engineering with Python](https://alan-turing-institute.github.io/rse-course/) course.
 
 
 ## Acknowledgement
