@@ -16,7 +16,7 @@ The goal of this course is to introduce how you can use data science principles 
 
 **We are** a group of data scientists and software engineers that work on a wide range of research problems.
 
-**You are** someone interested in learning about, or using, data science methods in research. To completely follow along with the course some basic programming is needed, see [Pre-requisites](#prerequisites) for more information.
+**You are** someone interested in learning about, or using, data science methods in research. To completely follow along with the course some basic programming is needed, see [Prerequisites](#prerequisites) for more information.
 
 
 
@@ -27,12 +27,12 @@ This free and open course is primarily the jupyter book you're reading. You can 
 
 Some tips on **how to use this course**:
 
-- You will get a lot out of simply reading the online course book. However, the course is built by executable jupyter notebooks that you can run yourself, and we encourage learners to try the hands-on sections where we tackle a real research data science problem. Visit the [Setting Up]() page to setup your computer to follow along.
+- You will get a lot out of simply reading the online course book. However, the course is built by executable jupyter notebooks that you can run yourself, and we encourage learners to try the hands-on sections where we tackle a real research data science problem. Visit the [Setting Up](./modules/appendix/A.2-SettingUp.ipynb) page to setup your computer to follow along.
 
 - There are some benefits to reading the course chronologically. The same dataset is used on all hands-on sessions and the latter parts of Module 4. However, much of the material is self-contained and can be consumed independently. 
 
 
-- If you are a self-learner and have questions, see how you can contact an instructor or other students in the [Contact us]() page.
+- If you are a self-learner and have questions, see how you can contact an instructor or other students in the [Contact us](./modules/appendix/A.3-ContactUs.ipynb) page.
 
 
 - There is also a synchronous, taught, version of the course, where modules are spread over a half-day taught session and a half-day hands-on session. 
