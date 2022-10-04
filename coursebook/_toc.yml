@@ -68,5 +68,10 @@ parts:
     - file: modules/m4/4.2_Fitting_Models
     - file: modules/m4/4.3_Building_simple_model
     - file: modules/m4/4.4_Evaluating_a_model
-    - file: modules/m4/hands-on    
+    - file: modules/m4/hands-on
+  - caption: "Appendix"
+    chapters:
+    - file: modules/appendix/A.1-Glossary
+    - file: modules/appendix/A.2-SettingUp
+    - file: modules/appendix/A.3-ContactUs
 
