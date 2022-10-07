@@ -551,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="building-a-simple-model">
 <span id="section4-3"></span><h1>4.3 Building a simple model<a class="headerlink" href="#building-a-simple-model" title="Permalink to this headline">¶</a></h1>
-<p>In this section we will use what we’ve learned in <a class="reference internal" href="4.1_What_and_Why.html#section4-1"><span class="std std-ref"><em>Section 4.1</em></span></a> and <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> to begin modelling the EQLS dataset.</p>
+<p>In this section we will use what we’ve learned in <a class="reference internal" href="4.1_What_and_Why.html#section4-1"><span class="std std-ref"><em>Section 4.1</em></span></a> and <a class="reference internal" href="4.2_Fitting_Models.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> to begin modelling the EQLS (European Quality of Life Time Series) dataset.</p>
 <div class="section" id="recap">
 <h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
 <p>In <span class="xref myst"><em>Section 3.5</em></span> we selected some interesting variables and looked at some of the relationships - in particular, in our <em>material</em> variables <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code>. We also visualised the distribution of the Deprivation Index (<code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>) for different categories of the self-reported Health (<code class="docutils literal notranslate"><span class="pre">SRH</span></code>) and found that there was an obvious relationship between these variables. Furthermore, following previous research done on the topic (and also for simplicity), we decided to binarise our variable of interest <code class="docutils literal notranslate"><span class="pre">SRH</span></code> in two categories of <code class="docutils literal notranslate"><span class="pre">Fair</span></code> and <code class="docutils literal notranslate"><span class="pre">Poor</span></code> health.</p>
@@ -643,17 +643,19 @@ This should give you <code class="docutils literal notranslate"><span class="pre
 <div class="math notranslate nohighlight">
 \[ odds(x) = \frac{p(x)}{1 - p(x)} \]</div>
 <p>Let’s have a simple example. Say you have a bag of 5 balls, with 4 red and 1 blue. The probability of drawing a red ball is <span class="math notranslate nohighlight">\(\frac{4}{5}\)</span>, and the probability of drawing a blue ball is <span class="math notranslate nohighlight">\(\frac{1}{5}\)</span>. The probability of drawing a blue ball is the same as the probability of <em>not drawing a red ball</em>, which is <span class="math notranslate nohighlight">\(1-P(red) = 1-\frac{4}{5} = \frac{1}{5}\)</span>.</p>
-<p>Now, the odds of drawing a red ball is related but not identical to the probability of drawing of a red ball. Instead, it is a measure of how likely drawing a red ball is <em>in comparison to</em> not drawing a red ball. In our simple example we can see the difference. There are four times as many red balls as blue, so you are four times as likely to draw one. The probability, in contrast, is 80%.</p>
+<p>Now, the <em>odds</em> of drawing a red ball is related but not identical to the <em>probability</em> of drawing of a red ball. Instead, it is a measure of how likely drawing a red ball is <em>in comparison to</em> not drawing a red ball. In our simple example we can see the difference. There are four times as many red balls as blue, so you are four times as likely to draw one. The probability, in contrast, is 80%.</p>
 <p>So:</p>
 <div class="math notranslate nohighlight">
-\[ odds(red) = \frac{P(red)}{1-P(red} = \frac{\frac{4}{5}}{1-\frac{4}{5}} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4 \]</div>
+\[ odds(red) = \frac{P(red)}{1-P(red)} = \frac{\frac{4}{5}}{1-\frac{4}{5}} = \frac{\frac{4}{5}}{\frac{1}{5}} = 4 \]</div>
 <p><strong>Why do we use log(odds)?</strong></p>
 <p>The left side of the figure below shows the odds of a binary outcome with different probabilities for p(x). You can see that as <span class="math notranslate nohighlight">\(p(x)\)</span> becomes closer to 1, <span class="math notranslate nohighlight">\(1-p(x)\)</span> becomes infinitesimal, so the odds tend towards infinitely large.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.99</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create sample space</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.99</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">odds</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
 
+<span class="c1"># evaluate the odds at each point and plot them</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">odds</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">odds</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="p">)</span>
@@ -671,7 +673,8 @@ This should give you <code class="docutils literal notranslate"><span class="pre
 As shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluate and plot the log odds </span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ax_marg_x</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
@@ -728,7 +731,7 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 <img alt="../../_images/4.3_Building_simple_model_18_0.png" src="../../_images/4.3_Building_simple_model_18_0.png" />
 </div>
 </div>
-<p>Notice that the mode is zero in both cases, but there is a much higher proportion of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scores in [3-6] when SRH = 0 compared to when SRH = 1. From this we already know that as <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> decreases we may expect that the odds of SRH_binary=1 will <em>increase</em>.</p>
+<p>Notice that the mode is zero in both cases, but there is a much higher proportion of <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> scores in [3-6] when SRH = 0 (poor health) compared to when SRH = 1 (good health). From this we already know that as <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> decreases we may expect that the odds of SRH_binary=1 will <em>increase</em>.</p>
 <p>Let’s now fit our model to the data using <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -737,8 +740,10 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 <span class="n">data</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]</span>
 
 <span class="c1"># Intercept is not added by default in Statsmodels, we need to add a constant (and array of 1s) for intercept</span>
-<span class="n">X_atr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> 
-<span class="c1">#Create model instance</span>
+<span class="n">X_atr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Create model instance</span>
+<span class="c1"># Use a pre-written logistic function</span>
 <span class="n">logit_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_atr</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
 
@@ -798,9 +803,7 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df_model</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;DeprIndex&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;SRH_binary&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;SRH&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-                        
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                     
 </pre></div>
 </div>
 </div>
@@ -861,8 +864,8 @@ $<span class="math notranslate nohighlight">\( logit(p(x)) = intercept + \beta_1
 Dep. Variable:                      y   No. Observations:                 2004
 Model:                          Logit   Df Residuals:                     2002
 Method:                           MLE   Df Model:                            1
-Date:                Sun, 21 Nov 2021   Pseudo R-squ.:                 0.06533
-Time:                        18:14:45   Log-Likelihood:                -652.09
+Date:                Fri, 07 Oct 2022   Pseudo R-squ.:                 0.06533
+Time:                        11:38:52   Log-Likelihood:                -652.09
 converged:                       True   LL-Null:                       -697.67
 Covariance Type:            nonrobust   LLR p-value:                 1.324e-21
 ==============================================================================
@@ -903,8 +906,6 @@ DeprIndex     -0.3520      0.036     -9.815      0.000      -0.422      -0.282
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mf">.6</span><span class="p">),</span><span class="mi">6</span><span class="p">,</span><span class="mf">.4</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Decision Boundary is at: </span><span class="si">{</span><span class="o">-</span><span class="n">intercept</span> <span class="o">/</span><span class="n">coef1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1031,8 +1032,8 @@ DeprIndex     -0.3520      0.036     -9.815      0.000      -0.422      -0.282
 Dep. Variable:                      y   No. Observations:                 2004
 Model:                          Logit   Df Residuals:                     2001
 Method:                           MLE   Df Model:                            2
-Date:                Sun, 21 Nov 2021   Pseudo R-squ.:                 0.09585
-Time:                        18:14:46   Log-Likelihood:                -630.80
+Date:                Fri, 07 Oct 2022   Pseudo R-squ.:                 0.09585
+Time:                        11:38:52   Log-Likelihood:                -630.80
 converged:                       True   LL-Null:                       -697.67
 Covariance Type:            nonrobust   LLR p-value:                 9.048e-30
 ===============================================================================
@@ -1127,6 +1128,9 @@ DeprIndex      -0.3952      0.037    -10.646      0.000      -0.468      -0.322
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.3_Building_simple_model_46_0.png" src="../../_images/4.3_Building_simple_model_46_0.png" />
 </div>
 </div>
 </div>

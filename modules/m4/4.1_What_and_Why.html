@@ -603,9 +603,7 @@ different.</p>
 <p>Measurement, or observation, provides a set of data. Data are <em>related</em> to the underlying phenomenon, but have been contorted by sampling bias (intrinsic variability will mean that each sample will be different) and measurement uncertainty.</p>
 <p>Together, the phenomenon and method of observation make up the <strong>data generating process</strong>.</p>
 <p>Mapping out the data generating process over the space of all possible events gives rise to what we call a <strong>distribution</strong> (more on this later). Understanding how a data generating process is distributed across members of the population of interest is a key goal of statistical modeling.</p>
-<div class="figure align-default" id="dataprocess">
-<a class="reference internal image-reference" href="../../_images/4.1_1.svg"><img alt="../../_images/4.1_1.svg" height="150px" src="../../_images/4.1_1.svg" /></a>
-</div>
+<p><img alt="data process" src="../../_images/fig_data_process.png" /></p>
 </div>
 <div class="section" id="what-is-probability">
 <h2>What is Probability?<a class="headerlink" href="#what-is-probability" title="Permalink to this headline">¶</a></h2>
@@ -647,7 +645,8 @@ different.</p>
 <p>A <em>distribution</em> is how the probability of a variable is spread across the event space. Distributions are used as useful approximations of data generating processes.</p>
 <p>In our simple example <span class="math notranslate nohighlight">\(x = chocolate\)</span> and <span class="math notranslate nohighlight">\(P(x) = 0.7\)</span>. So, <span class="math notranslate nohighlight">\(P(not x) = 0.3\)</span>. There are two events in the probability space, they are both assigned a non-zero probability that adds up to one. We can therefore capture the entire distribution with the probability vector <span class="math notranslate nohighlight">\([x, notx]=[0.7,0.3]\)</span>.</p>
 <p>Observe that with this particular distribution we can control the distribution by changing <span class="math notranslate nohighlight">\(P(x)\)</span>, since <span class="math notranslate nohighlight">\(P(notx)=1-P(x)\)</span>. If we change <span class="math notranslate nohighlight">\(P(x)\)</span> to 0.2, we expect the number of customers choosing chocolate to decrease, and the number of customers not choosing chocolate to increase, meaning that the probability vector will be <span class="math notranslate nohighlight">\([0.2,0.8]\)</span>.</p>
-<p>So, we can specify the entire distribution by changing one value, <span class="math notranslate nohighlight">\(P(x)\)</span>. This is an example of a <em>parameterised distribution</em>. Parameters govern probability distributions. A parameter is a mathematical value that, if altered, changes the expected behaviour of a process.</p>
+<p>So, we can specify the entire distribution by changing one value, <span class="math notranslate nohighlight">\(P(x)\)</span>. This is an example of a <em>parameterised distribution</em>. Parameters govern probability distributions.
+A parameter is a mathematical value that, if altered, changes the expected behaviour of a process.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-p-x-and-p-x admonition">
@@ -656,7 +655,7 @@ different.</p>
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(P(x)\)</span> is the key parameter in the <strong>Bernoulli</strong> distribution, which is the distribution of a <strong>random variable</strong> that can only take two values, <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, with the <span class="math notranslate nohighlight">\(1\)</span> signifying the presence of <span class="math notranslate nohighlight">\(x\)</span>. We can <strong>sample</strong> individual observations from this distribution to give us a set of data.</p>
-<p>In our example chocolate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
+<p>In our example chocolate choosers with appear as <span class="math notranslate nohighlight">\(1\)</span>s, and strawberry choosers as <span class="math notranslate nohighlight">\(0\)</span>s. If we sample 15 customers from a Bernoulli distribution with <span class="math notranslate nohighlight">\(P(x)=0.7\)</span> we get a string of customers that choose mostly chocolate, but also a few strawberry choosers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
@@ -707,7 +706,7 @@ different.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_6_0.png" src="../../_images/4.1_What_and_Why_6_0.png" />
+<img alt="../../_images/4.1_What_and_Why_4_0.png" src="../../_images/4.1_What_and_Why_4_0.png" />
 </div>
 </div>
 </div>
@@ -719,19 +718,29 @@ different.</p>
 <li><p>Even at larger samples the sample mean varies around the true probability (which is never known in practice).</p></li>
 </ul>
 <p>As statisticians, we know the nature of this variation. There is a rather remarkable statistical property of sampling called the <strong>Central Limit Theorem</strong>, which states when sample sizes are large enough the <em>sampling distribution of the mean</em> will be normally distributed (a bell curve). Crucially this holds even if the data is not normally distributed (as in our case).</p>
+<p>Consider the case of a fair coin toss shown below.
+The coin is tossed a certain number of times in this case 5, 20, 50 or 100 and each experiment is repeated 10,000 times. The plots below show the result of the coin toss as the fraction of tosses that result in heads on the x axis; ranging from 0 (all tails) to 1 (all heads) and, on the y axis, the number of times that result was produced from the 10,000 experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mf">.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">p</span><span class="o">=</span><span class="mf">.5</span>
 <span class="n">sample_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sampling distribution of the mean&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">):</span>
     <span class="n">sampling_dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)]</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample Size=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -739,7 +748,7 @@ different.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_8_0.png" src="../../_images/4.1_What_and_Why_8_0.png" />
+<img alt="../../_images/4.1_What_and_Why_6_0.png" src="../../_images/4.1_What_and_Why_6_0.png" />
 </div>
 </div>
 <p>The intuition behind the Central Limit Theorem is twofold:</p>
@@ -748,35 +757,7 @@ different.</p>
 <li><p>There are more ways of making the average than any other number.</p></li>
 </ul>
 <p>For example, take the leftmost plot. Here we have flipped a coin five times. There are 10 ways of getting 60% heads, and 10 ways of getting 40% heads, but only 1 way of getting all heads.</p>
-<p>The numbers of ways something can happen is mathematically captured in probability:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span> <span class="k">as</span> <span class="n">bcoeff</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="mf">.5</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ways</span> <span class="o">=</span> <span class="p">[</span><span class="n">bcoeff</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">noutcomes</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">noutcomes</span><span class="p">,</span><span class="n">ways</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Ways&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Count (y = 1)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">noutcomes</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Count (y = 1)&#39;</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4.1_What_and_Why_10_0.png" src="../../_images/4.1_What_and_Why_10_0.png" />
-</div>
-</div>
+<p>The number of ways something can happen is mathematically captured in probability:</p>
 </div>
 <div class="section" id="statistical-learning">
 <h2>Statistical Learning<a class="headerlink" href="#statistical-learning" title="Permalink to this headline">¶</a></h2>
@@ -788,23 +769,21 @@ different.</p>
 <p>In most real situations, <strong>neither the generative model nor the parameters are known</strong>, and we will need to estimate them using the data we have collected. Statistical modelling works from the data upwards to figure out a model that might plausibly explain the data.</p>
 <p>Once we have learned a suitable model for our data, we can make inferences about the underlying phenomena using our knowledge of statistical sampling. We can also make predictions about new data.</p>
 <p>Collecting new data will allow us to test our predictions and revise our model, and the scientific cycle continues.</p>
-<div class="figure align-default" id="modelprocess">
-<a class="reference internal image-reference" href="../../_images/4.1_2.svg"><img alt="../../_images/4.1_2.svg" height="150px" src="../../_images/4.1_2.svg" /></a>
-</div>
+<p><img alt="generative model" src="../../_images/fig_generative_model.png" /></p>
 <p>In this section we have learned the theoretical building blocks of modelling. In the next section we will peek inside a model and learn how a model represents data.</p>
 <div class="section" id="references-and-further-reading">
 <h3>References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h3>
 <p><strong>Probability</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://seeing-theory.brown.edu/basic-probability/index.html">Basic probability visualisations</a></p></li>
-<li><p><a class="reference external" href="https://seeing-theory.brown.edu/basic-probability/index.html">Conditional Probability animation</a></p></li>
-<li><p><a class="reference external" href="https://seeing-theory.brown.edu/basic-probability/index.html">Confidence Intervals Animation</a></p></li>
-<li><p><a class="reference external" href="https://web.stanford.edu/group/poldracklab/statsthinking21/probability.html#what-do-probabilities-mean">Poldrack Statistical Thinking Probability Chapter</a></p></li>
+<li><p><a class="reference external" href="https://seeing-theory.brown.edu/compound-probability/index.html#section3">Conditional Probability animation</a></p></li>
+<li><p><a class="reference external" href="https://seeing-theory.brown.edu/frequentist-inference/index.html">Confidence Intervals Animation</a></p></li>
+<li><p><a class="reference external" href="https://statsthinking21.github.io/statsthinking21-core-site/probability.html#what-do-probabilities-mean">Poldrack Statistical Thinking Probability Chapter</a></p></li>
 </ul>
 <p><strong>Modelling</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/modeling_and_inference.html#11_the_observational_process">Betancourt blog on Modelling and Inference</a></p></li>
-<li><p><a class="reference external" href="https://web.stanford.edu/group/poldracklab/statsthinking21/fitting-models-to-data.html#what-is-a-model">Statistical Thinking Chapter ‘What is a model’</a></p></li>
+<li><p><a class="reference external" href="https://statsthinking21.github.io/statsthinking21-core-site/fitting-models.html#what-is-a-model">Statistical Thinking Chapter ‘What is a model’</a></p></li>
 <li><p><a class="reference external" href="https://web.stanford.edu/class/bios221/book/Chap-Generative.html">Modern Statistics for Modern Biology Chapter 1 - Generative Models for Discrete Data</a></p></li>
 <li><p><a class="reference external" href="https://xcelab.net/rmpubs/sr2/statisticalrethinking2_chapters1and2.pdf">McElreath Statistical Rethinking Chapters 1 &amp; 2</a></p></li>
 </ul>
