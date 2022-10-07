@@ -99,5 +99,15 @@ There is no code in Module 1. Students will get more out of Modules 2-4 if they:
 This course complements the [Turing’s Research Software Engineering with Python](https://alan-turing-institute.github.io/rse-course/) course.
 
 
+## Disclaimer
+The work and materials here are developed by a group of \[research\] data
+scientists and software engineers from a diverse background. Many of the topics,
+examples and discussed work here is biased against our own experiences. As such,
+our definitions and understandings of certain words, phrases, or methodologies used
+may differ from others'. We do not claim to be a definitive authority, and
+welcome open discussion and feedback.
+
+
 ## Acknowledgement
 This work was supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/W006022/1 & The Alan Turing Institute.
+
