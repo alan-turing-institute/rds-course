@@ -13,7 +13,7 @@ execute:
   - '3.5-*'
   - '4.3-*'
   - '4.4-*'
-  - '*.hands-on*'
+  - '*hands-on*'
  
 exclude_patterns: [
   '*README.md'
