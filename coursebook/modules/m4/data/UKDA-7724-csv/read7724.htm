@@ -1,0 +1,159 @@
+<!-- Handler="ReadmeFileHandler.cs" -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>read7724</title>
+	<meta  http-equiv="Pragma" content="no-cache" />
+	<meta  http-equiv="Expires" content="-1" />
+
+	
+	<script type="text/JavaScript">
+
+		function toggleDiv(which) {
+
+			NS4 = (document.layers) ? true : false;
+			if (NS4){
+				document.layers["SPSS"].visibility = "show";
+			} else{
+				if (!document.getElementById)
+					return
+					if (which.style.display=="none"){
+						which.style.display=""
+
+					}else{
+						which.style.display="none"
+					}
+				}
+		}
+		
+	</script>
+</head>
+
+<body style="font: normal normal normal x-small verdana; color:#191970;">
+
+<h2 style="font: normal normal bold medium verdana;color:#191970;">UK  DATA  ARCHIVE:  IMPORTANT  STUDY  INFORMATION</h2>
+<div align="justify">
+<h3 style="font: normal normal bold small verdana;color:#191970;margin-top:10;margin-bottom:10">Study Number 7724 - European Quality of Life Time Series, 2007 and 2011: Open Access</h3>
+
+<br />
+
+
+
+										
+<h3 style="font: normal normal bold small verdana;color:#191970;margin-top:10;margin-bottom:10">DATA PROCESSING NOTES</h3>
+<br />
+<b>Data Archive Processing Standards</b>
+
+<p/>The data were processed to the UK Data Archive's A* standard. This is the 
+Archive's highest standard, and means that an extremely rigorous and 
+comprehensive series of checks was carried out to ensure the quality of the data 
+and documentation. Firstly, checks were made that the number of cases and 
+variables matched the depositor's records. Secondly, checks were made that all 
+variables had comprehensible variable labels and all nominal (categorical) 
+variables had comprehensible value labels. Where possible, either with reference 
+to the documentation and/or in communication with the depositor, labels were 
+accordingly edited or created. Thirdly, logical checks were performed to ensure 
+that nominal (categorical) variables had values within the range defined (either 
+by value labels or in the depositor's documentation). Lastly, any data or 
+documentation that breached confidentiality rules were altered or suppressed to 
+preserve anonymity. 
+
+<p/>All notable and/or outstanding problems discovered are detailed under the 'Data 
+and documentation problems' heading below. 
+
+
+
+
+
+
+
+
+<br /><br /><b>Data and documentation problems</b>
+<p/>None encountered. 
+
+
+
+<br /><br /><b>Data conversion information</b>
+
+
+<p/>From January 2003 onwards, almost all data conversions have been performed using software developed by the UK Data Archive. This enables standardisation of the conversion methods and ensures optimal data quality. In addition to its own data processing/conversion code, this software uses the SPSS and StatTransfer command processors to perform certain format translations. Although data conversion is automated, all data files are also subject to visual inspection by a member of the Archive's Data Services team.
+<p/>With some format conversions, data, and more especially internal metadata (i.e. variable labels, value labels, missing value definitions, data type information), will inevitably be lost or truncated owing to the differential limits of the proprietary formats. A UK Data Archive Data Dictionary file (generally in Rich Text Format (RTF)) is usually provided for each data file, enabling viewing and searching of the internal metadata as it existed in the originating format. These 
+files are called:
+
+[data file name]_UKDA_Data_Dictionary.rtf
+
+<br /><br /><b>Important information about the data format supplied</b>
+
+<p/>The links below provide important information about the Archive's data
+supply formats. Some of this information is specific to the <i>ingest 
+	format</i> of the data, i.e. the format in which the Archive received the data
+	from the depositor. The ingest format for this study was
+SPSS
+<br /><br />
+Please follow the appropriate link below to see information on your chosen supply (download)
+format.
+<br /><br />
+<p/><a href="javascript:toggleDiv(document.getElementById('SPSS'))">SPSS (*.sav)</a>
+<div id="SPSS" style="CURSOR: hand;display:none">
+	<p/><b>SPSS files (*.sav files)</b>
+	<br />If SPSS was not the ingest format, this format will generally either have been created via the SPSS command processor (e.g. if the ingest format is STATA, SAS, Excel, or dBase). If the ingest format was non-delimited or fixed-width text, SPSS files will have been created using SPSS command syntax. 
+	<p/>Issues: There is very seldom any loss of data or internal metadata when importing data files into SPSS. Any problems will have been listed above in the Data and Documentation Problems section of this file.<p/>
+</div>
+
+<a href="javascript:toggleDiv(document.getElementById('STATA'))">STATA (*.dta)</a>
+<div id="STATA" style="CURSOR: hand;display:none">
+	<p/><b>STATA (*.dta files)</b>
+	<br />If STATA was not the ingest format, STATA files will generally have been created from SPSS via the StatTransfer command processor. Importantly, StatTransfer's optimisation routine is run so that variables with SPSS write formats narrower than the data (e.g. numeric variables with 10 decimal places of data formatted to FX.2) are not rounded upon conversion to STATA because they are converted to 'doubles ' rather than floats. Discrete user missing values are copied across into STATA (as opposed to being collapsed into a single system missing code).
+	<p/>Issues: There are a number of data and metadata handling mismatches between SPSS 
+		and STATA. Where any data or internal metadata has been lost or truncated, it will be logged in the study's SPSS_to_STATA_conversion RTF file.  
+		Note that the complete internal metadata has been supplied in the UKDA Data 
+		Dictionary file(s): [data file name]_UKDA_Data_Dictionary.rtf
+</div>
+
+<br /><a href="javascript:toggleDiv(document.getElementById('Tab'))">Tab-delimited text (*.tab)</a>
+<div id="Tab" style="CURSOR: hand;display:none">
+<p/><b>Tab-delimited text (*.tab files)</b>
+	<br />If tab-delimited text was not the ingest format, tab-delimited files will have been created from via the SPSS command processor, and also from Excel and MS Access files. When exporting from Access data tables to tab-delimited text, the potentially problematic special characters (tabs, carriage returns, line feeds, etc.) allowed by Access memo and text fields may have been removed by the Archive if necessary.
+
+	<p/>Issues: Date formats in SPSS are always exported to mm/dd/yyyy in tab-delimited text format. There may be a mismatch with the documentation on such variables. Variables that include both date and time such as dd-mm-yyyy hh:mm:ss (e.g. 18-JUN-2011 13:28:00), will lose the time information and become mm/dd/yyyy. All users of the data in tab-delimited format should consult the UK Data Archive Data Dictionary RTF file(s).
+
+	<p/>If the data was exported from MS Access, more limited 'data documenter' information is generally available in the RTF variable information files. These files may also contain SQL setup information. 
+</div>
+
+
+<br /><a href="javascript:toggleDiv(document.getElementById('Excel'))">MS Excel (*.xls/*.xslx)</a>
+<div id="Excel" style="CURSOR: hand;display:none">
+<p/><b>MS Excel (*.xls/*xslx files)</b>
+	<br />If MS Excel was not the ingest format, Excel files may have been created via StatTransfer. The date and time issues noted under tab-delimited format may also apply here. 
+</div>
+
+<br /><a href="javascript:toggleDiv(document.getElementById('SAS'))">SAS (*.sas7bdat and *.sas)</a>
+<div id="SAS" style="CURSOR: hand;display:none">
+<p/><b>SAS (*.sas7bdat and *sas files)</b>
+	<p/>If SAS was not the ingest format, SAS files will usually have been created via StatTransfer or SPSS.  SAS is not one of the Archive's standard supply formats, and the files are likely to have been created in response to a user request. The usual format is *.sas7bdat files plus a .sas proc formats file. Note that the complete internal metadata has been supplied in the accompanying UK Data Archive Data Dictionary file(s).
+<%--
+	<p/>Issues: The main loss of information when converting from SPSS to SAS is 
+		user-missing value definitions. By editing the .sas file, the user can choose 
+		whether to collapse all user-missing values into system missing or preserve 
+		the value and lose the user-missing definition. To achieve the latter the 
+		following section of the .sas file should be removed before running it: 
+
+	<p/>/* User Missing Value Specifications */
+
+	<p/>Note that the complete internal metadata has been supplied in the UKDA Data 
+		Dictionary file(s): [data file name]_UKDA_Data_Dictionary.rtf
+--%></div>
+
+<br /><a href="javascript:toggleDiv(document.getElementById('Access'))">MS Access (*.mdb/*.mdbx)</a>
+<div id="Access" style="CURSOR: hand;display:none">
+</p><b>MS Access (*.mdb/*.mdbx files)</b>
+	<p/>Due to substantial incompatibilities between versions of MS Access, the Archive will only make data available in MS Access format if this is the ingest format and/or the database contains important information in addition to the data tables (coding information, forms, queries, etc.).
+</div>
+
+
+<br /><br /><b>Conversion of documentation formats</b> 
+<p/>The documentation supplied with Archive studies is usually converted to Adobe Portable Document Format (PDF), with documents bookmarked to aid navigation. The vast majority of PDF files are generated from MS Word, RTF, Excel or plain text (.txt) source files, though PDF documentation for older studies in the collection may have been created from scanned paper documents. Occasionally, some documentation cannot be usefully converted to PDF (e.g. MS Excel files with wide worksheets) and this is usually supplied in the original or a more appropriate format.
+</div>
+</body>
+
+</html>

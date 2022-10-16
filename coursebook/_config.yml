@@ -11,9 +11,9 @@ execute:
   execute_notebooks: force
   exclude_patterns:
   - '3.5-*'
-  - '4.3_*'
-  - '4.4_*'
-  - '2-hands-on*'
+  - '4.3-*'
+  - '4.4-*'
+  - '*hands-on*'
  
 exclude_patterns: [
   '*README.md'

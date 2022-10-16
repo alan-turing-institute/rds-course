@@ -1,0 +1,13 @@
+FILEPATH,FILENAME,SIZE UNZIPPED (BYTES),FILE DESCRIPTION
+UKDA-7724-csv\7724_file_information_csv.csv,7724_file_information_csv.csv,1764,File manifest for all files in zip bundle 7724csv_<md5sum>.zip
+UKDA-7724-csv\read7724.htm,read7724.htm,9923,READ File (legal notes and data processing notes)
+UKDA-7724-csv\mrdoc\allissue\eqls_2007_ukda_data_dictionary.rtf,eqls_2007_ukda_data_dictionary.rtf,701888,EQLS 2007 Wave Data Dictionary and variable description for collection in RTF format
+UKDA-7724-csv\mrdoc\allissue\eqls_2011_ukda_data_dictionary.rtf,eqls_2011_ukda_data_dictionary.rtf,701888,EQLS 2011 Wave Data Dictionary and variable description for collection in RTF format
+UKDA-7724-csv\mrdoc\allissue\eqls_2007and2011_ukda_data_dictionary.rtf,eqls_2007and2011_ukda_data_dictionary.rtf,701888,EQLS 2007 and 2011 Waves Combined Data Dictionary and variable description for collection in RTF format
+UKDA-7724-csv\mrdoc\csv\eqls_api_map.csv,eqls_api_map.csv,42623,EQLS 2007 and 2011 API to Variable Mappings
+UKDA-7724-csv\mrdoc\excel\eqls_concordance_grid.xlsx,eqls_concordance_grid.xlsx,44440,EQLS 2007 and 2011 Variable and Value mappings
+UKDA-7724-csv\mrdoc\pdf\7724_eqls_userguide.pdf,7724_eqls_userguide.pdf,932557,User guide for study 7724 in PDF format
+UKDA-7724-csv\mrdoc\UKDA\UKDA_Study_7724_Information.htm,UKDA_Study_7724_Information.htm,6020,Study metadata (based on DDI codebook) in HTML format
+UKDA-7724-csv\csv\eqls_2007.csv,eqls_2007.csv,16089615,EQLS 2007 Wave Data File in CSV format
+UKDA-7724-csv\csv\eqls_2011.csv,eqls_2011.csv,23556114,EQLS 2011 Wave Data File in CSV format
+UKDA-7724-csv\csv\eqls_2007and2011.csv,eqls_2007and2011.csv,39643426,EQLS 2007 and 2011 Waves Combined Data File in CSV format
