@@ -1,0 +1,2262 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.1 Data Consistency &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2.2 Modifying Columns and Indices" href="2.2.2-ModifyingColumnsAndIndices.html" />
+    <link rel="prev" title="2.2 Data Wrangling" href="2.2-DataWrangling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.1-WhatIsDataScience.html">
+   1.1 What is [research] data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.2-DataScienceProjectLifecycle.html">
+   1.2 Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.3-EDIForDataScience.html">
+   1.3 Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.4-CollaborationAndReproducibility.html">
+   1.4 Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Module 1: Hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="2.1-GettingLoading.html">
+   2.1 Getting and Loading Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.1-WhereToFindData.html">
+     2.1.1 Where to find data?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.2-LegalityAndEthics.html">
+     2.1.2 Legality and Ethics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.3-PandasIntro.html">
+     2.1.3 Pandas intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.4-DataSourcesAndFormats.html">
+     2.1.4 Data Sources and Formats
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.1.5-ControllingAccess.html">
+     2.1.5 Controlling access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="2.2-DataWrangling.html">
+   2.2 Data Wrangling
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2.1 Data Consistency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.2.2-ModifyingColumnsAndIndices.html">
+     2.2.2 Modifying Columns and Indices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.2.3-FeatureEngineering.html">
+     2.2.3 Feature Engineering
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="2.2.4-DataManipulation.html">
+     2.2.4 Data Manipulation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2.2.4.1-TimeAndDateData.html">
+       2.2.4.1 Time and Date Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2.2.4.2-TextData.html">
+       2.2.4.2 Text data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2.2.4.3-CategoricalData.html">
+       2.2.4.3 Categorical Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="2.2.4.4-ImageData.html">
+       2.2.4.4 Image Data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.2.5-PrivacyAndAnonymisation.html">
+     2.2.5 Privacy and Anonymisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.2.6-LinkingDatasets.html">
+     2.2.6 Linking Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2.2.7-MissingData.html">
+     2.2.7 Missing Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Module 2: Hands-on session
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on-complete.html">
+   Module 2: Hands-on session (Solutions)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   3.1 Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   3.2 Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   3.3 Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   3.4 Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   3.5 Walkthrough: visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Module 3 hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.1-WhatAndWhy.html">
+   4.1 The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.2-ModelFitting.html">
+   4.2 Fitting (Regression) Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.3-ModelBuilding.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/4.4-ModelEvaluation.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m4/hands-on.html">
+   Module 4 hands-on session
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m2/2.2.1-DataConsistency.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m2/2.2.1-DataConsistency.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2.2.1-DataConsistency.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domain-knowledge">
+   Domain Knowledge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#having-a-first-look-at-the-data">
+   Having a First Look at the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-values">
+   Null Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unexpected-column-types">
+   Unexpected Column Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sanity-checking-values">
+   Sanity Checking Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeric-columns">
+     Numeric Columns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-and-categorical-columns">
+     Text and Categorical Columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#duplicate-data">
+   Duplicate Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-data-frames-with-style">
+   Displaying Data Frames with Style 😎
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2.2.1 Data Consistency</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domain-knowledge">
+   Domain Knowledge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#having-a-first-look-at-the-data">
+   Having a First Look at the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-values">
+   Null Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unexpected-column-types">
+   Unexpected Column Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sanity-checking-values">
+   Sanity Checking Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeric-columns">
+     Numeric Columns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-and-categorical-columns">
+     Text and Categorical Columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#duplicate-data">
+   Duplicate Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-data-frames-with-style">
+   Displaying Data Frames with Style 😎
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-consistency">
+<h1>2.2.1 Data Consistency<a class="headerlink" href="#data-consistency" title="Permalink to this headline">¶</a></h1>
+<p>In <span class="xref myst">Section 2.1.4</span> we saw how to load data of different types into pandas. In this section we’ll look at first steps you can perform to look at the data, understand what it contains, and a few common issues that may come up with data consistency like missing or mis-interpreted values.</p>
+<div class="section" id="domain-knowledge">
+<h2>Domain Knowledge<a class="headerlink" href="#domain-knowledge" title="Permalink to this headline">¶</a></h2>
+<p>Before jumping into looking at and analysing the data you should check any information you’ve been given about it, so you know what to expect. In this section we’ll be using the Palmer penguins dataset, adapted from the version created by Allison Horst available <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">here (doi:10.5281/zenodo.3960218)</a>.</p>
+<p>We’ve made changes to the data to demonstrate the concepts we’re teaching, adding missing values and other common data issues. The (cleaner) original file is available <a class="reference external" href="https://github.com/allisonhorst/palmerpenguins/blob/master/inst/extdata/penguins.csv">here</a>.</p>
+<p>The dataset was originally collected and made available by <a class="reference external" href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr. Kristen Gorman</a> and the <a class="reference external" href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a class="reference external" href="https://lternet.edu/">Long Term Ecological Research Network</a>, and published in the <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">PLOS ONE journal (doi:10.1371/journal.pone.0090081)</a> in 2014 .</p>
+<p>It includes measurements of the bill size, flipper length and weight of three different species of penguin (Adélie, Chinstrap, Gentoo) on three different islands (Biscoe, Dream, Torgersen) in the Palmer Archipelago, Antarctica. The <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/">dataset homepage</a> contains more information about the columns and data types we expect. To reiterate, it’s always important to check the documentation and associated literature first.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><img alt="lter_penguins.png" src="../../_images/lter_penguins.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><em>Artwork by <a class="reference external" href="https://twitter.com/allison_horst">&#64;allison_horst</a>.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="having-a-first-look-at-the-data">
+<h2>Having a First Look at the Data<a class="headerlink" href="#having-a-first-look-at-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The dataset is saved in <code class="docutils literal notranslate"><span class="pre">data/penguins.csv</span></code> and we can load it with <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv"><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code></a>, as seen previously:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/penguins.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display the first few ten rows of the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P-179</td>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>47.8</td>
+      <td>15.0</td>
+      <td>215.0</td>
+      <td>5650.0</td>
+      <td>male</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P-306</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>40.9</td>
+      <td>16.6</td>
+      <td>187.0</td>
+      <td>3200.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P-247</td>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.8</td>
+      <td>15.7</td>
+      <td>226.0</td>
+      <td>5200.0</td>
+      <td>male</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P-120</td>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.2</td>
+      <td>17.2</td>
+      <td>187.0</td>
+      <td>3150.0</td>
+      <td>female</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P-220</td>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>43.5</td>
+      <td>14.2</td>
+      <td>220.0</td>
+      <td>4700.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>P-150</td>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>36.0</td>
+      <td>17.1</td>
+      <td>187.0</td>
+      <td>3700.0</td>
+      <td>female</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>P-348</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.4</td>
+      <td>18.1</td>
+      <td>193.0</td>
+      <td>285.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>P-091</td>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>41.1</td>
+      <td>18.1</td>
+      <td>205.0</td>
+      <td>4300.0</td>
+      <td>male</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>P-327</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>51.4</td>
+      <td>19.0</td>
+      <td>201.0</td>
+      <td>3950.0</td>
+      <td>male</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>P-221</td>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.7</td>
+      <td>15.0</td>
+      <td>223.0</td>
+      <td>5550.0</td>
+      <td>male</td>
+      <td>2008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We could also look at the last few rows of the data with <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code>, or a random sample of rows with <code class="docutils literal notranslate"><span class="pre">df.sample()</span></code>.</p>
+<p>To check the number of rows and columns we can use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(351, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our data has 351 rows and 9 columns. It might also be useful to look at the column names (especially for larger datasets with many columns where they may not all be displayed by <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Id&#39;, &#39;species&#39;, &#39;island&#39;, &#39;bill_length_mm&#39;, &#39;bill_depth_mm&#39;,
+       &#39;flipper_length_mm&#39;, &#39;body_mass_g&#39;, &#39;sex&#39;, &#39;year&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A useful command that summarises much of this information is <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 351 entries, 0 to 350
+Data columns (total 9 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   Id                 351 non-null    object 
+ 1   species            351 non-null    object 
+ 2   island             351 non-null    object 
+ 3   bill_length_mm     347 non-null    float64
+ 4   bill_depth_mm      349 non-null    object 
+ 5   flipper_length_mm  349 non-null    float64
+ 6   body_mass_g        349 non-null    float64
+ 7   sex                340 non-null    object 
+ 8   year               351 non-null    int64  
+dtypes: float64(3), int64(1), object(5)
+memory usage: 24.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>This gives us the number of rows (entries) and columns at the top, and then a table with the name, number of non-null values, and data type of each column. Finally, it gives the amount of memory the data frame is using. Pandas can use a lot of memory, which may cause problems when analysing large datasets. The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/scale.html">Scaling to large datasets</a> page in the Pandas documentation gives pointers for what you can try in that case.</p>
+</div>
+<div class="section" id="null-values">
+<h2>Null Values<a class="headerlink" href="#null-values" title="Permalink to this headline">¶</a></h2>
+<p>The data frame info shows we have 351 “non-null” values in the <code class="docutils literal notranslate"><span class="pre">Id</span></code>, <code class="docutils literal notranslate"><span class="pre">species</span></code>, <code class="docutils literal notranslate"><span class="pre">island</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> columns, but fewer in the other columns.</p>
+<p>“Null values” is Pandas’ way of describing data that is missing. Under the hood, these are encoded as NumPy’s NaN (not a number) constant (see <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan">here</a>), which has type <code class="docutils literal notranslate"><span class="pre">float64</span></code> so numeric columns with NaN values still have a numeric type and can have numeric operations applied to them.</p>
+<p>To find missing values in a column we can use the <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_missing</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_missing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+346    False
+347    False
+348    False
+349    False
+350    False
+Name: bill_length_mm, Length: 351, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>This returns a boolean series which is True if that row’s value is NaN, which can then be used to filter the data frame and show only the rows with missing data in the <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code> column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">is_missing</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>233</th>
+      <td>P-344</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>NaN</td>
+      <td>19.2</td>
+      <td>197.0</td>
+      <td>4000.0</td>
+      <td>male</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>286</th>
+      <td>P-003</td>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>307</th>
+      <td>P-271</td>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>P-345</td>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>18.0</td>
+      <td>193.0</td>
+      <td>43400.0</td>
+      <td>female</td>
+      <td>2009</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are many reasons data could be missing and how you choose to deal with them is an important part of any research project. We’ll revisit this later.</p>
+</div>
+<div class="section" id="unexpected-column-types">
+<h2>Unexpected Column Types<a class="headerlink" href="#unexpected-column-types" title="Permalink to this headline">¶</a></h2>
+<p>Looking at the first few rows of our data (the output of <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> above) it looks like we expect the <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code>, <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> columns to have a numeric type. Comparing with the output of <code class="docutils literal notranslate"><span class="pre">df.info()</span></code> above most of them do, having a <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (data type) of either <code class="docutils literal notranslate"><span class="pre">int64</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> column has a dtype of <code class="docutils literal notranslate"><span class="pre">object</span></code>, which usually means the column is being treated as strings/text data. This will generally  be because there is at least one row in the column that Pandas was not able to parse as a number. Common reasons this might happen include:</p>
+<ul class="simple">
+<li><p>Data entry errors and typos, for example “23/15” instead of “23.15”.</p></li>
+<li><p>Encoding of missing values: The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function checks for common string representations of missing values like “NA” or “NULL” and converts these to <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code> when loading the data. But many different conventions for missing data exist, such as more verbose representations like “UNKNOWN”, and Pandas will load these as strings by default. This can be customised with the <code class="docutils literal notranslate"><span class="pre">na_values</span></code> parameter of <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code></a>.</p></li>
+<li><p>Additional metadata incorrectly loaded into the data frame, such as CSV files with headers and footers (as seen in the <span class="xref myst">Data Sources &amp; Formats section</span> previously).</p></li>
+</ul>
+<p>To see what’s wrong with the <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> column we can try to convert it to a numeric type with the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_numeric.html"><code class="docutils literal notranslate"><span class="pre">pd.to_numeric</span></code></a> function:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx:2364,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Unable to parse string &quot;14,2&quot;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">])</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/core/tools/numeric.py:185,</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast)</span>
+<span class="nn">    183 coerce_numeric = errors not</span> in <span class="nt">(&quot;ignore&quot;, &quot;raise&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">185</span>     <span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>         <span class="n">values</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/_libs/lib.pyx:2406,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Unable to parse string &quot;14,2&quot; at position 142
+</pre></div>
+</div>
+</div>
+</div>
+<p>The error above tells us Pandas has encountered a value “14,2”, which it doesn’t know how to convert into a number. It also says the problem is at index 142, which we can access ourselves to check the value directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">142</span><span class="p">,</span> <span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;14,2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case it looks like a typo, the person entering the data probably meant to write <code class="docutils literal notranslate"><span class="pre">14.2</span></code>, but we should check this first. There may be information in the data documentation, or you could ask the data provider.</p>
+<p>Let’s say we’re confident it is a typo. We can fix it ourselves and then convert the column to a numeric type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the incorrectly typed number to its intended value</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">142</span><span class="p">,</span> <span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">14.2</span>
+<span class="c1"># convert the column to a numeric type</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 351 entries, 0 to 350
+Data columns (total 9 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   Id                 351 non-null    object 
+ 1   species            351 non-null    object 
+ 2   island             351 non-null    object 
+ 3   bill_length_mm     347 non-null    float64
+ 4   bill_depth_mm      349 non-null    float64
+ 5   flipper_length_mm  349 non-null    float64
+ 6   body_mass_g        349 non-null    float64
+ 7   sex                340 non-null    object 
+ 8   year               351 non-null    int64  
+dtypes: float64(4), int64(1), object(4)
+memory usage: 24.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> now has type <code class="docutils literal notranslate"><span class="pre">float64</span></code> as we originally expected.</p>
+<p>This was a simple example with just one strange value - we’ll see more approaches for handling and sanitising strings later.</p>
+</div>
+<div class="section" id="sanity-checking-values">
+<h2>Sanity Checking Values<a class="headerlink" href="#sanity-checking-values" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numeric-columns">
+<h3>Numeric Columns<a class="headerlink" href="#numeric-columns" title="Permalink to this headline">¶</a></h3>
+<p>The pandas <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function gives summary statistics for the numeric columns in our data (the mean, standard deviation, minimum and maximum value, and quartiles for each column):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>347.000000</td>
+      <td>349.000000</td>
+      <td>349.000000</td>
+      <td>349.000000</td>
+      <td>351.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>43.923055</td>
+      <td>17.152722</td>
+      <td>200.088825</td>
+      <td>4305.329513</td>
+      <td>2008.022792</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.491795</td>
+      <td>1.967049</td>
+      <td>21.320100</td>
+      <td>2256.300048</td>
+      <td>0.820832</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>32.100000</td>
+      <td>13.100000</td>
+      <td>-99.000000</td>
+      <td>285.000000</td>
+      <td>2007.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.200000</td>
+      <td>15.600000</td>
+      <td>190.000000</td>
+      <td>3550.000000</td>
+      <td>2007.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>44.500000</td>
+      <td>17.300000</td>
+      <td>197.000000</td>
+      <td>4050.000000</td>
+      <td>2008.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>48.500000</td>
+      <td>18.700000</td>
+      <td>213.000000</td>
+      <td>4775.000000</td>
+      <td>2009.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>59.600000</td>
+      <td>21.500000</td>
+      <td>231.000000</td>
+      <td>43400.000000</td>
+      <td>2009.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Even though <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code>, and several of the other columns, have missing (NaN) values, Pandas is able to compute statistics for that column. When calculating these Pandas will ignore all NaN values by default. To change this behaviour, some functions have a <code class="docutils literal notranslate"><span class="pre">skipna</span></code> argument, for example <code class="docutils literal notranslate"><span class="pre">df[&quot;bill_length_mm&quot;].mean(skipna=False)</span></code> will return NaN if there are <em>any</em> NaN values in the column.</p>
+<p>You should think carefully about which approach is more suitable for your data (for example, if a column only has a few non-null values will the mean be representative?)</p>
+<p>Looking at these values gives us a better idea of what our data contains, but also allows us to perform some sanity checks. For example, do the minimum and maximum values in each column make sense given what we know about the dataset?</p>
+<p>There are two things that might standout. First, the <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code> column has a minimum value of -99, but all the other values in the data are positive as we’d expect for measurements of lengths, widths and weights. In some datasets missing data is represented with negative values (but this may not always be the case so, as always, make sure to check what they mean in any data you’re using).</p>
+<p>If we’re sure <code class="docutils literal notranslate"><span class="pre">-99</span></code> is meant to be a missing value, we can replace those with <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code> so Pandas will treat them correctly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With these values replaced, the “actual” minimum value of <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code> is 172 mm:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second thing that may stand out is the minimum value of 285 grams in <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>, which looks far smaller than the other values (e.g., the 25% quartile of <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code> is only 3550g). Excluding the 285g value the next lightest penguin weighs 2700g:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># True for each row with body_mass_g greater than the min value of 285g</span>
+<span class="n">smaller_petals</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="c1"># Lowest penguin weight out of all rows with weights above 285g</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smaller_petals</span><span class="p">,</span> <span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2700.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another way to see this would be to sort the data frame by body mass using the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html"><code class="docutils literal notranslate"><span class="pre">sort_values</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>P-348</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.4</td>
+      <td>18.1</td>
+      <td>193.0</td>
+      <td>285.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>P-314</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>46.9</td>
+      <td>16.6</td>
+      <td>192.0</td>
+      <td>2700.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>P-058</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.5</td>
+      <td>16.6</td>
+      <td>181.0</td>
+      <td>2850.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>311</th>
+      <td>P-064</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>36.4</td>
+      <td>17.1</td>
+      <td>184.0</td>
+      <td>2850.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>349</th>
+      <td>P-098</td>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>33.1</td>
+      <td>16.1</td>
+      <td>178.0</td>
+      <td>2900.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>P-298</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>43.2</td>
+      <td>16.6</td>
+      <td>187.0</td>
+      <td>2900.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>P-116</td>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>38.6</td>
+      <td>17.0</td>
+      <td>188.0</td>
+      <td>2900.0</td>
+      <td>female</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>P-054</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>34.5</td>
+      <td>18.1</td>
+      <td>187.0</td>
+      <td>2900.0</td>
+      <td>female</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>P-104</td>
+      <td>Adelie</td>
+      <td>Biscoe</td>
+      <td>37.9</td>
+      <td>18.6</td>
+      <td>193.0</td>
+      <td>2925.0</td>
+      <td>female</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>P-047</td>
+      <td>Adelie</td>
+      <td>Dream</td>
+      <td>37.5</td>
+      <td>18.9</td>
+      <td>179.0</td>
+      <td>2975.0</td>
+      <td>NaN</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>By default <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> sorts values from smallest to largest, you can change that by setting <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code>.</p>
+<p>Again, we see the 2nd smallest value in the column is only 2700g. This could be another data entry error (perhaps the weight was meant to be 2850g rather than 285g), or perhaps that penguin is a chick and the rest are adults. This type of issue is much more nuanced and difficult to spot in real world scenarios. Visualizing the data (and distributions in the data) can be very helpful here, which is the focus of the next module.</p>
+</div>
+<div class="section" id="text-and-categorical-columns">
+<h3>Text and Categorical Columns<a class="headerlink" href="#text-and-categorical-columns" title="Permalink to this headline">¶</a></h3>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">species</span></code>, <code class="docutils literal notranslate"><span class="pre">island</span></code>, and <code class="docutils literal notranslate"><span class="pre">sex</span></code> columns do not appear when we use <code class="docutils literal notranslate"><span class="pre">describe()</span></code> above as they contain text. For both text and numeric columns, it can be helpful to know the number of unique values in each column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Id                   350
+species                4
+island                 3
+bill_length_mm       164
+bill_depth_mm         80
+flipper_length_mm     55
+body_mass_g           96
+sex                    2
+year                   3
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The measurement and <code class="docutils literal notranslate"><span class="pre">Id</span></code> columns have many unique values, whereas columns like <code class="docutils literal notranslate"><span class="pre">island</span></code> have only a few different unique values (categories).  Looking closely, the <code class="docutils literal notranslate"><span class="pre">species</span></code> column has four different values, but from the dataset documentation we only expect there to be three penguin species.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function, applied to the <code class="docutils literal notranslate"><span class="pre">species</span></code> column, shows the number of occurrences of the different values in that column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie       155
+Gentoo       125
+Chinstrap     70
+UNKNOWN        1
+Name: species, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The “Adélie”, “Chinstrap”, and “Gentoo” species described in the documentation all appear, but there’s also an “UNKNOWN” entry. This looks like it should have been treated as a missing value. To make Pandas correctly treat it as missing we can replace it with <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code> using the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html?highlight=replace#pandas.DataFrame.replace"><code class="docutils literal notranslate"><span class="pre">replace</span></code></a> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;UNKNOWN&quot;</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adelie       155
+Gentoo       125
+Chinstrap     70
+Name: species, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> will not display the number of missing values in the column. To show that you can use <code class="docutils literal notranslate"><span class="pre">df[&quot;species&quot;].value_counts(dropna=False)</span></code> instead. You can also try <code class="docutils literal notranslate"><span class="pre">df[&quot;species&quot;].value_counts(normalize=True)</span></code> to show the fraction of data with each value, rather than the count.</p>
+<p>We’ll look at more approaches for manipulating strings and categories in Sections <span class="xref myst">2.2.4.2</span> and <span class="xref myst">2.2.4.3</span> of this module.</p>
+<p>Finally, it may be interesting to look at how the measurements vary between the species. We can do that with the Pandas <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2613/2880954085.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+  df.groupby(&quot;species&quot;).mean()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>year</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>38.757516</td>
+      <td>18.335714</td>
+      <td>189.993464</td>
+      <td>3934.805195</td>
+      <td>2008.006452</td>
+    </tr>
+    <tr>
+      <th>Chinstrap</th>
+      <td>48.800000</td>
+      <td>18.424286</td>
+      <td>195.785714</td>
+      <td>3733.571429</td>
+      <td>2007.957143</td>
+    </tr>
+    <tr>
+      <th>Gentoo</th>
+      <td>47.486290</td>
+      <td>14.975806</td>
+      <td>217.241935</td>
+      <td>5080.241935</td>
+      <td>2008.072000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">df.groupby(&quot;species&quot;)</span></code> splits the date frame into sub-groups with the same value in the “species” column. We then must specify a function we want to use to summarize the members of each group, in this case the mean. It looks like, on average, “Chinstrap” penguins have the largest bills, but “Gentoo” penguins have the largest flippers and body mass. For more information about using <code class="docutils literal notranslate"><span class="pre">groupby</span></code> see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">here</a>.</p>
+</div>
+</div>
+<div class="section" id="duplicate-data">
+<h2>Duplicate Data<a class="headerlink" href="#duplicate-data" title="Permalink to this headline">¶</a></h2>
+<p>In the output of <code class="docutils literal notranslate"><span class="pre">df.unique()</span></code> above we see the <code class="docutils literal notranslate"><span class="pre">Id</span></code> column has 350 unique values, one fewer than the 351 rows in the dataset. We expect <code class="docutils literal notranslate"><span class="pre">Id</span></code> to be a unique identifier, so to have 351 unique values (1 for each row). What’s going on?</p>
+<p>One explanation could be that there are duplicate rows in the data. The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.duplicated.html"><code class="docutils literal notranslate"><span class="pre">duplicated</span></code></a> method of a data frame returns True for any rows that appear multiple times in the data (with an exact copy of all values):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+346    False
+347    False
+348    False
+349    False
+350    False
+Length: 351, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this to filter the data frame and show only the duplicated rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36</th>
+      <td>P-276</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>46.5</td>
+      <td>17.9</td>
+      <td>192.0</td>
+      <td>3500.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>P-276</td>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>46.5</td>
+      <td>17.9</td>
+      <td>192.0</td>
+      <td>3500.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> function only marks the second and subsequent instances of the same data as being duplicates. Setting <code class="docutils literal notranslate"><span class="pre">keep=False</span></code> marks the first instance as a duplicate as well.</p>
+<p>We see there are two entries for a penguin with id <code class="docutils literal notranslate"><span class="pre">P-276</span></code> in the data. Why might that be the case? It could be caused by a data entry/processing issue and be there by mistake, or be a genuine repeated measurement for this penguin, for example. It’s important to understand the context before taking any action.</p>
+<p>In some cases it may be appropriate to delete the duplicate data. This can be done with the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html?highlight=drop_duplicates#pandas.DataFrame.drop_duplicates"><code class="docutils literal notranslate"><span class="pre">drop_duplicates</span></code></a> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length before removing duplicates:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s2">&quot;rows&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length after removing duplicates:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s2">&quot;rows&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length before removing duplicates: 351 rows
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length after removing duplicates: 350 rows
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="displaying-data-frames-with-style">
+<h2>Displaying Data Frames with Style 😎<a class="headerlink" href="#displaying-data-frames-with-style" title="Permalink to this headline">¶</a></h2>
+<p>You can get fancy with how you display data frames by highlighting and formatting cells differently using its <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute. There are a few examples below, for more details see the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/style.html#Styler-Object-and-HTML">Table Visualization page in the Pandas documentation</a>.</p>
+<p>Change the precision with which numbers are displayed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_top10</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># just style the first 10 rows for demo purposes here</span>
+
+<span class="c1"># round values to nearest integer (0 decimal places)</span>
+<span class="n">df_top10</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_a4733">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_a4733_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_a4733_level0_col1" class="col_heading level0 col1" >species</th>
+      <th id="T_a4733_level0_col2" class="col_heading level0 col2" >island</th>
+      <th id="T_a4733_level0_col3" class="col_heading level0 col3" >bill_length_mm</th>
+      <th id="T_a4733_level0_col4" class="col_heading level0 col4" >bill_depth_mm</th>
+      <th id="T_a4733_level0_col5" class="col_heading level0 col5" >flipper_length_mm</th>
+      <th id="T_a4733_level0_col6" class="col_heading level0 col6" >body_mass_g</th>
+      <th id="T_a4733_level0_col7" class="col_heading level0 col7" >sex</th>
+      <th id="T_a4733_level0_col8" class="col_heading level0 col8" >year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a4733_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_a4733_row0_col0" class="data row0 col0" >P-179</td>
+      <td id="T_a4733_row0_col1" class="data row0 col1" >Gentoo</td>
+      <td id="T_a4733_row0_col2" class="data row0 col2" >Biscoe</td>
+      <td id="T_a4733_row0_col3" class="data row0 col3" >48</td>
+      <td id="T_a4733_row0_col4" class="data row0 col4" >15</td>
+      <td id="T_a4733_row0_col5" class="data row0 col5" >215</td>
+      <td id="T_a4733_row0_col6" class="data row0 col6" >5650</td>
+      <td id="T_a4733_row0_col7" class="data row0 col7" >male</td>
+      <td id="T_a4733_row0_col8" class="data row0 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_a4733_row1_col0" class="data row1 col0" >P-306</td>
+      <td id="T_a4733_row1_col1" class="data row1 col1" >Chinstrap</td>
+      <td id="T_a4733_row1_col2" class="data row1 col2" >Dream</td>
+      <td id="T_a4733_row1_col3" class="data row1 col3" >41</td>
+      <td id="T_a4733_row1_col4" class="data row1 col4" >17</td>
+      <td id="T_a4733_row1_col5" class="data row1 col5" >187</td>
+      <td id="T_a4733_row1_col6" class="data row1 col6" >3200</td>
+      <td id="T_a4733_row1_col7" class="data row1 col7" >female</td>
+      <td id="T_a4733_row1_col8" class="data row1 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_a4733_row2_col0" class="data row2 col0" >P-247</td>
+      <td id="T_a4733_row2_col1" class="data row2 col1" >Gentoo</td>
+      <td id="T_a4733_row2_col2" class="data row2 col2" >Biscoe</td>
+      <td id="T_a4733_row2_col3" class="data row2 col3" >51</td>
+      <td id="T_a4733_row2_col4" class="data row2 col4" >16</td>
+      <td id="T_a4733_row2_col5" class="data row2 col5" >226</td>
+      <td id="T_a4733_row2_col6" class="data row2 col6" >5200</td>
+      <td id="T_a4733_row2_col7" class="data row2 col7" >male</td>
+      <td id="T_a4733_row2_col8" class="data row2 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_a4733_row3_col0" class="data row3 col0" >P-120</td>
+      <td id="T_a4733_row3_col1" class="data row3 col1" >Adelie</td>
+      <td id="T_a4733_row3_col2" class="data row3 col2" >Torgersen</td>
+      <td id="T_a4733_row3_col3" class="data row3 col3" >36</td>
+      <td id="T_a4733_row3_col4" class="data row3 col4" >17</td>
+      <td id="T_a4733_row3_col5" class="data row3 col5" >187</td>
+      <td id="T_a4733_row3_col6" class="data row3 col6" >3150</td>
+      <td id="T_a4733_row3_col7" class="data row3 col7" >female</td>
+      <td id="T_a4733_row3_col8" class="data row3 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_a4733_row4_col0" class="data row4 col0" >P-220</td>
+      <td id="T_a4733_row4_col1" class="data row4 col1" >Gentoo</td>
+      <td id="T_a4733_row4_col2" class="data row4 col2" >Biscoe</td>
+      <td id="T_a4733_row4_col3" class="data row4 col3" >44</td>
+      <td id="T_a4733_row4_col4" class="data row4 col4" >14</td>
+      <td id="T_a4733_row4_col5" class="data row4 col5" >220</td>
+      <td id="T_a4733_row4_col6" class="data row4 col6" >4700</td>
+      <td id="T_a4733_row4_col7" class="data row4 col7" >female</td>
+      <td id="T_a4733_row4_col8" class="data row4 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_a4733_row5_col0" class="data row5 col0" >P-150</td>
+      <td id="T_a4733_row5_col1" class="data row5 col1" >Adelie</td>
+      <td id="T_a4733_row5_col2" class="data row5 col2" >Dream</td>
+      <td id="T_a4733_row5_col3" class="data row5 col3" >36</td>
+      <td id="T_a4733_row5_col4" class="data row5 col4" >17</td>
+      <td id="T_a4733_row5_col5" class="data row5 col5" >187</td>
+      <td id="T_a4733_row5_col6" class="data row5 col6" >3700</td>
+      <td id="T_a4733_row5_col7" class="data row5 col7" >female</td>
+      <td id="T_a4733_row5_col8" class="data row5 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_a4733_row6_col0" class="data row6 col0" >P-348</td>
+      <td id="T_a4733_row6_col1" class="data row6 col1" >Adelie</td>
+      <td id="T_a4733_row6_col2" class="data row6 col2" >Biscoe</td>
+      <td id="T_a4733_row6_col3" class="data row6 col3" >36</td>
+      <td id="T_a4733_row6_col4" class="data row6 col4" >18</td>
+      <td id="T_a4733_row6_col5" class="data row6 col5" >193</td>
+      <td id="T_a4733_row6_col6" class="data row6 col6" >285</td>
+      <td id="T_a4733_row6_col7" class="data row6 col7" >female</td>
+      <td id="T_a4733_row6_col8" class="data row6 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_a4733_row7_col0" class="data row7 col0" >P-091</td>
+      <td id="T_a4733_row7_col1" class="data row7 col1" >Adelie</td>
+      <td id="T_a4733_row7_col2" class="data row7 col2" >Dream</td>
+      <td id="T_a4733_row7_col3" class="data row7 col3" >41</td>
+      <td id="T_a4733_row7_col4" class="data row7 col4" >18</td>
+      <td id="T_a4733_row7_col5" class="data row7 col5" >205</td>
+      <td id="T_a4733_row7_col6" class="data row7 col6" >4300</td>
+      <td id="T_a4733_row7_col7" class="data row7 col7" >male</td>
+      <td id="T_a4733_row7_col8" class="data row7 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_a4733_row8_col0" class="data row8 col0" >P-327</td>
+      <td id="T_a4733_row8_col1" class="data row8 col1" >Chinstrap</td>
+      <td id="T_a4733_row8_col2" class="data row8 col2" >Dream</td>
+      <td id="T_a4733_row8_col3" class="data row8 col3" >51</td>
+      <td id="T_a4733_row8_col4" class="data row8 col4" >19</td>
+      <td id="T_a4733_row8_col5" class="data row8 col5" >201</td>
+      <td id="T_a4733_row8_col6" class="data row8 col6" >3950</td>
+      <td id="T_a4733_row8_col7" class="data row8 col7" >male</td>
+      <td id="T_a4733_row8_col8" class="data row8 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_a4733_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_a4733_row9_col0" class="data row9 col0" >P-221</td>
+      <td id="T_a4733_row9_col1" class="data row9 col1" >Gentoo</td>
+      <td id="T_a4733_row9_col2" class="data row9 col2" >Biscoe</td>
+      <td id="T_a4733_row9_col3" class="data row9 col3" >51</td>
+      <td id="T_a4733_row9_col4" class="data row9 col4" >15</td>
+      <td id="T_a4733_row9_col5" class="data row9 col5" >223</td>
+      <td id="T_a4733_row9_col6" class="data row9 col6" >5550</td>
+      <td id="T_a4733_row9_col7" class="data row9 col7" >male</td>
+      <td id="T_a4733_row9_col8" class="data row9 col8" >2008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Apply a colour gradient to each column based on each cell’s value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_top10</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_3a301_row0_col3 {
+  background-color: #056dab;
+  color: #f1f1f1;
+}
+#T_3a301_row0_col4, #T_3a301_row9_col4 {
+  background-color: #e3e0ee;
+  color: #000000;
+}
+#T_3a301_row0_col5 {
+  background-color: #1278b4;
+  color: #f1f1f1;
+}
+#T_3a301_row0_col6, #T_3a301_row2_col5, #T_3a301_row2_col8, #T_3a301_row3_col8, #T_3a301_row5_col8, #T_3a301_row8_col3, #T_3a301_row8_col4, #T_3a301_row8_col8 {
+  background-color: #023858;
+  color: #f1f1f1;
+}
+#T_3a301_row0_col8, #T_3a301_row1_col5, #T_3a301_row3_col5, #T_3a301_row4_col4, #T_3a301_row5_col3, #T_3a301_row5_col5, #T_3a301_row6_col6, #T_3a301_row6_col8 {
+  background-color: #fff7fb;
+  color: #000000;
+}
+#T_3a301_row1_col3 {
+  background-color: #b9c6e0;
+  color: #000000;
+}
+#T_3a301_row1_col4, #T_3a301_row1_col8, #T_3a301_row4_col8, #T_3a301_row7_col8, #T_3a301_row9_col8 {
+  background-color: #73a9cf;
+  color: #f1f1f1;
+}
+#T_3a301_row1_col6 {
+  background-color: #5ea0ca;
+  color: #f1f1f1;
+}
+#T_3a301_row2_col3 {
+  background-color: #034267;
+  color: #f1f1f1;
+}
+#T_3a301_row2_col4 {
+  background-color: #bcc7e1;
+  color: #000000;
+}
+#T_3a301_row2_col6 {
+  background-color: #034e7b;
+  color: #f1f1f1;
+}
+#T_3a301_row3_col3 {
+  background-color: #fdf5fa;
+  color: #000000;
+}
+#T_3a301_row3_col4 {
+  background-color: #3790c0;
+  color: #f1f1f1;
+}
+#T_3a301_row3_col6 {
+  background-color: #63a2cb;
+  color: #f1f1f1;
+}
+#T_3a301_row4_col3 {
+  background-color: #79abd0;
+  color: #f1f1f1;
+}
+#T_3a301_row4_col5 {
+  background-color: #045f95;
+  color: #f1f1f1;
+}
+#T_3a301_row4_col6 {
+  background-color: #04639b;
+  color: #f1f1f1;
+}
+#T_3a301_row5_col4 {
+  background-color: #4094c3;
+  color: #f1f1f1;
+}
+#T_3a301_row5_col6 {
+  background-color: #328dbf;
+  color: #f1f1f1;
+}
+#T_3a301_row6_col3 {
+  background-color: #fbf4f9;
+  color: #000000;
+}
+#T_3a301_row6_col4, #T_3a301_row7_col4 {
+  background-color: #04649e;
+  color: #f1f1f1;
+}
+#T_3a301_row6_col5 {
+  background-color: #e6e2ef;
+  color: #000000;
+}
+#T_3a301_row7_col3 {
+  background-color: #b5c4df;
+  color: #000000;
+}
+#T_3a301_row7_col5 {
+  background-color: #83afd3;
+  color: #f1f1f1;
+}
+#T_3a301_row7_col6 {
+  background-color: #0570b0;
+  color: #f1f1f1;
+}
+#T_3a301_row8_col5 {
+  background-color: #acc0dd;
+  color: #000000;
+}
+#T_3a301_row8_col6 {
+  background-color: #2081b9;
+  color: #f1f1f1;
+}
+#T_3a301_row9_col3 {
+  background-color: #03446a;
+  color: #f1f1f1;
+}
+#T_3a301_row9_col5 {
+  background-color: #034c78;
+  color: #f1f1f1;
+}
+#T_3a301_row9_col6 {
+  background-color: #023c5f;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_3a301">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_3a301_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_3a301_level0_col1" class="col_heading level0 col1" >species</th>
+      <th id="T_3a301_level0_col2" class="col_heading level0 col2" >island</th>
+      <th id="T_3a301_level0_col3" class="col_heading level0 col3" >bill_length_mm</th>
+      <th id="T_3a301_level0_col4" class="col_heading level0 col4" >bill_depth_mm</th>
+      <th id="T_3a301_level0_col5" class="col_heading level0 col5" >flipper_length_mm</th>
+      <th id="T_3a301_level0_col6" class="col_heading level0 col6" >body_mass_g</th>
+      <th id="T_3a301_level0_col7" class="col_heading level0 col7" >sex</th>
+      <th id="T_3a301_level0_col8" class="col_heading level0 col8" >year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_3a301_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_3a301_row0_col0" class="data row0 col0" >P-179</td>
+      <td id="T_3a301_row0_col1" class="data row0 col1" >Gentoo</td>
+      <td id="T_3a301_row0_col2" class="data row0 col2" >Biscoe</td>
+      <td id="T_3a301_row0_col3" class="data row0 col3" >47.800000</td>
+      <td id="T_3a301_row0_col4" class="data row0 col4" >15.000000</td>
+      <td id="T_3a301_row0_col5" class="data row0 col5" >215.000000</td>
+      <td id="T_3a301_row0_col6" class="data row0 col6" >5650.000000</td>
+      <td id="T_3a301_row0_col7" class="data row0 col7" >male</td>
+      <td id="T_3a301_row0_col8" class="data row0 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_3a301_row1_col0" class="data row1 col0" >P-306</td>
+      <td id="T_3a301_row1_col1" class="data row1 col1" >Chinstrap</td>
+      <td id="T_3a301_row1_col2" class="data row1 col2" >Dream</td>
+      <td id="T_3a301_row1_col3" class="data row1 col3" >40.900000</td>
+      <td id="T_3a301_row1_col4" class="data row1 col4" >16.600000</td>
+      <td id="T_3a301_row1_col5" class="data row1 col5" >187.000000</td>
+      <td id="T_3a301_row1_col6" class="data row1 col6" >3200.000000</td>
+      <td id="T_3a301_row1_col7" class="data row1 col7" >female</td>
+      <td id="T_3a301_row1_col8" class="data row1 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_3a301_row2_col0" class="data row2 col0" >P-247</td>
+      <td id="T_3a301_row2_col1" class="data row2 col1" >Gentoo</td>
+      <td id="T_3a301_row2_col2" class="data row2 col2" >Biscoe</td>
+      <td id="T_3a301_row2_col3" class="data row2 col3" >50.800000</td>
+      <td id="T_3a301_row2_col4" class="data row2 col4" >15.700000</td>
+      <td id="T_3a301_row2_col5" class="data row2 col5" >226.000000</td>
+      <td id="T_3a301_row2_col6" class="data row2 col6" >5200.000000</td>
+      <td id="T_3a301_row2_col7" class="data row2 col7" >male</td>
+      <td id="T_3a301_row2_col8" class="data row2 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_3a301_row3_col0" class="data row3 col0" >P-120</td>
+      <td id="T_3a301_row3_col1" class="data row3 col1" >Adelie</td>
+      <td id="T_3a301_row3_col2" class="data row3 col2" >Torgersen</td>
+      <td id="T_3a301_row3_col3" class="data row3 col3" >36.200000</td>
+      <td id="T_3a301_row3_col4" class="data row3 col4" >17.200000</td>
+      <td id="T_3a301_row3_col5" class="data row3 col5" >187.000000</td>
+      <td id="T_3a301_row3_col6" class="data row3 col6" >3150.000000</td>
+      <td id="T_3a301_row3_col7" class="data row3 col7" >female</td>
+      <td id="T_3a301_row3_col8" class="data row3 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_3a301_row4_col0" class="data row4 col0" >P-220</td>
+      <td id="T_3a301_row4_col1" class="data row4 col1" >Gentoo</td>
+      <td id="T_3a301_row4_col2" class="data row4 col2" >Biscoe</td>
+      <td id="T_3a301_row4_col3" class="data row4 col3" >43.500000</td>
+      <td id="T_3a301_row4_col4" class="data row4 col4" >14.200000</td>
+      <td id="T_3a301_row4_col5" class="data row4 col5" >220.000000</td>
+      <td id="T_3a301_row4_col6" class="data row4 col6" >4700.000000</td>
+      <td id="T_3a301_row4_col7" class="data row4 col7" >female</td>
+      <td id="T_3a301_row4_col8" class="data row4 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_3a301_row5_col0" class="data row5 col0" >P-150</td>
+      <td id="T_3a301_row5_col1" class="data row5 col1" >Adelie</td>
+      <td id="T_3a301_row5_col2" class="data row5 col2" >Dream</td>
+      <td id="T_3a301_row5_col3" class="data row5 col3" >36.000000</td>
+      <td id="T_3a301_row5_col4" class="data row5 col4" >17.100000</td>
+      <td id="T_3a301_row5_col5" class="data row5 col5" >187.000000</td>
+      <td id="T_3a301_row5_col6" class="data row5 col6" >3700.000000</td>
+      <td id="T_3a301_row5_col7" class="data row5 col7" >female</td>
+      <td id="T_3a301_row5_col8" class="data row5 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_3a301_row6_col0" class="data row6 col0" >P-348</td>
+      <td id="T_3a301_row6_col1" class="data row6 col1" >Adelie</td>
+      <td id="T_3a301_row6_col2" class="data row6 col2" >Biscoe</td>
+      <td id="T_3a301_row6_col3" class="data row6 col3" >36.400000</td>
+      <td id="T_3a301_row6_col4" class="data row6 col4" >18.100000</td>
+      <td id="T_3a301_row6_col5" class="data row6 col5" >193.000000</td>
+      <td id="T_3a301_row6_col6" class="data row6 col6" >285.000000</td>
+      <td id="T_3a301_row6_col7" class="data row6 col7" >female</td>
+      <td id="T_3a301_row6_col8" class="data row6 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_3a301_row7_col0" class="data row7 col0" >P-091</td>
+      <td id="T_3a301_row7_col1" class="data row7 col1" >Adelie</td>
+      <td id="T_3a301_row7_col2" class="data row7 col2" >Dream</td>
+      <td id="T_3a301_row7_col3" class="data row7 col3" >41.100000</td>
+      <td id="T_3a301_row7_col4" class="data row7 col4" >18.100000</td>
+      <td id="T_3a301_row7_col5" class="data row7 col5" >205.000000</td>
+      <td id="T_3a301_row7_col6" class="data row7 col6" >4300.000000</td>
+      <td id="T_3a301_row7_col7" class="data row7 col7" >male</td>
+      <td id="T_3a301_row7_col8" class="data row7 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_3a301_row8_col0" class="data row8 col0" >P-327</td>
+      <td id="T_3a301_row8_col1" class="data row8 col1" >Chinstrap</td>
+      <td id="T_3a301_row8_col2" class="data row8 col2" >Dream</td>
+      <td id="T_3a301_row8_col3" class="data row8 col3" >51.400000</td>
+      <td id="T_3a301_row8_col4" class="data row8 col4" >19.000000</td>
+      <td id="T_3a301_row8_col5" class="data row8 col5" >201.000000</td>
+      <td id="T_3a301_row8_col6" class="data row8 col6" >3950.000000</td>
+      <td id="T_3a301_row8_col7" class="data row8 col7" >male</td>
+      <td id="T_3a301_row8_col8" class="data row8 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_3a301_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_3a301_row9_col0" class="data row9 col0" >P-221</td>
+      <td id="T_3a301_row9_col1" class="data row9 col1" >Gentoo</td>
+      <td id="T_3a301_row9_col2" class="data row9 col2" >Biscoe</td>
+      <td id="T_3a301_row9_col3" class="data row9 col3" >50.700000</td>
+      <td id="T_3a301_row9_col4" class="data row9 col4" >15.000000</td>
+      <td id="T_3a301_row9_col5" class="data row9 col5" >223.000000</td>
+      <td id="T_3a301_row9_col6" class="data row9 col6" >5550.000000</td>
+      <td id="T_3a301_row9_col7" class="data row9 col7" >male</td>
+      <td id="T_3a301_row9_col8" class="data row9 col8" >2008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Highlight the smallest value in each column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_top10</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_41830_row0_col2, #T_41830_row0_col8, #T_41830_row1_col5, #T_41830_row1_col7, #T_41830_row2_col2, #T_41830_row3_col1, #T_41830_row3_col5, #T_41830_row3_col7, #T_41830_row4_col2, #T_41830_row4_col4, #T_41830_row4_col7, #T_41830_row5_col1, #T_41830_row5_col3, #T_41830_row5_col5, #T_41830_row5_col7, #T_41830_row6_col1, #T_41830_row6_col2, #T_41830_row6_col6, #T_41830_row6_col7, #T_41830_row6_col8, #T_41830_row7_col0, #T_41830_row7_col1, #T_41830_row9_col2 {
+  background-color: yellow;
+}
+</style>
+<table id="T_41830">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_41830_level0_col0" class="col_heading level0 col0" >Id</th>
+      <th id="T_41830_level0_col1" class="col_heading level0 col1" >species</th>
+      <th id="T_41830_level0_col2" class="col_heading level0 col2" >island</th>
+      <th id="T_41830_level0_col3" class="col_heading level0 col3" >bill_length_mm</th>
+      <th id="T_41830_level0_col4" class="col_heading level0 col4" >bill_depth_mm</th>
+      <th id="T_41830_level0_col5" class="col_heading level0 col5" >flipper_length_mm</th>
+      <th id="T_41830_level0_col6" class="col_heading level0 col6" >body_mass_g</th>
+      <th id="T_41830_level0_col7" class="col_heading level0 col7" >sex</th>
+      <th id="T_41830_level0_col8" class="col_heading level0 col8" >year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_41830_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_41830_row0_col0" class="data row0 col0" >P-179</td>
+      <td id="T_41830_row0_col1" class="data row0 col1" >Gentoo</td>
+      <td id="T_41830_row0_col2" class="data row0 col2" >Biscoe</td>
+      <td id="T_41830_row0_col3" class="data row0 col3" >47.800000</td>
+      <td id="T_41830_row0_col4" class="data row0 col4" >15.000000</td>
+      <td id="T_41830_row0_col5" class="data row0 col5" >215.000000</td>
+      <td id="T_41830_row0_col6" class="data row0 col6" >5650.000000</td>
+      <td id="T_41830_row0_col7" class="data row0 col7" >male</td>
+      <td id="T_41830_row0_col8" class="data row0 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_41830_row1_col0" class="data row1 col0" >P-306</td>
+      <td id="T_41830_row1_col1" class="data row1 col1" >Chinstrap</td>
+      <td id="T_41830_row1_col2" class="data row1 col2" >Dream</td>
+      <td id="T_41830_row1_col3" class="data row1 col3" >40.900000</td>
+      <td id="T_41830_row1_col4" class="data row1 col4" >16.600000</td>
+      <td id="T_41830_row1_col5" class="data row1 col5" >187.000000</td>
+      <td id="T_41830_row1_col6" class="data row1 col6" >3200.000000</td>
+      <td id="T_41830_row1_col7" class="data row1 col7" >female</td>
+      <td id="T_41830_row1_col8" class="data row1 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_41830_row2_col0" class="data row2 col0" >P-247</td>
+      <td id="T_41830_row2_col1" class="data row2 col1" >Gentoo</td>
+      <td id="T_41830_row2_col2" class="data row2 col2" >Biscoe</td>
+      <td id="T_41830_row2_col3" class="data row2 col3" >50.800000</td>
+      <td id="T_41830_row2_col4" class="data row2 col4" >15.700000</td>
+      <td id="T_41830_row2_col5" class="data row2 col5" >226.000000</td>
+      <td id="T_41830_row2_col6" class="data row2 col6" >5200.000000</td>
+      <td id="T_41830_row2_col7" class="data row2 col7" >male</td>
+      <td id="T_41830_row2_col8" class="data row2 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_41830_row3_col0" class="data row3 col0" >P-120</td>
+      <td id="T_41830_row3_col1" class="data row3 col1" >Adelie</td>
+      <td id="T_41830_row3_col2" class="data row3 col2" >Torgersen</td>
+      <td id="T_41830_row3_col3" class="data row3 col3" >36.200000</td>
+      <td id="T_41830_row3_col4" class="data row3 col4" >17.200000</td>
+      <td id="T_41830_row3_col5" class="data row3 col5" >187.000000</td>
+      <td id="T_41830_row3_col6" class="data row3 col6" >3150.000000</td>
+      <td id="T_41830_row3_col7" class="data row3 col7" >female</td>
+      <td id="T_41830_row3_col8" class="data row3 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_41830_row4_col0" class="data row4 col0" >P-220</td>
+      <td id="T_41830_row4_col1" class="data row4 col1" >Gentoo</td>
+      <td id="T_41830_row4_col2" class="data row4 col2" >Biscoe</td>
+      <td id="T_41830_row4_col3" class="data row4 col3" >43.500000</td>
+      <td id="T_41830_row4_col4" class="data row4 col4" >14.200000</td>
+      <td id="T_41830_row4_col5" class="data row4 col5" >220.000000</td>
+      <td id="T_41830_row4_col6" class="data row4 col6" >4700.000000</td>
+      <td id="T_41830_row4_col7" class="data row4 col7" >female</td>
+      <td id="T_41830_row4_col8" class="data row4 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_41830_row5_col0" class="data row5 col0" >P-150</td>
+      <td id="T_41830_row5_col1" class="data row5 col1" >Adelie</td>
+      <td id="T_41830_row5_col2" class="data row5 col2" >Dream</td>
+      <td id="T_41830_row5_col3" class="data row5 col3" >36.000000</td>
+      <td id="T_41830_row5_col4" class="data row5 col4" >17.100000</td>
+      <td id="T_41830_row5_col5" class="data row5 col5" >187.000000</td>
+      <td id="T_41830_row5_col6" class="data row5 col6" >3700.000000</td>
+      <td id="T_41830_row5_col7" class="data row5 col7" >female</td>
+      <td id="T_41830_row5_col8" class="data row5 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_41830_row6_col0" class="data row6 col0" >P-348</td>
+      <td id="T_41830_row6_col1" class="data row6 col1" >Adelie</td>
+      <td id="T_41830_row6_col2" class="data row6 col2" >Biscoe</td>
+      <td id="T_41830_row6_col3" class="data row6 col3" >36.400000</td>
+      <td id="T_41830_row6_col4" class="data row6 col4" >18.100000</td>
+      <td id="T_41830_row6_col5" class="data row6 col5" >193.000000</td>
+      <td id="T_41830_row6_col6" class="data row6 col6" >285.000000</td>
+      <td id="T_41830_row6_col7" class="data row6 col7" >female</td>
+      <td id="T_41830_row6_col8" class="data row6 col8" >2007</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_41830_row7_col0" class="data row7 col0" >P-091</td>
+      <td id="T_41830_row7_col1" class="data row7 col1" >Adelie</td>
+      <td id="T_41830_row7_col2" class="data row7 col2" >Dream</td>
+      <td id="T_41830_row7_col3" class="data row7 col3" >41.100000</td>
+      <td id="T_41830_row7_col4" class="data row7 col4" >18.100000</td>
+      <td id="T_41830_row7_col5" class="data row7 col5" >205.000000</td>
+      <td id="T_41830_row7_col6" class="data row7 col6" >4300.000000</td>
+      <td id="T_41830_row7_col7" class="data row7 col7" >male</td>
+      <td id="T_41830_row7_col8" class="data row7 col8" >2008</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_41830_row8_col0" class="data row8 col0" >P-327</td>
+      <td id="T_41830_row8_col1" class="data row8 col1" >Chinstrap</td>
+      <td id="T_41830_row8_col2" class="data row8 col2" >Dream</td>
+      <td id="T_41830_row8_col3" class="data row8 col3" >51.400000</td>
+      <td id="T_41830_row8_col4" class="data row8 col4" >19.000000</td>
+      <td id="T_41830_row8_col5" class="data row8 col5" >201.000000</td>
+      <td id="T_41830_row8_col6" class="data row8 col6" >3950.000000</td>
+      <td id="T_41830_row8_col7" class="data row8 col7" >male</td>
+      <td id="T_41830_row8_col8" class="data row8 col8" >2009</td>
+    </tr>
+    <tr>
+      <th id="T_41830_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_41830_row9_col0" class="data row9 col0" >P-221</td>
+      <td id="T_41830_row9_col1" class="data row9 col1" >Gentoo</td>
+      <td id="T_41830_row9_col2" class="data row9 col2" >Biscoe</td>
+      <td id="T_41830_row9_col3" class="data row9 col3" >50.700000</td>
+      <td id="T_41830_row9_col4" class="data row9 col4" >15.000000</td>
+      <td id="T_41830_row9_col5" class="data row9 col5" >223.000000</td>
+      <td id="T_41830_row9_col6" class="data row9 col6" >5550.000000</td>
+      <td id="T_41830_row9_col7" class="data row9 col7" >male</td>
+      <td id="T_41830_row9_col8" class="data row9 col8" >2008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course",
+            ref: "develop",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2.2-DataWrangling.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2.2 Data Wrangling</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2.2.2-ModifyingColumnsAndIndices.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2.2 Modifying Columns and Indices</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Research Engineering Group, The Alan Turing Institute<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

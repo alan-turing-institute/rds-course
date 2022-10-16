@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.2 Fitting (Regression) Models &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.3 Building a simple model" href="4.3-ModelBuilding.html" />
+    <link rel="prev" title="4.1 The What and Why of Statistical Modelling" href="4.1-WhatAndWhy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.1-WhatIsDataScience.html">
+   1.1 What is [research] data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.2-DataScienceProjectLifecycle.html">
+   1.2 Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.3-EDIForDataScience.html">
+   1.3 Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.4-CollaborationAndReproducibility.html">
+   1.4 Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Module 1: Hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../m2/2.1-GettingLoading.html">
+   2.1 Getting and Loading Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.1-WhereToFindData.html">
+     2.1.1 Where to find data?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.2-LegalityAndEthics.html">
+     2.1.2 Legality and Ethics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.3-PandasIntro.html">
+     2.1.3 Pandas intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.4-DataSourcesAndFormats.html">
+     2.1.4 Data Sources and Formats
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.5-ControllingAccess.html">
+     2.1.5 Controlling access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../m2/2.2-DataWrangling.html">
+   2.2 Data Wrangling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.1-DataConsistency.html">
+     2.2.1 Data Consistency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.2-ModifyingColumnsAndIndices.html">
+     2.2.2 Modifying Columns and Indices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.3-FeatureEngineering.html">
+     2.2.3 Feature Engineering
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../m2/2.2.4-DataManipulation.html">
+     2.2.4 Data Manipulation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.1-TimeAndDateData.html">
+       2.2.4.1 Time and Date Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.2-TextData.html">
+       2.2.4.2 Text data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.3-CategoricalData.html">
+       2.2.4.3 Categorical Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.4-ImageData.html">
+       2.2.4.4 Image Data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.5-PrivacyAndAnonymisation.html">
+     2.2.5 Privacy and Anonymisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.6-LinkingDatasets.html">
+     2.2.6 Linking Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.7-MissingData.html">
+     2.2.7 Missing Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Module 2: Hands-on session
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on-complete.html">
+   Module 2: Hands-on session (Solutions)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   3.1 Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   3.2 Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   3.3 Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   3.4 Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   3.5 Walkthrough: visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Module 3 hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.1-WhatAndWhy.html">
+   4.1 The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4.2 Fitting (Regression) Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.3-ModelBuilding.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.4-ModelEvaluation.html">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Module 4 hands-on session
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/4.2-ModelFitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m4/4.2-ModelFitting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m4/4.2-ModelFitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mean-as-a-model">
+   The mean as a model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling-relationships-regression">
+   Modelling relationships: Regression.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-parameters">
+     How many parameters?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-normal-linear-regression">
+   Beyond Normal Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-linear-regression-to-logistic-regression">
+   From linear regression to logistic regression.
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>4.2 Fitting (Regression) Models</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mean-as-a-model">
+   The mean as a model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling-relationships-regression">
+   Modelling relationships: Regression.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-parameters">
+     How many parameters?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-normal-linear-regression">
+   Beyond Normal Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-linear-regression-to-logistic-regression">
+   From linear regression to logistic regression.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fitting-regression-models">
+<span id="section4-2"></span><h1>4.2 Fitting (Regression) Models<a class="headerlink" href="#fitting-regression-models" title="Permalink to this headline">¶</a></h1>
+<p>In the previous section we learned about parameters representing mathematical elements of data. One way to think of models are that they are collection of parameters.</p>
+<p>In order to use models to learn about data we need to tweak the parameter values so that the model is an adequate representation of the data.</p>
+<p>This is called <strong>fitting</strong> a model to data.</p>
+<p>We fit a model by minimising a <strong>cost function</strong>. A cost function can be any function where higher values mean that the model evaluated on the estimated parameters are less representative of data.</p>
+<p>Let us illustrate this by using a very simple and familiar single-parameter model: <em>the mean</em>.</p>
+<div class="section" id="the-mean-as-a-model">
+<h2>The mean as a model<a class="headerlink" href="#the-mean-as-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Let us have a dataset consisting of one random variable, <span class="math notranslate nohighlight">\(Y\)</span>. We wish to represent this dataset as best we can with a single parameter on the same arithmetic scale as the data: <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>We first define a cost function. As <span class="math notranslate nohighlight">\(\mu\)</span> is a single quantity which represents
+the data, we want to assign values that are further away from <span class="math notranslate nohighlight">\(\mu\)</span> to have a higher cost.
+We don’t want negative values, therefore we could square the error, this will also have
+the added benefit of penalising higher errors more harshly than lower errors. We
+can sum all the <strong>squared errors</strong> of each data point from <span class="math notranslate nohighlight">\(\mu\)</span> to get a single
+value that we could minimise.</p>
+<div class="math notranslate nohighlight">
+\[\sum (Y-\mu)^2\]</div>
+<p>However, this value is in squared error units, which is unintuitive. To keep the cost function in the units of the data we can take the average then take the square root. This gives us a common cost function, <strong>root-mean-squared-error</strong> (RMSE):</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{\frac{1}{n}\sum (Y-\mu)^2}\]</div>
+<p>Essentially, we fit this model by trying different predictions for <span class="math notranslate nohighlight">\(\mu\)</span>, calculating the cost, and selecting the value of <span class="math notranslate nohighlight">\(\mu\)</span> that has the minimum cost.</p>
+<p>In this case the minimum of this cost function corresponds exactly to the mean (with some sampling variability).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;C3&#39;</span><span class="p">]</span> <span class="c1">#https://matplotlib.org/stable/users/dflt_style_changes.html</span>
+
+<span class="c1">### generate fake data.</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">b0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="mf">.3</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">resids</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">b0</span><span class="o">+</span><span class="n">b1</span><span class="o">*</span><span class="n">variable</span><span class="o">+</span><span class="n">resids</span><span class="p">)</span>
+
+<span class="c1">### set predictions for mu</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">### calculate costs</span>
+<span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">cost</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">]</span>
+
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">costs</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">costs</span><span class="p">)],</span> <span class="nb">min</span><span class="p">(</span><span class="n">costs</span><span class="p">),</span> <span class="s1">&#39;ok&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cost&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># add some sample lines</span>
+<span class="n">mu_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mu_i</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mu_index</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span><span class="n">costs</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">, Mu: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">costs</span><span class="p">)],</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.2-ModelFitting_1_0.png" src="../../_images/4.2-ModelFitting_1_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 5.029784855276144, Mu: 5.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>The mean is a poor model when you want to capture the data distribution since it predicts the same value each time.</p>
+<p>One of the most common probablistic approaches is to model the data points as coming from a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. A normal (or Gaussian) distribution arises in cases where a continuous random variable has symetrical variability around a mean.</p>
+<p>We fit a normal distribution to our data similarly to our previous example: we find the parameter values that are demonstrably best with respect to some cost function.</p>
+<p>A common cost function for fitting probability distributions is the <strong>likelihood</strong>. Simply put, a likelihood of a single data point is the probability of that data point occurring given a probability distribution with certain parameters. The combined likelihood of a dataset is each individual likelihood multiplied together. A common fitting technique is to find the <strong>maximum likelihood</strong> of a dataset.</p>
+<p>In practice getting the combined likelihood of a dataset is computationally infeasible (since the multiplied numbers are very small), therefore the <strong>log-likelihood</strong> is taken so that we can sum across the data points. Further, taking the <em>negative</em> log-likelihood allows us to use <em>minimisation</em> algorithms. So, when you read <em>maximum likelihood estimation</em> the authors are normally talking about <em>minimising the negative log-likelihood</em>.</p>
+<p>The <strong>log-likelihood</strong> is illustrated below with our previous fake dataset. To make the illustration simpler we have fixed the Gaussian standard deviation parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">test_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1">#calculate likelihoods, will be all zeros because the values are so small</span>
+<span class="n">likelihoods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum Likelihood: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">likelihoods</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+
+<span class="c1"># so we take the negative log-likelihood .</span>
+<span class="n">logliks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(Y)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">logliks</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Likelihood&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Mu&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># calculate example gaussians</span>
+<span class="n">mu_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mu_i</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mu_index</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span><span class="n">logliks</span><span class="p">[</span><span class="n">mu_i</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="c1"># plot minimum log-lik (maximum likeilhood)</span>
+<span class="n">mu_min</span> <span class="o">=</span> <span class="n">mu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">logliks</span><span class="p">)]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">test_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mu_min</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">logliks</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Likelihood: 0.0
+</pre></div>
+</div>
+<img alt="../../_images/4.2-ModelFitting_3_1.png" src="../../_images/4.2-ModelFitting_3_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="modelling-relationships-regression">
+<h2>Modelling relationships: Regression.<a class="headerlink" href="#modelling-relationships-regression" title="Permalink to this headline">¶</a></h2>
+<p>So far we have been modelling observations of a single variable, <span class="math notranslate nohighlight">\(Y\)</span> as coming from a normal distribution with a mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and a standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span></p>
+<p><span class="math notranslate nohighlight">\( Y \sim Normal(\mu,\sigma) \)</span>.</p>
+<p>Most research questions are interested in modelling relationships between variables. Instead of modelling directly the parameters of a distribution we can make the parameters <em>dependent</em> on other variables.</p>
+<p>We call our other variable <span class="math notranslate nohighlight">\(X\)</span>. Since we already are under the assumption that <span class="math notranslate nohighlight">\(Y\)</span> varies around a mean, it stands to reason that we would model the <em>mean</em> as changing with <span class="math notranslate nohighlight">\(X\)</span>, accepting that <span class="math notranslate nohighlight">\(Y\)</span> would vary around this new moving average. The simplest method of modelling relationships is to assume that the mean of <span class="math notranslate nohighlight">\(Y\)</span> varies <em>linearly</em> with <span class="math notranslate nohighlight">\(X\)</span>. Meaning that one capture the relationship by a line with an intercept and a slope.</p>
+<p><span class="math notranslate nohighlight">\( \mu = \beta_0 + \beta_1X \)</span></p>
+<p>Here, <span class="math notranslate nohighlight">\(\beta_0\)</span> is the intercept, meaning the value that <span class="math notranslate nohighlight">\(Y\)</span> would take when <span class="math notranslate nohighlight">\(X=0\)</span>, and <span class="math notranslate nohighlight">\(\beta_1\)</span> is a parameter that scales how much a change in <span class="math notranslate nohighlight">\(X\)</span> corresponds to the change in <span class="math notranslate nohighlight">\(Y\)</span>. An alternative common way of writing this is:</p>
+<p>It is convention in Regression models to have your input variables as a matrix <span class="math notranslate nohighlight">\(X_{ni}\)</span> and your predicted values as <span class="math notranslate nohighlight">\(Y_i\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> refers to the variable index and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation index. The parameters are often stored as a vector <span class="math notranslate nohighlight">\(\beta\)</span></p>
+<p><span class="math notranslate nohighlight">\( Y_i = \beta_0 + \beta_1X_i + \epsilon \)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> refers to <strong>residual error</strong> that is normally distributed around zero: <span class="math notranslate nohighlight">\(\epsilon \sim Normal(0,\sigma)\)</span>, and <span class="math notranslate nohighlight">\(i\)</span> refers to the observation. You can also write this as:</p>
+<p><span class="math notranslate nohighlight">\( Y_i = Normal(\beta_0 + \beta_1X_i, \sigma) \)</span></p>
+<p>Modelling in this way is called <strong>Linear Regression</strong>. Parameters that scale the relationship between an input variable to an output variable are called <strong>Coefficients</strong>.</p>
+<p>Modelling one variable as dependent on another variable is (a little confusingly) called <em>regression</em> after Francis Galton originally described the method when reporting the phenomenon of <em>regression to the mean</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Regression_analysis">Regression Analysis wikipedia page</a>). This does make some sense in the general statistical context, if you think of <em>Regression</em> referring to the notion of finding the mean line that points vary around (or regress to).</p>
+<p>Each input to your model has an associated parameter called a <strong>coefficient</strong>. Two important things to remember:</p>
+<ul class="simple">
+<li><p>Coefficients can be thought of as a mini-hypothesis: given that I know all the other inputs to the model, what how much does this input contribute to the output? In the case of our simple example, the coefficient <span class="math notranslate nohighlight">\(\beta_1\)</span> specifies how much the input variable contributes to the output variable <em>only</em> once the intercept is known.</p></li>
+<li><p>Coefficients scale your input so are dependent on the magnitude of our input. The larger your input, the smaller your coefficient. If you wish to compare coefficients across input variables you need your input variables to be on a similar scale. This is called <em>standardising</em> your inputs.</p></li>
+</ul>
+<p>We will now tweak our previous code to fit this new regression model via maximum likelihood, as we have been doing.</p>
+<ol class="simple">
+<li><p>You can analytically find the intercept given the coefficients. Rearranging the formula above gives <span class="math notranslate nohighlight">\(Y - \beta_1X = \beta_0 + \epsilon\)</span>. Since this is identical to <span class="math notranslate nohighlight">\(Normal(\beta_0, \epsilon)\)</span>, averaging retrieves <span class="math notranslate nohighlight">\(\beta_0\)</span>.</p></li>
+<li><p>The <em>dot product</em> of an input matrix <span class="math notranslate nohighlight">\(X\)</span> and a vector of parameters <span class="math notranslate nohighlight">\(\beta\)</span> is a quick way of finding the predicted values. Essentially the dot product multiplies the <span class="math notranslate nohighlight">\(X_n\)</span> by each <span class="math notranslate nohighlight">\(\beta_n\)</span> and sums the result.</p></li>
+</ol>
+<p>For normal linear regression there is actually an analytic <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinary_least_squares">ordinary least squares</a> solution to finding the maximum likelihood, but to be consistent we will emphasis finding the parameter values through minimising the negative log-likelihood.</p>
+<p>Since our example is simple (only two fitted parameters) we can do an exhaustive search of the parameter space (up to a level of granularity) and find the minimum negative log-likelihood. This method of fitting is intractable for more complicated models where the parameters space is larger. Optimisation algorithms for effectively exploring a parameter space (that may have constraints) and finding the minimum of a cost function is a big field with active research. Fortunately, the available statistical packages use well-established algorithms that perform well for most models. For this introductory course, then, we will treat the optimisation algorithm as an unnecessary implementation detail. Note, however, that for your own research you may run into issues with complex models that requires further knowledge of how the parameter space is explored.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###  Code block to fit the linear regression model with MLE.</span>
+<span class="c1">###  See &quot;Code Preliminaries&quot; margin note for useful tips for following this code.</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">b1s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">b1</span><span class="o">-</span><span class="mf">.4</span><span class="p">,</span><span class="n">b1</span><span class="o">+</span><span class="mf">.4</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">variable</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="k">def</span> <span class="nf">get_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="n">b1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">X</span><span class="o">*</span><span class="n">b1</span> <span class="o">+</span> <span class="n">get_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">b1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">negloglik</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">residuals</span> <span class="o">=</span> <span class="n">predictions</span> <span class="o">-</span> <span class="n">Y</span>
+    <span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">loglik</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">stdev</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">loglik</span><span class="o">*-</span><span class="mi">1</span>
+    
+<span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">negloglik</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    
+<span class="c1"># retrieve logliks for each</span>
+<span class="n">logliks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span> <span class="k">for</span> <span class="n">b1</span> <span class="ow">in</span> <span class="n">b1s</span><span class="p">]</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b1s</span><span class="p">,</span> <span class="n">logliks</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Likelihood&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta_1$&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># pick example coefficients</span>
+<span class="n">b1_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">b1_i</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">b1_index</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1s</span><span class="p">[</span><span class="n">b1_i</span><span class="p">]),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b1s</span><span class="p">[</span><span class="n">b1_i</span><span class="p">],</span><span class="n">logliks</span><span class="p">[</span><span class="n">b1_i</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="c1"># plot minimum log-lik (maximum likeilhood)</span>
+<span class="n">b1_min</span> <span class="o">=</span> <span class="n">b1s</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">logliks</span><span class="p">)]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">b1_min</span><span class="p">),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b1_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">logliks</span><span class="p">),</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Intercept: </span><span class="si">{</span><span class="n">get_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">b1_min</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Slope: </span><span class="si">{</span><span class="n">b1_min</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 1.873628699119988
+Slope: 0.3156156156156156
+</pre></div>
+</div>
+<img alt="../../_images/4.2-ModelFitting_6_1.png" src="../../_images/4.2-ModelFitting_6_1.png" />
+</div>
+</div>
+<div class="section" id="how-many-parameters">
+<h3>How many parameters?<a class="headerlink" href="#how-many-parameters" title="Permalink to this headline">¶</a></h3>
+<p>You get more complex models by adding more variables, and perhaps mathematically specifying the nature of the relationship between variables (e.g., if we assume modulation of one variable with another we might multiply them together). The linear regression formula for <span class="math notranslate nohighlight">\(n\)</span> parameters is below.</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_n x_{n} +  \epsilon
+\]</div>
+<p>The amount of parameters depends what you are interested in and what you want to learn.</p>
+<p>With enough parameters you can fit anything. But there is risk that we could just be fitting to noise. For example, if a designer was modelling a product they wouldn’t want to include a scratch on one particular product that arose from the randomness of the production process.</p>
+<p>This phenomenon is called <strong>overfitting</strong>. It is a key consideration in modelling and we will be revisiting it frequently throughout the following sections.</p>
+<p>Bishop’s <a class="reference external" href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf">Machine Learning for Pattern Recognition</a> textbook has an instructive example on fitting curves of increasing complexity. This has been usefully translated to a python notebook by Mantas Lukoševičius (<a class="reference external" href="https://mantas.info/wp/wp-content/uploads/learn/curve-over-fitting.html">link</a>).</p>
+<p>Regularisation refers to a set of methods that help combat overfitting. Broadly speaking, overfitting arises when coefficients are too large or where there are too many parameters. Regularisation techniques often add a term to the cost function that is dependent on either the number or the magnitude (or both) of the coefficient parameters. Therefore, many and large coefficients are penalised. Fewer and smaller coefficients make for a more conservative model fit. (Though too few and/or small coefficients can lead to underfitting).</p>
+</div>
+</div>
+<div class="section" id="beyond-normal-linear-regression">
+<h2>Beyond Normal Linear Regression<a class="headerlink" href="#beyond-normal-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>It is important to keep in mind that the normal linear regression equation above is the following:</p>
+<div class="math notranslate nohighlight">
+\[ Y \sim Normal(\beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ...+ \beta_n x_{n}, \sigma) \]</div>
+<p>The <strong>linear regression</strong> part refers to modelling a parameter, in this case the mean, as a <strong>sum of scaled inputs</strong>. There is actually no requirement in linear regression models for the modelled output to be linear.</p>
+<p>There is also no requirement for you to assume that the errors will be normally distributed around the mean. With MLE you can model the errors as coming from a wide range of probability distributions (the <em>exponential family</em>). Indeed, your model complexity is in theory only limited by your ability to fit the model.</p>
+<p>Let us zoom out and look at the components of our model so far:</p>
+<ol class="simple">
+<li><p>We have the term that is predicting <span class="math notranslate nohighlight">\(\mu\)</span>. This is called the <strong>linear predictor</strong>, let us call this <span class="math notranslate nohighlight">\(\eta\)</span>, which is a sum of inputs <span class="math notranslate nohighlight">\(X\)</span> scaled by coefficients, <span class="math notranslate nohighlight">\(\beta\)</span>, which are unknown.</p></li>
+<li><p>We have a probability distribution, let us call it <span class="math notranslate nohighlight">\(F\)</span>, and sometimes a dispersion parameter (called <span class="math notranslate nohighlight">\(\tau\)</span> to separate it from the guassian-specific standard deviation parameter <span class="math notranslate nohighlight">\(\sigma\)</span>). The probability distribution controls how our residuals are distributed.</p></li>
+</ol>
+<p>So we can re-write our model as a <strong>generalized</strong> linear model:</p>
+<div class="math notranslate nohighlight">
+\[ Y = F(\eta, \tau) \]</div>
+<p>The linear predictor <span class="math notranslate nohighlight">\(\eta\)</span> is always related to <span class="math notranslate nohighlight">\(\mu\)</span>, but it can do via a <strong>link function</strong>, <span class="math notranslate nohighlight">\(g\)</span>, meaning:</p>
+<div class="math notranslate nohighlight">
+\[ \eta = g(\mu) \]</div>
+<p>You can recover <span class="math notranslate nohighlight">\(\mu\)</span> by applying the inverse of the link function, <span class="math notranslate nohighlight">\(g^{-1}\)</span> to the <span class="math notranslate nohighlight">\(\eta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \mu = g^{-1}(\eta) \]</div>
+<p>So the general case is:</p>
+<div class="math notranslate nohighlight">
+\[ Y = F(g^{-1}(\eta),\tau) \]</div>
+<p>In normal linear regression, <span class="math notranslate nohighlight">\(F = Normal\)</span>, <span class="math notranslate nohighlight">\(\tau = \sigma\)</span>, and <span class="math notranslate nohighlight">\(g\)</span> is the identity function, meaning <span class="math notranslate nohighlight">\(g(\mu)=\mu\)</span>.</p>
+</div>
+<div class="section" id="from-linear-regression-to-logistic-regression">
+<h2>From linear regression to logistic regression.<a class="headerlink" href="#from-linear-regression-to-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>From <a class="reference internal" href="4.1-WhatAndWhy.html#section4-1"><span class="std std-ref"><em>Section 4.1</em></span></a> and <a class="reference internal" href="#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a> so far we are familiar with the following:</p>
+<ul class="simple">
+<li><p>Linear regression where the residuals are gaussian</p></li>
+<li><p>The generalised regression framework</p></li>
+<li><p>The bernouilli distribution for modelling binary outcomes.</p></li>
+</ul>
+<p>The gaussian distribution is useful when the output variable is continuous and symmetrically distributed. If we want to regress a binary variable onto predictors (i.e., find a mean line that the residuals vary around) then we need to consider the bernouilli distribution.</p>
+<p>Remember our general framework of a probability distribution, <span class="math notranslate nohighlight">\(F\)</span>, a linear predictor <span class="math notranslate nohighlight">\(\eta\)</span>, a link function <span class="math notranslate nohighlight">\(g\)</span>, and a dispersion parameter <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ Y = F(g^{-1}(\eta),\tau) \]</div>
+<p>Remember that the bernouilli is fairly special in having a single parameter, <span class="math notranslate nohighlight">\(p(x)\)</span>. There is no dispersion parameter. So:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+Y &amp;= F(g^{-1}(\eta)) \\
+g^{-1}(\eta) &amp;= p(x) \\
+\eta &amp;= g(p(x))
+\end{aligned}
+\end{split}\]</div>
+<p>In logistic regression instead of modelling <span class="math notranslate nohighlight">\(\mu\)</span> on the arithmetic scale, as in normal regression, we use the <strong>log-odds</strong> to model the mean in <em>logistic units</em>, which is why it is sometimes called the <strong>logit</strong> function. So our link function transforms the linear predictor <span class="math notranslate nohighlight">\(\eta\)</span> into log-odds:</p>
+<div class="math notranslate nohighlight">
+\[ logodds(p) = log( \frac{p}{1-p}) \]</div>
+<p>Which results in what we call the <strong>logistic regression</strong> model</p>
+<div class="math notranslate nohighlight">
+\[\log\left(\frac{p({\bf x})}{1 - p({\bf x})}\right) = \beta_0 + \beta_1 x_1 + \ldots  + \beta_{n} x_{n} \]</div>
+<p>Recall that <span class="math notranslate nohighlight">\(p(x)\)</span> is bounded between 0 and 1, since it is a probability. We can transform log-odds to the probability range <span class="math notranslate nohighlight">\(\{0,1\}\)</span> by the <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function"><strong>sigmoid</strong></a> function, or <strong>inverse-logit</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{logit}^{-1}(Y) =  \frac{e^Y}{1 + e^{Y}} = \frac{1}{1 + e^{-Y}} 
+\]</div>
+<p>Meaning you can get <span class="math notranslate nohighlight">\(p(x)\)</span> directly from the predictor variables.</p>
+<div class="math notranslate nohighlight">
+\[
+p({\bf x}) = \frac{e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{n}}}{1 + e^{\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{(n)}}} = \frac{1}{1+e^{-\beta_0 + \beta_1 x_{1} + \cdots + \beta_{n} x_{n}}}
+\]</div>
+<p>In our general framework, <span class="math notranslate nohighlight">\(g = logit\)</span>, <span class="math notranslate nohighlight">\(g^{-1} = sigmoid \)</span>.</p>
+<p>It may seem strange to model the log-odds. In the next section we will step through why this is the case as we use logistic regression to dive into our research question.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course",
+            ref: "develop",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="4.1-WhatAndWhy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">4.1 The What and Why of Statistical Modelling</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4.3-ModelBuilding.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4.3 Building a simple model</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Research Engineering Group, The Alan Turing Institute<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

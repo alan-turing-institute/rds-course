@@ -1,0 +1,1587 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.4 Evaluating models &#8212; Research Data Science</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Module 4 hands-on session" href="hands-on.html" />
+    <link rel="prev" title="4.3 Building a simple model" href="4.3-ModelBuilding.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Research Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 1: Introduction to Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.1-WhatIsDataScience.html">
+   1.1 What is [research] data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.2-DataScienceProjectLifecycle.html">
+   1.2 Research Data Science project lifecycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.3-EDIForDataScience.html">
+   1.3 Equality, diversity and inclusion in data science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/1.4-CollaborationAndReproducibility.html">
+   1.4 Collaboration and reproducibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m1/hands-on.html">
+   Module 1: Hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 2: Handling data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../m2/2.1-GettingLoading.html">
+   2.1 Getting and Loading Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.1-WhereToFindData.html">
+     2.1.1 Where to find data?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.2-LegalityAndEthics.html">
+     2.1.2 Legality and Ethics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.3-PandasIntro.html">
+     2.1.3 Pandas intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.4-DataSourcesAndFormats.html">
+     2.1.4 Data Sources and Formats
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.1.5-ControllingAccess.html">
+     2.1.5 Controlling access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../m2/2.2-DataWrangling.html">
+   2.2 Data Wrangling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.1-DataConsistency.html">
+     2.2.1 Data Consistency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.2-ModifyingColumnsAndIndices.html">
+     2.2.2 Modifying Columns and Indices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.3-FeatureEngineering.html">
+     2.2.3 Feature Engineering
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../m2/2.2.4-DataManipulation.html">
+     2.2.4 Data Manipulation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.1-TimeAndDateData.html">
+       2.2.4.1 Time and Date Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.2-TextData.html">
+       2.2.4.2 Text data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.3-CategoricalData.html">
+       2.2.4.3 Categorical Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../m2/2.2.4.4-ImageData.html">
+       2.2.4.4 Image Data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.5-PrivacyAndAnonymisation.html">
+     2.2.5 Privacy and Anonymisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.6-LinkingDatasets.html">
+     2.2.6 Linking Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../m2/2.2.7-MissingData.html">
+     2.2.7 Missing Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on.html">
+   Module 2: Hands-on session
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m2/hands-on-complete.html">
+   Module 2: Hands-on session (Solutions)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 3: Data Visualisation &amp; Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.1-FiguresGoneWrong.html">
+   3.1 Figures gone wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.2-RulesOfTheGame.html">
+   3.2 Rules of the data visualisation game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.3-Atlas0fVisualisations.html">
+   3.3 Atlas of Visualisations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.4-StoryTelling.html">
+   3.4 Storytelling with data visualisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/3.5-DataVisForExploration.html">
+   3.5 Walkthrough: visualisation for data exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../m3/hands-on.html">
+   Module 3 hands-on session
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Module 4: Introduction to Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.1-WhatAndWhy.html">
+   4.1 The What and Why of Statistical Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.2-ModelFitting.html">
+   4.2 Fitting (Regression) Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.3-ModelBuilding.html">
+   4.3 Building a simple model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4.4 Evaluating models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hands-on.html">
+   Module 4 hands-on session
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/modules/m4/4.4-ModelEvaluation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/alan-turing-institute/rds-course"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/alan-turing-institute/rds-course/issues/new?title=Issue%20on%20page%20%2Fmodules/m4/4.4-ModelEvaluation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m4/4.4-ModelEvaluation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-1-age-and-deprivation-index">
+   Model 1: Age and Deprivation index.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validating-the-fit">
+   Validating the fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-through-predicting-new-data">
+   Evaluation through predicting new data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#investigating-threshold-values">
+     Investigating threshold values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-roc-curves">
+     What Are ROC Curves?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-2-model-1-education-children-and-accommodation-problems">
+   Model 2: Model 1 + Education, Children, and Accommodation Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-predicted-values">
+     Comparing predicted values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roc-curves">
+     ROC curves
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-matrix">
+     Classification matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-3-model-2-mental-wellbeing">
+   Model 3: Model 2 + Mental Wellbeing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Comparing predicted values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#going-back-to-our-research-question">
+     Going back to our research question
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-4-a-simpler-model-with-equivalent-discrimination-power">
+     Model 4: A simpler model with equivalent discrimination power
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references-and-further-reading">
+     References and Further Reading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>4.4 Evaluating models</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-1-age-and-deprivation-index">
+   Model 1: Age and Deprivation index.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validating-the-fit">
+   Validating the fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-through-predicting-new-data">
+   Evaluation through predicting new data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#investigating-threshold-values">
+     Investigating threshold values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-roc-curves">
+     What Are ROC Curves?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-2-model-1-education-children-and-accommodation-problems">
+   Model 2: Model 1 + Education, Children, and Accommodation Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-predicted-values">
+     Comparing predicted values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roc-curves">
+     ROC curves
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-matrix">
+     Classification matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-3-model-2-mental-wellbeing">
+   Model 3: Model 2 + Mental Wellbeing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Comparing predicted values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#going-back-to-our-research-question">
+     Going back to our research question
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-4-a-simpler-model-with-equivalent-discrimination-power">
+     Model 4: A simpler model with equivalent discrimination power
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references-and-further-reading">
+     References and Further Reading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="evaluating-models">
+<span id="section4-4"></span><h1>4.4 Evaluating models<a class="headerlink" href="#evaluating-models" title="Permalink to this headline">¶</a></h1>
+<p>In the last section we created a very simple model linking the binarised self reported health with the deprivation index, controlled by age, for the UK. We emphasised understanding the model and developed intuition of what the model learns, but a modelling task is not complete without evaluation. Evaluation examines how well the model has learned the data and is able generalise it to unseen data.</p>
+<p>One of the evaluation tools available to us are <strong>goodness-of-fit</strong> metrics. These metrics summarise the discrepancy between observed values from the data used for fitting and the values expected under the estimated parameters of the model.</p>
+<p>Goodness of fit metrics depend of the kind of model you are fitting, e.g., in regression you tend to look at the <em>Mean Square Error</em>, <em>Root Mean Squared Error</em>, <em>Coefficient of Determination</em>, residual plots, etc. All these metrics have to be interpreted with the full knowledge of the context of the data and the model. You can find more about these metrics in <a class="reference external" href="https://medium.com/microsoftazure/how-to-better-evaluate-the-goodness-of-fit-of-regressions-990dbf1c0091">here</a>).</p>
+<p>The <strong>goodness-of-fit</strong> metrics alone are not enough for a full evaluation of the model. A fit can learn the data perfectly but can be <strong>overfitted</strong>, meaning that they have learned the peculiarities (noise) of the dataset and will make poor predictions on future unseen samples (we touched on overfitting in <a class="reference internal" href="4.2-ModelFitting.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a>). Hence, part of model evaluation is to estimate the generalization accuracy of a model on unseen/out-of-sample data by using a <strong>test set</strong> (i.e data not seen by the model).</p>
+<p>In this section we will build on the modelling steps done in <a class="reference internal" href="4.3-ModelBuilding.html#section4-3"><span class="std std-ref"><em>Section 4.3</em></span></a> and perform model evaluation.  In this example we are focusing on logistic regression, however we will try to make the concepts and ideas generalisable to other models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">precision_recall_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note</strong>: <em>We aim that each section can function as a stand-alone material, therefore we repeat the data processing steps in Sections 3.5, 4.3 and now here. Feel free to skip to the next section.</em></p>
+<p>We can access the data by downloading the <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/details">csv</a> option from here.</p>
+<p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> (where <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course).
+This should give you <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code> directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datafolder</span> <span class="o">=</span> <span class="s1">&#39;./data/UKDA-7724-csv/&#39;</span> <span class="c1"># should match the path you unzipped the data to</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;csv/eqls_2011.csv&#39;</span><span class="p">)</span>
+<span class="n">df_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">datafolder</span> <span class="o">+</span> <span class="s1">&#39;mrdoc/excel/eqls_api_map.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we are only interested in the UK for this example.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Y11_Country == 27&#39;</span><span class="p">)</span>
+
+<span class="n">var_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Y11_Q42&quot;</span><span class="p">:</span> <span class="s2">&quot;SRH&quot;</span><span class="p">,</span>
+           <span class="s1">&#39;Y11_Deprindex&#39;</span><span class="p">:</span> <span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Accommproblems&quot;</span><span class="p">:</span> <span class="s1">&#39;AccomProblems&#39;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_HHsize&quot;</span><span class="p">:</span> <span class="s2">&quot;HouseholdSize&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Q32&quot;</span><span class="p">:</span> <span class="s2">&quot;Children&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_ISCEDsimple&quot;</span><span class="p">:</span><span class="s2">&quot;ISCED&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_SocExIndex&quot;</span><span class="p">:</span><span class="s2">&quot;SocialExclusionIndex&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_MWIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;MentalWellbeingIndex&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Agecategory&quot;</span><span class="p">:</span><span class="s2">&quot;AgeCategory&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_HH2a&quot;</span><span class="p">:</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Q31&quot;</span><span class="p">:</span><span class="s2">&quot;MaritalStatus&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Y11_Country&quot;</span><span class="p">:</span><span class="s2">&quot;Country&quot;</span>
+<span class="p">}</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">var_map</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_set</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">var_map</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We drop rows with missing data (<strong>warning</strong>: this shouldn’t be done lightly without having explored the missingness of the data, here we are doing for simplicity and to focus on the modelling).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_model</span> <span class="o">=</span> <span class="n">df_set</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we dichotomise the <code class="docutils literal notranslate"><span class="pre">SRH</span></code> variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dichotomise SRH</span>
+<span class="n">df_model</span><span class="p">[</span><span class="s1">&#39;SRH_binary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/f4/m42_v8vj1fjc0wrwtb69xjt80000gr/T/ipykernel_56202/2217895522.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_model[&#39;SRH_binary&#39;] = df_model.SRH.apply(lambda x: 1 if float(x) &lt;= 3 else 0)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-1-age-and-deprivation-index">
+<h2>Model 1: Age and Deprivation index.<a class="headerlink" href="#model-1-age-and-deprivation-index" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start evaluating the performance of a simple model described in <a class="reference internal" href="4.3-ModelBuilding.html#section4-3"><span class="std std-ref"><em>Section 4.3</em></span></a> where we model <code class="docutils literal notranslate"><span class="pre">SRH</span></code> as a function of <code class="docutils literal notranslate"><span class="pre">Age</span></code> and <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code>.</p>
+<p>In that section we used our complete UK dataset to fit the model as an illustrative example. However, an alternative approach this is to partition your dataset into a <strong>training</strong> sample used to fit you model, and a <strong>holdout</strong> sample for evaluation. The purpose of this is to obtain an unbiased estimate of learning performance.</p>
+<p>Depending on your model you might need a <strong>training</strong>, <strong>validation</strong> and <strong>testing</strong> set (e.g a validation set can be useful when you have to tune model hyper-parameters). However, for this example we will use a simple <strong>train</strong>/<strong>test</strong> split following a 70/30 rule (for more in depth discussion of what is a “good test size” check-out this <a class="reference external" href="https://www.r-bloggers.com/2021/01/what-is-a-good-test-set-size-2/">blog post</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test train split using scikit learn, defining random state for reproducibility</span>
+<span class="n">trainX_model1</span><span class="p">,</span> <span class="n">testX_model1</span><span class="p">,</span> <span class="n">trainy_model1</span><span class="p">,</span> <span class="n">testy_model1</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">]],</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example we will use a fixed train/test split, but this has its dangers — what if the split we make isn’t random? (e.g data could be ordered in a non random manner, or we could be unlucky in our split to have a non-representative sample). A solution for this is to use <strong>cross-validation</strong>. This method is very similar to train/test split, but it’s applied to more subsets. Meaning, the dataset is split into <span class="math notranslate nohighlight">\(k\)</span> subsets (or folds), and the model is trained on <span class="math notranslate nohighlight">\(k-1\)</span> one of those subsets. The remaining subset is used to test the model. This is done iteratively <span class="math notranslate nohighlight">\(k\)</span> times and then the score metrics obtained on each of the folds are averaged into a a summarized performance of the model. More information on <strong>cross-validation</strong> can be found <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">here</a>.</p>
+<p>Now, let’s fit our model on our training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainX_const_model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">trainX_model1</span><span class="p">)</span> <span class="c1">#add constant for intercept</span>
+<span class="n">logit_model_model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">trainy_model1</span><span class="p">,</span> <span class="n">trainX_const_model1</span><span class="p">)</span> <span class="c1">#Create model instance</span>
+<span class="n">result_model1</span> <span class="o">=</span> <span class="n">logit_model_model1</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.308598
+         Iterations 7
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the output, ‘Iterations‘ refer to the number of times the model iterates over the data to optimize the model.</p>
+</div>
+<div class="section" id="validating-the-fit">
+<h2>Validating the fit<a class="headerlink" href="#validating-the-fit" title="Permalink to this headline">¶</a></h2>
+<p>Let’s explore the output of the fit. The summary table below gives us a descriptive summary about the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">result_model1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1402
+Model:                          Logit   Df Residuals:                     1399
+Method:                           MLE   Df Model:                            2
+Date:                Sun, 16 Oct 2022   Pseudo R-squ.:                  0.1086
+Time:                        17:06:06   Log-Likelihood:                -432.65
+converged:                       True   LL-Null:                       -485.35
+Covariance Type:            nonrobust   LLR p-value:                 1.296e-23
+===============================================================================
+                  coef    std err          z      P&gt;|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const           4.5066      0.373     12.067      0.000       3.775       5.239
+AgeCategory    -0.4717      0.086     -5.505      0.000      -0.640      -0.304
+DeprIndex      -0.4312      0.045     -9.485      0.000      -0.520      -0.342
+===============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>In <a class="reference internal" href="4.3-ModelBuilding.html#section4-3"><span class="std std-ref"><em>Section 4.3</em></span></a> we discussed the interpretation of the coefficients, standard errors and significance parameters. In this section we’ll explore the output related to the <strong>goodness-of-fit</strong>.</p>
+<ul class="simple">
+<li><p><strong>Method</strong>:  Maximum Likelihood Estimation (MLE) is a probabilistic framework for estimating the parameters of an assumed probability distribution, given some observed data. MLE involves maximizing a likelihood function in order to find the probability distribution and parameters that best explain the observed data.</p></li>
+<li><p><strong>No. Observations</strong>: Number of observations on our training set.</p></li>
+<li><p><strong>Df. Residuals</strong>:  This is the Residuals degrees of freedom in the model. This is calculated in the form of <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">observations</span></code> - <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">predictors</span></code> - 1.</p></li>
+<li><p><strong>Df. Model</strong>: Degrees of Freedom of our model, which is basically the number of predictors used in the model (or number of coefficients to be fitted).</p></li>
+<li><p><strong>Log-Likelihood</strong>: the natural logarithm of the Maximum Likelihood Estimation (MLE) function given the estimated parameters. The log likelihood function in maximum likelihood estimations is usually computationally simpler, and the log-likelihood maximum is the same as the maximum likelihood.</p></li>
+<li><p><strong>LL-Null</strong>: the value of log-likelihood of the model when no independent variable is included (only an intercept is included).</p></li>
+<li><p><strong>Pseudo R-squ.</strong>: It is the ratio of the log-likelihood of the null model to that of the full model (this can function as a substitute for the R-squared value in Least Squares linear regression).</p></li>
+<li><p><strong>LLR p-value</strong>: A small p-value you can reject the null hypothesis that the model based on the intercept (all coefficients = 0) is better than the full model, again this uses the ratio of the log-likelihood of the null model to that of the full model.</p></li>
+</ul>
+<p>For the remainder of this section we will be using the <strong>log-likelihood</strong> values as a way to compare how a model improves when adding a new predictor.</p>
+</div>
+<div class="section" id="evaluation-through-predicting-new-data">
+<h2>Evaluation through predicting new data<a class="headerlink" href="#evaluation-through-predicting-new-data" title="Permalink to this headline">¶</a></h2>
+<p>Now we evaluate our model using our test dataset.</p>
+<p>As we learned in <a class="reference internal" href="4.2-ModelFitting.html#section4-2"><span class="std std-ref"><em>Section 4.2</em></span></a>, logistic regression works by first obtaining the prediction of the model as a probability, then binarising the predicted probability using a threshold value. Scores above the threshold value will be classified as positive, those below as negative. For now the threshold value of the probability is <span class="math notranslate nohighlight">\(P(x)&gt;0.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># performing predictions on the test dataset</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">result_model1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model1</span><span class="p">))</span>
+<span class="n">pred_y_model1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+ 
+<span class="c1"># comparing first 10 original and predicted values of y</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual values&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">)[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predictions :&#39;</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual values [1, 1, 1, 1, 0, 1, 1, 0, 1, 1]
+Predictions : [1, 1, 1, 1, 1, 0, 1, 1, 1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell above we are just printing the first 10 observations of our dataset. In order to summarise the the accuracy of the predictions from our model we can use a confusion matrix. This maps the predicted and actual values into a matrix and can give us an idea of what the classification model is getting right and what types of errors it is making.</p>
+<p>From a confusion matrix we can obtain the True Positives (TP), False Positives (FP), True Negatives (TN) and False Negatives (FN) and calculate the following metrics:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Accuracy} = \frac{TP  + TN}{TP + FP + TN + FN}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Precision} = 
+   \frac{TP}{TP + FP}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Recall (Sensitivity)} =
+    \frac{TP}{TP + FN}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\text{Specificity (Recall of Negative label)}} =
+    \frac{TN}{TN + FP}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># confusion matrix using sklearn</span>
+<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span><span class="n">pred_y_model1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plt_cnf_mat</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">tick_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">class_names</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">class_names</span><span class="p">)</span>
+    <span class="c1"># create heatmap</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span> <span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Actual label&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted label&#39;</span><span class="p">)</span>
+    
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt_cnf_mat</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span> <span class="c1"># what is recall? </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8803986710963455
+Precision: 0.8902027027027027
+Recall: 0.9868913857677902
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_20_1.png" src="../../_images/4.4-ModelEvaluation_20_1.png" />
+</div>
+</div>
+<p>You can see here that very few true negative values get predicted and the overwhelming majority of responses are true positives. Furthermore, the accuracy, precision, and recall score &gt; 89%, this is happening due to our dataset being highly imbalanced and that the minority class are labeled as negative (0).</p>
+<p>A more complete evaluation would be to also estimate these metrics for the minority class (specificity):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testy_model1_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">testy_model1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pred_y_model1_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_y_model1</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Specificity:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model1_minority</span><span class="p">,</span> <span class="n">pred_y_model1_minority</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specificity: 0.04411764705882353
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result above is not a surprise. In <a class="reference internal" href="4.3-ModelBuilding.html#section4-3"><span class="std std-ref"><em>Section 4.3</em></span></a> we saw that the model considers deprivation as a continuous variable and observed that the cutoff point of the model (this is the value where the model starts predicting negative labels) for the deprivation predictor was around 7, which is larger than the existing range for this variable. Nonetheless, in our examination of the model in <a class="reference internal" href="4.3-ModelBuilding.html#section4-3"><span class="std std-ref"><em>Section 4.3</em></span></a> we observed that the model was indeed learning from the data and reproducing it, and after examining the <strong>log-likelihoods</strong> of the fit summary above we can conclude that the model is indeed better than a null model where the predictors do not add any information.</p>
+<p>This means that the classification matrix  might not be the best tool to evaluate the model in this scenario. Particularly because it shows a snapshot of the results being mapped from a predicted probability using a threshold of <span class="math notranslate nohighlight">\(p(x)&gt; 0.5\)</span>.</p>
+<div class="section" id="investigating-threshold-values">
+<h3>Investigating threshold values<a class="headerlink" href="#investigating-threshold-values" title="Permalink to this headline">¶</a></h3>
+<p>Let’s go back to our probability and investigate the predicted values given by the model for our two labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># link the prediction to the label values</span>
+<span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;prediction&#39;</span><span class="p">:</span> <span class="n">yhat</span><span class="p">,</span>
+     <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">testy_model1</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 1&#39;</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 0&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p(x)&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x299b5c760&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_24_1.png" src="../../_images/4.4-ModelEvaluation_24_1.png" />
+</div>
+</div>
+<p>Ideally, in this density plot we would observe separate probability scores between two classes, with the score of the cases where <code class="docutils literal notranslate"><span class="pre">SRH==0</span></code> on the low probability values and the score of cases with <code class="docutils literal notranslate"><span class="pre">SRH==1</span></code> on the the high values. However, in the current case both distributions are skewed to the high probability values. The reason for this is because our dataset is highly imbalanced and only consists of 10 percent of cases where <code class="docutils literal notranslate"><span class="pre">SRH</span> <span class="pre">==0</span></code>. Thus the predicted probabilities get pulled towards higher values because of the majority of the data being positive cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Mean value for SRH ==1,&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Mean value for SRH ==0,&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Percentage of cases with SRH ==0,&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">/</span><span class="n">df_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean value for SRH ==1, 0.895
+Mean value for SRH ==0, 0.823
+Percentage of cases with SRH ==0, 0.113
+</pre></div>
+</div>
+</div>
+</div>
+<p>Despite all this, in the density figures above we can observe a separation in the predicted scores, and the performance of the model could be improved by selecting a better threshold value for <span class="math notranslate nohighlight">\(p(x)\)</span> to classify each case. This should be done by balancing the rate of False Positives and False Negatives. To assess this trade-off we can use other tools available, such as <strong>ROC curves</strong>.</p>
+</div>
+<div class="section" id="what-are-roc-curves">
+<h3>What Are ROC Curves?<a class="headerlink" href="#what-are-roc-curves" title="Permalink to this headline">¶</a></h3>
+<p>A receiver operating characteristic curve, or ROC curve, is a figure that illustrates the performance of a binary classifier as its discrimination threshold is varied.</p>
+<p>Let’s examine how the ROC curve looks for our model, and how it compares to a dummy classifier with no skill in classifying our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function from https://stackoverflow.com/questions/22518230/creating-a-threshold-coded-roc-plot-in-python</span>
+<span class="k">def</span> <span class="nf">plot_roc</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">positive_label</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">):</span>
+    <span class="c1"># fp: false positive rates. tp: true positive rates</span>
+    <span class="n">fp</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="n">positive_label</span><span class="p">)</span>
+    <span class="n">roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">title</span><span class="o">+</span><span class="s1">&#39; ROC curve (area = </span><span class="si">%0.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">roc_auc</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False positives rate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True positives rate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC curve (numbers are threshold values)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># plot some thresholds</span>
+    <span class="n">thresholdsLength</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">thresholdsLength</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="p">):</span>
+        <span class="n">threshold_value_with_max_three_decimals</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">thresholds</span><span class="p">[</span><span class="n">i</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">fp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.015</span><span class="p">,</span> <span class="n">threshold_value_with_max_three_decimals</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span><span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_probs_model1</span> <span class="o">=</span> <span class="n">result_model1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model1</span><span class="p">))</span>
+
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">lr_probs_model1</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 1&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.4-ModelEvaluation_30_0.png" src="../../_images/4.4-ModelEvaluation_30_0.png" />
+</div>
+</div>
+<p>The AUC values printed above reflects the area under the ROC curve and provides a measure of how discriminant the model is between the two classes.  <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1556086415306043#:~:text=AREA%20UNDER%20THE%20ROC%20CURVE,-AUC%20is%20an&amp;text=In%20general%2C%20an%20AUC%20of,than%200.9%20is%20considered%20outstanding.">In general, an AUC of 0.5 means no discrimination, 0.7 to 0.8 is considered acceptable, 0.8 to 0.9 is considered excellent, and more than 0.9 is considered outstanding</a>.</p>
+<p>A value of 0.5 for AUC indicates that the ROC curve will fall on the diagonal (i.e., 45-degree line) and hence suggests that the diagnostic test has no discriminatory ability.</p>
+<p>Here we confirm again that our model has learned something and performs better than an “unskilled” dummy classifier. Now, we can use the ROC values to obtain an optimal threshold value. One of the commonly used method for this is the <a class="reference external" href="https://en.wikipedia.org/wiki/Youden%27s_J_statistic">Youden index method</a>. In this method the optimal threshold values is the one that maximises the Youden function which is the difference between true positive rate and false positive rate over all possible threshold values.</p>
+<p>We wrote a small implementation of this method for this example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function inspired by https://stackoverflow.com/questions/28719067/roc-curve-and-cut-off-point-python</span>
+<span class="k">def</span> <span class="nf">find_optimal_threshold</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">predicted</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Find the optimal probability threshold for a classification model.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    target : Matrix with label data, where rows are observations</span>
+
+<span class="sd">    predicted : Matrix with predicted data, where rows are observations</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------     </span>
+<span class="sd">    a float, with optimal cutoff value</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span>
+    <span class="n">j_scores</span> <span class="o">=</span> <span class="n">tpr</span><span class="o">-</span><span class="n">fpr</span>
+    <span class="n">j_ordered</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">j_scores</span><span class="p">,</span><span class="n">thresholds</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">j_ordered</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">find_optimal_threshold</span><span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9064
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is quite far from the 0.5 value we originally had! Let’s see how our classification matrix does now using this new threshold.</p>
+<p>In this case we have decided that the optimal threshold value is the one that, which which maximises the True Positive rate and minimizes the False Positive rate. However, the definition of <strong>optimal</strong> really depends of the research question or the task we are to solve. An alternative would be to give more importance in accurately classifying our <code class="docutils literal notranslate"><span class="pre">SRH=0</span></code> class and try to maximise the True Negative Rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># performing predictions on the test dataset</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">result_model1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model1</span><span class="p">))</span>
+<span class="n">pred_y_model1</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">threshold</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">yhat</span><span class="p">]</span>
+
+
+<span class="c1"># confusion matrix using sklearn</span>
+<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span><span class="n">pred_y_model1</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt_cnf_mat</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span> <span class="c1"># what is recall? </span>
+
+<span class="nb">print</span> <span class="p">()</span>
+<span class="n">testy_model1_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">testy_model1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pred_y_model1_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_y_model1</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Specificity:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model1_minority</span><span class="p">,</span> <span class="n">pred_y_model1_minority</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.553156146179402
+
+Precision: 0.9522184300341296
+Recall: 0.5224719101123596
+
+Specificity: 0.7941176470588235
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_35_1.png" src="../../_images/4.4-ModelEvaluation_35_1.png" />
+</div>
+</div>
+<p>The specificity for our minority label (<code class="docutils literal notranslate"><span class="pre">SRH==0</span></code>) has improved using the new threshold value, at a large expense of the classification performance of the majority label (<code class="docutils literal notranslate"><span class="pre">SRH==1</span></code>). However, a model that puts all instances in one class is not of good use for us, so this is an improvement. Furthermore, depending on our research question and the ultimate goal of the model we might want to maximise the specificity, even if this means increasing the amount of false negatives we observe. For example, it might be more important to identify people that are likely to report poor health than the ones with good health.</p>
+<p>In any case, we must remember that up to know we are using a very simple model, only using deprivation as a predictor and controlling for age. Adding more predictors to the model can improve its performance. We’ll explore that next.</p>
+</div>
+</div>
+<div class="section" id="model-2-model-1-education-children-and-accommodation-problems">
+<h2>Model 2: Model 1 + Education, Children, and Accommodation Problems<a class="headerlink" href="#model-2-model-1-education-children-and-accommodation-problems" title="Permalink to this headline">¶</a></h2>
+<p>Let’s increase the complexity to our model by adding more predictors representing socio-economic factors. In this case we’ll add information about education (<code class="docutils literal notranslate"><span class="pre">ISCED</span></code>; levels of education completed), the number of children one has (<code class="docutils literal notranslate"><span class="pre">Children</span></code>), and the number of problems with accommodation reported by the respondents (<code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code>). All these variables are ordered categorical variables that we assume to function as continuous variables for this exercise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainX_model2</span><span class="p">,</span> <span class="n">testX_model2</span><span class="p">,</span> <span class="n">trainy_model2</span><span class="p">,</span> <span class="n">testy_model2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;ISCED&#39;</span><span class="p">,</span><span class="s2">&quot;Children&quot;</span><span class="p">,</span><span class="s2">&quot;AccomProblems&quot;</span><span class="p">]],</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">trainX_const_model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">trainX_model2</span><span class="p">)</span> <span class="c1">#add constant for intercept</span>
+<span class="n">logit_model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">trainy_model2</span><span class="p">,</span> <span class="n">trainX_const_model2</span><span class="p">)</span> <span class="c1">#Create model instance</span>
+<span class="n">result_model2</span> <span class="o">=</span> <span class="n">logit_model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.302262
+         Iterations 7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">result_model2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1402
+Model:                          Logit   Df Residuals:                     1396
+Method:                           MLE   Df Model:                            5
+Date:                Sun, 16 Oct 2022   Pseudo R-squ.:                  0.1269
+Time:                        17:06:07   Log-Likelihood:                -423.77
+converged:                       True   LL-Null:                       -485.35
+Covariance Type:            nonrobust   LLR p-value:                 6.698e-25
+=================================================================================
+                    coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             3.7660      0.526      7.164      0.000       2.736       4.796
+AgeCategory      -0.4134      0.093     -4.465      0.000      -0.595      -0.232
+DeprIndex        -0.3698      0.049     -7.621      0.000      -0.465      -0.275
+ISCED             0.2119      0.072      2.942      0.003       0.071       0.353
+Children         -0.1362      0.069     -1.981      0.048      -0.271      -0.001
+AccomProblems    -0.1758      0.097     -1.819      0.069      -0.365       0.014
+=================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we compare these fit results to the ones from <strong>Model 1</strong> we observe the following:</p>
+<ul class="simple">
+<li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> has become less negative. This could mean that the new variables that we have added to the model have taken some weight previously given to <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code>. This is not surprising given that somese variables are expected to be linked to deprivation (e.g in <span class="xref myst"><em>Section 3.5</em></span> we observed a correlation between <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code>).</p></li>
+<li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">AgeCategory</span></code> also became less negative, but within the margin of its standard error.</p></li>
+<li><p>Now, if we look at the parameters of <em>goodness-of-fit</em> we can observe that the fit has improved slightly, with a less negative log-likelihood and slightly larger pseudo R-squ. However, if we compare the increase of log-likelihood of adding these new variables with respect to the values of a null model, the improvement is modest (~10 units of log likelihood of <strong>Model 2</strong> vs <strong>Model 1</strong> against ~50 units for <strong>Model 1</strong> vs <strong>Null model</strong>). We might suspect that our new variables barely increase the discrimination power of our model. Lets take a look at evaluating it on the test set.</p></li>
+</ul>
+<div class="section" id="comparing-predicted-values">
+<h3>Comparing predicted values<a class="headerlink" href="#comparing-predicted-values" title="Permalink to this headline">¶</a></h3>
+<p>Same as we did in the previous section, let’s compare the predicted probability values of an event being classified as <code class="docutils literal notranslate"><span class="pre">SRH=1</span></code> or <code class="docutils literal notranslate"><span class="pre">SRH=0</span></code>. Let’s do this but running the model on the test set and comparing the distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># link the prediction to the label values</span>
+<span class="n">yhat_model2</span> <span class="o">=</span> <span class="n">result_model2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model2</span><span class="p">))</span>
+<span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;prediction&#39;</span><span class="p">:</span> <span class="n">yhat_model2</span><span class="p">,</span>
+     <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">testy_model2</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 1&#39;</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 0&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x298fe7af0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_42_1.png" src="../../_images/4.4-ModelEvaluation_42_1.png" />
+</div>
+</div>
+<p>The shape of the probability distributions look similar to what we observed in <strong>Model 1</strong> (maybe the tails for class <code class="docutils literal notranslate"><span class="pre">SHR=0</span></code> are longer). Again, we can observe that using the default threshold value around 0.5 will not be optimal in this case and a higher value should be chosen.</p>
+<p>Probability values of larger than one in this case are a product of using kernel density estimation for our visualisation. We choose this method because we want to compare shapes of distributions, however we must have in mind that it can create the impression that there is data in ranges where there is not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold_model2</span> <span class="o">=</span> <span class="n">find_optimal_threshold</span><span class="p">(</span><span class="n">testy_model2</span><span class="p">,</span> <span class="n">yhat_model2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Probability threshold cut&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">threshold_model2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability threshold cut 0.9176
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="roc-curves">
+<h3>ROC curves<a class="headerlink" href="#roc-curves" title="Permalink to this headline">¶</a></h3>
+<p>The probability threshold value is slightly lower than for model <strong>Model 1</strong>, but not significantly, given that the predicted distributions are quite similar.</p>
+<p>Now, let’s take a look at our ROC curves and AUC values and compare them to <strong>Model 1</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">lr_probs_model1</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 1&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">yhat_model2</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 2&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.4-ModelEvaluation_46_0.png" src="../../_images/4.4-ModelEvaluation_46_0.png" />
+</div>
+</div>
+<p>When comparing the above curves between the two models we can observe the following:</p>
+<ul class="simple">
+<li><p>The ROC curve for <strong>Model 2</strong> has a higher granularity of steps in which the True and False Positive rates are evaluated. This is because the sklearn function drops <em>suboptimal thresholds</em> which corresponds points on the ROC curve that will have the same TPR and FPR values that adjacent points. In the simpler model there might be more configuration of predictor values needed to produce a high granularity curve.</p></li>
+<li><p>Despite the point above, AUC values and overall ROC shapes are pretty much the same.</p></li>
+</ul>
+<p>This again confirms our theory that this new model doesn’t contain much more discriminative power than <strong>Model 1</strong>, with the deprivation index carrying a good bulk of the information that these new variables such as education level and accommodation problems can add to the model.</p>
+</div>
+<div class="section" id="classification-matrix">
+<h3>Classification matrix<a class="headerlink" href="#classification-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Finally, let’s take a look at our classification performance, using the optimal threshold value of classification for this model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_y_model2</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">threshold_model2</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">yhat_model2</span><span class="p">]</span>
+
+<span class="n">cnf_matrix_model2</span>  <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">testy_model2</span><span class="p">,</span><span class="n">pred_y_model2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt_cnf_mat</span><span class="p">(</span><span class="n">cnf_matrix_model2</span> <span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">pred_y_model2</span> <span class="p">))</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">pred_y_model2</span> <span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">pred_y_model2</span> <span class="p">))</span> 
+
+
+<span class="nb">print</span> <span class="p">()</span>
+<span class="n">testy_model2_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">testy_model2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pred_y_model2_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_y_model2</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Specificity:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model2_minority</span><span class="p">,</span> <span class="n">pred_y_model2_minority</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.584717607973422
+
+Precision: 0.9522292993630573
+Recall: 0.5599250936329588
+
+Specificity: 0.7794117647058824
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_49_1.png" src="../../_images/4.4-ModelEvaluation_49_1.png" />
+</div>
+</div>
+<p>Comparing to <strong>Model 1</strong>:</p>
+<ul class="simple">
+<li><p>Our general accuracy improved slightly (from 0.55 to 0.58!).</p></li>
+<li><p>The Recall decreased (from 0.52 to 0.55).</p></li>
+<li><p>Specificity decreased slightly.</p></li>
+</ul>
+<p>It can be difficult to track the changes of all of these metrics but with such an imbalanced dataset <strong>Accuracy</strong> is not a good indicator. Particularly, in this case we might want to minimize False Negatives. For these cases, we can use the <strong>F1-score</strong>, which is is the harmonic mean of Precision and Recall and gives a better measure of the incorrectly classified cases than the <strong>Accuracy</strong> metric.</p>
+<p><span class="math notranslate nohighlight">\(F1  = 2*\frac{Precision*Recall}{Precision+ Recall}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Model 1:&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">testy_model1</span> <span class="p">,</span> <span class="n">pred_y_model1</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Model 2:&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">pred_y_model2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model 1: 0.6747279322853689
+Model 2: 0.7051886792452831
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-3-model-2-mental-wellbeing">
+<h2>Model 3: Model 2 + Mental Wellbeing<a class="headerlink" href="#model-3-model-2-mental-wellbeing" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s complicate the model even further, adding a variable related to mental wellbeing.</p>
+<p>The mental wellbeing index is based on a set of five questions where the respondents state degree of agreement in how they felt over the previous two weeks, measured on a six-point scale. The mental well-being scale converts these to a value between 0 - 100.
+The questionnaire use only positively phrased questions and in the scale higher values mean better self reported mental health.</p>
+<p>We decided to add this variable because they should be mostly orthogonal to the existing ones of <strong>Model 2</strong>, and a new dimension to the model that should improve its performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;ISCED&#39;</span><span class="p">,</span><span class="s2">&quot;MentalWellbeingIndex&quot;</span><span class="p">,</span><span class="s2">&quot;Children&quot;</span><span class="p">,</span><span class="s2">&quot;AccomProblems&quot;</span><span class="p">]]</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">trainX_model3</span><span class="p">,</span> <span class="n">testX_model3</span><span class="p">,</span> <span class="n">trainy_model3</span><span class="p">,</span> <span class="n">testy_model3</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trainX_const_model3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">trainX_model3</span><span class="p">)</span> <span class="c1">#add constant for intercept</span>
+<span class="n">logit_model3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">trainy_model3</span><span class="p">,</span> <span class="n">trainX_const_model3</span><span class="p">)</span> <span class="c1">#Create model instance</span>
+<span class="n">result_model3</span> <span class="o">=</span> <span class="n">logit_model3</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">result_model3</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.259393
+         Iterations 7
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1402
+Model:                          Logit   Df Residuals:                     1395
+Method:                           MLE   Df Model:                            6
+Date:                Sun, 16 Oct 2022   Pseudo R-squ.:                  0.2507
+Time:                        17:06:08   Log-Likelihood:                -363.67
+converged:                       True   LL-Null:                       -485.35
+Covariance Type:            nonrobust   LLR p-value:                 1.069e-49
+========================================================================================
+                           coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                    1.8202      0.589      3.089      0.002       0.665       2.975
+AgeCategory             -0.4998      0.103     -4.864      0.000      -0.701      -0.298
+DeprIndex               -0.1861      0.056     -3.341      0.001      -0.295      -0.077
+ISCED                    0.1335      0.076      1.754      0.080      -0.016       0.283
+MentalWellbeingIndex     0.0476      0.005     10.077      0.000       0.038       0.057
+Children                -0.1425      0.075     -1.911      0.056      -0.289       0.004
+AccomProblems           -0.1901      0.108     -1.764      0.078      -0.401       0.021
+========================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s repeat the exercise we did in the previous section and compare the fit results between <strong>Model 2</strong> and <strong>Model 3</strong>. We observe the following:</p>
+<ul class="simple">
+<li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> again has become significantly less negative. This could mean that the mental wellbeing variables is sharing the weight that the deprivation index carried (it is not a surprise to think that people living in deprivation are also likely to have poor mental health).</p></li>
+<li><p>The coefficient for <code class="docutils literal notranslate"><span class="pre">MentalWellbeingIndex</span></code> is one order of magnitude smaller than the other coefficients. This is expected
+given that the variable is one order of magnitude larger.</p></li>
+<li><p>Now, if we look at the parameters of <em>goodness-of-fit</em> we can observe that the fit has improved significantly, with a less negative log-likelihood (~60 units of log likelihood of <strong>Model 3</strong> vs <strong>Model 2</strong>) and larger pseudo R-squ (~0.25 vs ~0.13). In this case the improvement is comparable to the increase of log-likelihood of adding new variables in <strong>Model 2</strong> with respect to the values of a null model (~60 units of log likelihood of <strong>Model 3</strong> vs <strong>Model 2</strong> against 63 units for <strong>Model 2</strong> vs <strong>Null model</strong>).</p></li>
+</ul>
+<p>Take this into consideration, we could suspect that including <code class="docutils literal notranslate"><span class="pre">MentalWellbeingIndex</span></code> will increase the discrimination power of our model. Let’s see if this is the case by evaluating it on the test set.</p>
+</div>
+<div class="section" id="id1">
+<h2>Comparing predicted values<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Same as we did in the previous section, let’s compare the predicted probability values of an event being classified as <code class="docutils literal notranslate"><span class="pre">SRH=1</span></code> or <code class="docutils literal notranslate"><span class="pre">SRH=0</span></code>. Let’s do this but running the model on the test set and comparing the distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># link the prediction to the label values</span>
+<span class="n">yhat_model3</span> <span class="o">=</span> <span class="n">result_model3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model3</span><span class="p">))</span>
+<span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;prediction&#39;</span><span class="p">:</span> <span class="n">yhat_model3</span><span class="p">,</span>
+     <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">testy_model3</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 1&#39;</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="n">df_labels</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SRH == 0&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2976fd480&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_56_1.png" src="../../_images/4.4-ModelEvaluation_56_1.png" />
+</div>
+</div>
+<p>The shape of for our class <code class="docutils literal notranslate"><span class="pre">SHR=0</span></code> has indeed changed, with now even larger tails to low probability values whilst the shape of our positive class has stayed more or less the same. This points in the same direction of our assumption that <strong>Model 3</strong> has now more discrimination power.</p>
+<p>Let’s confirm this using the <strong>ROC</strong> curves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_probs_model3</span> <span class="o">=</span> <span class="n">result_model3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model3</span><span class="p">))</span>
+
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model1</span><span class="p">,</span> <span class="n">lr_probs_model1</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 1&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model2</span> <span class="p">,</span> <span class="n">yhat_model2</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 2&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">lr_probs_model3</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.4-ModelEvaluation_58_0.png" src="../../_images/4.4-ModelEvaluation_58_0.png" />
+</div>
+</div>
+<p>Indeed, <strong>Model 3</strong> appears to be the one with better discrimination power between all models from this section. Now, finally let’s look at our classification performance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># performing predictions on the test dataset</span>
+<span class="n">threshold_model3</span> <span class="o">=</span> <span class="n">find_optimal_threshold</span><span class="p">(</span><span class="n">testy_model3</span><span class="p">,</span> <span class="n">yhat_model3</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;p(x) threshold value&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">threshold_model3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">pred_y_model3</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">threshold_model3</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">yhat_model3</span><span class="p">]</span>
+
+
+<span class="n">cnf_matrix_model3</span>  <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">testy_model2</span><span class="p">,</span><span class="n">pred_y_model3</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt_cnf_mat</span><span class="p">(</span><span class="n">cnf_matrix_model3</span> <span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">pred_y_model3</span> <span class="p">))</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">pred_y_model3</span> <span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">pred_y_model3</span> <span class="p">))</span> 
+
+
+<span class="nb">print</span> <span class="p">()</span>
+<span class="n">testy_model3_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">testy_model3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pred_y_model3_minority</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_y_model3</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Specificity:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">testy_model3_minority</span><span class="p">,</span> <span class="n">pred_y_model3_minority</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;F-score Model 3:&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">pred_y_model3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p(x) threshold value 0.9044
+Accuracy: 0.7524916943521595
+
+Precision: 0.9529411764705882
+Recall: 0.7584269662921348
+
+Specificity: 0.7058823529411765
+F-score Model 3: 0.8446298227320125
+</pre></div>
+</div>
+<img alt="../../_images/4.4-ModelEvaluation_60_1.png" src="../../_images/4.4-ModelEvaluation_60_1.png" />
+</div>
+</div>
+<p>Most of our metrics have improved with respect to <strong>Model 2</strong>!</p>
+<div class="section" id="going-back-to-our-research-question">
+<h3>Going back to our research question<a class="headerlink" href="#going-back-to-our-research-question" title="Permalink to this headline">¶</a></h3>
+<p>Up to now we have been exploring different models and attempting to contrast and compare them using different metrics following a typical machine learning approach. However, we need to sit back and think about our research question what exactly we are trying to measure:</p>
+<blockquote>
+<div><p>We want to investigate the contribution of material, occupational, and psychosocial factors on the self reported health (SRH) across different European countries. We will use SRH information collected by the Wave 2 and 3 of the EQLTS survey, aware that they offer only a partial representation of European populations and that SRH is per-se a highly subjective indicator, difficult to compare across countries.</p>
+</div></blockquote>
+<p>Our goal here is not necessarily to accurately classify between the two classes but to measure the level of contribution that these predictors have in our model (hence improving the discrimination power of the model and therefore contributing to accurately classifying between the classes). Some of the metrics we have been using in this section (log-likelihood and AUC) can definitely help us measure these contributions.</p>
+<p>For example, in <strong>Model 3</strong> just adding the mental wellbeing predictor into the model significantly improved the discrimination power of the model for all of our different metrics, therefore we could hint that the self reported mental wellbeing has a sizable contribution to the self reported health for the UK.</p>
+<p>Up to now we have been comparing the log-likehoods between our different models. The reason we can do this is because these are <strong>nested models</strong> meaning that one model is a special case of the other (e.g Model 1 contains a subset of the predictors of Model 2, and equivalent for Model 2 and 3). We haven’t been explicit about this but what we are going is equivalent to a likelihood ratio test, which is a statistical test to determine if one (more complex) model fits the data significantly better than the other. The Likelihood (L) ratio is based on the statistic:</p>
+<p><span class="math notranslate nohighlight">\(\lambda = -2 ln \left(\frac{{L}(ModelA)}{{L}(ModelB)}\right)= 2 \left(log{L}(ModelA) - log{L}(ModelB)\right)\)</span></p>
+<p>In the null model scenario (in this case that Model B is not better at fitting the data than Model A), the test statistic follows a <span class="math notranslate nohighlight">\({\chi}^2\)</span> distribution with degrees of freedom, k, equal to the difference in the number of parameters between the two models being fitted.  This is known as <a class="reference external" href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-9/issue-1/The-Large-Sample-Distribution-of-the-Likelihood-Ratio-for-Testing/10.1214/aoms/1177732360.full">Wilk’s theorem</a>.</p>
+<p>Knowing this, we can calculate a p-value using the chi-square test using the cumulative density function of the <span class="math notranslate nohighlight">\({\chi}^2\)</span> distribution :</p>
+<p><span class="math notranslate nohighlight">\(p=1-cdf\chi^{2}(\lambda,k)\)</span></p>
+<p>So, lets calculate the likelihood ratio of Model 3 against Model 2. Given that we have both log-likelihoods, calculating the test statistic is simple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LR</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span><span class="p">(</span><span class="n">result_model3</span><span class="o">.</span><span class="n">llf</span> <span class="o">-</span> <span class="n">result_model2</span><span class="o">.</span><span class="n">llf</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">LR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120.20568306789187
+</pre></div>
+</div>
+</div>
+</div>
+<p>So our likelihood ratio test statistic is around 120, with one degree of freedom, given that we only added one extra variable to Model 3. We can now calculate the p-value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees_of_freedom</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">LR</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Such a small p-value confirms what we already know that Model 3 fits significantly better the data than the Model 2.</p>
+</div>
+<div class="section" id="model-4-a-simpler-model-with-equivalent-discrimination-power">
+<h3>Model 4: A simpler model with equivalent discrimination power<a class="headerlink" href="#model-4-a-simpler-model-with-equivalent-discrimination-power" title="Permalink to this headline">¶</a></h3>
+<p>During this section we have slowly built the complexity of the model in order to improve the discrimination power of it. However, we don’t necessarily always want a very complex model, given that this can lead to problems with model explanability and <strong>overfitting</strong>. Furthermore, in this case we can to assess the contribution of individual SE factors into the self reported health, and ideally we would only use variables that are completely orthogonal to each other (i.e., measure different things). However, we don’t want to lose model performance by reducing the amount of information we feed into it.</p>
+<p>Everything we have learn about our data by slowly increasing the complexity of the models hint us that is possible to build a simpler model that is equivalent in discrimination power. Let’s see what happens if we remove the variables  <code class="docutils literal notranslate"><span class="pre">Children</span></code> and <code class="docutils literal notranslate"><span class="pre">AccomProblems</span></code> that we know are related to <code class="docutils literal notranslate"><span class="pre">DeprIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_model</span><span class="p">[[</span><span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span><span class="s1">&#39;DeprIndex&#39;</span><span class="p">,</span><span class="s1">&#39;ISCED&#39;</span><span class="p">,</span><span class="s2">&quot;MentalWellbeingIndex&quot;</span><span class="p">]]</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_model</span><span class="o">.</span><span class="n">SRH_binary</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">trainX_model4</span><span class="p">,</span> <span class="n">testX_model4</span><span class="p">,</span> <span class="n">trainy_model4</span><span class="p">,</span> <span class="n">testy_model4</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trainX_const_model4</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">trainX_model4</span><span class="p">)</span> <span class="c1">#add constant for intercept</span>
+<span class="n">logit_model4</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">trainy_model4</span><span class="p">,</span> <span class="n">trainX_const_model4</span><span class="p">)</span> <span class="c1">#Create model instance</span>
+<span class="n">result_model4</span> <span class="o">=</span> <span class="n">logit_model4</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#Fit model</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">result_model4</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.261841
+         Iterations 7
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1402
+Model:                          Logit   Df Residuals:                     1397
+Method:                           MLE   Df Model:                            4
+Date:                Sun, 16 Oct 2022   Pseudo R-squ.:                  0.2436
+Time:                        17:06:08   Log-Likelihood:                -367.10
+converged:                       True   LL-Null:                       -485.35
+Covariance Type:            nonrobust   LLR p-value:                 5.247e-50
+========================================================================================
+                           coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                    1.4628      0.565      2.591      0.010       0.356       2.569
+AgeCategory             -0.5012      0.096     -5.230      0.000      -0.689      -0.313
+DeprIndex               -0.2209      0.053     -4.156      0.000      -0.325      -0.117
+ISCED                    0.1419      0.076      1.862      0.063      -0.007       0.291
+MentalWellbeingIndex     0.0475      0.005     10.117      0.000       0.038       0.057
+========================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only 4 units of <strong>log-likelihood</strong> are lost by dropping these variables. And the <strong>Pseudo R-squ.</strong> is equivalent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_probs_model4</span> <span class="o">=</span> <span class="n">result_model4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">testX_model4</span><span class="p">))</span>
+
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model3</span> <span class="p">,</span> <span class="n">lr_probs_model3</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 3&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plot_roc</span><span class="p">(</span><span class="n">testy_model4</span> <span class="p">,</span> <span class="n">lr_probs_model4</span><span class="p">,</span> <span class="n">positive_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresholds_every</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model 4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4.4-ModelEvaluation_71_0.png" src="../../_images/4.4-ModelEvaluation_71_0.png" />
+</div>
+</div>
+<p>Our <strong>ROC</strong> curves are equivalent!</p>
+</div>
+<div class="section" id="references-and-further-reading">
+<h3>References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://sherrytowers.com/2019/03/18/determining-which-model-fits-the-data-significantly-better/">Blog post: Testing if one model fits the data significantly better than another model</a></p>
+<p><a class="reference external" href="https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faqhow-are-the-likelihood-ratio-wald-and-lagrange-multiplier-score-tests-different-andor-similar/">Blog post: How are the likelihood ratio, wald and lagrange multiplier test different and/or similar</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "alan-turing-institute/rds-course",
+            ref: "develop",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./modules/m4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="4.3-ModelBuilding.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">4.3 Building a simple model</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="hands-on.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Module 4 hands-on session</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Research Engineering Group, The Alan Turing Institute<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
