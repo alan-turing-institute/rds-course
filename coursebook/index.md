@@ -26,12 +26,17 @@ This free and open course is primarily the jupyter book you're reading. You can 
 
 Some tips on **how to use this course**:
 
-- You will get a lot out of simply reading the online course book. However, the course is built by executable jupyter notebooks that you can run yourself, and we encourage learners to try the hands-on sections where we tackle a real research data science problem. Visit the [Setting Up](./modules/appendix/A.2-SettingUp.ipynb) page to setup your computer to follow along.
+- You will get a lot out of simply reading the online course book. However, the
+  course is built by executable jupyter notebooks that you can run yourself, and
+  we encourage learners to try the hands-on sections where we tackle a real
+  research data science problem. Visit the [the readme](https://github.com/alan-turing-institute/rds-course/tree/develop/coursebook) page to setup your computer to
+  follow along.
 
 - There are some benefits to reading the course chronologically. The same dataset is used throughout the modules, especially on the hands-on sessions. However, much of the material is self-contained and can be consumed independently. 
 
 
-- If you are a self-learner and have questions, see how you can contact an instructor or other students in the [Contact us](./modules/appendix/A.3-ContactUs.ipynb) page.
+- If you are a self-learner and have questions, comments, ideas or issues please
+  use: [RDS-Course Issues](https://github.com/alan-turing-institute/rds-course/issues)
 
 
 - There is also a synchronous, taught, version of the course, where modules are spread over a half-day taught session and a half-day hands-on session. 
