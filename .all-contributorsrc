@@ -35,8 +35,28 @@
         "bug",
         "review"
       ]
+    },
+    {
+      "login": "crangelsmith",
+      "name": "Camila Rangel Smith",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11162074?v=4",
+      "profile": "https://github.com/crangelsmith",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "question",
+        "talk",
+        "bug",
+        "review",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "fundingFinding"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
