@@ -41,7 +41,9 @@
         "ideas",
         "question",
         "bug",
-        "review"
+        "review",
+        "tutorial",
+        "maintenance"
       ]
     },
     {
@@ -64,6 +66,334 @@
         "research",
         "doc",
         "maintenance"
+      ]
+    },
+    {
+      "login": "crangelsmith",
+      "name": "Camila Rangel Smith",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11162074?v=4",
+      "profile": "https://github.com/crangelsmith",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "question",
+        "talk",
+        "bug",
+        "review",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
+      "login": "lannelin",
+      "name": "James Bishop",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26149456?v=4",
+      "profile": "https://github.com/lannelin",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "talk",
+        "review",
+        "tutorial",
+        "fundingFinding",
+        "question",
+        "infra",
+        "research"
+      ]
+    },
+    {
+      "login": "fedenanni",
+      "name": "Federico Nanni",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8415204?v=4",
+      "profile": "https://github.com/fedenanni",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "question",
+        "talk",
+        "bug",
+        "review",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
+      "login": "gmingas",
+      "name": "Greg Mingas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1958852?v=4",
+      "profile": "https://github.com/gmingas",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "question",
+        "talk",
+        "bug",
+        "review",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
+      "login": "helendduncan",
+      "name": "Helen Duncan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46891265?v=4",
+      "profile": "https://github.com/helendduncan",
+      "contributions": [
+        "code",
+        "content",
+        "bug",
+        "review",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "edwardchalstrey1",
+      "name": "Ed Chalstrey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5486164?v=4",
+      "profile": "http://edchalstrey.com/",
+      "contributions": [
+        "code",
+        "question",
+        "bug",
+        "talk",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "ChristinaLast",
+      "name": "Christina Last",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36204574?v=4",
+      "profile": "https://christinalast.com/",
+      "contributions": [
+        "code",
+        "tutorial",
+        "infra",
+        "content",
+        "ideas"
+      ]
+    },
+    {
+      "login": "radka-j",
+      "name": "Radka Jersakova",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29207091?v=4",
+      "profile": "https://github.com/radka-j",
+      "contributions": [
+        "review",
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "ots22",
+      "name": "ots22",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5434836?v=4",
+      "profile": "https://github.com/ots22",
+      "contributions": [
+        "review",
+        "bug",
+        "code",
+        "tutorial",
+        "question"
+      ]
+    },
+    {
+      "login": "triangle-man",
+      "name": "James Geddes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1172905?v=4",
+      "profile": "https://github.com/triangle-man",
+      "contributions": [
+        "tutorial",
+        "question"
+      ]
+    },
+    {
+      "login": "pwochner",
+      "name": "pwochner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78024695?v=4",
+      "profile": "https://github.com/pwochner",
+      "contributions": [
+        "tutorial",
+        "question"
+      ]
+    },
+    {
+      "login": "pafoster",
+      "name": "Peter Foster",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9533784?v=4",
+      "profile": "https://github.com/pafoster",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "nbarlowATI",
+      "name": "nbarlowATI",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33832774?v=4",
+      "profile": "https://github.com/nbarlowATI",
+      "contributions": [
+        "review",
+        "question",
+        "bug",
+        "talk",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "kasra-hosseini",
+      "name": "Kasra Hosseini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1899856?v=4",
+      "profile": "https://github.com/kasra-hosseini",
+      "contributions": [
+        "ideas",
+        "question",
+        "review",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
+      "login": "jemrobinson",
+      "name": "James Robinson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3502751?v=4",
+      "profile": "https://github.com/jemrobinson",
+      "contributions": [
+        "question",
+        "talk",
+        "tutorial",
+        "projectManagement",
+        "eventOrganizing"
+      ]
+    },
+    {
+      "login": "LouiseABowler",
+      "name": "Louise Bowler",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25640708?v=4",
+      "profile": "https://github.com/LouiseABowler",
+      "contributions": [
+        "ideas",
+        "projectManagement",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
+      "login": "LydiaFrance",
+      "name": "Lydia France",
+      "avatar_url": "https://avatars.githubusercontent.com/u/85945427?v=4",
+      "profile": "https://github.com/LydiaFrance",
+      "contributions": [
+        "review",
+        "question",
+        "bug",
+        "talk",
+        "tutorial",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "dsj976",
+      "name": "David Salvador Jasin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57944311?v=4",
+      "profile": "https://github.com/dsj976",
+      "contributions": [
+        "question",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "KatrionaGoldmann",
+      "name": "Katriona Goldmann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25952322?v=4",
+      "profile": "https://katrionagoldmann.github.io/",
+      "contributions": [
+        "question",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "craddm",
+      "name": "Matt Craddock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5796417?v=4",
+      "profile": "https://github.com/craddm",
+      "contributions": [
+        "question"
+      ]
+    },
+    {
+      "login": "mhauru",
+      "name": "Markus Hauru",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5229876?v=4",
+      "profile": "https://github.com/mhauru",
+      "contributions": [
+        "question",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "rchan26",
+      "name": "Ryan Chan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44200705?v=4",
+      "profile": "https://rchan26.github.io/",
+      "contributions": [
+        "question",
+        "tutorial",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "rwood-97",
+      "name": "Rosie Wood",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72076688?v=4",
+      "profile": "https://github.com/rwood-97",
+      "contributions": [
+        "question",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "mastoffel",
+      "name": "martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7348440?v=4",
+      "profile": "https://scholar.google.de/citations?user=58uLFHoAAAAJ&hl=en&oi=ao",
+      "contributions": [
+        "question",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "lbokeria",
+      "name": "Levan Bokeria",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7816766?v=4",
+      "profile": "https://github.com/lbokeria",
+      "contributions": [
+        "question",
+        "talk"
+      ]
+    },
+    {
+      "login": "dlpbc",
+      "name": "Ese",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17943860?v=4",
+      "profile": "https://github.com/dlpbc",
+      "contributions": [
+        "question",
+        "tutorial"
       ]
     }
   ],
