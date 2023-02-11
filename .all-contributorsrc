@@ -19,7 +19,15 @@
         "content",
         "ideas",
         "question",
-        "talk"
+        "talk",
+        "bug",
+        "review",
+        "infra",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "research",
+        "maintenance"
       ]
     },
     {
@@ -38,5 +46,6 @@
     }
   ],
   "contributorsPerLine": 7,
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
