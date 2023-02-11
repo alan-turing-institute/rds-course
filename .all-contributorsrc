@@ -43,6 +43,28 @@
         "bug",
         "review"
       ]
+    },
+    {
+      "login": "callummole",
+      "name": "Callum Mole",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22677759?v=4",
+      "profile": "https://github.com/callummole",
+      "contributions": [
+        "code",
+        "content",
+        "ideas",
+        "question",
+        "talk",
+        "bug",
+        "review",
+        "infra",
+        "projectManagement",
+        "tutorial",
+        "eventOrganizing",
+        "research",
+        "doc",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
