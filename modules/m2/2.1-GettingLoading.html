@@ -424,6 +424,26 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2.1-GettingLoading.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -453,8 +473,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Open data and data sources</p></li>
 <li><p>Licensing, ethics, security.</p></li>
 <li><p>Pandas intro/primer</p></li>
-<li><p>Data formats (CSV, database, API, image, …) - how to load them into
-Python with Pandas (mostly).</p></li>
+<li><p>Data formats (CSV, database, API, image, …)</p>
+<ul>
+<li><p>how to load them into Python with Pandas (mostly).</p></li>
+</ul>
+</li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -469,16 +492,16 @@ Python with Pandas (mostly).</p></li>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: ""
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "",
             path: "./modules/m2"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = ''</script>
 
               </div>
               

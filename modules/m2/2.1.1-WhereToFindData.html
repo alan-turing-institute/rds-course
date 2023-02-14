@@ -616,10 +616,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="what-is-open-data">
 <h2>What is Open Data?<a class="headerlink" href="#what-is-open-data" title="Permalink to this headline">¶</a></h2>
 <p>We can use the definition from <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/open/open-data.html">The Turing
-Way</a>:
-&gt; Open data is freely available on the internet. Any user is permitted
+Way</a>:</p>
+<blockquote>
+<div><p>Open data is freely available on the internet. Any user is permitted
 to download, copy, analyse, re-process, and re-use it for any other
 purpose with minimal financial, legal, and technical barriers.</p>
+</div></blockquote>
 <p>The benefits of using an open dataset include (but are not limited to):</p>
 <ul class="simple">
 <li><p>Access to the data is free and usually fast (without requiring a
@@ -645,13 +647,13 @@ datasets are completely “open”!</p>
 to look.</p>
 <div class="section" id="tailored-for-data-science">
 <h3>Tailored for Data Science<a class="headerlink" href="#tailored-for-data-science" title="Permalink to this headline">¶</a></h3>
-<p>Provide datasets with data science applications in mind, so are more
-likely to be in easy-to-use formats and may have already been
-pre-processed in some way. Many popular machine learning libraries like
-PyTorch also have datasets built in. These are excellent sources for
-finding datasets to learn, test and benchmark algorithms or other
-analysis techniques, but are less likely to be rich sources for novel
-research projects.</p>
+<p>Some datasets have been heavily used for data science applications, and
+are available in easy-to-use formats that may already be
+cleaned/pre-processed for you. Many popular machine learning libraries
+like PyTorch have datasets built-in, for example. These are excellent
+sources for finding datasets to learn, test and benchmark algorithms
+or other analysis techniques, but are less likely to be rich sources
+for novel research projects.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle</a></p></li>
 <li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UCI Machine Learning
@@ -720,9 +722,11 @@ it may be that an older version of the data you’re interested in has
 been made public. You can continue to explore options for getting the
 ideal data in parallel, but gaining data access is frequently an
 expensive or time-consuming process.</p>
-<p>Two common reasons open data may not be available or appropriate are: 1.
-The data is commercially sensitive or valuable. 2. The data presents a
-privacy or security risk.</p>
+<p>Two common reasons open data may not be available or appropriate are:</p>
+<ol class="simple">
+<li><p>The data is commercially sensitive or valuable.</p></li>
+<li><p>The data presents a privacy or security risk.</p></li>
+</ol>
 <p>Access to detailed healthcare records, for example, is often heavily
 restricted even if personal identifiers have been removed due to the
 risk of re-identification. In August 2016 the Australian government
@@ -751,7 +755,8 @@ thousands of pounds. If the application is approved, the resulting
 contract/ research agreement may specify precisely which data you can
 have access to (down to the level of individual fields), who will have
 access, the duration of access, and exactly what you’re allowed to do
-with it. As an example, <a class="reference external" href="https://www.ukbiobank.ac.uk/enable-your-research">this
+with it.</p>
+<p>As an example, <a class="reference external" href="https://www.ukbiobank.ac.uk/enable-your-research">this
 website</a> describes the
 process for accessing the UK Biobank, a large biomedical database for
 health research.</p>
@@ -772,21 +777,41 @@ data and have approval from your organisation to do so.</p>
 <h2>Assessing Dataset Quality and Suitability<a class="headerlink" href="#assessing-dataset-quality-and-suitability" title="Permalink to this headline">¶</a></h2>
 <p>In Module 1 (<a class="reference internal" href="../m1/1.2-DataScienceProjectLifecycle.html"><span class="doc std std-doc">Section 1.2</span></a>,
 question 3 for scoping projects) we gave these overarching questions for
-evaluating a dataset: - Does the dataset contain what’s needed to solve
-the research question available? - Can I legally and ethically use the
-data? - Is the data easily accessible? - Is the dataset well-understood
-and tested? - Is data quality and quantity appropriate?</p>
+evaluating a dataset:</p>
+<ul class="simple">
+<li><p>Does the dataset contain what’s needed to solve the research question
+available?</p></li>
+<li><p>Can I legally and ethically use the data?</p></li>
+<li><p>Is the data easily accessible? - Is the dataset well-understood and
+tested?</p></li>
+<li><p>Is data quality and quantity appropriate?</p></li>
+</ul>
 <p>Another useful concept here is <a class="reference external" href="https://arxiv.org/pdf/1705.02245.pdf">data readiness
-levels</a>: - <strong>Band C:
-Accessibility</strong> - C4: You believe the data may exist, but haven’t
-seen/verified that it does. - C1: The data is ready to be loaded into an
-analysis: You have access, it’s in an appropriate format, and you have
-(both ethical and legal) permission to use it. - <strong>Band B: Faihfulness &amp;
-Representation</strong> - B1: The data has been used in an exploratory
-analysis, and you have verified the contents match what you expected.
-You understand any limitations (e.g. how missing values were treated). -
-<strong>Band A: Data in Context</strong> - A1: The data has been prepared and is
-suitable to answer a <em>specific</em> research question.</p>
+levels</a>:</p>
+<ul class="simple">
+<li><p><strong>Band C: Accessibility</strong></p>
+<ul>
+<li><p>C4: You believe the data may exist, but haven’t seen/verified that
+it does.</p></li>
+<li><p>C1: The data is ready to be loaded into an analysis: You have access,
+it’s in an appropriate format, and you have (both ethical and legal)
+permission to use it.</p></li>
+</ul>
+</li>
+<li><p><strong>Band B: Faihfulness &amp; Representation</strong></p>
+<ul>
+<li><p>B1: The data has been used in an exploratory analysis, and you have
+verified the contents match what you expected. You understand any
+limitations (e.g. how missing values were treated).</p></li>
+</ul>
+</li>
+<li><p><strong>Band A: Data in Context</strong></p>
+<ul>
+<li><p>A1: The data has been prepared and is suitable to answer a
+<em>specific</em> research question.</p></li>
+</ul>
+</li>
+</ul>
 <p>In this module we cover many of the steps needed to take data from Band
 C to Band B: we start with data we know exists but don’t know how to
 analyse, and end with beginning an exploratory analysis.</p>
@@ -794,7 +819,7 @@ analyse, and end with beginning an exploratory analysis.</p>
 <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/rdm/rdm-metadata.html">The Turing
 Way</a>
 and this <a class="reference external" href="https://www.ru.nl/rdm/processing-data/documenting-data/">Radboud University
-article</a> for a
+article</a> for
 details of what good documentation should contain.</p>
 </div>
 <div class="section" id="sharing-data">

@@ -721,7 +721,7 @@ missing data. Here, we use the
 method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#show the dataframe </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show the dataframe </span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original dataframe recap:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
@@ -896,7 +896,12 @@ note that None is treated like NaN.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;drop rows where any of  &#39;col_a&#39;, &#39;col_b&#39;, &#39;col_c&#39; are NA:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_a&quot;</span><span class="p">,</span> <span class="s2">&quot;col_b&quot;</span><span class="p">,</span> <span class="s2">&quot;col_c&quot;</span><span class="p">]))</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
+    <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span>
+    <span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">,</span>
+    <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col_a&quot;</span><span class="p">,</span> <span class="s2">&quot;col_b&quot;</span><span class="p">,</span> <span class="s2">&quot;col_c&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -957,6 +962,7 @@ note that None is treated like NaN.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;long_column_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;short&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span> 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original df:&quot;</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> 
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;long_column_name&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;renamed df:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -1057,6 +1063,7 @@ note that None is treated like NaN.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original df:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;renamed df:&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>

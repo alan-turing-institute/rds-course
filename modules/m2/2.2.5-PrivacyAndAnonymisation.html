@@ -424,6 +424,26 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/alan-turing-institute/rds-course/develop?urlpath=tree/coursebook/modules/m2/2.2.5-PrivacyAndAnonymisation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -532,10 +552,12 @@ be part of a dataset. In these cases, we should aim to remove this
 unnecessary, yet sensitive, data.</p>
 <div class="section" id="anonymisation">
 <h3>Anonymisation<a class="headerlink" href="#anonymisation" title="Permalink to this headline">¶</a></h3>
-<p>In a GDPR context, Recital 26 defines anonymous information as: &gt;
-…information which does not relate to an identified or identifiable
+<p>In a GDPR context, Recital 26 defines anonymous information as:</p>
+<blockquote>
+<div><p>…information which does not relate to an identified or identifiable
 natural person or to personal data rendered anonymous in such a manner
 that the data subject is not or no longer identifiable.</p>
+</div></blockquote>
 <p>— <em><a class="reference external" href="https://www.privacy-regulation.eu/en/recital-26-GDPR.htm">Recital
 26</a></em></p>
 <p>Anonymisation is the process of removing direct and indirect personal
@@ -574,8 +596,11 @@ intrusion by the many consumers of this algorithm.</p>
 <p>The below image shows a <strong>toy version</strong> of a membership inference
 attack. Here, an adversary attempts to infer whether certain images were
 used in the training of a cat vs dog classifier.</p>
-<p>A data scientist: 1. Trains a model on the first set of images 2.
-Publishes the model to the public internet</p>
+<p>A data scientist:</p>
+<ol class="simple">
+<li><p>Trains a model on the first set of images</p></li>
+<li><p>Publishes the model to the public internet</p></li>
+</ol>
 <p>An adversary then:</p>
 <ol class="simple">
 <li><p>Makes predictions with the model through some public API</p></li>
@@ -587,7 +612,7 @@ interpretable as confidence, infers:</p>
 </ul>
 </li>
 </ol>
-<p>figure](<a class="reference external" href="https://i.imgur.com/ujb8iPk.jpg">https://i.imgur.com/ujb8iPk.jpg</a>)</p>
+<p><img alt="toy membership inference figure" src="https://i.imgur.com/ujb8iPk.jpg" /></p>
 <p>Broadly, differential privacy provides a mechanism for learning nothing
 about an individual while learning useful information about the general
 population.</p>

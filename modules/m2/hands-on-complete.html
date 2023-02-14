@@ -455,11 +455,6 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download-data">
-   Download Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notebook-setup">
    Notebook Setup
   </a>
@@ -467,11 +462,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exploring-the-downloaded-files">
    Exploring the Downloaded Files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-for-later-skip-for-now">
-   Code For Later (skip for now!)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -535,11 +525,6 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#download-data">
-   Download Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notebook-setup">
    Notebook Setup
   </a>
@@ -547,11 +532,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exploring-the-downloaded-files">
    Exploring the Downloaded Files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-for-later-skip-for-now">
-   Code For Later (skip for now!)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -605,38 +585,22 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="module-2-hands-on-session-solutions">
 <h1>Module 2: Hands-on session (Solutions)<a class="headerlink" href="#module-2-hands-on-session-solutions" title="Permalink to this headline">¶</a></h1>
-<p>These are sample solutions to the exercises for the Module 2 hands-on session. We don’t recommend looking here before you’ve attempted them!</p>
-<p>The first step in this notebook is to set up your local python environment. Visit the <span class="xref myst">Setting Up</span> pages.</p>
-<p>Then in this hands-on notebook we will:</p>
-<ul class="simple">
-<li><p>Download the data</p></li>
-<li><p>Load and explore the data</p></li>
-<li><p>Understand the different data types present</p></li>
-<li><p>Make the data more readable</p></li>
-<li><p>Consider how missing data is represented</p></li>
-<li><p>Explore some differences between 2007 and 2011 data</p></li>
-<li><p>Compare data from UK and Spain respondees with respect to data missingness</p></li>
-</ul>
-<p>We have marked the exercise parts of this notebook as <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">TODO</span></code> with some comments as guidance. You can refer back to the taught material, or external documentation, for further information.</p>
-<div class="section" id="download-data">
-<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>As described in module 1, we can find the data available for download from the UK Data Service <a class="reference external" href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7724#%21/access-data">here</a></p></li>
-<li><p>Observe the licence and take this opportunity to check your obligations</p></li>
-<li><p>Download the CSV data</p></li>
-<li><p>Unzip the data to <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data</span></code> this should give us <code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT/data/UKDA-7724-csv</span></code></p></li>
-</ol>
-<p><code class="docutils literal notranslate"><span class="pre">$PROJECT_ROOT</span></code> is the root of the cloned github repository for this course. If you change the directory that you hold this data in, you’ll need to make appropriate changes to the <code class="docutils literal notranslate"><span class="pre">DATA_ROOT_PATH</span></code> variable below.</p>
-</div>
+<p>⚠️ <strong>Warning</strong> ⚠️ These are sample solutions to the exercises for the Module 2 hands-on session. We don’t recommend looking here before you’ve attempted them!</p>
 <div class="section" id="notebook-setup">
 <h2>Notebook Setup<a class="headerlink" href="#notebook-setup" title="Permalink to this headline">¶</a></h2>
 <p>Import necessary packages for this work:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">handson_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">parse_country_values_2011</span><span class="p">,</span>
+    <span class="n">check_dataset_load</span><span class="p">,</span>
+    <span class="n">check_dataset_explored</span><span class="p">,</span>
+    <span class="n">check_column_mapping</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -644,7 +608,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Define path to data. This relies on the data being saved in the specified location below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_ROOT_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../../data/UKDA-7724-csv&quot;</span> <span class="c1"># should match the path you unzipped the data to</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_ROOT_PATH</span> <span class="o">=</span> <span class="s2">&quot;../m4/data/UKDA-7724-csv&quot;</span> <span class="c1"># should match the path you unzipped the data to</span>
 
 <span class="n">COMBINED_CSV_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_ROOT_PATH</span><span class="p">,</span> <span class="s2">&quot;csv/eqls_2007and2011.csv&quot;</span><span class="p">)</span>
 <span class="n">MAPPING_CSV_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_ROOT_PATH</span><span class="p">,</span> <span class="s2">&quot;mrdoc/excel/eqls_api_map.csv&quot;</span><span class="p">)</span>
@@ -676,62 +640,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p><strong>Answer:</strong> There are 199 variables listed in <code class="docutils literal notranslate"><span class="pre">mrdoc/excel/eqls_concordance_grid.xlsx</span></code>. There are a number of “Variable Groups” (e.g., “Family and Social Life”) and “Topic Classifications” (e.g., “Social stratification and groupings - Family life and marriage”)</p>
 </div>
-<div class="section" id="code-for-later-skip-for-now">
-<h2>Code For Later (skip for now!)<a class="headerlink" href="#code-for-later-skip-for-now" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># optional extension exercise later, ignore if you&#39;re trying to write your own!</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1"># note only tested on &quot;Y11_Country&quot; var</span>
-<span class="k">def</span> <span class="nf">parse_categorical_values</span><span class="p">(</span>
-    <span class="n">categorical_values_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-    <span class="n">var_name_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">var_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">values_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">categorical_values_df</span><span class="p">[</span><span class="n">categorical_values_df</span><span class="p">[</span><span class="n">var_name_col</span><span class="p">]</span> <span class="o">==</span> <span class="n">var_name</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;something has gone wrong, more than one row matches var name: </span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="p">)</span>
-    <span class="n">row</span> <span class="o">=</span> <span class="n">rows</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">vals_string</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">values_col</span><span class="p">]</span>
-    <span class="c1"># lines look like: &quot;encoded_val = human_readable_val&quot; so split on &quot; = &quot;</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; = &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">vals_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)])</span>
-    <span class="c1"># ensure keys are ints</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-    <span class="k">return</span> <span class="n">mapping</span>
-
-
-<span class="k">def</span> <span class="nf">parse_country_values_2011</span><span class="p">(</span><span class="n">categorical_values_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-    <span class="k">return</span> <span class="n">parse_categorical_values</span><span class="p">(</span>
-        <span class="n">categorical_values_df</span><span class="o">=</span><span class="n">categorical_values_df</span><span class="p">,</span>
-        <span class="n">var_name_col</span><span class="o">=</span><span class="s2">&quot;Variable name&quot;</span><span class="p">,</span>
-        <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;Y11_Country&quot;</span><span class="p">,</span>
-        <span class="n">values_col</span><span class="o">=</span><span class="s2">&quot;Values if present - 2011&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="load-and-explore">
 <h2>Load and Explore<a class="headerlink" href="#load-and-explore" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant sections:</strong></em> <em>2.1.4 (Data Sources and Formats), 2.2.1 (Data Consistency)</em></p>
 <p>Read the combined 2007 and 2011 data into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANSWER read in the file and display the head</span>
 <span class="c1">####</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">COMBINED_CSV_PATH</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="c1">####  </span>
-
-<span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">),</span> <span class="s2">&quot;df is not a DataFrame&quot;</span> <span class="c1"># check we&#39;ve loaded data into a DataFrame</span>
-<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">79270</span><span class="p">,</span> <span class="s2">&quot;unexpected no. of rows&quot;</span> <span class="c1"># check number of rows matches expected</span>
 </pre></div>
 </div>
 </div>
@@ -902,6 +821,19 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 <p>5 rows × 199 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># checks - will produce an `AssertionError` until DataFrame loaded correctly</span>
+<span class="n">check_dataset_load</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ df loaded correctly
+</pre></div>
+</div>
+</div>
 </div>
 <p>Take a look at some summary statistics and use these to assign the variables below correctly.</p>
 <p>You can assign the variables manually from inspecting printed output or assign them results from methods/properties.</p>
@@ -1188,41 +1120,23 @@ memory usage: 120.4+ MB
 <span class="n">n_float64_columns</span> <span class="o">=</span> <span class="mi">187</span> <span class="c1"># how many columns are of dtype float64?</span>
 <span class="n">Y11_Q31_mean_value</span> <span class="o">=</span> <span class="mf">1.856049</span> <span class="c1">#  what is the mean of the values in the Y11_Q31 column?</span>
 <span class="n">Y11_Country_n_unique</span> <span class="o">=</span> <span class="mi">35</span> <span class="c1"># how many unique values in the Y11_Country column?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden! don&#39;t look here!</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># not using assert statements as they give away the answers!</span>
-<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">n_columns_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_columns</span> <span class="o">==</span> <span class="mi">199</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">n_float64_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">n_float64_columns</span> <span class="o">==</span> <span class="mi">187</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">Y11_Q31_mean_value_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Y11_Q31_mean_value</span><span class="p">,</span> <span class="mf">1.856049</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-<span class="n">Y11_Country_n_unique_result</span> <span class="o">=</span> <span class="s2">&quot;correct&quot;</span> <span class="k">if</span> <span class="n">Y11_Country_n_unique</span> <span class="o">==</span> <span class="mi">35</span> <span class="k">else</span> <span class="s2">&quot;incorrect&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_columns answer </span><span class="si">{</span><span class="n">n_columns_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_float64_columns answer </span><span class="si">{</span><span class="n">n_float64_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Q31_mean_value answer </span><span class="si">{</span><span class="n">Y11_Q31_mean_value_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y11_Country_n_unique answer </span><span class="si">{</span><span class="n">Y11_Country_n_unique_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># function to check your answers (run this cell)</span>
+<span class="n">check_dataset_explored</span><span class="p">(</span>
+    <span class="n">n_columns</span><span class="p">,</span>
+    <span class="n">n_float64_columns</span><span class="p">,</span>
+    <span class="n">Y11_Q31_mean_value</span><span class="p">,</span>
+    <span class="n">Y11_Country_n_unique</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_columns answer correct
-n_float64_columns answer correct
-Y11_Q31_mean_value answer correct
-Y11_Country_n_unique answer correct
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_columns answer ✅ correct
+n_float64_columns answer ✅ correct
+Y11_Q31_mean_value answer ✅ correct
+Y11_Country_n_unique answer ✅ correct
 </pre></div>
 </div>
 </div>
@@ -1230,6 +1144,7 @@ Y11_Country_n_unique answer correct
 </div>
 <div class="section" id="different-data-types">
 <h2>Different Data Types<a class="headerlink" href="#different-data-types" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant Sections:</strong></em> <em>2.2.1 (Data Consistency)</em></p>
 <p>Are there columns containing the following types of data? If so give examples.</p>
 <ul class="simple">
 <li><p>Numeric data (without a set of pre-defined categories)</p></li>
@@ -1239,7 +1154,11 @@ Y11_Country_n_unique answer correct
 <li><p>Text data</p></li>
 <li><p>Time or date data</p></li>
 </ul>
-<p>Note: The dataset contains at least 4 of these, try to have another look if you found fewer.</p>
+<p><strong>Note:</strong></p>
+<ul class="simple">
+<li><p>The dataset contains at least 4 of these, try to have another look if you found fewer.</p></li>
+<li><p>You’ll need to refer to the dataset documentation to fully understand which columns contain which types (<code class="docutils literal notranslate"><span class="pre">mrdoc/excel/eqls_concordance_grid.xlsx</span></code> may be helpful, in particlar).</p></li>
+</ul>
 <p><strong>Answer</strong>:</p>
 <p>A few examples:</p>
 <ul class="simple">
@@ -1422,7 +1341,7 @@ Name: Y11_Q67_1, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y11_EmploymentStatus&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># Unordered category</span>
 
-<span class="c1"># Note: The mean or an unordered category is not meaningful!</span>
+<span class="c1"># Note: The mean of an unordered category is not meaningful!</span>
 <span class="c1"># E.g. if we had 2 people, one with a value of 4 (retired), and one with 5 (homemaker), we&#39;d compute</span>
 <span class="c1"># a mean of 4.5 - does that mean they&#39;re part-time retired, part-time homemaker?!</span>
 </pre></div>
@@ -1501,8 +1420,9 @@ Name: Y11_EmploymentStatus, dtype: int64
 </div>
 <div class="section" id="making-things-more-readable">
 <h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant Sections:</strong></em> <em>2.2.2 (Modifying Columns and Indices), 2.2.4.2 (Text Data)</em></p>
 <p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
-<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code>.</p>
+<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in ``mrdoc/excel/eqls_api_map.csv`.</p>
 <p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1612,6 +1532,8 @@ Name: Y11_EmploymentStatus, dtype: int64
 }
 </pre></div>
 </div>
+<p>You may find it helpful to use a site like <a class="reference external" href="https://regex101.com/">regex101</a> to experiment with creating a
+suitable regex expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer</span>
@@ -1629,252 +1551,197 @@ Name: Y11_EmploymentStatus, dtype: int64
 
 <span class="n">column_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">old_cols</span><span class="p">,</span> <span class="n">new_cols</span><span class="p">))</span>
 
+
+<span class="c1"># Apply your column mapping to df</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_mapping</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_20762/2321633883.py:9: FutureWarning: The default value of regex will change from True to False in a future version.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_77880/3644821443.py:9: FutureWarning: The default value of regex will change from True to False in a future version.
   new_cols = eqls_api_map_df[&quot;VariableLabel&quot;].str.lower()\
 </pre></div>
 </div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>eqls_wave</th>
+      <th>country</th>
+      <th>marital_status</th>
+      <th>no_of_children</th>
+      <th>education_completed</th>
+      <th>rural_urban_living</th>
+      <th>citizenship_country</th>
+      <th>citizenship_another_eu_member</th>
+      <th>citizenship_a_non_eu_country</th>
+      <th>citizenship_dont_know</th>
+      <th>...</th>
+      <th>dv_anyone_used_would_have_like_to_use_child_care_last_12_months_</th>
+      <th>dv_anyone_used_would_have_like_to_use_long_term_care_last_12_months_</th>
+      <th>dv_no_of_factors_which_made_it_difficult_to_use_child_care_</th>
+      <th>dv_no_of_factors_which_made_it_difficult_to_use_long_term_care_</th>
+      <th>dv_preferred_working_hours_3_groups_</th>
+      <th>dv_preferred_working_hours_of_respondents_partner_3_groups_</th>
+      <th>iso3166_country_url</th>
+      <th>rowid_for_the_uk_data_service_public_api</th>
+      <th>root_uri_for_a_row_respondent_that_displays_all_data_values_for_a_single_row_via_the_uk_data_service_public_api</th>
+      <th>unique_respondent_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.iso.org/obp/ui/#iso:code:3166:AT</td>
+      <td>1</td>
+      <td>https://api.ukdataservice.ac.uk/V1/datasets/eq...</td>
+      <td>AT9000083</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.iso.org/obp/ui/#iso:code:3166:AT</td>
+      <td>2</td>
+      <td>https://api.ukdataservice.ac.uk/V1/datasets/eq...</td>
+      <td>AT9000126</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.iso.org/obp/ui/#iso:code:3166:AT</td>
+      <td>3</td>
+      <td>https://api.ukdataservice.ac.uk/V1/datasets/eq...</td>
+      <td>AT9000267</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.iso.org/obp/ui/#iso:code:3166:AT</td>
+      <td>4</td>
+      <td>https://api.ukdataservice.ac.uk/V1/datasets/eq...</td>
+      <td>AT9000268</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://www.iso.org/obp/ui/#iso:code:3166:AT</td>
+      <td>5</td>
+      <td>https://api.ukdataservice.ac.uk/V1/datasets/eq...</td>
+      <td>AT9000427</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 199 columns</p>
+</div></div></div>
 </div>
-</div>
-<div class="cell tag_hide-input tag_raises-exception docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># should be hidden</span>
-<span class="c1"># manually pasted the answer here but not the code</span>
-<span class="n">desired_column_mapping</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Wave&quot;</span><span class="p">:</span> <span class="s2">&quot;eqls_wave&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Country&quot;</span><span class="p">:</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q31&quot;</span><span class="p">:</span> <span class="s2">&quot;marital_status&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q32&quot;</span><span class="p">:</span> <span class="s2">&quot;no_of_children&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_ISCEDsimple&quot;</span><span class="p">:</span> <span class="s2">&quot;education_completed&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q49&quot;</span><span class="p">:</span> <span class="s2">&quot;rural_urban_living&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q67_1&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship_country&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q67_2&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship_another_eu_member&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q67_3&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship_a_non_eu_country&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q67_4&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship_dont_know&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q67_5&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship_refusal&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Agecategory&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_HH2a&quot;</span><span class="p">:</span> <span class="s2">&quot;gender&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_HHsize&quot;</span><span class="p">:</span> <span class="s2">&quot;household_size&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_HHsize18plus&quot;</span><span class="p">:</span> <span class="s2">&quot;household_size_over_18&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_HHstructure&quot;</span><span class="p">:</span> <span class="s2">&quot;household_structure&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Education&quot;</span><span class="p">:</span> <span class="s2">&quot;education_3_groups&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_EmploymentStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;employment_7_groups&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Incomequartiles_percapita&quot;</span><span class="p">:</span> <span class="s2">&quot;income_quartiles&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_RuralUrban&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_rural_urban_living&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Degurba&quot;</span><span class="p">:</span> <span class="s2">&quot;degree_of_urbanisation&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_CountryGroupEU28&quot;</span><span class="p">:</span> <span class="s2">&quot;country_group&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q33a&quot;</span><span class="p">:</span> <span class="s2">&quot;direct_contact_with_children&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q33b&quot;</span><span class="p">:</span> <span class="s2">&quot;direct_contact_with_parents&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q33c&quot;</span><span class="p">:</span> <span class="s2">&quot;direct_contact_with_other_relatives&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q33d&quot;</span><span class="p">:</span> <span class="s2">&quot;direct_contact_with_neighbours&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q34a&quot;</span><span class="p">:</span> <span class="s2">&quot;phone_internet_contact_with_children&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q34b&quot;</span><span class="p">:</span> <span class="s2">&quot;phone_internet_contact_with_parents&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q34c&quot;</span><span class="p">:</span> <span class="s2">&quot;phone_internet_contact_with_other_relatives&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q34d&quot;</span><span class="p">:</span> <span class="s2">&quot;phone_internet_contact_with_neighbours&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q35a&quot;</span><span class="p">:</span> <span class="s2">&quot;a_person_to_get_support_from_to_help_around_house_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q35b&quot;</span><span class="p">:</span> <span class="s2">&quot;a_person_to_get_advice_from_about_a_personal_family_matter&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q35c&quot;</span><span class="p">:</span> <span class="s2">&quot;a_person_to_get_support_from_when_looking_for_a_job&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q35d&quot;</span><span class="p">:</span> <span class="s2">&quot;a_person_to_get_support_from_when_feeling_depressed&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q35e&quot;</span><span class="p">:</span> <span class="s2">&quot;a_person_to_get_support_from_to_raise_emergency_money&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q42&quot;</span><span class="p">:</span> <span class="s2">&quot;health_condition&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q43&quot;</span><span class="p">:</span> <span class="s2">&quot;chronic_health_problems_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q44&quot;</span><span class="p">:</span> <span class="s2">&quot;limited_by_chronic_health_problems_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q17&quot;</span><span class="p">:</span> <span class="s2">&quot;no_of_rooms_in_accommodation&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q18&quot;</span><span class="p">:</span> <span class="s2">&quot;tenure&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19a&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_space&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19b&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_rot_in_windows_etc_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19c&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_damp_or_leaks&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19d&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_no_toilet&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19e&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_no_bath_shower&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q19f&quot;</span><span class="p">:</span> <span class="s2">&quot;problems_with_accommodation_no_outside_space&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q20&quot;</span><span class="p">:</span> <span class="s2">&quot;likelihood_of_leaving_accom_within_6_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50a&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_noise&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50b&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_air_quality&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50c&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_quality_of_drinking_water&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50d&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_crime_violence_or_vandalism&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50e&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_litter_or_rubbish&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q50f&quot;</span><span class="p">:</span> <span class="s2">&quot;neighbourhood_problems_traffic&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Accommproblems&quot;</span><span class="p">:</span> <span class="s2">&quot;no_of_problems_with_accommodation&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q47a&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_see_a_doctor_because_of_distance_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q47b&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_see_a_doctor_because_of_delay_in_getting_appointment_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q47c&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_see_a_doctor_because_of_waiting_time_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q47d&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_see_a_doctor_because_of_cost_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q47e&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_see_a_doctor_because_of_lack_of_time_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q51a&quot;</span><span class="p">:</span> <span class="s2">&quot;access_to_postal_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q51b&quot;</span><span class="p">:</span> <span class="s2">&quot;access_to_banking_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q51c&quot;</span><span class="p">:</span> <span class="s2">&quot;access_to_public_transport_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q51d&quot;</span><span class="p">:</span> <span class="s2">&quot;access_to_cinema_theatre_and_cultural_centre_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q51e&quot;</span><span class="p">:</span> <span class="s2">&quot;access_to_recreational_or_green_areas_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q52&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_time_spent_on_travelling_to_work_study_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53a&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_health_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53b&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_education_system_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53c&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_public_transport_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53d&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_child_care_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53e&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_long_term_care_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53f&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_social_municipal_housing_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q53g&quot;</span><span class="p">:</span> <span class="s2">&quot;quality_of_state_pension_system_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54a_1&quot;</span><span class="p">:</span> <span class="s2">&quot;i_or_someone_else_in_household_used_child_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54a_2&quot;</span><span class="p">:</span> <span class="s2">&quot;someone_close_outside_household_used_child_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54a_3&quot;</span><span class="p">:</span> <span class="s2">&quot;nobody_used_child_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54a_4&quot;</span><span class="p">:</span> <span class="s2">&quot;child_care_used_in_12_months_dont_know&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54a_5&quot;</span><span class="p">:</span> <span class="s2">&quot;child_care_used_in_12_months_refusal&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54b_1&quot;</span><span class="p">:</span> <span class="s2">&quot;i_or_someone_else_in_household_used_long_term_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54b_2&quot;</span><span class="p">:</span> <span class="s2">&quot;someone_close_outside_household_used_long_term_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54b_3&quot;</span><span class="p">:</span> <span class="s2">&quot;nobody_used_long_term_care_in_12_months&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54b_4&quot;</span><span class="p">:</span> <span class="s2">&quot;long_term_care_used_in_12_months_dont_know&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q54b_5&quot;</span><span class="p">:</span> <span class="s2">&quot;long_term_care_used_in_12_months_refusal&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q55a&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_child_care_because_of_cost_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q55b&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_child_care_because_of_availability_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q55c&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_child_care_because_of_access_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q55d&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_child_care_because_of_quality_of_care_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q56a&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_long_term_care_because_of_cost_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q56b&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_long_term_care_because_of_availability_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q56c&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_long_term_care_because_of_access_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q56d&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_use_long_term_care_because_of_quality_of_care_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q24&quot;</span><span class="p">:</span> <span class="s2">&quot;can_most_people_be_trusted_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_poor_and_rich_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_management_and_workers_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_men_and_women_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_old_and_young_people_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25e&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_different_racial_ethnic_groups_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25f&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_different_religious_groups_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q25g&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_tension_between_groups_with_different_sexual_orientation_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_parliament_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_legal_system_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_press_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_police_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28e&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_government_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q28f&quot;</span><span class="p">:</span> <span class="s2">&quot;how_much_trust_the_local_authorities_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q21a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_frequently_attend_religious_services_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q21b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_frequently_use_the_internet_other_than_for_work_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q21c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_frequently_take_part_in_sports_or_exercise_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q21d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_frequently_participate_in_social_activities_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q22a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_worked_unpaid_for_community_services_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q22b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_worked_unpaid_for_education_cultural_etc_organisation_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q22c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_worked_unpaid_for_social_movements_charities_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q22d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_worked_unpaid_for_political_parties_or_trade_unions_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q22e&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_worked_unpaid_for_other_voluntary_org_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q23a&quot;</span><span class="p">:</span> <span class="s2">&quot;attended_a_trade_union_political_party_meeting_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q23b&quot;</span><span class="p">:</span> <span class="s2">&quot;attended_a_protest_or_demonstration_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q23c&quot;</span><span class="p">:</span> <span class="s2">&quot;signed_a_petition_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q23d&quot;</span><span class="p">:</span> <span class="s2">&quot;contacted_a_politician_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29e&quot;</span><span class="p">:</span> <span class="s2">&quot;feel_left_out_of_sociey_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29f&quot;</span><span class="p">:</span> <span class="s2">&quot;cant_find_the_way_because_life_has_become_so_complicated_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29g&quot;</span><span class="p">:</span> <span class="s2">&quot;the_value_of_what_i_do_is_not_recognised_by_others_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29h&quot;</span><span class="p">:</span> <span class="s2">&quot;people_look_down_on_me_because_of_my_job_situation_or_income_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29i&quot;</span><span class="p">:</span> <span class="s2">&quot;feel_close_to_people_in_the_area_where_i_live&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_SocExIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;social_exclusion_index&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Volunteering&quot;</span><span class="p">:</span> <span class="s2">&quot;volunteering_frequency&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q57&quot;</span><span class="p">:</span> <span class="s2">&quot;personal_financial_situation&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q58&quot;</span><span class="p">:</span> <span class="s2">&quot;household_able_to_make_ends_meet_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59a&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_to_keep_home_adequately_warm_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59b&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_to_pay_for_a_weeks_annual_holiday_away_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59c&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_to_replace_any_worn_out_furniture_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59d&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_a_meal_with_meat_chicken_fish_every_second_day_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59e&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_to_buy_new_rather_than_second_hand_clothes_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q59f&quot;</span><span class="p">:</span> <span class="s2">&quot;can_afford_to_have_friends_or_family_for_a_drink_meal_at_least_once_a_month_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q60a&quot;</span><span class="p">:</span> <span class="s2">&quot;rent_mortgage_payments_for_accommodation&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q60b&quot;</span><span class="p">:</span> <span class="s2">&quot;utility_bills_such_as_electricity_water_gas&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q60c&quot;</span><span class="p">:</span> <span class="s2">&quot;payments_for_consumer_loans_credit_cards&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q60d&quot;</span><span class="p">:</span> <span class="s2">&quot;payments_for_informal_loans_from_friends_relatives&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q65&quot;</span><span class="p">:</span> <span class="s2">&quot;financial_situation_of_your_household_compared_to_12_months_ago_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q66&quot;</span><span class="p">:</span> <span class="s2">&quot;household_financial_expectations_for_th_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Deprindex&quot;</span><span class="p">:</span> <span class="s2">&quot;deprivation_index_no_of_items_hhold_cant_afford&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29a&quot;</span><span class="p">:</span> <span class="s2">&quot;i_am_optimistic_about_the_future&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29b&quot;</span><span class="p">:</span> <span class="s2">&quot;i_generally_feel_that_what_i_do_in_life_is_worthwhile&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29c&quot;</span><span class="p">:</span> <span class="s2">&quot;i_feel_i_am_free_to_decide_how_to_live_my_life&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q29d&quot;</span><span class="p">:</span> <span class="s2">&quot;i_seldom_have_time_to_do_the_things_i_really_enjoy&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q30&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_life_these_days_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_education_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_present_job_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_present_standard_of_living_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_accommodation_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40e&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_family_life_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40f&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_health_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40g&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_social_life_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q40h&quot;</span><span class="p">:</span> <span class="s2">&quot;how_satisfied_with_economic_situation_in_the_country_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q41&quot;</span><span class="p">:</span> <span class="s2">&quot;how_happy_are_you_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q45a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_cheerful_and_in_good_spirits_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q45b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_calm_and_relaxed_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q45c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_active_and_vigorous_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q45d&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_woke_up_feeling_fresh_and_rested_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q45e&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_your_daily_life_has_been_filled_with_things_that_interest_you_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q46a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_particularly_tense_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q46b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_lonely_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q46c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_felt_downhearted_and_depressed_last_2_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_MWIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;who_5_mental_wellbeing_index&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;w4&quot;</span><span class="p">:</span> <span class="s2">&quot;final_weight_trimmed_and_standardised&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;w5_EU28&quot;</span><span class="p">:</span> <span class="s2">&quot;cross_national_weight_eu28_to_calculate_averages_for_all_eu_in_2013_incl_croatia_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;w5_total&quot;</span><span class="p">:</span> <span class="s2">&quot;weight_5_total&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q7&quot;</span><span class="p">:</span> <span class="s2">&quot;how_many_hours_work_per_week_in_1st_job_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q8&quot;</span><span class="p">:</span> <span class="s2">&quot;how_many_hours_per_week_would_you_prefer_to_work_at_present_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q9&quot;</span><span class="p">:</span> <span class="s2">&quot;how_many_hours_does_your_partner_work_per_week_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q10&quot;</span><span class="p">:</span> <span class="s2">&quot;how_many_hours_per_week_would_you_prefer_your_partner_to_work_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q11&quot;</span><span class="p">:</span> <span class="s2">&quot;working_hours_fit_with_family_social_commitments_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q12a&quot;</span><span class="p">:</span> <span class="s2">&quot;come_home_from_work_too_tired_to_do_some_of_the_household_jobs&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q12b&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_fulfil_family_responsibilities_because_of_the_time_at_work&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q12c&quot;</span><span class="p">:</span> <span class="s2">&quot;difficult_to_concentrate_at_work_because_of_family_responsibilities&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q15&quot;</span><span class="p">:</span> <span class="s2">&quot;how_likely_to_lose_job_in_6_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q16&quot;</span><span class="p">:</span> <span class="s2">&quot;how_likely_to_find_another_job_of_similar_salary_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q36a&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_care_for_your_children_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q36b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_cook_and_doing_housework_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q36c&quot;</span><span class="p">:</span> <span class="s2">&quot;how_often_care_for_elderly_or_disabled_relatives_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q38&quot;</span><span class="p">:</span> <span class="s2">&quot;the_share_of_housework_you_do_is_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q39a&quot;</span><span class="p">:</span> <span class="s2">&quot;as_much_time_as_would_like_with_family_members_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q39b&quot;</span><span class="p">:</span> <span class="s2">&quot;as_much_time_as_would_like_with_others_not_family_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q39c&quot;</span><span class="p">:</span> <span class="s2">&quot;as_much_time_as_would_like_on_own_hobbies_interests_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q39d&quot;</span><span class="p">:</span> <span class="s2">&quot;as_much_time_as_would_like_on_voluntary_work_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Strainbasedconflict&quot;</span><span class="p">:</span> <span class="s2">&quot;work_life_balance_conflict_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q7a&quot;</span><span class="p">:</span> <span class="s2">&quot;worked_at_an_additional_paid_job_last_4_weeks_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Y11_Q7b&quot;</span><span class="p">:</span> <span class="s2">&quot;how_many_hours_per_week_worked_in_the_additional_job_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q7&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_total_number_of_working_hours&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q67&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_citizenship&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q43Q44&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_any_limiting_not_limiting_chronic_health_problem_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q54a&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_anyone_used_would_have_like_to_use_child_care_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q54b&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_anyone_used_would_have_like_to_use_long_term_care_last_12_months_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q55&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_no_of_factors_which_made_it_difficult_to_use_child_care_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q56&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_no_of_factors_which_made_it_difficult_to_use_long_term_care_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q8&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_preferred_working_hours_3_groups_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DV_Q10&quot;</span><span class="p">:</span> <span class="s2">&quot;dv_preferred_working_hours_of_respondents_partner_3_groups_&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ISO3166_Country&quot;</span><span class="p">:</span> <span class="s2">&quot;iso3166_country_url&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RowID&quot;</span><span class="p">:</span> <span class="s2">&quot;rowid_for_the_uk_data_service_public_api&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;URIRowID&quot;</span><span class="p">:</span> <span class="s2">&quot;root_uri_for_a_row_respondent_that_displays_all_data_values_for_a_single_row_via_the_uk_data_service_public_api&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;UniqueID&quot;</span><span class="p">:</span> <span class="s2">&quot;unique_respondent_id&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1"># check each in turn to give best error</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking each column...&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">old_val</span> <span class="ow">in</span> <span class="n">desired_column_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="p">(</span>
-            <span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span> <span class="o">==</span> <span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span>
-        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;mismatch at </span><span class="si">{</span><span class="n">old_val</span><span class="si">}</span><span class="s2">.</span>
-<span class="s2">Got: </span><span class="si">{</span><span class="n">column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">, expected: </span><span class="si">{</span><span class="n">desired_column_mapping</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="s2">Exiting check. There may be further errors.&quot;&quot;&quot;</span>
-    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">&quot;Encountered a KeyError. This means the expected key isn&#39;t in your column mapping!&quot;</span>
-        <span class="p">)</span>
-        <span class="k">raise</span> <span class="n">e</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Column mapping correct... Checking df columns set correctly...&quot;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">desired_column_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="p">),</span> <span class="s2">&quot;New column names not set on df&quot;</span>
-
-<span class="c1"># otherwise...</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check your answer</span>
+<span class="n">check_column_mapping</span><span class="p">(</span><span class="n">column_mapping</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking each column...
-Column mapping correct... Checking df columns set correctly...
-Success!
+✅ Column mapping correct... Checking df columns set correctly...
+✅ Success!
 </pre></div>
 </div>
 </div>
@@ -1882,6 +1749,7 @@ Success!
 </div>
 <div class="section" id="self-reported-health">
 <h2>Self-Reported Health<a class="headerlink" href="#self-reported-health" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant Sections:</strong></em> <em>2.2.1 (Data Consistency), 2.2.3 (Feature Engineering), 2.2.4.3 (Categorical Data)</em></p>
 <p>The research question we defined in Module 1 and will explore in more detail in Modules 3 and 4 aims to explore the contribution of various factors on self-reported health.</p>
 <p>Which column in the dataset contains self-reported health values? How many people had “Very good” self-reported health?</p>
 <div class="cell docutils container">
@@ -1942,27 +1810,27 @@ Name: health_condition, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>71338</th>
-      <td>4.0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>71986</th>
-      <td>1.0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>46178</th>
+      <th>28292</th>
       <td>2.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>36138</th>
+      <th>43984</th>
+      <td>2.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>37485</th>
       <td>3.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>28539</th>
+      <th>76012</th>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>49608</th>
       <td>1.0</td>
       <td>0</td>
     </tr>
@@ -1978,6 +1846,7 @@ Name: bad_health, dtype: int64
 </div>
 <div class="section" id="missing-values">
 <h2>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant Sections:</strong></em> <em>2.2.1 (Data Consistency), 2.2.7 (Missing Data)</em></p>
 <p>There are at least three different ways missing data and unknown information are represented in this dataset.</p>
 <p>Look at one row of the data. What value does Pandas use to represent missing data? How many missing values are there in the row you picked?</p>
 <div class="cell docutils container">
@@ -2095,6 +1964,7 @@ direct_contact_with_children : 54379 Pandas missing values
 </div>
 <div class="section" id="vs-2011">
 <h2>2007 vs 2011<a class="headerlink" href="#vs-2011" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Relevant Sections:</strong></em> <em>2.2.1 (Data Consistency), 2.2.7 (Missing Data)</em></p>
 <ul class="simple">
 <li><p>Which column should be used to distinguish between the collection years? (2007 and 2011)</p></li>
 <li><p>How many rows do we have for each year?</p></li>
@@ -2339,9 +2209,7 @@ Name: eqls_wave, dtype: int64
 <p>You can write your own function to extract the data you need from the <code class="docutils literal notranslate"><span class="pre">cat_vals_df</span></code> dataframe, input it manually, or use our prewritten function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note: if you get &quot;NameError: name &#39;parse_country_values_2011&#39; is not defined&quot;, go and run</span>
-<span class="c1"># the code in the &quot;Code For Later&quot; section.</span>
-<span class="n">country_mapping_2011</span> <span class="o">=</span> <span class="n">parse_country_values_2011</span><span class="p">(</span><span class="n">categorical_values_df</span><span class="o">=</span><span class="n">cat_vals_df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_mapping_2011</span> <span class="o">=</span> <span class="n">parse_country_values_2011</span><span class="p">(</span><span class="n">categorical_values_df</span><span class="o">=</span><span class="n">cat_vals_df</span><span class="p">)</span>
 
 <span class="c1"># display</span>
 <span class="n">country_mapping_2011</span>
@@ -2402,7 +2270,7 @@ Name: eqls_wave, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_20762/1548146086.py:2: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xv/d5nvn2ps5r3fcf276w707n01qdmpqf/T/ipykernel_77880/1548146086.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 

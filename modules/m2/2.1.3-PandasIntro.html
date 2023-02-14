@@ -473,6 +473,18 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
      Indexing
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dataframe">
+       DataFrame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#series">
+       Series
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#attribute-access">
@@ -538,6 +550,18 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
      Indexing
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dataframe">
+       DataFrame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#series">
+       Series
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#attribute-access">
@@ -619,6 +643,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_A&quot;</span><span class="p">,</span> <span class="s2">&quot;random_B&quot;</span><span class="p">])</span> 
 <span class="n">df</span>
 </pre></div>
@@ -650,88 +675,98 @@ dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>0.807067</td>
-      <td>0.064244</td>
+      <td>0.442526</td>
+      <td>-0.156885</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.787358</td>
-      <td>-1.667248</td>
+      <td>0.472425</td>
+      <td>-1.559835</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-0.505784</td>
-      <td>2.136435</td>
+      <td>-0.524495</td>
+      <td>0.233315</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-0.882309</td>
-      <td>0.082429</td>
+      <td>-2.036527</td>
+      <td>1.242761</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>1.485986</td>
-      <td>1.512211</td>
+      <td>-1.963146</td>
+      <td>1.158795</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.081203</td>
-      <td>-1.401754</td>
+      <td>-0.409405</td>
+      <td>0.073591</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-0.473289</td>
-      <td>-0.840360</td>
+      <td>0.654945</td>
+      <td>-0.208847</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0.506026</td>
-      <td>-0.338295</td>
+      <td>-0.763468</td>
+      <td>-0.671529</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>0.506491</td>
-      <td>0.064211</td>
+      <td>1.448729</td>
+      <td>-0.632169</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-0.493206</td>
-      <td>2.050684</td>
+      <td>0.340420</td>
+      <td>0.555217</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 <p>Once we have data in these Pandas structures, we can perform some useful
-operations such as: - <code class="docutils literal notranslate"><span class="pre">info()</span></code> - (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> only) - prints a concise
-summary of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> - <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> - returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code>
-containing counts of unique values in the structure</p>
+operations such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">info()</span></code> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> only)</p>
+<ul>
+<li><p>prints a concise summary of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code></p>
+<ul>
+<li><p>returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> containing counts of unique values in the structure</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span> <span class="c1"># blank line </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value counts:&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">value counts:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
-1    0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+1    1
 2    1
 3    1
 4    0
 5    0
 6    1
 7    1
-8    1
-9    1
+8    0
+9    0
 dtype: int64
 
 value counts:
-1    7
-0    3
+0    5
+1    5
 dtype: int64
 </pre></div>
 </div>
@@ -753,30 +788,14 @@ provides the (often preferred) <code class="docutils literal notranslate"><span 
 <h3><code class="docutils literal notranslate"><span class="pre">[]</span></code> Indexing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>For basic <code class="docutils literal notranslate"><span class="pre">[]</span></code> indexing, we can select columns from a DataFrame and
 items from a Series.</p>
+<div class="section" id="dataframe">
+<h4>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic indexing using `[]` on DataFrame</span>
-
-<span class="c1"># select a single column</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select a single column</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;single column from DataFrame, gives us a Series:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;random_A&quot;</span><span class="p">])</span>
 
-<span class="c1"># select two columns</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;two columns from DataFrame, gives us a DataFrame:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;random_A&quot;</span><span class="p">,</span> <span class="s2">&quot;random_B&quot;</span><span class="p">]])</span>
-
-<span class="c1"># and for a Series</span>
-
-<span class="c1"># select single item</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;single item from Series, gives us an item (of type numpy.int64,in this case):&quot;</span><span class="p">)</span> 
-<span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="c1"># select two items</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;two items from Series, gives us a Series:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;random_A&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -784,19 +803,31 @@ items from a Series.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single column from DataFrame, gives us a Series:
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.807067
-4     0.787358
-5    -0.505784
-6    -0.882309
-7     1.485986
-8    -0.081203
-9    -0.473289
-10    0.506026
-11    0.506491
-12   -0.493206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.442526
+4     0.472425
+5    -0.524495
+6    -2.036527
+7    -1.963146
+8    -0.409405
+9     0.654945
+10   -0.763468
+11    1.448729
+12    0.340420
 Name: random_A, dtype: float64
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select two columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;two columns from DataFrame, gives us a DataFrame:&quot;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;random_A&quot;</span><span class="p">,</span> <span class="s2">&quot;random_B&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two columns from DataFrame, gives us a DataFrame:
 </pre></div>
 </div>
@@ -825,62 +856,143 @@ Name: random_A, dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>0.807067</td>
-      <td>0.064244</td>
+      <td>0.442526</td>
+      <td>-0.156885</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.787358</td>
-      <td>-1.667248</td>
+      <td>0.472425</td>
+      <td>-1.559835</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>-0.505784</td>
-      <td>2.136435</td>
+      <td>-0.524495</td>
+      <td>0.233315</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-0.882309</td>
-      <td>0.082429</td>
+      <td>-2.036527</td>
+      <td>1.242761</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>1.485986</td>
-      <td>1.512211</td>
+      <td>-1.963146</td>
+      <td>1.158795</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.081203</td>
-      <td>-1.401754</td>
+      <td>-0.409405</td>
+      <td>0.073591</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-0.473289</td>
-      <td>-0.840360</td>
+      <td>0.654945</td>
+      <td>-0.208847</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0.506026</td>
-      <td>-0.338295</td>
+      <td>-0.763468</td>
+      <td>-0.671529</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>0.506491</td>
-      <td>0.064211</td>
+      <td>1.448729</td>
+      <td>-0.632169</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-0.493206</td>
-      <td>2.050684</td>
+      <td>0.340420</td>
+      <td>0.555217</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single item from Series, gives us an item (of type numpy.int64,in this case):
+</div></div></div>
+</div>
+<p>Note that we can’t do:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5745,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5753,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: 5
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/frame.py:3807,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3807</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py:3804,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3804</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>as this tries to access a row, not a column. But you can do this with a series (a single column):</p>
+</div>
+<div class="section" id="series">
+<h4>Series<a class="headerlink" href="#series" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select single item</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;single item from Series, gives us an item (of type numpy.int64,in this case):&quot;</span><span class="p">)</span>
+
+<span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single item from Series, gives us an item (of type numpy.int64,in this case):
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select two items</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;two items from Series, gives us a Series:&quot;</span><span class="p">)</span>
+
+<span class="n">s</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two items from Series, gives us a Series:
 </pre></div>
 </div>
@@ -891,42 +1003,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>Note that we can’t do:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traceback</span> <span class="c1"># library used to print error without breaking python</span>
-<span class="k">try</span><span class="p">:</span> 
-    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3802, in get_loc
-    return self._engine.get_loc(casted_key)
-  File &quot;pandas/_libs/index.pyx&quot;, line 138, in pandas._libs.index.IndexEngine.get_loc
-  File &quot;pandas/_libs/index.pyx&quot;, line 165, in pandas._libs.index.IndexEngine.get_loc
-  File &quot;pandas/_libs/hashtable_class_helper.pxi&quot;, line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File &quot;pandas/_libs/hashtable_class_helper.pxi&quot;, line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 5
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_2240/1043223323.py&quot;, line 3, in &lt;module&gt;
-    display(df[5])
-  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/frame.py&quot;, line 3807, in __getitem__
-    indexer = self.columns.get_loc(key)
-  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3804, in get_loc
-    raise KeyError(key) from err
-KeyError: 5
-</pre></div>
-</div>
-</div>
-</div>
-<p>as this tries to access a row, not a column.</p>
 </div>
 <div class="section" id="attribute-access">
 <h3>Attribute Access<a class="headerlink" href="#attribute-access" title="Permalink to this headline">¶</a></h3>
@@ -935,21 +1012,21 @@ Series using as an attribute. However, we can’t do this when the label
 is not a valid identifier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">random_A</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">random_A</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.807067
-4     0.787358
-5    -0.505784
-6    -0.882309
-7     1.485986
-8    -0.081203
-9    -0.473289
-10    0.506026
-11    0.506491
-12   -0.493206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.442526
+4     0.472425
+5    -0.524495
+6    -2.036527
+7    -1.963146
+8    -0.409405
+9     0.654945
+10   -0.763468
+11    1.448729
+12    0.340420
 Name: random_A, dtype: float64
 </pre></div>
 </div>
@@ -963,13 +1040,13 @@ slicing and we can even provide a <code class="docutils literal notranslate"><sp
 we’ll just show single item access.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.505784
-random_B    2.136435
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.524495
+random_B    0.233315
 Name: 5, dtype: float64
 </pre></div>
 </div>
@@ -978,8 +1055,7 @@ Name: 5, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and for a Series</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -996,19 +1072,26 @@ Name: 5, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for DataFrame</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="c1"># and for a Series</span>
-<span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.081203
-random_B   -1.401754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.409405
+random_B    0.073591
 Name: 8, dtype: float64
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and for a Series</span>
+<span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>

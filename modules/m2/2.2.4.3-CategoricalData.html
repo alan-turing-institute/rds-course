@@ -863,7 +863,7 @@ Name: Smokes, dtype: int64
 <p>In this case it’s natural to encode “NO” as 0 and “YES” as 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yesno_encoding</span> <span class="o">=</span><span class="p">{</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yesno_encoding</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;YES&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">&quot;NO&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 <span class="p">}</span>
@@ -922,8 +922,10 @@ Name: Number Of Hours Worked Each Week, dtype: int64
 </div>
 </div>
 </div>
-<p>How could you decide what value to use for the “35 HOURS OR MORE” group? Is 35 likely to be a good choice?</p>
 <p>We could use techniques for manipulating strings, like those seen in the <span class="xref myst">Section 2.2.4.2</span>, to extract the digits and calculate the mid-points rather than doing it manually.</p>
+<ul class="simple">
+<li><p>How could you decide what value to use for the “35 HOURS OR MORE” group? Is 35 likely to be a good choice?</p></li>
+</ul>
 <p>Alternatively, we can have ordinal data that was not numeric to start with, such as the “Education Status” column in this dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1109,7 +1111,7 @@ Name: Region Served, dtype: int64
 </div></div></div>
 </div>
 <p>The first patient was from the Hudson river region, so has one in the “HUDSON RIVER REGION” column and zero in the remaining columns, and so on. Treating the data this way allows a model to separately fit parameters explaining the relationship between each region and whatever we’re trying to predict.</p>
-<p>Technically we only need four of the five columns above to represent the possible region values. If we didn’t include the “WESTERN REGION” column above, for example, we could still tell whether someone had care in that region by all the remaining columns being zero. Setting <code class="docutils literal notranslate"><span class="pre">drop_first=False</span></code> in <code class="docutils literal notranslate"><span class="pre">pd.get_dummies</span></code> will return one fewer column.</p>
+<p>Technically we only need four of the five columns above to represent the possible region values. If we didn’t include the “WESTERN REGION” column above, for example, we could still tell whether someone had care in that region by all the remaining columns being zero. Setting <code class="docutils literal notranslate"><span class="pre">drop_first=True</span></code> in <code class="docutils literal notranslate"><span class="pre">pd.get_dummies</span></code> will return one fewer column.</p>
 <p>In some cases, creating many new columns with one-hot encoding could be problematic. <a class="reference external" href="https://machinelearningmastery.com/how-to-handle-big-p-little-n-p-n-in-machine-learning/">This blog post</a> gives an overview of when this might be a problem and possible solutions.</p>
 </div>
 <div class="section" id="grouping-categories">

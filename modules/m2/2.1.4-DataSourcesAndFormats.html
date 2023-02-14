@@ -924,7 +924,7 @@ give metadata on where the file came from and when it was updated.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_2261/1010206246.py&quot;, line 5, in &lt;module&gt;
+  File &quot;/tmp/ipykernel_2356/1010206246.py&quot;, line 5, in &lt;module&gt;
     df = pd.read_csv(&quot;data/urban_population_header.csv&quot;)
   File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 211, in wrapper
     return func(*args, **kwargs)
@@ -1060,20 +1060,25 @@ at the end of the file.</p></li>
 <li><p>Comments: Annotations anywhere in the file that shouldn’t be
 included in the table.</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> can be customised to deal with all of these and more, for
-example:</p>
-<p>df = pd.read_csv(
-“myfile.csv”,
-delimeter=”\t”,  # columns separated by tabs
-skipfooter=3,    # exclude last 3 lines
-comment=”#”,     # exclude lines starting with “#”
-)</p>
+<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> can be customised to deal with all of these and more. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+   <span class="s2">&quot;myfile.csv&quot;</span><span class="p">,</span>
+   <span class="n">delimeter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># columns separated by tabs</span>
+   <span class="n">skipfooter</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>    <span class="c1"># exclude last 3 lines</span>
+   <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span>     <span class="c1"># exclude lines starting with &quot;#&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
-<p>Later on we’ll be using the “Palmer Penguins” dataset, which we have saved at the path <code class="docutils literal notranslate"><span class="pre">data/penguins.csv</span></code>. Load this dataset into a pandas data frame. What type of data do you think it contains? What are the types of the columns and do they match what you’d expect?</p>
-<p>Solution
-<code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv(&quot;data/penguins.csv&quot;)</span></code> to load the data into pandas. We’ll discuss the answer to the other questions later, but you may have noticed that some columns have the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type even though it looks like they contain numeric data.</p>
+<p>Later on we’ll be using the “Palmer Penguins” dataset, which we have saved at the path <code class="docutils literal notranslate"><span class="pre">data/penguins.csv</span></code>. Load this dataset into a pandas data frame.</p>
+<ul class="simple">
+<li><p>What type of data do you think it contains?</p></li>
+<li><p>What are the types of the columns and do they match what you’d expect?</p></li>
+</ul>
+<p>Solution:</p>
+<p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv(&quot;data/penguins.csv&quot;)</span></code> to load the data into pandas. We’ll discuss the answer to the other questions later, but you may have noticed that some columns have the generic <code class="docutils literal notranslate"><span class="pre">object</span></code> type even though it looks like they contain numeric data.</p>
 </div>
 <div class="section" id="excel-spreadsheets">
 <h3>Excel Spreadsheets<a class="headerlink" href="#excel-spreadsheets" title="Permalink to this headline">¶</a></h3>
@@ -1085,10 +1090,12 @@ common to find data in Excel <code class="docutils literal notranslate"><span cl
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">pandas.read_excel</span></code></a>
 to load data from Excel spreadsheets. The format is very similar to
 <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
-<p>df = pd.read_excel(
-“my_spreadsheet.xlsx”,
-sheet_name=”Sheet1”
-)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+   <span class="s2">&quot;my_spreadsheet.xlsx&quot;</span><span class="p">,</span>
+   <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Sheet1&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>Note you must specify which worksheet you want to load as a data frame.
 If you want to load tables from multiple worksheets you would need to
 load them into multiple data frames.</p>
@@ -1247,12 +1254,14 @@ scale easily with large amounts of data and high user loads.
 <li><p>Gaffer (graph)</p></li>
 </ul>
 <p><strong>Document example</strong></p>
-<p>{
-“name”: “Jane”,
-“dob”: “2012-04-23T18:25:43.511Z”,
-“interests”: [“running”, “swimming”],
-“counter”: 104
-}</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dob&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;running&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;swimming&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p><strong>Key-Value example:</strong></p>
 <p><img alt="key-valueexample" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG" /></p>
 <p><strong>Graph example:</strong> <img alt="graphexample" src="../../_images/graph_data.png" /></p>
@@ -1336,8 +1345,12 @@ each parameter name and value pair with an <code class="docutils literal notrans
 should be listed in the API’s documentation
 (<a class="reference external" href="https://www.datamuse.com/api/">here</a> for Datamuse).</p>
 <p>The parameter string <code class="docutils literal notranslate"><span class="pre">?rel_jjb=dog&amp;max=5</span></code> defines two parameters and
-values: - <code class="docutils literal notranslate"><span class="pre">rel_jjb=dog</span></code>: Find adjectives commonly used to describe the
-noun “dog”. - <code class="docutils literal notranslate"><span class="pre">max=5</span></code>: Return 5 results.</p>
+values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rel_jjb=dog</span></code>: Find adjectives commonly used to describe the
+noun “dog”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max=5</span></code>: Return 5 results.</p></li>
+</ul>
 <p><strong>Headers:</strong> Provide additional context/metadata about your request, the
 most common being authentication information. Authentication may be used
 to only give you access to resources you have permission to see, limit
@@ -1351,15 +1364,20 @@ GitHub</a>,
 and <a class="reference external" href="https://docs.python-requests.org/en/master/user/quickstart/#custom-headers">here is how to add headers in the Python requests
 library</a>.</p>
 <p><strong>Full query:</strong> Adding together all the components we have the full API
-query: - <a class="reference external" href="https://api.datamuse.com/words?rel_jjb=dog&amp;max=5">https://api.datamuse.com/words?rel_jjb=dog&amp;max=5</a></p>
+query:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://api.datamuse.com/words?rel_jjb=dog&amp;max=5">https://api.datamuse.com/words?rel_jjb=dog&amp;max=5</a></p></li>
+</ul>
 <p>You can open this in a web browser and should see something like this:</p>
-<p>[
-{“word”: “little”, “score”: 1001},
-{“word”: “old”, “score”: 1000},
-{“word”: “hot”, “score”: 999},
-{“word”: “big”, “score”: 998},
-{“word”: “black”, “score”: 997}
-]</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;little&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;old&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hot&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;big&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">998</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">997</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 <p>We get the top 5 words describing “dog” and a score that indicates how
 strong the association is.</p>
 <p>The most common format for data returned by an API is JSON (JavaScript
@@ -1491,20 +1509,15 @@ of other codes see
 </table>
 </div></div></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>But this may not work well if your query returns a more complex data structure - in that case it&#39;s best to start with the requests library.
-
-Bear in mind it&#39;s likely the service you&#39;re using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as &quot;pagination&quot; (see [this blog post](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/) for example). If you&#39;re making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the [time.sleep](https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep) function in Python.
-
-This &quot;public-apis&quot; repository on GitHub maintains a list of open APIs that should be good for learning purposes: https://github.com/public-apis/public-apis. The UK government also maintains a list of APIs providing data on many different areas of government &amp; life in the UK: https://www.api.gov.uk/
-</pre></div>
-</div>
+<p>But this may not work well if your query returns a more complex data structure - in that case it’s best to start with the requests library.</p>
+<p>Bear in mind it’s likely the service you’re using will limit both the rate of queries you can make, and the amount of data returned per query. If you want more data than can be returned by one query, an API will usually provide a way to get the data with multiple queries - this is known as “pagination” (see <a class="reference external" href="https://nordicapis.com/everything-you-need-to-know-about-api-pagination/">this blog post</a> for example). If you’re making many queries you may need to limit their rate in your script to avoid breaching the usage rules of the API - a quick way to do that would be to use the <a class="reference external" href="https://realpython.com/python-sleep/#adding-a-python-sleep-call-with-timesleep">time.sleep</a> function in Python.</p>
+<p>This “public-apis” repository on GitHub maintains a list of open APIs that should be good for learning purposes: <a class="reference external" href="https://github.com/public-apis/public-apis">https://github.com/public-apis/public-apis</a>. The UK government also maintains a list of APIs providing data on many different areas of government &amp; life in the UK: <a class="reference external" href="https://www.api.gov.uk/">https://www.api.gov.uk/</a></p>
 </div>
 <div class="section" id="id1">
 <h3>Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Use the Datamuse API to find 3 words that rhyme with &quot;cat&quot; and load them into a Pandas data frame. You&#39;ll need to use the Datamuse documnetation to find which parameter will search for rhyming words.
-</pre></div>
-</div>
-<p>Solution: The relevant parameter is <code class="docutils literal notranslate"><span class="pre">rel_rhy</span></code>, and the query and pandas function needed is <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;https://api.datamuse.com/words?rel_rhy=cat&amp;max=3&quot;)</span></code></p>
+<p>Use the Datamuse API to find 3 words that rhyme with “cat” and load them into a Pandas data frame. You’ll need to use the Datamuse documnetation to find which parameter will search for rhyming words.</p>
+<p>Solution:</p>
+<p>The relevant parameter is <code class="docutils literal notranslate"><span class="pre">rel_rhy</span></code>, and the query and pandas function needed is <code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;https://api.datamuse.com/words?rel_rhy=cat&amp;max=3&quot;)</span></code></p>
 </div>
 </div>
 <div class="section" id="image-data">

@@ -876,7 +876,7 @@ axillaheight : min = 1038.00, max = 1419.00, mean = 1239.03, std = 55.80
 </div>
 </div>
 </div>
-<p>The maximum axilla height is 1419 mm, and the biggest ankle only 275 mm in circumference. Having features with different magnitudes can have unintended consequences for some algorithms, such as those that use a metric of similarity between data points (like <a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nearest neighbours</a>), for example. Say we wanted to compute how “similar” someome with the largest ankle circumference and axilla height was to the “average” person in those columns. Algorithms like these will often compute a metric like:</p>
+<p>The maximum axilla height is 1419 mm, and the biggest ankle only 275 mm in circumference. Having features with different magnitudes can have unintended consequences for some algorithms, such as those that use a metric of similarity between data points (like <a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nearest neighbours</a>), for example. Say we wanted to compute how “similar” someone with the largest ankle circumference and axilla height was to the “average” person in those columns. Algorithms like these will often compute a metric like:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 (\mathrm{ankle}_{max} - \mathrm{ankle}_{mean})^2 + (\mathrm{axilla}_{max} - \mathrm{axilla}_{mean})^2 \\
@@ -1059,7 +1059,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.1 ms ± 336 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.1 ms ± 382 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1073,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148 µs ± 643 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>149 µs ± 878 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1166,7 +1166,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <p>Again, don’t worry about the details of this plotting function for now, we’ll be looking at that in Module 3.</p>
-<p>Pandas provides a binning function <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html"><code class="docutils literal notranslate"><span class="pre">pd.cut</span></code></a>, which by default segments the data into a number of equal-width bins:</p>
+<p>Pandas provides a binning function <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html"><code class="docutils literal notranslate"><span class="pre">pd.cut</span></code></a>, which by default segments the data into a number of <em><strong>equal-width</strong></em> bins:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The second argument, 5, is the number of bins to segment the data into.</span>
@@ -1229,7 +1229,7 @@ Length: 1986, dtype: int8
 </div>
 </div>
 </div>
-<p>We talk more about categorical data in <span class="xref myst">Section 2.2.4.3</span>. Pandas also provides an alternative binning function, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html"><code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code></a>, which creates bins based on quantiles. In this case each bin contains approximately the same proportion of the data:</p>
+<p>We talk more about categorical data in <span class="xref myst">Section 2.2.4.3</span>. Pandas also provides an alternative binning function, <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html"><code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code></a>, which creates bins based on quantiles. In this case each bin contains approximately the same <em><strong>proportion</strong></em> of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">span_qbins</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;span&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
