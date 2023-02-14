@@ -650,53 +650,53 @@ dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>-1.198783</td>
-      <td>-0.505916</td>
+      <td>0.807067</td>
+      <td>0.064244</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.963583</td>
-      <td>0.615793</td>
+      <td>0.787358</td>
+      <td>-1.667248</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.344069</td>
-      <td>0.379879</td>
+      <td>-0.505784</td>
+      <td>2.136435</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-0.670938</td>
-      <td>0.570540</td>
+      <td>-0.882309</td>
+      <td>0.082429</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.009356</td>
-      <td>-0.143936</td>
+      <td>1.485986</td>
+      <td>1.512211</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.800845</td>
-      <td>-1.368794</td>
+      <td>-0.081203</td>
+      <td>-1.401754</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-1.549724</td>
-      <td>-0.065252</td>
+      <td>-0.473289</td>
+      <td>-0.840360</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.292135</td>
-      <td>-1.332553</td>
+      <td>0.506026</td>
+      <td>-0.338295</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>1.791712</td>
-      <td>0.762719</td>
+      <td>0.506491</td>
+      <td>0.064211</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-1.005901</td>
-      <td>-1.329104</td>
+      <td>-0.493206</td>
+      <td>2.050684</td>
     </tr>
   </tbody>
 </table>
@@ -717,21 +717,21 @@ containing counts of unique values in the structure</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
-1    1
-2    0
-3    0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    0
+2    1
+3    1
 4    0
 5    0
 6    1
 7    1
-8    0
+8    1
 9    1
 dtype: int64
 
 value counts:
-0    6
-1    4
+1    7
+0    3
 dtype: int64
 </pre></div>
 </div>
@@ -784,16 +784,16 @@ items from a Series.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single column from DataFrame, gives us a Series:
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    -1.198783
-4    -1.963583
-5     0.344069
-6    -0.670938
-7     0.009356
-8    -0.800845
-9    -1.549724
-10   -0.292135
-11    1.791712
-12   -1.005901
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.807067
+4     0.787358
+5    -0.505784
+6    -0.882309
+7     1.485986
+8    -0.081203
+9    -0.473289
+10    0.506026
+11    0.506491
+12   -0.493206
 Name: random_A, dtype: float64
 </pre></div>
 </div>
@@ -825,66 +825,66 @@ Name: random_A, dtype: float64
   <tbody>
     <tr>
       <th>3</th>
-      <td>-1.198783</td>
-      <td>-0.505916</td>
+      <td>0.807067</td>
+      <td>0.064244</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.963583</td>
-      <td>0.615793</td>
+      <td>0.787358</td>
+      <td>-1.667248</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.344069</td>
-      <td>0.379879</td>
+      <td>-0.505784</td>
+      <td>2.136435</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-0.670938</td>
-      <td>0.570540</td>
+      <td>-0.882309</td>
+      <td>0.082429</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.009356</td>
-      <td>-0.143936</td>
+      <td>1.485986</td>
+      <td>1.512211</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-0.800845</td>
-      <td>-1.368794</td>
+      <td>-0.081203</td>
+      <td>-1.401754</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-1.549724</td>
-      <td>-0.065252</td>
+      <td>-0.473289</td>
+      <td>-0.840360</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>-0.292135</td>
-      <td>-1.332553</td>
+      <td>0.506026</td>
+      <td>-0.338295</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>1.791712</td>
-      <td>0.762719</td>
+      <td>0.506491</td>
+      <td>0.064211</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>-1.005901</td>
-      <td>-1.329104</td>
+      <td>-0.493206</td>
+      <td>2.050684</td>
     </tr>
   </tbody>
 </table>
 </div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>single item from Series, gives us an item (of type numpy.int64,in this case):
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two items from Series, gives us a Series:
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    1
 4    0
 dtype: int64
 </pre></div>
@@ -904,7 +904,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3800, in get_loc
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3802, in get_loc
     return self._engine.get_loc(casted_key)
   File &quot;pandas/_libs/index.pyx&quot;, line 138, in pandas._libs.index.IndexEngine.get_loc
   File &quot;pandas/_libs/index.pyx&quot;, line 165, in pandas._libs.index.IndexEngine.get_loc
@@ -915,11 +915,11 @@ KeyError: 5
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_2527/1043223323.py&quot;, line 3, in &lt;module&gt;
+  File &quot;/tmp/ipykernel_2240/1043223323.py&quot;, line 3, in &lt;module&gt;
     display(df[5])
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/core/frame.py&quot;, line 3805, in __getitem__
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/frame.py&quot;, line 3807, in __getitem__
     indexer = self.columns.get_loc(key)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3802, in get_loc
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/core/indexes/base.py&quot;, line 3804, in get_loc
     raise KeyError(key) from err
 KeyError: 5
 </pre></div>
@@ -940,16 +940,16 @@ is not a valid identifier.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    -1.198783
-4    -1.963583
-5     0.344069
-6    -0.670938
-7     0.009356
-8    -0.800845
-9    -1.549724
-10   -0.292135
-11    1.791712
-12   -1.005901
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3     0.807067
+4     0.787358
+5    -0.505784
+6    -0.882309
+7     1.485986
+8    -0.081203
+9    -0.473289
+10    0.506026
+11    0.506491
+12   -0.493206
 Name: random_A, dtype: float64
 </pre></div>
 </div>
@@ -968,8 +968,8 @@ we’ll just show single item access.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A    0.344069
-random_B    0.379879
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.505784
+random_B    2.136435
 Name: 5, dtype: float64
 </pre></div>
 </div>
@@ -984,7 +984,7 @@ Name: 5, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -1004,12 +1004,12 @@ Name: 5, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.800845
-random_B   -1.368794
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random_A   -0.081203
+random_B   -1.401754
 Name: 8, dtype: float64
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>

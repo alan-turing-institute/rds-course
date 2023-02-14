@@ -1602,14 +1602,16 @@ Name: Y11_EmploymentStatus, dtype: int64
 </li>
 <li><p>keep a map (python <code class="docutils literal notranslate"><span class="pre">dict</span></code>) that shows the old -&gt; new column mapping in case we ever want to invert this transformation.</p></li>
 </ul>
-<p>Example manual mapping (you should produce this with a general code solution!):
-{
-…,
-‘Y11_Q32’ -&gt; ‘no_of_children’
-…,
-‘Y11_Q67_4’ -&gt; ‘citizenship_dont_know’,
-…,
-}</p>
+<p>Example manual mapping (you should produce this with a general code solution!):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    ...,
+    &#39;Y11_Q32&#39; -&gt; &#39;no_of_children&#39;
+    ...,
+    &#39;Y11_Q67_4&#39; -&gt; &#39;citizenship_dont_know&#39;,
+    ...,
+}
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer</span>

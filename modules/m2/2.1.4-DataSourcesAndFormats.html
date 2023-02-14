@@ -888,7 +888,7 @@ have a strange additional column <code class="docutils literal notranslate"><spa
 at the top:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/urban_population_header.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>data/urban_population_header.csv
 </pre></div>
 </div>
 </div>
@@ -924,19 +924,19 @@ give metadata on where the file came from and when it was updated.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_2547/1010206246.py&quot;, line 5, in &lt;module&gt;
+  File &quot;/tmp/ipykernel_2261/1010206246.py&quot;, line 5, in &lt;module&gt;
     df = pd.read_csv(&quot;data/urban_population_header.csv&quot;)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 211, in wrapper
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 211, in wrapper
     return func(*args, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 317, in wrapper
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/util/_decorators.py&quot;, line 331, in wrapper
     return func(*args, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 950, in read_csv
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 950, in read_csv
     return _read(filepath_or_buffer, kwds)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 611, in _read
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 611, in _read
     return parser.read(nrows)
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 1772, in read
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py&quot;, line 1778, in read
     ) = self._engine.read(  # type: ignore[attr-defined]
-  File &quot;/opt/hostedtoolcache/Python/3.9.14/x64/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py&quot;, line 243, in read
+  File &quot;/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py&quot;, line 230, in read
     chunks = self._reader.read_low_memory(nrows)
   File &quot;pandas/_libs/parsers.pyx&quot;, line 808, in pandas._libs.parsers.TextReader.read_low_memory
   File &quot;pandas/_libs/parsers.pyx&quot;, line 866, in pandas._libs.parsers.TextReader._read_rows

@@ -850,7 +850,7 @@ Median height: 1.626 m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get a formatted message with the minimum, maximum, mean, and</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a formatted message with the minimum, maximum, mean, and</span>
 <span class="sd">    standard deviation of a pandas series&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;min = </span><span class="si">{:.2f}</span><span class="s2">, max = </span><span class="si">{:.2f}</span><span class="s2">, mean = </span><span class="si">{:.2f}</span><span class="s2">, std = </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">series</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
@@ -889,7 +889,7 @@ axillaheight : min = 1038.00, max = 1419.00, mean = 1239.03, std = 55.80
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norm_min_max</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Min-max scale a pandas series&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Min-max scale a pandas series&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">series</span> <span class="o">-</span> <span class="n">series</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">series</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 
 
@@ -916,7 +916,7 @@ axillaheight : min = 0.00, max = 1.00, mean = 0.53, std = 0.15
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Standardise a pandas series to have zero mean and unit</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Standardise a pandas series to have zero mean and unit</span>
 <span class="sd">    standard deviation&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">series</span> <span class="o">-</span> <span class="n">series</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">series</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
@@ -1022,7 +1022,7 @@ Name: bmi, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_bmi</span><span class="p">(</span><span class="n">person</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate body mass index from  a person&#39;s data.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate body mass index from  a person&#39;s data.</span>
 <span class="sd">    Person is a pandas series which must include &#39;weightkg&#39; and &#39;stature&#39; in its index.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;weightkg&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;stature&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
 
@@ -1059,7 +1059,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34.9 ms ± 1.29 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.1 ms ± 336 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1073,7 @@ Length: 1986, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>247 µs ± 3.73 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148 µs ± 643 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1130,7 @@ Length: 1986, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_span_dist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot the distribution of arm span and show the location of bins, if given</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>

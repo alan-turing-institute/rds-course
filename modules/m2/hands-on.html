@@ -1033,7 +1033,7 @@ poetry shell</p></li>
 <p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls ./data/UKDA-7724-csv/mrdoc/excel/
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>./data/UKDA-7724-csv/mrdoc/excel/
 </pre></div>
 </div>
 </div>
@@ -1060,14 +1060,16 @@ poetry shell</p></li>
 </li>
 <li><p>keep a map (python <code class="docutils literal notranslate"><span class="pre">dict</span></code>) that shows the old -&gt; new column mapping in case we ever want to invert this transformation.</p></li>
 </ul>
-<p>Example manual mapping (you should produce this with a general code solution!):
-{
-…,
-‘Y11_Q32’ -&gt; ‘no_of_children’
-…,
-‘Y11_Q67_4’ -&gt; ‘citizenship_dont_know’,
-…,
-}</p>
+<p>Example manual mapping (you should produce this with a general code solution!):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    ...,
+    &#39;Y11_Q32&#39; -&gt; &#39;no_of_children&#39;
+    ...,
+    &#39;Y11_Q67_4&#39; -&gt; &#39;citizenship_dont_know&#39;,
+    ...,
+}
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>

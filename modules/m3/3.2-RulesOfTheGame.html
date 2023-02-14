@@ -646,7 +646,7 @@ figures which make them clearer and more understandable.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2892/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2586/3413809515.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&#39;seaborn&#39;)
 </pre></div>
 </div>
@@ -683,8 +683,8 @@ figures which make them clearer and more understandable.</p>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span> <span class="n">sizes</span><span class="o">=</span><span class="p">[</span><span class="n">lw</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">remove_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot; remove spines and ticks from a given axes &quot;&quot;&quot;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; remove spines and ticks from a given axes &quot;&quot;&quot;</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticklabels</span><span class="o">=</span><span class="p">[])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticklabels</span><span class="o">=</span><span class="p">[])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -749,12 +749,12 @@ figures which make them clearer and more understandable.</p>
       <th>new_deaths</th>
       <th>new_deaths_smoothed</th>
       <th>...</th>
-      <th>female_smokers</th>
       <th>male_smokers</th>
       <th>handwashing_facilities</th>
       <th>hospital_beds_per_thousand</th>
       <th>life_expectancy</th>
       <th>human_development_index</th>
+      <th>population</th>
       <th>excess_mortality_cumulative_absolute</th>
       <th>excess_mortality_cumulative</th>
       <th>excess_mortality</th>
@@ -776,11 +776,11 @@ figures which make them clearer and more understandable.</p>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>37.746</td>
       <td>0.5</td>
       <td>64.83</td>
       <td>0.511</td>
+      <td>41128772.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -800,11 +800,11 @@ figures which make them clearer and more understandable.</p>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>37.746</td>
       <td>0.5</td>
       <td>64.83</td>
       <td>0.511</td>
+      <td>41128772.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -824,11 +824,11 @@ figures which make them clearer and more understandable.</p>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>37.746</td>
       <td>0.5</td>
       <td>64.83</td>
       <td>0.511</td>
+      <td>41128772.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -848,11 +848,11 @@ figures which make them clearer and more understandable.</p>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>37.746</td>
       <td>0.5</td>
       <td>64.83</td>
       <td>0.511</td>
+      <td>41128772.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -872,11 +872,11 @@ figures which make them clearer and more understandable.</p>
       <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>37.746</td>
       <td>0.5</td>
       <td>64.83</td>
       <td>0.511</td>
+      <td>41128772.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
