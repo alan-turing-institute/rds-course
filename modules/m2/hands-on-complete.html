@@ -1422,7 +1422,7 @@ Name: Y11_EmploymentStatus, dtype: int64
 <h2>Making Things More Readable<a class="headerlink" href="#making-things-more-readable" title="Permalink to this headline">¶</a></h2>
 <p><em><strong>Relevant Sections:</strong></em> <em>2.2.2 (Modifying Columns and Indices), 2.2.4.2 (Text Data)</em></p>
 <p>At the moment, we’ve got column headings such as <code class="docutils literal notranslate"><span class="pre">'Y11_Country'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Y11_Q31'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Y11_Q32'</span></code> in our data. These aren’t particularly helpful at a glance and we’d need to do some cross-referencing with <code class="docutils literal notranslate"><span class="pre">eqls_api_map.csv</span></code> to make sense of them.</p>
-<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in ``mrdoc/excel/eqls_api_map.csv`.</p>
+<p>To make things more readable, let’s rename our columns according to the <code class="docutils literal notranslate"><span class="pre">'VariableLabel'</span></code> column in <code class="docutils literal notranslate"><span class="pre">mrdoc/excel/eqls_api_map.csv</span></code>.</p>
 <p>However, because it can make <code class="docutils literal notranslate"><span class="pre">.</span></code> access a bit tricky, we’d like to make sure we don’t have any spaces or non-word characters in our new column names! For consistency, we’d like everything to be lower case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
